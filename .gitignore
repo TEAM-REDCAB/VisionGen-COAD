@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# 대용량 이미지/벡터 제외
+trident_processed/
+.svs
+.h5
