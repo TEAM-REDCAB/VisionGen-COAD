@@ -1,5 +1,9 @@
 symlink_data/
+symlink*
 flat_wsis/
 temp_wsis/
 trident_processed/
 results/
+test/
+temp*
+tmp*

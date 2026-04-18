@@ -1,34 +1,16 @@
 import os
-import warnings
-
-# 1. 환경 변수 강제 설정: TRIDENT가 생성하는 하위 프로세스(Worker)들의 경고까지 원천 차단
-os.environ["PYTHONWARNINGS"] = "ignore::FutureWarning"
-
-# 2. 메시지 내용이 아닌 '발생 진원지(모듈)'를 타겟으로 차단
-warnings.filterwarnings(
-    "ignore", 
-    category=FutureWarning, 
-    module=".*serialization.*"  # torch.serialization 내부에서 발생하는 모든 FutureWarning 무시
-)
-warnings.filterwarnings(
-    "ignore", 
-    category=FutureWarning, 
-    module=".*torch.*"          # torch 전역에서 발생하는 FutureWarning 무시
-)
-
-
 import pandas as pd
 import subprocess
 import shutil
 import glob
 
 # --- [설정 구간] ---
-MANIFEST_PATH = './filtered_manifest.txt' 
+MANIFEST_PATH = './common_manifest.txt' 
 GDC_CLIENT_PATH = './gdc-client'     
 WSI_TEMP_DIR = './temp_wsis'          # UUID 폴더들이 담길 곳
 WSI_FLAT_DIR = './flat_wsis'          # 이름이 바뀐 SVS 파일이 모일 곳
 RESULT_DIR = './trident_processed'    
-BATCH_SIZE = 1                    
+BATCH_SIZE = 5       
 
 def run_command(cmd):
     print(f"🚀 Running: {cmd}")
@@ -69,7 +51,7 @@ for i in range(0, total_slides, BATCH_SIZE):
 
         # STEP 3: TRIDENT 전처리 (평탄화된 폴더를 소스로 사용)
         trident_cmd = (
-            f"trident batch -- --task all "
+            f"python ./TRIDENT/run_batch_of_slides.py --task all "
             f"--wsi_dir {WSI_FLAT_DIR} "
             f"--job_dir {RESULT_DIR} "
             f"--patch_encoder uni_v2 "

@@ -1,105 +1,33 @@
-import sys
 import os
 import numpy as np
 import torch
-import torch.nn as nn
-import h5py
 import pandas as pd
 import matplotlib.pyplot as plt
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader
 from sklearn.metrics import (
     roc_auc_score, average_precision_score, 
     roc_curve, precision_recall_curve
 )
+from config import BinaryClassificationModel, H5Dataset
+import config as cf
 
-# TRIDENT 경로 추가 (사용자 환경에 맞게 유지)
-sys.path.append(os.path.join(os.getcwd(), 'TRIDENT'))
-from trident.slide_encoder_models import ABMILSlideEncoder
+SEED = cf.SEED
+LABEL_PATH = cf.get_label_path()
+FEATS_PATH = cf.get_features_path()
+MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models')
+TEST_PATH = os.path.join(cf.get_results_path(), 'test_results')
+os.makedirs(TEST_PATH, exist_ok=True)
+
 
 # [필수] 시드 고정
-SEED = 42
 np.random.seed(SEED)
 torch.manual_seed(SEED)
-
-# 1. 모델 클래스 정의
-class BinaryClassificationModel(nn.Module):
-    def __init__(self, input_feature_dim=768, n_heads=1, head_dim=512, dropout=0., gated=True, hidden_dim=256):
-        super().__init__()
-        self.feature_encoder = ABMILSlideEncoder(
-            freeze=False,
-            input_feature_dim=input_feature_dim, 
-            n_heads=n_heads, 
-            head_dim=head_dim, 
-            dropout=dropout, 
-            gated=gated
-        )
-        self.classifier = nn.Sequential(
-            nn.Linear(input_feature_dim, hidden_dim),
-            nn.ReLU(),
-            nn.Linear(hidden_dim, 1)
-        )
-
-    def forward(self, x, return_raw_attention=False):
-        if return_raw_attention:
-            features, attn = self.feature_encoder(x, return_raw_attention=True)
-        else:
-            features = self.feature_encoder(x)
-        logits = self.classifier(features).squeeze(1)
-        if return_raw_attention:
-            return logits, attn
-        return logits
-
-# 2. 데이터셋 클래스 정의 (에러의 원인이었던 부분)
-class H5Dataset(Dataset):
-    def __init__(self, feats_path, df, split, fold_col='fold_0', num_features=512):
-        self.df = df[df[fold_col] == split].reset_index(drop=True) 
-        self.feats_path = feats_path
-        self.num_features = num_features
-        self.split = split
-        
-        self.patient_to_files = {}
-        all_files = os.listdir(feats_path)
-        for p_id in self.df['patient']:
-            matching_files = [
-                os.path.join(feats_path, f) for f in all_files 
-                if f.startswith(p_id) and f.endswith('.h5')
-            ]
-            self.patient_to_files[p_id] = matching_files
-
-    def __len__(self):
-        return len(self.df)
-
-    def __getitem__(self, idx):
-        row = self.df.iloc[idx]
-        patient_id = row['patient']
-        file_paths = self.patient_to_files.get(patient_id, [])
-        
-        all_features = []
-        for fp in file_paths:
-            with h5py.File(fp, "r") as f:
-                all_features.append(torch.from_numpy(f["features"][:]))
-        
-        features = torch.cat(all_features, dim=0)
-
-        # 테스트 시에는 샘플링 없이 전체 패치를 사용 (전수 검사)
-        if self.split == 'train':
-            num_available = features.shape[0]
-            if num_available >= self.num_features:
-                indices = torch.randperm(num_available)[:self.num_features]
-            else:
-                indices = torch.randint(num_available, (self.num_features,))
-            features = features[indices]
-
-        label = torch.tensor(row["type"], dtype=torch.float32)
-        return features, label
 
 # 3. 테스트 실행 및 시각화 함수
 def test_and_visualize():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    df = pd.read_csv('./clinical_data_folds.csv')
-    feats_path = '/home/team1/data/trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
+    df = pd.read_csv(LABEL_PATH)
     
-    os.makedirs('./test_results', exist_ok=True)
     all_fold_results = []
 
     # --- 시각화 준비 (루프 밖에서 단 한 번 실행) ---
@@ -110,11 +38,11 @@ def test_and_visualize():
         print(f"\n🔍 Testing Fold {fold}...")
         current_fold_col = f'fold_{fold}'
         
-        test_dataset = H5Dataset(feats_path, df, split="test", fold_col=current_fold_col)
+        test_dataset = H5Dataset(FEATS_PATH, df, split="test", fold_col=current_fold_col)
         test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
 
         model = BinaryClassificationModel(input_feature_dim=1536).to(device)
-        model_path = f'./saved_models/abmil_fold_{fold}_best.pth'
+        model_path = os.path.join(MODEL_PATH, f'abmil_fold_{fold}_best.pth')
         
         if not os.path.exists(model_path):
             print(f"⚠️ {model_path} 없음. 스킵.")
@@ -167,7 +95,7 @@ def test_and_visualize():
     ax2.grid(alpha=0.3)
 
     plt.tight_layout()
-    save_path = './test_results/combined_fold_curves.png'
+    save_path = os.path.join(TEST_PATH, 'combined_fold_curves.png')
     plt.savefig(save_path, dpi=300)
     plt.show() # 결과 확인
     print(f"\n💾 통합 곡선 이미지가 저장되었습니다: {save_path}")
@@ -178,6 +106,7 @@ def test_and_visualize():
         print(f"\n{'='*20} Final Test Summary {'='*20}")
         print(results_df.to_string(index=False))
         print(f"\nMean AUC: {results_df['AUC'].mean():.4f} ± {results_df['AUC'].std():.4f}")
+    results_df.to_csv(os.path.join(TEST_PATH, 'test_results.csv'), index=False)
 
 if __name__ == "__main__":
     test_and_visualize()
