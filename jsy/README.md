@@ -13,6 +13,8 @@
 
 ![patch tiling](images/patch.jpg)
 
+![attention score](images/attention_score.png)
+
 
 
 ### **테스트용 ABMIL**
