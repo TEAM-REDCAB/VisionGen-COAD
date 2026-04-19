@@ -7,29 +7,13 @@
 - 배치 단위로 다운로드-특성 추출 후 공간확보를 위해 원본 WSI가 삭제됨
 - 저장경로(리눅스 서버) : ~/data/trident_processed
 
-<p align="center>
-    <img src="./images/thumbnail.jpg" width="50%">
-    <br>
-    <em>WSI thumbnail</em>
-</p>
+![thumbnail](images/thumbnail.jpg)
 
-<p align="center>
-    <img src="./images/contour.jpg" width="50%">
-    <br>
-    <em>segmentation</em>
-</p>
+![segmentation](images/contour.jpg)
 
-<p align="center>
-    <img src="./images/patch.jpg" width="50%">
-    <br>
-    <em>tiled patch</em>
-</p>
+![patch tiling](images/patch.jpg)
 
-<p align="center>
-    <img src="./images/attention_score.jpg" width="70%">
-    <br>
-    <em>visualized attention score</em>
-</p>
+![attention score](images/attention_score.png)
 
 
 
