@@ -5,11 +5,11 @@ import shutil
 import glob
 
 # --- [설정 구간] ---
-MANIFEST_PATH = './common_manifest.txt' 
+MANIFEST_PATH = './test/common_manifest.txt' 
 GDC_CLIENT_PATH = './gdc-client'     
-WSI_TEMP_DIR = './temp_wsis'          # UUID 폴더들이 담길 곳
-WSI_FLAT_DIR = './flat_wsis'          # 이름이 바뀐 SVS 파일이 모일 곳
-RESULT_DIR = './trident_processed'    
+WSI_TEMP_DIR = './working/temp_wsis'          # UUID 폴더들이 담길 곳
+WSI_FLAT_DIR = './working/flat_wsis'          # 이름이 바뀐 SVS 파일이 모일 곳
+RESULT_DIR = './working/trident_processed'    
 BATCH_SIZE = 5       
 
 def run_command(cmd):

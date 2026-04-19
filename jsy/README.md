@@ -7,18 +7,34 @@
 - 배치 단위로 다운로드-특성 추출 후 공간확보를 위해 원본 WSI가 삭제됨
 - 저장경로(리눅스 서버) : ~/data/trident_processed
 
-![thumbnail](images/thumbnail.jpg)
+<p align="center>
+    <img src="./images/thumbnail.jpg" width="50%">
+    <br>
+    <em>WSI thumbnail</em>
+</p>
 
-![segmentation](images/contour.jpg)
+<p align="center>
+    <img src="./images/contour.jpg" width="50%">
+    <br>
+    <em>segmentation</em>
+</p>
 
-![patch tiling](images/patch.jpg)
+<p align="center>
+    <img src="./images/patch.jpg" width="50%">
+    <br>
+    <em>tiled patch</em>
+</p>
 
-![attention score](images/attention_score.png)
+<p align="center>
+    <img src="./images/attention_score.jpg" width="70%">
+    <br>
+    <em>visualized attention score</em>
+</p>
 
 
 
 ### **테스트용 ABMIL**
 - config.py : 랜덤 시드, 정답지 분할, 각종 경로(정답지, 모델 저장, 테스트 결과, 시각화 자료 등), 공통 사용 클래스 정의
-- train_abmil.py : TRIDENT 내장 Attention-based Multi Instance Transformer 5-fold 교차검증 훈련
+- train_abmil.py : TRIDENT 내장 Attention-based Multi Instance Learning 5-fold 교차검증 훈련
 - test_abmil.py : ABMIL 테스트
 - visualize_hitmap.py : 어텐션 스코어를 히트맵으로 시각화
