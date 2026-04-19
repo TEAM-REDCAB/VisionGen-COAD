@@ -5,12 +5,13 @@ import shutil
 import glob
 
 # --- [설정 구간] ---
-MANIFEST_PATH = './test/common_manifest.txt' 
+MANIFEST_PATH = './common_manifest.txt' 
 GDC_CLIENT_PATH = './gdc-client'     
+PATCH_ENCODER = 'gigapath'    # 패치 인코딩 모델(uni_v2, gigapath 등)                 
 WSI_TEMP_DIR = './working/temp_wsis'          # UUID 폴더들이 담길 곳
 WSI_FLAT_DIR = './working/flat_wsis'          # 이름이 바뀐 SVS 파일이 모일 곳
 RESULT_DIR = './working/trident_processed'    
-BATCH_SIZE = 5       
+BATCH_SIZE = 1
 
 def run_command(cmd):
     print(f"🚀 Running: {cmd}")
@@ -54,7 +55,7 @@ for i in range(0, total_slides, BATCH_SIZE):
             f"python ./TRIDENT/run_batch_of_slides.py --task all "
             f"--wsi_dir {WSI_FLAT_DIR} "
             f"--job_dir {RESULT_DIR} "
-            f"--patch_encoder uni_v2 "
+            f"--patch_encoder {PATCH_ENCODER} "
             f"--batch_size 32 "
             # 추천하는 TRIDENT 명령어 옵션 조합
             f"--segmenter grandqc --remove_penmarks "

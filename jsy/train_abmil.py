@@ -44,7 +44,7 @@ for fold in range(5):
 
     # 1. Fold마다 데이터로더 새롭게 구성 (train, val)
     train_loader = DataLoader(
-        H5Dataset(FEATS_PATH, df, split="train", fold_col=current_fold_col), 
+        H5Dataset(FEATS_PATH, df, split="train", fold_col=current_fold_col, num_features=4096), 
         batch_size=batch_size, shuffle=True, worker_init_fn=lambda _: np.random.seed(SEED)
     )
     val_loader = DataLoader(
@@ -53,9 +53,12 @@ for fold in range(5):
     )
 
     # 2. Fold마다 모델과 옵티마이저 완전히 새로 초기화 (데이터 누수 방지)
-    model = BinaryClassificationModel(input_feature_dim=1536).to(device)
-    criterion = nn.BCEWithLogitsLoss()
-    optimizer = optim.Adam(model.parameters(), lr=4e-4)
+    model = BinaryClassificationModel(input_feature_dim=1536, dropout=0.25).to(device)
+    # 변경 (pos_weight 추가 및 weight_decay 추가)
+    # 예시: MSS가 MSI의 약 4배 많다면 pos_weight=4.0 부여 (데이터 비율에 맞게 조절)
+    pos_weight = torch.tensor([4.0]).to(device)
+    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+    optimizer = optim.Adam(model.parameters(), lr=4e-4, weight_decay=1e-4)
 
     # 최고 성능을 추적하기 위한 변수 초기화
     best_val_auc = 0.0
