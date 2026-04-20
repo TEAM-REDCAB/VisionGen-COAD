@@ -4,6 +4,7 @@ sys.path.append(os.path.join(os.getcwd(), 'TRIDENT'))
 from trident.slide_encoder_models import ABMILSlideEncoder
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from torch.utils.data import Dataset
 import h5py
 import pandas as pd
@@ -52,7 +53,7 @@ def get_label_path():
     return label_path
 
 def get_features_path():
-    features_path = '/home/team1/data/trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
+    features_path = './trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
     os.makedirs(features_path, exist_ok=True)
     return features_path
 
@@ -65,7 +66,7 @@ def get_results_path():
 
 
 class BinaryClassificationModel(nn.Module):
-    def __init__(self, input_feature_dim=768, n_heads=1, head_dim=512, dropout=0., gated=True, hidden_dim=256):
+    def __init__(self, input_feature_dim=768, n_heads=1, head_dim=512, dropout=0.25, gated=True, hidden_dim=256):
         super().__init__()
         self.feature_encoder = ABMILSlideEncoder(
             freeze=False,
@@ -143,3 +144,44 @@ class H5Dataset(Dataset):
 
         label = torch.tensor(row["msi"], dtype=torch.float32)
         return features, label
+
+class BinaryFocalLoss(nn.Module):
+    def __init__(self, alpha=0.25, gamma=2.0, reduction='mean'):
+        """
+        alpha: 양성 클래스(MSI, Target=1)에 대한 가중치 베이스라인
+        gamma: 쉬운 예제의 Loss를 얼마나 깎아낼 것인지 결정하는 집중도 파라미터
+        """
+        super(BinaryFocalLoss, self).__init__()
+        self.alpha = alpha
+        self.gamma = gamma
+        self.reduction = reduction
+
+    def forward(self, logits, targets):
+        # 1. 수치적 안정성을 보장하는 기본 BCE Loss (reduction='none'으로 각 샘플별 Loss 보존)
+        # logits과 targets의 차원(Shape)이 완벽히 동일해야 합니다. (예: [batch_size, 1])
+        bce_loss = F.binary_cross_entropy_with_logits(logits, targets, reduction='none')
+        
+        # 2. 로짓을 확률 p로 변환
+        probs = torch.sigmoid(logits)
+        
+        # 3. 정답 클래스에 대한 예측 확률 (p_t) 계산
+        # target이 1(MSI)이면 p, 0(MSS)이면 1-p가 됩니다.
+        p_t = probs * targets + (1 - probs) * (1 - targets)
+        
+        # 4. 자율적 난이도 조절 인자 (Modulating Factor)
+        modulating_factor = (1.0 - p_t) ** self.gamma
+        
+        # 5. 베이스라인 클래스 가중치 적용 (Alpha Factor)
+        # target이 1이면 alpha, 0이면 (1-alpha)를 곱합니다.
+        alpha_factor = self.alpha * targets + (1 - self.alpha) * (1 - targets)
+        
+        # 6. 최종 Focal Loss 산출
+        focal_loss = alpha_factor * modulating_factor * bce_loss
+        
+        # 7. 차원 축소 (배치 전체의 평균을 낼 것인지 등)
+        if self.reduction == 'mean':
+            return focal_loss.mean()
+        elif self.reduction == 'sum':
+            return focal_loss.sum()
+        else:
+            return focal_loss

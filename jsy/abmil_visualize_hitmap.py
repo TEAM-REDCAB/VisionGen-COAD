@@ -5,15 +5,15 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from tqdm import tqdm
-from config import BinaryClassificationModel
-import config as cf
+from abmil_model import BinaryClassificationModel
+import abmil_model as am
 
 # 1. 설정 및 경로
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-LABEL_PATH = cf.get_label_path()
-MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models')
-FEATS_PATH = cf.get_features_path()
-OUTPUT_DIR = os.path.join(cf.get_results_path(), 'visualizations')
+LABEL_PATH = am.get_label_path()
+MODEL_PATH = os.path.join(am.get_results_path(), 'saved_models')
+FEATS_PATH = am.get_features_path()
+OUTPUT_DIR = os.path.join(am.get_results_path(), 'visualizations')
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 df = pd.read_csv(LABEL_PATH)
@@ -23,7 +23,7 @@ print("📂 파일 목록 스캔 중...")
 all_h5_files = [f for f in os.listdir(FEATS_PATH) if f.endswith('.h5')]
 file_map = {}
 for f in all_h5_files:
-    prefix = f.split('.')[0] # 환자 ID 또는 슬라이드 ID 추출
+    prefix = f[:12] # 환자 ID 또는 슬라이드 ID 추출
     if prefix not in file_map:
         file_map[prefix] = []
     file_map[prefix].append(os.path.join(FEATS_PATH, f))

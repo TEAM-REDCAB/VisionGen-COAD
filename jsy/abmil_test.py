@@ -10,15 +10,15 @@ from sklearn.metrics import (
     roc_curve, precision_recall_curve,
     confusion_matrix, classification_report
 )
-from config import BinaryClassificationModel, H5Dataset
-import config as cf
+from abmil_model import BinaryClassificationModel, H5Dataset
+import abmil_model as am
 
 # --- 설정 및 경로 ---
-SEED = cf.SEED
-LABEL_PATH = cf.get_label_path()
-FEATS_PATH = cf.get_features_path()
-MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models')
-TEST_PATH = os.path.join(cf.get_results_path(), 'test_results')
+SEED = am.SEED
+LABEL_PATH = am.get_label_path()
+FEATS_PATH = am.get_features_path()
+MODEL_PATH = os.path.join(am.get_results_path(), 'saved_models')
+TEST_PATH = os.path.join(am.get_results_path(), 'test_results')
 os.makedirs(TEST_PATH, exist_ok=True)
 
 # 시드 고정

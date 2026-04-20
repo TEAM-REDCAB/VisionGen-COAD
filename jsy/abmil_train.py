@@ -6,13 +6,13 @@ import torch.optim as optim
 import pandas as pd
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score, average_precision_score
-from config import BinaryClassificationModel, H5Dataset
-import config as cf
+from abmil_model import BinaryClassificationModel, H5Dataset
+import abmil_model as am
 
-SEED = cf.SEED
-LABEL_PATH = cf.get_label_path()
-FEATS_PATH = cf.get_features_path()
-RESULTS_PATH = cf.get_results_path()
+SEED = am.SEED
+LABEL_PATH = am.get_label_path()
+FEATS_PATH = am.get_features_path()
+RESULTS_PATH = am.get_results_path()
 MODEL_PATH = os.path.join(RESULTS_PATH, 'saved_models')
 
 
@@ -42,22 +42,17 @@ for fold in range(5):
     print(f"\n{'='*20} Starting Fold {fold} {'='*20}")
     current_fold_col = f'fold_{fold}'
 
-    # 1. Fold마다 데이터로더 새롭게 구성 (train, val)
-    train_loader = DataLoader(
-        H5Dataset(FEATS_PATH, df, split="train", fold_col=current_fold_col, num_features=4096), 
-        batch_size=batch_size, shuffle=True, worker_init_fn=lambda _: np.random.seed(SEED)
-    )
-    val_loader = DataLoader(
-        H5Dataset(FEATS_PATH, df, split="val", fold_col=current_fold_col), 
-        batch_size=1, shuffle=False, worker_init_fn=lambda _: np.random.seed(SEED)
-    )
+    # 1. Fold마다 데이터로더 새롭게 구성 (train:4096샘플링, val:전체)
+    train_ds = H5Dataset(FEATS_PATH, df, split="train", fold_col=current_fold_col, num_features=4096)
+    val_ds = H5Dataset(FEATS_PATH, df, split="val", fold_col=current_fold_col)
+    # Val은 패치 개수가 환자마다 달라 batch_size=1 필수
+    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, worker_init_fn=lambda _: np.random.seed(SEED))
+    val_loader = DataLoader(val_ds, batch_size=1, shuffle=False, worker_init_fn=lambda _: np.random.seed(SEED))
 
     # 2. Fold마다 모델과 옵티마이저 완전히 새로 초기화 (데이터 누수 방지)
     model = BinaryClassificationModel(input_feature_dim=1536, dropout=0.25).to(device)
-    # 변경 (pos_weight 추가 및 weight_decay 추가)
-    # 예시: MSS가 MSI의 약 4배 많다면 pos_weight=4.0 부여 (데이터 비율에 맞게 조절)
-    pos_weight = torch.tensor([4.0]).to(device)
-    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+    # 불균형 데이터를 위해 Focal Loss 적용
+    criterion = am.BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
     optimizer = optim.Adam(model.parameters(), lr=4e-4, weight_decay=1e-4)
 
     # 최고 성능을 추적하기 위한 변수 초기화
