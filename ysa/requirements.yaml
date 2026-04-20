@@ -1,0 +1,144 @@
+name: mcat_env
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+
+  # CUDA / PyTorch
+  - pytorch>=2.2.0
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.4
+
+  # 과학계산
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - scikit-image
+  - seaborn
+  - h5py
+  - hdf5
+  - cython
+  - ninja
+
+  # 의료영상
+  - conda-forge::openslide
+  - conda-forge::openslide-python
+
+  # 이미지 처리
+  - pillow
+  - opencv
+
+  # Jupyter
+  - jupyter
+  - notebook
+  - ipython
+  - ipykernel
+
+  # 시스템/유틸
+  - zeromq
+  - tqdm
+  - pyyaml
+  - six
+  - decorator
+  - networkx
+  - lmdb
+
+  - pip:
+    # PyTorch 관련
+    - torchsummary
+    - tensorboard
+    - tensorboardx
+
+    # 이미지/영상 처리
+    - imageio
+    - imagecodecs
+    - tifffile
+    - pywavelets
+    - scikit-image
+    # 의료영상
+    - openslide-python
+
+    # 딥러닝 유틸
+    - zarr
+    - numcodecs
+    - lz4
+    - lmdb
+    - joblib
+    - progressbar2
+
+    # 데이터 처리
+    - pandas
+    - pyarrow
+    - intervaltree
+    - sortedcontainers
+
+    # 웹/서버 (원본에 있던 것들)
+    - django>=4.2
+    - djangorestframework
+    - channels
+    - daphne
+    - flask
+    - werkzeug
+    - requests
+    - urllib3
+    - cryptography
+    - pyopenssl
+    - asgiref
+
+    # 테스트
+    - pytest
+    - pytest-cov
+    - coverage
+    - tox
+    - requests-mock
+
+    # 문서/변환
+    - pypdf2
+    - lxml
+    - bleach
+    - webencodings
+    - markdown
+    - roman
+
+    # 기타 유틸
+    - click
+    - future
+    - filelock
+    - fasteners
+    - monotonic
+    - toml
+    - packaging
+    - pkgconfig
+    - python-utils
+    - mypy-extensions
+    - typing-extensions
+    - chardet
+    - idna
+    - asn1crypto
+    - pyasn1
+    - ndg-httpsclient
+    - jsonschema
+    - jsonfield2
+    - sqlparse
+    - protobuf
+    - twisted
+    - autobahn
+    - txaio
+    - websockets
+    - async-timeout
+    - zope-interface
+    - hyperlink
+    - constantly
+    - incremental
+    - automat
+    - atomicwrites
+    - pluggy
+    - pyhamcrest
+    - virtualenv
+    - itsdangerous
