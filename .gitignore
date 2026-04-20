@@ -210,3 +210,31 @@ __marimo__/
 trident_processed/
 .svs
 .h5
+
+# 1. 의료/병리 데이터 및 대용량 배열 
+trident_processed/
+data/
+datasets/
+*.svs
+*.h5
+*.hdf5
+*.tif
+*.tiff
+*.ndpi
+*.vms
+*.zarr
+
+# 2. PyTorch 딥러닝 모델 가중치 파일
+*.pt
+*.pth
+*.ckpt
+
+# 3. 모델 학습 로그 (TensorBoard 등)
+runs/
+tensorboard_logs/
+lightning_logs/
+
+# 4. OS 시스템 및 에디터 캐시
+.DS_Store
+Thumbs.db
+.vscode/
