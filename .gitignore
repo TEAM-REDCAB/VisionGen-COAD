@@ -212,9 +212,6 @@ trident_processed/
 .h5
 
 # 1. 의료/병리 데이터 및 대용량 배열 
-trident_processed/
-data/
-datasets/
 *.svs
 *.h5
 *.hdf5
