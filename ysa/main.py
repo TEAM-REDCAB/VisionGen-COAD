@@ -131,6 +131,7 @@ parser.add_argument('--reg_type',        type=str, choices=['None', 'omic', 'pat
 parser.add_argument('--lambda_reg',      type=float, default=1e-4, help='L1-Regularization Strength (Default 1e-4)')
 parser.add_argument('--weighted_sample', action='store_true', default=True, help='Enable weighted sampling')
 parser.add_argument('--early_stopping',  action='store_true', default=False, help='Enable early stopping')
+parser.add_argument( '--genomic_dir',    type=str, default='path/to/preprocessing', help='genomic_input_matrix.npy + genomic_encoding_states.pkl 폴더') # genomic_input_matrix.npy가 있는 폴더 
 
 args = parser.parse_args()
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -194,6 +195,7 @@ if 'classification' in args.task:
     
     dataset = Generic_MIL_Classification_Dataset(
         csv_path='./%s/%s_all_clean.csv.zip' % (args.dataset_path, combined_study),
+        geomics_dir=args.genomic_dir,
         mode=args.mode,
         apply_sig=args.apply_sig,
         data_dir=os.path.join(args.data_root_dir, study_dir),
@@ -207,6 +209,9 @@ if 'classification' in args.task:
     
     # h5 파일을 사용하신다고 하셨으니 toggle을 True로 설정해줍니다. (.pt 사용시 아래 줄 삭제)
     dataset.load_from_h5(True) 
+elif 'coattn' in args.mode:
+   args.omic_sizes = dataset.omic_sizes #npy에서 자동 계산된 값 사용
+   print('Genomic omic_sizes:', args.omic_sizes)
 else:
     raise NotImplementedError
 
