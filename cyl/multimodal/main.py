@@ -1,4 +1,4 @@
-# workflow image에서 ‘GPU 메모리 전달’에 해당하는 코드
+# workflow image에서 4번에 해당하는 코드
 
 import os
 import pickle
@@ -10,19 +10,19 @@ from dataset import Pathomic_Classification_Dataset
 from model import MCAT_Single_Branch_Model
 
 # =========================================================================
-# 검은색 화살표
+# 검은색 화살표 (파이프라인 통제 사령부 - REDCAB_MCAT 버전)
 # =========================================================================
 def main():
-    print("=== [팀원 NPY 호환 모드] MCAT_REDCAB 학습 스크립트 시작 ===\n")
+    print("=== [NPY 호환 모드] 진짜 MCAT (맞춤 해독기 탑재) 학습 스크립트 시작 ===\n")
     
     # [경로 설정]
     clin_csv = './dataset_csv/ccrcc_clean.csv' 
     mut_csv = './preprocessed_mutation_data.csv' 
     npy_file = './genomic_input_matrix.npy'      
-    pkl_file = './genomic_encoding_states.pkl'   
+    pkl_file = './genomic_encoding_states.pkl'   # 팀원님이 만든 단어장(규칙)
     wsi_dir = './data_features'                  
     
-    # 0. pkl(=사전) 로드하기
+    # 0. 단어 사전(Vocabulary) 로드하기
     print("-> 0/3 사전 데이터(.pkl) 확보 중...")
     try:
         with open(pkl_file, 'rb') as f:
@@ -49,12 +49,12 @@ def main():
     # dataloader = DataLoader(dataset, batch_size=1, shuffle=True)
     
     # 2. 모델 섭외 (3번 상자)
-    print("-> 모델 세팅 중... (pkl 연동 완료!)")
+    print("-> 2/3 REDCAB_MCAT(3번 상자) 세팅 중... (단어 해독기 연동 완료!)")
     model = MCAT_Single_Branch_Model(vocab_sizes=vocab_sizes, path_dim=1024, n_classes=2)
     optimizer = torch.optim.Adam(model.parameters(), lr=2e-4)
     loss_fn = nn.CrossEntropyLoss()
     
-    # 3. 연결 시작
+    # 3. 전송 시작 
     print("-> 3/3 학습 파이프라인 연결 완료 (미가동 상태)\n")
     model.train()
     
@@ -69,8 +69,7 @@ def main():
     #     loss.backward()
     #     optimizer.step()
         
-    print("[성공]")
+    print("[성공] 우리 데이터 전용 번역기를 장착한 REDCAB_MCAT 코드가 준비되었습니다!")
 
 if __name__ == '__main__':
     main()
-
