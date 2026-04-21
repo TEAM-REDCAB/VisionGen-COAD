@@ -243,8 +243,12 @@ class Generic_Split(Generic_MIL_Classification_Dataset):
         self.genomic_features = self.slide_data.drop(self.metadata, axis=1)
         self.signatures = signatures
 
-        with open(os.path.join(data_dir, 'fast_cluster_ids.pkl'), 'rb') as handle:
-            self.fname2ids = pickle.load(handle)
+        if self.mode == 'cluster':
+            cluster_path = os.path.join(data_dir, 'fast_cluster_ids.pkl')
+            with open(cluster_path, 'rb') as handle:
+                self.fname2ids = pickle.load(handle)
+        else:
+            self.fname2ids = {}
 
         def series_intersection(s1, s2):
             return pd.Series(list(set(s1) & set(s2)))
@@ -271,3 +275,18 @@ class Generic_Split(Generic_MIL_Classification_Dataset):
         transformed = pd.DataFrame(scalers[0].transform(self.genomic_features))
         transformed.columns = self.genomic_features.columns
         self.genomic_features = transformed
+
+def save_splits(split_datasets, column_keys, filename, boolean_style=False):
+	splits = [split_datasets[i].slide_data['slide_id'] for i in range(len(split_datasets))]
+	if not boolean_style:
+		df = pd.concat(splits, ignore_index=True, axis=1)
+		df.columns = column_keys
+	else:
+		df = pd.concat(splits, ignore_index = True, axis=0)
+		index = df.values.tolist()
+		one_hot = np.eye(len(split_datasets)).astype(bool)
+		bool_array = np.repeat(one_hot, [len(dset) for dset in split_datasets], axis=0)
+		df = pd.DataFrame(bool_array, index=index, columns = ['train', 'val', 'test'])
+
+	df.to_csv(filename)
+	print()

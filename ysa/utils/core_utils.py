@@ -8,7 +8,7 @@ import numpy as np
 import torch
 import torch.nn as nn # 추가: 손실 함수용
 
-from datasets.dataset_generic import save_splits
+from datasets.dataset_classification import save_splits
 from models.model_genomic import SNN
 # 수정: 분류용 모델 임포트 (MCAT_Surv -> MCAT_Classifier)
 from models.model_coattn import MCAT_Classifier
@@ -164,7 +164,7 @@ def train(datasets: tuple, cur: int, args: Namespace):
         if args.task_type == 'classification':
             if args.mode == 'coattn':
                 train_loop_classification_coattn(epoch, model, train_loader, optimizer, args.n_classes, writer, loss_fn, reg_fn, args.lambda_reg, args.gc)
-                stop = validate_classification_coattn(cur, epoch, model, val_loader, args.n_classes, early_stopping, monitor_metric, writer, loss_fn, reg_fn, args.lambda_reg, args.results_dir)
+                stop = validate_classification_coattn(cur, epoch, model, val_loader, args.n_classes, early_stopping=early_stopping, writer=writer, loss_fn=loss_fn, reg_fn=reg_fn, lambda_reg=args.lambda_reg, results_dir=args.results_dir)
             else:
                 raise NotImplementedError("Currently only coattn mode is fully supported for classification.")
         
