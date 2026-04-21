@@ -53,7 +53,7 @@ def get_label_path():
     return label_path
 
 def get_features_path():
-    features_path = './trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
+    features_path = '/home/team1/data/trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
     os.makedirs(features_path, exist_ok=True)
     return features_path
 

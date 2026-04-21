@@ -58,7 +58,7 @@ def test_and_visualize():
             print(f"⚠️ {model_path} 없음. 스킵.")
             continue
             
-        model.load_state_dict(torch.load(model_path, map_location=device))
+        model.load_state_dict(torch.load(model_path, map_location=device, weights_only=True))
         model.eval()
 
         all_labels, all_probs = [], []
