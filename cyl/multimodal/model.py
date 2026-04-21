@@ -1,56 +1,144 @@
+# Computational Graph & Architecture
 # workflow image에서 ‘3.model’에 해당하는 코드
+# 신경망 연산 그래프 정의: 메인 파일로부터 GPU로 적재된 인풋 텐서를 입력받아, 차원 수를 맞추는 선형 대수 행렬 곱 연산(Embedding, Projection 등)을 수행하는 계층 집합체입니다.
+# 특징 벡터 융합 및 분류: 유전체 텐서 행렬과 이미지 텐서 행렬을 교차 곱셈(Co-Attention)하여 상관관계 특징점(Feature)을 추출해내고, 마지막 노드(Classifier)를 거쳐 최종 환자의 분류 확률값(MSI/MSS Logits)과 XAI용 Attention 가중치 행렬 계산까지만 수행한 뒤 통째로 메인 파일에 반환합니다.
+
+
+import os
+import sys
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 # =========================================================================
-# [3번 상자] Multimodal
+# [원본 의존성 연결] 선생님의 새 폴더 구조(mcat, multimodal)에 맞춘 Import 구조
 # =========================================================================
-class Pathomic_Single_Array_Model(nn.Module):
-    def __init__(self, path_dim=1024, seq_dim=9, n_classes=2):
-        super(Pathomic_Single_Array_Model, self).__init__()
-        
-        # 1. 이미지 임베딩 (N, 1024 -> N, 256)
-        self.path_net = nn.Sequential(
-            nn.Linear(path_dim, 256), nn.ReLU(), nn.Dropout(0.25)
-        )
-        
-        # 2. 유전체 시퀀스
-        # 팀원분이 9개의 칸을 가진 시퀀스로 만들었으므로 입력 통로를 9개로 엽니다.
-        # 이를 통과하면 (1425, 9) 의 숫자들이 (1425, 256) 크기로 변환됩니다.
-        self.omic_net = nn.Sequential(
-            nn.Linear(seq_dim, 256), nn.ReLU(), nn.Dropout(0.25)
-        )
-        
-        # 3. 융합 및 최종 분류 네트워크 (256+256 = 512짜리)
-        self.classifier = nn.Sequential(
-            nn.Linear(256 * 2, 256), nn.ReLU(),
-            nn.Linear(256, n_classes)
-        )
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'mcat')))
 
-    def forward(self, path_features, genomic_features):
-        # -----------------------------------------------
-        # 1. 이미지 처리 (병합) -> (Batch, 256)
-        # -----------------------------------------------
-        h_path = torch.mean(path_features, dim=1)
-        h_path = self.path_net(h_path)
+# 1. SNN_Block, Attn_Net_Gated
+# -> 원본 출처: mcat/model_utils.py
+from model_utils import SNN_Block, Attn_Net_Gated
+
+# 2. MultiheadAttention
+# -> 원본 출처: mcat/model_coattn.py 맨 밑부분 (내부에 해킹된 파이토치 어텐션 함수 400줄 포함되어 있음)
+from model_coattn import MultiheadAttention
+
+# =========================================================================
+# [특수 제작] 팀원 전용 유전체 암호 해독기 (Genomic Interpreter)
+# =========================================================================
+class Genomic_Interpreter(nn.Module):
+    def __init__(self, vocab_sizes, out_dim=256, dropout=0.25):
+        super(Genomic_Interpreter, self).__init__()
         
-        # -----------------------------------------------
-        # 2. 유전체 처리 (Deep-Set Average 추출 기법 적용)
-        # -----------------------------------------------
-        # genomic_features 모양 : (Batch, 1425, 9)
-        # 돌연변이 하나하나를 모두 256차원 딥러닝 특징으로 각자 변환시킵니다.
-        h_omic = self.omic_net(genomic_features) # 결과: (Batch, 1425, 256)
+        # 팀원분이 0번을 Padding(빈 공간)으로 남겨뒀으므로 padding_idx=0 적용
+        # 각각의 ID(글자)를 의미 있는 딥러닝 텐서(숫자 다발)로 번역하는 사전들 생성
+        self.emb_var = nn.Embedding(vocab_sizes['var'] + 1, 128, padding_idx=0)
+        self.emb_vc  = nn.Embedding(vocab_sizes['vc'] + 1, 32, padding_idx=0)
+        self.emb_func = nn.Embedding(vocab_sizes['func'] + 1, 32, padding_idx=0)
         
-        # 그 다음 1425개의 돌연변이 특징을 평균(Mean Pooling)을 냅니다.
-        # 이렇게 하면 순서 제약이 없어지고 한 환자의 종합 돌연변이 점수가 추출됩니다.
-        h_omic = torch.mean(h_omic, dim=1) # 결과: (Batch, 256)
+        # 번역된 벡터들을 다 합친 길이 = 128 + 32 + 32 + 1(VAF) = 193
+        total_in_dim = 128 + 32 + 32 + 1
         
-        # -----------------------------------------------
-        # 3. 데이터 결합 (Concatenation)
-        # -----------------------------------------------
-        h_fused = torch.cat([h_path, h_omic], dim=1) # 256 + 256 = (Batch, 512)
+        # 합친 193차원을 MCAT의 공용 규격인 256차원으로 펌핑
+        self.proj = SNN_Block(dim1=total_in_dim, dim2=out_dim, dropout=dropout)
+
+    def forward(self, x_omic):
+        # x_omic 형태: (1425, 9) (실수형 Float 상태)
         
-        # 4. 최종 MSI/MSS 예측 확률 도출
-        logits = self.classifier(h_fused)
+        # 1. 9칸을 쪼개서 용도에 맞게 정수(Long)로 캐스팅
+        var_id = x_omic[..., 0].long()
+        vc_id  = x_omic[..., 1].long()
+        f_ids  = x_omic[..., 2:8].long() # 6개의 기능 서명
+        vaf    = x_omic[..., 8].unsqueeze(-1) # 실제 수학적 수치(비율)이므로 그대로 둠
         
-        return logits, None, None
+        # 2. 사전(해독기)에 넣어서 고차원 벡터로 변환
+        h_var = self.emb_var(var_id)     # 결과: (... 128)
+        h_vc  = self.emb_vc(vc_id)       # 결과: (... 32)
+        h_func = self.emb_func(f_ids)    # 결과: (... 6, 32)
+        
+        # 3. 팀원 요구사항 반영: 6개의 기능은 순서가 없으므로 평균(Mean)을 내서 하나로 압축
+        h_func_mean = torch.mean(h_func, dim=-2) # 결과: (... 32)
+        
+        # 4. 해독된 조각들과 원래 수치(VAF)를 이어 붙이기 (드디어 해석 가능한 데이터 완성!)
+        h_fused = torch.cat([h_var, h_vc, h_func_mean, vaf], dim=-1) # 결과: (... 193)
+        
+        # 5. 256 차원으로 변환하여 방출
+        h_out = self.proj(h_fused)
+        return h_out
+
+
+# =========================================================================
+# [3번 상자] 정한 REDCAB_MCAT 모델 (해독기 탑재 완료)
+# =========================================================================
+class MCAT_Single_Branch_Model(nn.Module):
+    def __init__(self, vocab_sizes, path_dim=1024, n_classes=2, dropout=0.25):
+        super(MCAT_Single_Branch_Model, self).__init__()
+        print("[알림] REDCAB_MCAT 구조 활성화: 해독기(Interpreter) 기반 Co-Attention 장착 완료!")
+        
+        self.n_classes = n_classes
+        size = [path_dim, 256, 256] 
+        
+        # 1. 병리 이미지 임베딩
+        fc = [nn.Linear(size[0], size[1]), nn.ReLU(), nn.Dropout(0.25)]
+        self.wsi_net = nn.Sequential(*fc)
+        
+        # 2. 유전체(1425 다발) 맞춤형 해독 파이프라인 (직접 짠 Interpreter 활용)
+        self.omic_net = Genomic_Interpreter(vocab_sizes=vocab_sizes, out_dim=256)
+
+        # 3. [논문의 상징] Co-Attention 모듈
+        self.coattn = MultiheadAttention(embed_dim=256, num_heads=1)
+        
+        # 4. 이미지 트랜스포머 및 Gated Attention 모듈
+        self.path_transformer = nn.TransformerEncoder(
+            nn.TransformerEncoderLayer(d_model=256, nhead=8, dim_feedforward=512, dropout=dropout, activation='relu'), 
+            num_layers=2
+        )
+        self.path_attention_head = Attn_Net_Gated(L=256, D=256, dropout=dropout, n_classes=1)
+        self.path_rho = nn.Sequential(nn.Linear(256, 256), nn.ReLU(), nn.Dropout(dropout))
+        
+        # 5. 유전체 트랜스포머 및 Gated Attention 모듈
+        self.omic_transformer = nn.TransformerEncoder(
+            nn.TransformerEncoderLayer(d_model=256, nhead=8, dim_feedforward=512, dropout=dropout, activation='relu'), 
+            num_layers=2
+        )
+        self.omic_attention_head = Attn_Net_Gated(L=256, D=256, dropout=dropout, n_classes=1)
+        self.omic_rho = nn.Sequential(nn.Linear(256, 256), nn.ReLU(), nn.Dropout(dropout))
+        
+        # 6. 결합(Fusion) 및 최종 분류기
+        self.mm = nn.Sequential(nn.Linear(256*2, 256), nn.ReLU(), nn.Linear(256, 256), nn.ReLU())
+        self.classifier = nn.Linear(256, n_classes)
+
+    def forward(self, x_path, x_omic):
+        # x_path: (N, 1024), x_omic: (1, 1425, 9)
+        
+        h_path_bag = self.wsi_net(x_path).unsqueeze(1) 
+        
+        if x_omic.dim() == 3 and x_omic.shape[0] == 1:
+            x_omic = x_omic.squeeze(0)
+            
+        # [해독기 작동] 1425x9 의 암호문이 강력한 256차원 의미 텐서로 통과하며 해석됨!
+        h_omic_bag = self.omic_net(x_omic).unsqueeze(1) 
+        
+        # 교차 주의집중 (Co-Attention)
+        h_path_coattn, A_coattn = self.coattn(h_omic_bag, h_path_bag, h_path_bag)
+
+        h_path_trans = self.path_transformer(h_path_coattn)
+        A_path, h_path = self.path_attention_head(h_path_trans.squeeze(1))
+        A_path = torch.transpose(A_path, 1, 0)
+        h_path = torch.mm(F.softmax(A_path, dim=1), h_path)
+        h_path = self.path_rho(h_path).squeeze(0)
+        
+        h_omic_trans = self.omic_transformer(h_omic_bag)
+        A_omic, h_omic = self.omic_attention_head(h_omic_trans.squeeze(1))
+        A_omic = torch.transpose(A_omic, 1, 0)
+        h_omic = torch.mm(F.softmax(A_omic, dim=1), h_omic)
+        h_omic = self.omic_rho(h_omic).squeeze(0)
+        
+        h = self.mm(torch.cat([h_path, h_omic], axis=0))
+        logits = self.classifier(h).unsqueeze(0)
+        
+        Y_hat = torch.topk(logits, 1, dim=1)[1]
+        attention_scores = {'coattn': A_coattn, 'path': A_path, 'omic': A_omic}
+        
+        return logits, Y_hat, attention_scores
+
