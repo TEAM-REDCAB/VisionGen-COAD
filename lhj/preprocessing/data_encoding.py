@@ -97,3 +97,17 @@ final_matrix = np.array(final_matrix, dtype=np.float32)
 np.save('genomic_input_matrix.npy', final_matrix)
 print(f"최종 배열 형태: {final_matrix.shape}") # (환자수, 1425, 9)
 print("'genomic_input_matrix.npy' 파일로 저장이 완료되었습니다.")
+
+# 1. 어레이 생성 시 사용했던 환자 리스트를 그대로 가져옵니다.
+patient_list = df['patient_nm'].unique().tolist()
+
+# 2. 인코딩 상태 파일(encoding_states.pkl)에 환자 명단을 추가로 저장합니다.
+with open('genomic_encoding_states.pkl', 'rb') as f:
+    states = pickle.load(f)
+
+states['patient_list'] = patient_list # 환자 순서 정보 추가
+
+with open('genomic_encoding_states.pkl', 'wb') as f:
+    pickle.dump(states, f)
+
+print(f"환자 {len(patient_list)}명의 순서 정보가 저장되었습니다.")

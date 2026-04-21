@@ -16,4 +16,13 @@
 * TCGA_COAD.wxs.common_parsed.maf 에서 최소한의 컬럼을 선정하고 signatures.csv 를 annotation 한 데이터
 ### preprocessing.py
 * preprocessed_mutation_data.csv 생성 및 간단한 통계 확인 스크립트
+### array_preview.py
+* genomic_input_matrix.npy 파일의 예시를 볼 수 있는 스크립트 (예시결과 스크립트 내 포함되어 있음)
+### data_encoding.py
+* preprocessed_mutation_data.csv로부터 encoding후 array형태로 생성하는 과정의 스크립트
+### genomic_encoding_states.pkl
+* 인코딩 상태 및 환자 순서 정보
+### genomic_input_matrix.npy
+* 환자 별 genomic 데이터 정보 array (환자 수, 1425, 9)
+* **주의** 데이터 인덱스의 순서가 바뀌면 인코딩 상태에 저장한 환자 명과 비교가 불가. WSI와 매칭할 수 없음. 재작업 진행해야 함.
 
