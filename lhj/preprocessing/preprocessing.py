@@ -12,7 +12,7 @@ select_col = ["Hugo_Symbol", "Variant_Classification", "HGVSp_Short",
               "t_depth", "t_alt_count", "patient_nm", "Gene_Function"]
 
 # 2. signatures.csv 처리: 유전자별로 기능을 ","로 합친 문자열 딕셔너리 생성
-df_sig = pd.read_csv('signatures.csv')
+df_sig = pd.read_csv('raw/signatures.csv')
 gene_to_func_str = {}
 
 for category in df_sig.columns:
@@ -70,4 +70,14 @@ print(patient_counts)
 # 기초 통계량 확인 (평균 변이 수, 최대/최소 등)
 print(patient_counts['mutation_count'].describe())
 
-df_preprocessed.to_csv(current_path + '/preprocessed_mutation_data.csv', index=False)
+# 기초 통계량 결과
+#count     266.000000
+#mean       92.477444
+#std       185.707605
+#min         7.000000
+#25%        15.000000
+#50%        21.000000
+#75%        41.000000
+#max      1425.000000
+
+#df_preprocessed.to_csv(current_path + '/preprocessed_mutation_data.csv', index=False)
