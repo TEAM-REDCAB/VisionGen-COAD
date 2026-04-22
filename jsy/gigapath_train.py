@@ -6,12 +6,13 @@ import torch
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score, average_precision_score
-
-import gigapath_model as gm 
+from h5dataset import H5Dataset
+from binary_focal_loss import BinaryFocalLoss
 from gigapath.classification_head import ClassificationHead
+import config as cf
 
-SEED = gm.SEED
-RESULTS_PATH = gm.get_results_path()
+SEED = cf.SEED
+RESULTS_PATH = cf.get_results_path()
 MODEL_PATH = os.path.join(RESULTS_PATH, 'saved_models')
 
 # Set deterministic behavior
@@ -42,10 +43,10 @@ for fold in range(5):
     current_fold_col = f'fold_{fold}'
 
     # 1. Fold마다 데이터로더 구성 (Coords 경로 추가)
-    train_ds = gm.H5Dataset(split="train", fold_col=current_fold_col, num_features=train_num_features)
+    train_ds = H5Dataset(split="train", fold_col=current_fold_col, num_features=train_num_features)
     # Val은 전체 패치를 사용하므로 VRAM 관리를 위해 num_features 제한을 두거나, 
     # OOM이 터진다면 Val 데이터셋에도 적절한 num_features 제한이 필요할 수 있습니다.
-    val_ds = gm.H5Dataset(split="val", fold_col=current_fold_col)
+    val_ds = H5Dataset(split="val", fold_col=current_fold_col)
     
     train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, worker_init_fn=lambda worker_id: np.random.seed(SEED + worker_id))
     val_loader = DataLoader(val_ds, batch_size=1, shuffle=False, worker_init_fn=lambda worker_id: np.random.seed(SEED + worker_id))
@@ -59,7 +60,7 @@ for fold in range(5):
         freeze=False
     ).to(device)
     
-    criterion = gm.BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
+    criterion = BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
     # ViT 모델에 더 적합한 AdamW 사용 및 Learning Rate 미세 조정 (ABMIL보다 조금 낮게 시작)
     optimizer = optim.AdamW(model.parameters(), lr=1e-4, weight_decay=1e-4)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs)
@@ -144,9 +145,12 @@ for fold in range(5):
     print(f"Fold {fold} Finished. Best AUC: {best_val_auc:.4f}")
 
     # [추가] 현재 폴드 모델과 옵티마이저 명시적 삭제
-    if 'scheduler' in locals(): del scheduler
-    if 'optimizer' in locals(): del optimizer
-    if 'scaler' in locals(): del scaler
+    if 'scheduler' in locals(): 
+        del scheduler
+    if 'optimizer' in locals(): 
+        del optimizer
+    if 'scaler' in locals(): 
+        del scaler
     del model
     
     # [추가] 가비지 컬렉션 및 GPU 캐시 강제 비우기
@@ -166,4 +170,4 @@ print("-" * 50)
 print(f"Mean Best AUC:     {metrics_df['AUC'].mean():.4f} ± {metrics_df['AUC'].std():.4f}")
 print(f"Mean Best AUPRC:   {metrics_df['AUPRC'].mean():.4f} ± {metrics_df['AUPRC'].std():.4f}")
 print(f"Mean Best Acc:     {metrics_df['Accuracy'].mean():.4f} ± {metrics_df['Accuracy'].std():.4f}")
-metrics_df.to_csv(os.path.join(MODEL_PATH, 'metrics.txt'), index=False)
+metrics_df.to_csv(os.path.join(MODEL_PATH, 'vit_gigapath_metrics.txt'), index=False)

@@ -6,13 +6,16 @@ import torch.optim as optim
 import pandas as pd
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score, average_precision_score
-from abmil_model import BinaryClassificationModel, H5Dataset
-import abmil_model as am
 
-SEED = am.SEED
-LABEL_PATH = am.get_label_path()
-FEATS_PATH = am.get_features_path()
-RESULTS_PATH = am.get_results_path()
+from abmil_model import BinaryClassificationModel
+from h5dataset import H5Dataset
+from binary_focal_loss import BinaryFocalLoss
+import config as cf
+
+SEED = cf.SEED
+LABEL_PATH = cf.get_label_path()
+FEATS_PATH = cf.get_feats_path()
+RESULTS_PATH = cf.get_results_path()
 MODEL_PATH = os.path.join(RESULTS_PATH, 'saved_models')
 
 
@@ -43,8 +46,8 @@ for fold in range(5):
     current_fold_col = f'fold_{fold}'
 
     # 1. Fold마다 데이터로더 새롭게 구성 (train:4096샘플링, val:전체)
-    train_ds = H5Dataset(FEATS_PATH, df, split="train", fold_col=current_fold_col, num_features=4096)
-    val_ds = H5Dataset(FEATS_PATH, df, split="val", fold_col=current_fold_col)
+    train_ds = H5Dataset(split="train", fold_col=current_fold_col, num_features=4096)
+    val_ds = H5Dataset(split="val", fold_col=current_fold_col)
     # Val은 패치 개수가 환자마다 달라 batch_size=1 필수
     train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, worker_init_fn=lambda _: np.random.seed(SEED))
     val_loader = DataLoader(val_ds, batch_size=1, shuffle=False, worker_init_fn=lambda _: np.random.seed(SEED))
@@ -52,7 +55,7 @@ for fold in range(5):
     # 2. Fold마다 모델과 옵티마이저 완전히 새로 초기화 (데이터 누수 방지)
     model = BinaryClassificationModel(input_feature_dim=1536, dropout=0.25).to(device)
     # 불균형 데이터를 위해 Focal Loss 적용
-    criterion = am.BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
+    criterion = BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
     optimizer = optim.Adam(model.parameters(), lr=4e-4, weight_decay=1e-4)
 
     # 최고 성능을 추적하기 위한 변수 초기화
@@ -63,7 +66,7 @@ for fold in range(5):
     for epoch in range(num_epochs):
         model.train()
         total_loss = 0.
-        for features, labels in train_loader:
+        for features, coords, labels in train_loader:
             features, labels = {'features': features.to(device)}, labels.to(device)
             optimizer.zero_grad()
             outputs = model(features)
@@ -80,7 +83,7 @@ for fold in range(5):
         correct, total = 0, 0
 
         with torch.no_grad():
-            for features, labels in val_loader:
+            for features, coords, labels in val_loader:
                 features, labels = {'features': features.to(device)}, labels.to(device)
                 outputs = model(features) 
                 probs = torch.sigmoid(outputs)
@@ -127,4 +130,4 @@ print("-" * 50)
 print(f"Mean Best AUC:     {metrics_df['AUC'].mean():.4f} ± {metrics_df['AUC'].std():.4f}")
 print(f"Mean Best AUPRC:   {metrics_df['AUPRC'].mean():.4f} ± {metrics_df['AUPRC'].std():.4f}")
 print(f"Mean Best Acc:     {metrics_df['Accuracy'].mean():.4f} ± {metrics_df['Accuracy'].std():.4f}")
-metrics_df.to_csv(os.path.join(MODEL_PATH, 'metrics.txt'), index=False)
+metrics_df.to_csv(os.path.join(MODEL_PATH, 'abmil_metrics.txt'), index=False)

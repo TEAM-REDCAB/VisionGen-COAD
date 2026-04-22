@@ -7,7 +7,7 @@ from typing import Optional, List, Dict, Any
 from inspect import signature
 import geopandas as gpd
 import pandas as pd 
-
+import torch
 from trident import load_wsi, WSIReaderType
 from trident.IO import create_lock, remove_lock, is_locked, update_log, collect_valid_slides, splitext
 from trident.Maintenance import deprecated

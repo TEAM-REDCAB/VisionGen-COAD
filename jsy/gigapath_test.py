@@ -2,6 +2,7 @@ import os
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 import numpy as np
 import torch
+from tqdm import tqdm
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -12,20 +13,18 @@ from sklearn.metrics import (
     confusion_matrix
 )
 
-# 훈련 스크립트에서 필요한 클래스와 설정을 가져옵니다.
 from gigapath.classification_head import ClassificationHead
-from gigapath_model import H5Dataset, SEED
-import gigapath_model as gm
-
+from h5dataset import H5Dataset
+import config as cf
 # --- 설정 및 경로 (사용자 환경에 맞게 수정) ---
-RESULTS_PATH = gm.get_results_path()
+RESULTS_PATH = cf.get_results_path()
 MODEL_PATH = os.path.join(RESULTS_PATH, 'saved_models')
-TEST_RESULT_DIR = os.path.join(gm.get_results_path(), 'test_results')
+TEST_RESULT_DIR = os.path.join(cf.get_results_path(), 'test_results')
 os.makedirs(TEST_RESULT_DIR, exist_ok=True)
 
 # 시드 고정
-np.random.seed(SEED)
-torch.manual_seed(SEED)
+np.random.seed(cf.SEED)
+torch.manual_seed(cf.SEED)
 
 def test_gigapath_full_slide():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -38,7 +37,7 @@ def test_gigapath_full_slide():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
     colors = ['red', 'blue', 'green', 'orange', 'purple']
 
-    for fold in range(5):
+    for fold in tqdm(range(5), desc="Fold"):
         print(f"\n🚀 Testing GigaPath Fold {fold} (Full Slide Inference)...")
         current_fold_col = f'fold_{fold}'
         
@@ -60,7 +59,7 @@ def test_gigapath_full_slide():
         all_labels, all_probs = [], []
         
         with torch.no_grad():
-            for features, coords, labels in test_loader:
+            for features, coords, labels in tqdm(test_loader, desc='loader'):
                 # [1, L, 1536], [1, L, 2] 형태로 바로 GPU 전송
                 features = features.to(device)
                 coords = coords.to(device)
@@ -81,6 +80,7 @@ def test_gigapath_full_slide():
         auc = roc_auc_score(all_labels, all_probs)
         auprc = average_precision_score(all_labels, all_probs)
         preds = (all_probs >= 0.5).astype(int)
+        acc = np.mean(preds == all_labels)
         
         cm = confusion_matrix(all_labels, preds, labels=[0, 1])
         total_cm += cm
@@ -91,7 +91,7 @@ def test_gigapath_full_slide():
         
         all_fold_results.append({
             'Fold': fold, 'AUC': auc, 'AUPRC': auprc, 
-            'Sensitivity': sensitivity, 'Specificity': specificity
+            'Accuracy':acc, 'Sensitivity': sensitivity, 'Specificity': specificity
         })
 
         # 시각화용 데이터 누적

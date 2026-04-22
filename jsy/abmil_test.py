@@ -10,15 +10,16 @@ from sklearn.metrics import (
     roc_curve, precision_recall_curve,
     confusion_matrix, classification_report
 )
-from abmil_model import BinaryClassificationModel, H5Dataset
-import abmil_model as am
+from abmil_model import BinaryClassificationModel
+from h5dataset import H5Dataset
+import config as cf
 
 # --- 설정 및 경로 ---
-SEED = am.SEED
-LABEL_PATH = am.get_label_path()
-FEATS_PATH = am.get_features_path()
-MODEL_PATH = os.path.join(am.get_results_path(), 'saved_models')
-TEST_PATH = os.path.join(am.get_results_path(), 'test_results')
+SEED = cf.SEED
+LABEL_PATH = cf.get_label_path()
+FEATS_PATH = cf.get_feats_path()
+MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models')
+TEST_PATH = os.path.join(cf.get_results_path(), 'test_results')
 os.makedirs(TEST_PATH, exist_ok=True)
 
 # 시드 고정
@@ -47,7 +48,7 @@ def test_and_visualize():
         print(f"\n🔍 Testing Fold {fold}...")
         current_fold_col = f'fold_{fold}'
         
-        test_dataset = H5Dataset(FEATS_PATH, df, split="test", fold_col=current_fold_col)
+        test_dataset = H5Dataset(split="test", fold_col=current_fold_col)
         test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
 
         # 모델 선언 (Train 시와 동일하게 dropout 적용)
@@ -63,7 +64,7 @@ def test_and_visualize():
 
         all_labels, all_probs = [], []
         with torch.no_grad():
-            for features, labels in test_loader:
+            for features, coords, labels in test_loader:
                 features_dict = {'features': features.to(device)}
                 outputs = model(features_dict)
                 probs = torch.sigmoid(outputs).cpu().numpy()
@@ -137,7 +138,7 @@ def test_and_visualize():
     ax2.grid(alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig(os.path.join(TEST_PATH, 'combined_fold_curves.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'abmil_combined_fold_curves.png'), dpi=300)
     plt.show()
 
     # --- 4. 합산 혼동 행렬(Confusion Matrix) 시각화 ---
@@ -146,8 +147,8 @@ def test_and_visualize():
                 xticklabels=['MSS (0)', 'MSI (1)'], yticklabels=['MSS (0)', 'MSI (1)'])
     plt.xlabel('Predicted Label')
     plt.ylabel('True Label')
-    plt.title('Aggregated Confusion Matrix (All 5 Folds)')
-    plt.savefig(os.path.join(TEST_PATH, 'total_confusion_matrix.png'), dpi=300)
+    plt.title('ABMIL Aggregated Confusion Matrix (All 5 Folds)')
+    plt.savefig(os.path.join(TEST_PATH, 'abmil_total_confusion_matrix.png'), dpi=300)
     plt.show()
 
     # 최종 결과 요약 및 저장
@@ -157,7 +158,7 @@ def test_and_visualize():
         print(results_df.to_string(index=False))
         print(f"\nMean AUC: {results_df['AUC'].mean():.4f} ± {results_df['AUC'].std():.4f}")
     
-    results_df.to_csv(os.path.join(TEST_PATH, 'test_results.csv'), index=False)
+    results_df.to_csv(os.path.join(TEST_PATH, 'abmil_test_results.csv'), index=False)
     print(f"\n💾 모든 결과가 {TEST_PATH}에 저장되었습니다.")
 
 if __name__ == "__main__":
