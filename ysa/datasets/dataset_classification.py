@@ -61,6 +61,8 @@ def load_genomic_data(genomic_dir: str):
         patient_order = enc_states["patient_order"]
     elif "patients" in enc_states:
         patient_order = enc_states["patients"]
+    elif "patient_list" in enc_states:
+        patient_order = enc_states["patient_list"]
     else:
         raise KeyError(
             f"pkl에 patient_order 키 없음. 실제 키: {list(enc_states.keys())}"
@@ -92,7 +94,7 @@ def load_genomic_data(genomic_dir: str):
 class Generic_WSI_Classification_Dataset(Dataset):
 
     def __init__(self,
-        csv_path     = "dataset_csv/tcga_coad_all_clean.csv",
+        csv_path     = "./data/tcga_coad_all_clean.csv",
         genomic_dir  = None,
         mode         = "coattn",
         apply_sig    = False,
@@ -248,6 +250,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
             omic_masks     = self.omic_masks,
             omic_sizes     = self.omic_sizes,
             pid_to_gidx    = self.pid_to_gidx,
+            use_h5         = self.use_h5,
         )
 
     def return_splits(self, from_id=True, csv_path=None):
@@ -295,10 +298,10 @@ class Generic_MIL_Classification_Dataset(Generic_WSI_Classification_Dataset):
                         os.path.join(base_dir, "pt_files", f"{sid}.pt")))
                 else:
                     with h5py.File(
-                        os.path.join(base_dir, "h5_files", f"{sid}.h5"), "r"
+                        os.path.join(base_dir, f"{sid}.h5"), "r"
                     ) as f:
                         bags.append(torch.from_numpy(f["features"][:]))
-            return torch.cat(bags, dim=0) if bags else torch.zeros((1, 1024))
+            return torch.cat(bags, dim=0) if bags else torch.zeros((1, 1536))
 
         if self.mode == "path":
             return (load_wsi(slide_ids, data_dir), torch.zeros((1, 1)), label)
@@ -323,9 +326,9 @@ class Generic_Split(Generic_MIL_Classification_Dataset):
                  data_dir=None, label_col=None, patient_dict=None,
                  num_classes=2,
                  genomic_matrix=None, omic_masks=None,
-                 omic_sizes=None, pid_to_gidx=None):
+                 omic_sizes=None, pid_to_gidx=None, use_h5=False):
 
-        self.use_h5         = False
+   
         self.slide_data     = slide_data
         self.metadata       = metadata
         self.mode           = mode
@@ -333,12 +336,12 @@ class Generic_Split(Generic_MIL_Classification_Dataset):
         self.num_classes    = num_classes
         self.label_col      = label_col
         self.patient_dict   = patient_dict
-
         # genomic 공유 객체 (부모에서 전달 — 재로드 없음)
         self.genomic_matrix = genomic_matrix
         self.omic_masks     = omic_masks  if omic_masks  is not None else [None]*6
         self.omic_sizes     = omic_sizes  if omic_sizes  is not None else [0]*6
         self.pid_to_gidx    = pid_to_gidx if pid_to_gidx is not None else {}
+        self.use_h5         = use_h5
 
         self.slide_cls_ids = [
             np.where(self.slide_data["label"] == i)[0]
@@ -350,3 +353,13 @@ class Generic_Split(Generic_MIL_Classification_Dataset):
 
     def __len__(self):
         return len(self.slide_data)
+
+def save_splits(datasets, column_keys, filename, boolean_style=False):
+    splits = [d.slide_data['case_id'] for d in datasets if d is not None]
+    if not boolean_style:
+        df = pd.concat(splits, ignore_index=True, axis=1)
+        df.columns = column_keys[:len(splits)]
+    else:
+        df = pd.concat(splits, ignore_index=True, axis=1)
+        df.columns = column_keys[:len(splits)]
+    df.to_csv(filename, index=False)

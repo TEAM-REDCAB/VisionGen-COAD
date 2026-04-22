@@ -22,7 +22,7 @@ class MCAT_Classifier(nn.Module):
         self.fusion = fusion
         self.omic_sizes = omic_sizes
         self.n_classes = n_classes
-        self.size_dict_WSI = {"small": [1024, 256, 256], "big": [1024, 512, 384]}
+        self.size_dict_WSI = {"small": [1536, 256, 256], "big": [1536, 512, 384]}
         self.size_dict_omic = {'small': [256, 256], 'big': [1024, 1024, 1024, 256]}
         
         ### FC Layer over WSI bag
@@ -467,7 +467,7 @@ def multi_head_attention_forward(
 
 import torch
 from torch import Tensor
-from torch.nn.modules.linear import _LinearWithBias
+from torch.nn import Linear as _LinearWithBias
 from torch.nn.init import xavier_uniform_
 from torch.nn.init import constant_
 from torch.nn.init import xavier_normal_

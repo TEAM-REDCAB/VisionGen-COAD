@@ -15,7 +15,7 @@ from models.model_coattn import MCAT_Classifier
 from utils.utils import *
 
 from utils.coattn_train_utils import *
-from utils.cluster_train_utils import *
+# from utils.cluster_train_utils import *
 
 class EarlyStopping:
     """Early stops the training if validation loss doesn't improve after a given patience."""
@@ -173,7 +173,7 @@ def train(datasets: tuple, cur: int, args: Namespace):
 
     # 모델 최고 성능 지점 로드
     torch.save(model.state_dict(), os.path.join(args.results_dir, "s_{}_checkpoint.pt".format(cur)))
-    model.load_state_dict(torch.load(os.path.join(args.results_dir, "s_{}_checkpoint.pt".format(cur))))
+    model.load_state_dict(torch.load(os.path.join(args.results_dir, "s_{}_checkpoint.pt".format(cur)),weights_only=True))
     
     # 수정: summary_classification_coattn에서 딕셔너리, Acc, AUC 반환
     results_val_dict, val_acc, val_auc = summary_classification_coattn(model, val_loader, args.n_classes)
