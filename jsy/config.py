@@ -5,10 +5,10 @@ from sklearn.model_selection import train_test_split, StratifiedKFold
 SEED = 42
 
 def get_feats_path():
-    return './working/trident_processed/20.0x_256px_0px_overlap/features_gigapath'
+    return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
 
 def get_coords_path():
-    coords_path = './working/trident_processed/20.0x_256px_0px_overlap/patches'
+    coords_path = '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/patches'
     return coords_path
 
 def get_results_path():

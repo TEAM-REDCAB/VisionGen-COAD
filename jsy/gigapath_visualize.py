@@ -16,7 +16,7 @@ def visualize_pca_side_by_side():
     os.makedirs(output_dir, exist_ok=True)
     
     # 썸네일 폴더 경로 (실제 경로로 맞춰주세요)
-    THUMBNAIL_DIR = './working/trident_processed/thumbnails/' 
+    THUMBNAIL_DIR = '/home/team1/data/gigapath_processed/thumbnails/' 
     
     for fold in range(5):
         print(f"\n🎨 PCA Side-by-Side Fold {fold}...")
