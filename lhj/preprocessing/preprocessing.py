@@ -8,8 +8,9 @@ df = pd.read_csv(current_path + "/TCGA_COAD.wxs.common_parsed.maf", sep="\t", lo
 mt_filter = ["Frame_Shift_Del", "Frame_Shift_Ins", "In_Frame_Del", "In_Frame_Ins",
              "Missense_Mutation", "Nonsense_Mutation", "Nonstop_Mutation", "Splice_Site"]
 
-select_col = ["Hugo_Symbol", "Variant_Classification", "HGVSp_Short", 
-              "t_depth", "t_alt_count", "patient_nm", "Gene_Function"]
+select_col = ["Hugo_Symbol", "Variant_Classification", "HGVSc", 
+              "t_depth", "t_alt_count", "patient_nm", "Gene_Function", "SIFT", "PolyPhen"]
+
 
 # 2. signatures.csv 처리: 유전자별로 기능을 ","로 합친 문자열 딕셔너리 생성
 df_sig = pd.read_csv('raw/signatures.csv')
@@ -36,19 +37,42 @@ def preprocess(df):
     df1 = df1[df1["Variant_Classification"].isin(mt_filter)]
     
     # 결측치 제거 및 VAF 계산
-    df1 = df1.dropna()
+    df1 = df1.dropna(subset=['t_depth', 't_alt_count'])
     df1 = df1[df1['t_depth'] > 0] # 0으로 나누기 방지
     df1['t_vaf'] = df1['t_alt_count'] / df1['t_depth']
     
-    # Hugo_Symbol + HGVSp_Short을 결합하여 새로운 컬럼 생성
-    df1['Hugo_HGVSp'] = df1['Hugo_Symbol'] + "_" + df1['HGVSp_Short']
+    # Hugo_Symbol + HGVSc을 결합하여 새로운 컬럼 생성
+    df1['Hugo_HGVSc'] = df1['Hugo_Symbol'] + "_" + df1['HGVSc']
+    
+    # SIFT와 PolyPhen을 사용하여 SNV 필터
+    def is_damaging(row):
+        sift = row['SIFT']
+        polyphen = row['PolyPhen']
+
+        # 1. 두 컬럼 모두 결측치인 경우 pass (유지)
+        if pd.isna(sift) and pd.isna(polyphen):
+            return True
+    
+        # 2. 각 컬럼이 결측치가 아닐 때만 단어 포함 여부 확인
+        sift_damaging = False
+        if not pd.isna(sift):
+            sift_damaging = 'deleterious' in str(sift).lower()
+        
+        polyphen_damaging = False
+        if not pd.isna(polyphen):
+            polyphen_damaging = 'damaging' in str(polyphen).lower()
+    
+        # 3. 둘 중 하나라도 damaging 조건을 만족하면 유지
+        return sift_damaging or polyphen_damaging
+    
+    df1 = df1[df1.apply(is_damaging, axis=1)]
     
     # 불필요한 컬럼 제거 및 인덱스 초기화
-    df1 = df1.drop(columns=['t_depth', 't_alt_count', "Hugo_Symbol", "HGVSp_Short"])
+    df1 = df1.drop(columns=['t_depth', 't_alt_count', "Hugo_Symbol", "HGVSc", "SIFT", "PolyPhen"])
     df1 = df1.reset_index(drop=True)
     df1 = df1[df1['Gene_Function'] != 'Unknown']
     
-    df1 = df1[["patient_nm", "Hugo_HGVSp", "Variant_Classification", "Gene_Function", "t_vaf"]]
+    df1 = df1[["patient_nm", "Hugo_HGVSc", "Variant_Classification", "Gene_Function", "t_vaf"]]
     return df1
 
 df_preprocessed = preprocess(df)
@@ -60,24 +84,37 @@ print(df_preprocessed)
 # patient_nm 컬럼을 기준으로 그룹화하여 행의 개수를 셉니다.
 
 patient_counts = df_preprocessed.groupby('patient_nm').size().reset_index(name='mutation_count')
+classified_counts = df_preprocessed.groupby(['patient_nm', 'Variant_Classification']).size().unstack(fill_value=0).reset_index()
 
 # 개수가 많은 순서대로 정렬
 patient_counts = patient_counts.sort_values(by='mutation_count', ascending=False)
-
+classified_counts = classified_counts.sort_values(by=classified_counts.columns[1:].tolist(), ascending=False)
 # 결과 확인
 print(patient_counts)
+print(classified_counts)
 
 # 기초 통계량 확인 (평균 변이 수, 최대/최소 등)
 print(patient_counts['mutation_count'].describe())
+print(classified_counts.describe())
 
 # 기초 통계량 결과
 #count     266.000000
-#mean       92.477444
-#std       185.707605
-#min         7.000000
-#25%        15.000000
-#50%        21.000000
-#75%        41.000000
-#max      1425.000000
+#mean       70.078947
+#std       136.657199
+#min         5.000000
+#25%        11.000000
+#50%        16.500000
+#75%        29.000000
+#max      1047.000000
+#Name: mutation_count, dtype: float64
+#Variant_Classification  Frame_Shift_Del  Frame_Shift_Ins  In_Frame_Del  In_Frame_Ins  Missense_Mutation  Nonsense_Mutation  Nonstop_Mutation  Splice_Site
+#count                        266.000000       266.000000    266.000000    266.000000         266.000000         266.000000        266.000000   266.000000
+#mean                          11.466165         2.977444      0.571429      0.060150          47.390977           6.206767          0.071429     1.334586
+#std                           23.152179         5.673462      1.230344      0.281757         103.649980          17.608920          0.366744     2.508267
+#min                            0.000000         0.000000      0.000000      0.000000           2.000000           0.000000          0.000000     0.000000
+#25%                            0.000000         0.000000      0.000000      0.000000           8.000000           1.000000          0.000000     0.000000
+#50%                            1.000000         1.000000      0.000000      0.000000          11.000000           2.000000          0.000000     0.000000
+#75%                            3.000000         3.000000      1.000000      0.000000          24.750000           5.000000          0.000000     1.000000
+#max                          117.000000        54.000000     10.000000      3.000000         875.000000         158.000000          4.000000    20.000000
 
-#df_preprocessed.to_csv(current_path + '/preprocessed_mutation_data.csv', index=False)
+df_preprocessed.to_csv('preprocessing/preprocessed_mutation_data.csv', index=False)

@@ -4,13 +4,13 @@ import pickle
 import os
 
 # 1. 데이터 로드
-df = pd.read_csv('preprocessed_mutation_data.csv')
+df = pd.read_csv('preprocessed_mutation_data.csv')   
 
 # --- 사전(Vocabulary) 구축 ---
 # 0은 Padding용으로 남겨두고 1부터 인덱싱합니다.
 
-# 1) Hugo_HGVSp (고유 변이 식별자)
-var_vocab = {val: i + 1 for i, val in enumerate(sorted(df['Hugo_HGVSp'].unique()))}
+# 1) Hugo_HGVSc (고유 변이 식별자)
+var_vocab = {val: i + 1 for i, val in enumerate(sorted(df['Hugo_HGVSc'].unique()))}
 
 # 2) Variant_Classification (변이 종류)
 vc_vocab = {val: i + 1 for i, val in enumerate(sorted(df['Variant_Classification'].unique()))}
@@ -19,16 +19,6 @@ vc_vocab = {val: i + 1 for i, val in enumerate(sorted(df['Variant_Classification
 all_funcs = set()
 df['Gene_Function'].dropna().apply(lambda x: [all_funcs.add(f.strip()) for f in str(x).split(',')])
 func_vocab = {val: i + 1 for i, val in enumerate(sorted(list(all_funcs)))}
-
-# 기초 통계량 결과
-#count     266.000000
-#mean       92.477444
-#std       185.707605
-#min         7.000000
-#25%        15.000000
-#50%        21.000000
-#75%        41.000000
-#max      1425.000000
 
 # --- 인코딩 상태 저장 (Pickle) ---
 # 나중에 테스트 데이터나 새로운 데이터를 인코딩할 때 이 사전이 반드시 필요합니다.
@@ -52,12 +42,12 @@ MAX_FUNC_PER_NODE = 6
 FEATURE_SIZE = 1 + 1 + MAX_FUNC_PER_NODE + 1 
 
 def encode_row(row):
-    v_idx = var_vocab.get(row['Hugo_HGVSp'], 0)
+    v_idx = var_vocab.get(row['Hugo_HGVSc'], 0)
     vc_idx = vc_vocab.get(row['Variant_Classification'], 0)
     
     # 쉼표로 연결된 기능을 분리하여 인덱싱 (최대 6개)
-    # !! 주의 !! : 기능은 중요도가 없으므로 단순히 등장 순서대로 인덱싱 되었음.
-    # 살제 모델에서 사용 시 6개 채널 각각 임베딩 벡터를 뽑은 뒤, 이를 더하거나(Sum) 평균(Mean)을 내는 방식으로 사용해서 위치정보를 제거해야함.
+    # !! 주의 !! : 기능은 중요도가 없으므로 단순히 등장 순서대로 인덱싱 되었음. 위치정보를 들어가지 않도록 후처리 필요.
+    # SNN을 진행하면서 카운트 벡터화 (Multi-Hot Encoding)를 진행방식을 채택함으로써 위치정보는 들어가지않으나 특성은 유지되도록 함.
     funcs = [f.strip() for f in str(row['Gene_Function']).split(',')]
     f_indices = [func_vocab.get(f, 0) for f in funcs if f in func_vocab]
     

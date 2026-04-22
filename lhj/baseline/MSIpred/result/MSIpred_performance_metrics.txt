@@ -1,0 +1,18 @@
+### MSIpred Classification Performance ###
+
+--- Confusion Matrix ---
+               Pred_MSS  Pred_MSIMUT
+Actual_MSS          205            0
+Actual_MSIMUT         2           59
+
+--- Classification Report ---
+              precision    recall  f1-score   support
+
+         MSS       1.00      0.97      0.98        61
+      MSIMUT       0.99      1.00      1.00       205
+
+    accuracy                           0.99       266
+   macro avg       1.00      0.98      0.99       266
+weighted avg       0.99      0.99      0.99       266
+
+Overall Accuracy: 99.25%
