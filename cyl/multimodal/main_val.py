@@ -141,7 +141,7 @@ def main():
             label = label.to(device)
             
             optimizer.zero_grad() 
-            logits, Y_hat, attn_scores = model(path_features, genomic_features)
+            logits, Y_hat, attn_scores = model(path_features, genomic_features) #attn_score: 높을수록 모델이 중요하게 생각했다는 뜻
             
             loss = loss_fn(logits, label)
             total_loss += loss.item()
@@ -150,7 +150,6 @@ def main():
             optimizer.step()
             
             # --- 채점표에 기록할 항목 ---
-            total_loss += loss.item()
             prob      = torch.softmax(logits, dim=1)
             msi_prob  = prob[0, 1].item()
             pred_class = Y_hat.item()        
@@ -165,6 +164,8 @@ def main():
                 'patient_idx': batch_idx + 1,
                 'loss': round(loss.item(), 4)
             })
+
+        # 에폭별 Train 평균 지표 계산
         train_loss = total_loss / len(train_loader)
         train_acc  = accuracy_score(y_true_list, y_pred_list)
         try:
@@ -199,151 +200,130 @@ def main():
                 y_pred_test.append(pred_class)
 
 
-            # [MSI/MSS 예측 + XAI 설명 생성]
-            patient_id = patient_id[0]  # DataLoader가 리스트로 감싸므로 [0]으로 batch에서 꺼내기
-            prediction_label = 'MSIMUT' if pred_class == 1 else 'MSS'
-            prob_pct = round(msi_prob * 100 if pred_class == 1 else (1 - msi_prob) * 100, 1)
-            true_label = 'MSIMUT' if label.item() == 1 else 'MSS'
+                # [MSI/MSS 예측 + XAI 설명 생성]
+                patient_id = patient_id[0]  # DataLoader가 리스트로 감싸므로 [0]으로 batch에서 꺼내기
+                prediction_label = 'MSIMUT' if pred_class == 1 else 'MSS'
+                prob_pct = round(msi_prob * 100 if pred_class == 1 else (1 - msi_prob) * 100, 1)
+                true_label = 'MSIMUT' if label.item() == 1 else 'MSS'
 
 
-            # Co-Attention 기반 XAI 설명
-            A_coattn = attn_scores['coattn']  # (1, 1425, N_patches). 어떤 돌연변이가 어떤 WSI 패치를 attend했는지
-            omic_importance = A_coattn.squeeze(0).sum(dim=1)  # 각 돌연변이 총 기여도
-            top_omic_idx = omic_importance.argmax().item()
- 
-            top_patch_idx = A_coattn[0, top_omic_idx].argmax().item()
-            patch_attention_score = A_coattn[0, top_omic_idx, top_patch_idx].item()            
+                # Co-Attention 기반 XAI 설명
+                A_coattn = attn_scores['coattn']  # (1, 1425, N_patches). 어떤 돌연변이가 어떤 WSI 패치를 attend했는지
+                omic_importance = A_coattn.squeeze(0).sum(dim=1)  # 각 돌연변이 총 기여도
+                top_omic_idx = omic_importance.argmax().item()
+    
+                top_patch_idx = A_coattn[0, top_omic_idx].argmax().item()
+                patch_attention_score = A_coattn[0, top_omic_idx, top_patch_idx].item()            
 
-            # Co-Attention-genomic_features shape: (1425, 9) - squeeze 덕분
-            genomic_row = genomic_features[top_omic_idx]  # shape: (9,)
-            
-            # Co-Attention-각 컬럼 추출
-            var_id = int(genomic_row[0].item())
-            vc_id = int(genomic_row[1].item())
-            func_ids = genomic_row[2:8].long()  # 6개 func_id
+                # Co-Attention-genomic_features shape: (1425, 9) - squeeze 덕분
+                genomic_row = genomic_features[top_omic_idx]  # shape: (9,)
+                
+                # Co-Attention-각 컬럼 추출
+                var_id = int(genomic_row[0].item())
+                vc_id = int(genomic_row[1].item())
+                func_ids = genomic_row[2:8].long()  # 6개 func_id
 
-            # Co-Attention-역매핑으로 이름 추출
-            var_name = var_vocab_inv.get(var_id, f'Unknown_Var#{var_id}')
-            vc_name = vc_vocab_inv.get(vc_id, f'Unknown_VC#{vc_id}')
-            
-            # Co-Attention-활성 기능 추출
-            active_funcs = []
-            for f_id in func_ids:
-                f_id_val = int(f_id.item())
-                if f_id_val > 0 and f_id_val in func_vocab_inv:
-                    active_funcs.append(func_vocab_inv[f_id_val])
+                # Co-Attention-역매핑으로 이름 추출
+                var_name = var_vocab_inv.get(var_id, f'Unknown_Var#{var_id}')
+                vc_name = vc_vocab_inv.get(vc_id, f'Unknown_VC#{vc_id}')
+                
+                # Co-Attention-활성 기능 추출
+                active_funcs = []
+                for f_id in func_ids:
+                    f_id_val = int(f_id.item())
+                    if f_id_val > 0 and f_id_val in func_vocab_inv:
+                        active_funcs.append(func_vocab_inv[f_id_val])
 
 
-            # Co-Attention-최종 설명 생성
-            if active_funcs:
-                func_str = ", ".join(active_funcs)
-                reason = f"{var_name}({vc_name}) 돌연변이의 [{func_str}] 기능이 WSI 패치#{top_patch_idx}의 형태 이상을 주목(Attention: {patch_attention_score:.4f}) → {prediction_label} 판별에 기여"
-            else:
-                reason = f"{var_name}({vc_name}) 돌연변이가 WSI 패치#{top_patch_idx}의 morphological 패턴 주목(Attention: {patch_attention_score:.4f}) → {prediction_label} 판별에 기여"
+                # Co-Attention-최종 설명 생성
+                if active_funcs:
+                    func_str = ", ".join(active_funcs)
+                    reason = f"{var_name}({vc_name}) 돌연변이의 [{func_str}] 기능이 WSI 패치#{top_patch_idx}의 형태 이상을 주목(Attention: {patch_attention_score:.4f}) → {prediction_label} 판별에 기여"
+                else:
+                    reason = f"{var_name}({vc_name}) 돌연변이가 WSI 패치#{top_patch_idx}의 morphological 패턴 주목(Attention: {patch_attention_score:.4f}) → {prediction_label} 판별에 기여"
 
-            prediction_log.append({
-                'patient': patient_id,
-                'true_label': true_label,
-                'prediction': prediction_label,
-                'probability(%)': prob_pct,
-                'top_variant': var_name,
-                'variant_class': vc_name,
-                'gene_functions': func_str if active_funcs else 'N/A',
-                'top_patch_idx': top_patch_idx,
-                'attention_score': round(patch_attention_score, 4),
-                'reason': reason
-            })
 
-    test_loss = test_loss / len(test_loader)
-    test_acc  = accuracy_score(y_true_test, y_pred_test)
-    try:
-        test_auc = roc_auc_score(y_true_test, y_score_test)
-    except ValueError:
-        test_auc = 0.5
+                if epoch == epochs - 1:  # 마지막 에폭일 때만 기록!
+                    prediction_log.append({
+                        'patient': patient_id,
+                        'true_label': true_label,
+                        'prediction': prediction_label,
+                        'probability(%)': prob_pct,
+                        'top_variant': var_name,
+                        'variant_class': vc_name,
+                        'gene_functions': func_str if active_funcs else 'N/A',
+                        'top_patch_idx': top_patch_idx,
+                        'attention_score': round(patch_attention_score, 4),
+                        'reason': reason
+                    })
+
+        # 에폭별 Train 평균 지표 계산
+        test_loss = test_loss / len(test_loader)
+        test_acc  = accuracy_score(y_true_test, y_pred_test)
+        try:
+            test_auc = roc_auc_score(y_true_test, y_score_test)
+        except ValueError:
+            test_auc = 0.5
+
 
 
         # ============================
         # [결과 출력 및 로그 기록]
         # ============================
-
-        # [배치 로그 기록]
-        batch_detail_log.append({
-            'epoch': epoch + 1,
-            'patient_idx': batch_idx + 1,
-            'loss': round(loss.item(), 4)
-        })
-
-        print(f"   [Epoch {epoch+1}/{epochs}] 환자 {batch_idx+1:02d}명 분석 중... (순간 오차: {loss.item():.4f})")
-        # -----------------------------------------------------
-        # 한 바퀴(Epoch) 다 돌았으니 채점표 발표
-        # -----------------------------------------------------
-        avg_loss = total_loss / len(dataloader)
-        acc = accuracy_score(y_true_list, y_pred_list)
-        
-        try:
-            auc = roc_auc_score(y_true_list, y_score_list)
-        except ValueError:
-            auc = 0.5 
-            
-        print("\n" + "="*40)
-        # [Epoch 요약 로그 기록]
+        # [에폭 요약 로그] 매 에폭마다 한 줄씩 저장 (총 50(에포크 총 수)줄 예정)
         epoch_summary_log.append({
             'epoch': epoch + 1,
-            'avg_loss': round(avg_loss, 4),
-            'accuracy': round(acc * 100, 2),
-            'auc': round(auc, 4)
+            'train_loss': round(train_loss, 4),
+            'train_acc': round(train_acc * 100, 2),
+            'train_auc': round(train_auc, 4),
+            'test_loss': round(test_loss, 4),
+            'test_acc': round(test_acc * 100, 2),
+            'test_auc': round(test_auc, 4)
         })
-
-        print(f" [총합 채점표] Epoch {epoch+1}/{epochs} Train / Test 결과 요약")
-        print(f" Train  →  Loss: {train_loss:.4f} | Acc: {train_acc*100:.2f}% | AUC: {train_auc:.4f}")
-        print(f" Test   →  Loss: {test_loss:.4f}  | Acc: {test_acc*100:.2f}%  | AUC: {test_auc:.4f}")
-        # print(f" [평균 오차(Loss)] : {avg_loss:.4f}  (낮을수록 좋음)")
-        # print(f" [정답률(Accuracy)]: {acc*100:.2f}%  (높을수록 좋음)")
-        # print(f" [곡선 면적(AUC)]  : {auc:.4f}       (1.0에 가까울수록 좋음)")
-        print("="*40 + "\n")
-        
-
+        print(f"[*] Epoch {epoch+1:02d} 완료 | Test Acc: {test_acc*100:.2f}%")
+    
     # =========================================================================
-    # [CSV 파일 저장]
+    # [3. 최종 저장] 모든 에폭 루프가 끝난 후 실행. csv 파일 저장
     # =========================================================================
-
     save_dir = './results'
     os.makedirs(save_dir, exist_ok=True)
         
-        # [최종 Epoch 요약 CSV 저장]
+
+        
+    # 요약 정보 저장 (에포크별 평균 성능(50줄))
     summary_path = os.path.join(save_dir, 'epoch_summary.csv')
     with open(summary_path, 'w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.DictWriter(f, fieldnames=[
-            'epoch',
-            'train_loss', 'train_acc', 'train_auc',
-            'test_loss',  'test_acc',  'test_auc'
-        ])
+        writer = csv.DictWriter(f, fieldnames=epoch_summary_log[0].keys())
         writer.writeheader()
         writer.writerows(epoch_summary_log)
     print(f"[저장 완료] Epoch 요약 → {summary_path}")
 
-        
-        # [환자별 배치 로그 CSV 저장]
-    batch_path = os.path.join(save_dir, 'batch_detail_log.csv')
-    with open(batch_path, 'w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.DictWriter(f, fieldnames=['phase', 'epoch', 'patient_idx', 'loss'])
-        writer.writeheader()
-        writer.writerows(batch_detail_log)
-    print(f"[저장 완료] 배치 로그  → {batch_path}")
-
-
-        # [MSI/MSS 예측(xai 포함)]
+    # 최종 개별 환자 예측 결과(마지막 에포크 테스트 환자) 저장 (테스트셋 환자 수만큼, 예: 54줄)
     pred_path = os.path.join(save_dir, 'MSI_MSS_prediction.csv')
     with open(pred_path, 'w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.DictWriter(f, fieldnames=[
+        # 필드네임을 명시적으로 지정하여 저장
+        fieldnames = [
             'patient', 'true_label', 'prediction', 'probability(%)',
             'top_variant', 'variant_class', 'gene_functions',
             'top_patch_idx', 'attention_score', 'reason'
-        ])
+        ]
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(prediction_log)
     print(f"[저장 완료] MSI/MSS 예측 (XAI) → {pred_path}")
+
  
+    # 최종 결과 화면 출력 (마지막 에폭 기준)
+    print(f"\n" + "="*40)
+    print(f" [최종 채점표] Epoch {epoch+1}/{epochs} Train / Test 결과 요약")
+    print(f" Train  →  Loss: {train_loss:.4f} | Acc: {train_acc*100:.2f}% | AUC: {train_auc:.4f}")
+    print(f" Test   →  Loss: {test_loss:.4f}  | Acc: {test_acc*100:.2f}%  | AUC: {test_auc:.4f}")
+    # print(f" [평균 오차(Loss)] : {avg_loss:.4f}  (낮을수록 좋음)")
+    # print(f" [정답률(Accuracy)]: {acc*100:.2f}%  (높을수록 좋음)")
+    # print(f" [곡선 면적(AUC)]  : {auc:.4f}       (1.0에 가까울수록 좋음)")
+    print("="*40 + "\n")
+
+
     print("[성공] REDCAB_MCAT 학습 및 분석 완료!!!")
 
 
