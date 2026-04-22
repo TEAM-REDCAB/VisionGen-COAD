@@ -47,8 +47,8 @@ for fold in range(5):
     # OOM이 터진다면 Val 데이터셋에도 적절한 num_features 제한이 필요할 수 있습니다.
     val_ds = gm.H5Dataset(split="val", fold_col=current_fold_col)
     
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, worker_init_fn=lambda _: np.random.seed(SEED))
-    val_loader = DataLoader(val_ds, batch_size=1, shuffle=False, worker_init_fn=lambda _: np.random.seed(SEED))
+    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, worker_init_fn=lambda worker_id: np.random.seed(SEED + worker_id))
+    val_loader = DataLoader(val_ds, batch_size=1, shuffle=False, worker_init_fn=lambda worker_id: np.random.seed(SEED + worker_id))
 
     # 2. ClassificationHead (ViT) 모델 초기화
     model = ClassificationHead(
@@ -62,6 +62,7 @@ for fold in range(5):
     criterion = gm.BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
     # ViT 모델에 더 적합한 AdamW 사용 및 Learning Rate 미세 조정 (ABMIL보다 조금 낮게 시작)
     optimizer = optim.AdamW(model.parameters(), lr=1e-4, weight_decay=1e-4)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs)
     # Mixed Precision 학습을 위한 Scaler 초기화 (메모리 절약 및 속도 향상)
     scaler = torch.amp.GradScaler('cuda')
 
@@ -94,6 +95,7 @@ for fold in range(5):
             total_loss += loss.item()
             
         train_loss = total_loss / len(train_loader)
+        scheduler.step()
 
         # 4. Validation Evaluation
         torch.cuda.empty_cache()
@@ -142,9 +144,10 @@ for fold in range(5):
     print(f"Fold {fold} Finished. Best AUC: {best_val_auc:.4f}")
 
     # [추가] 현재 폴드 모델과 옵티마이저 명시적 삭제
-    del model
+    if 'scheduler' in locals(): del scheduler
     if 'optimizer' in locals(): del optimizer
     if 'scaler' in locals(): del scaler
+    del model
     
     # [추가] 가비지 컬렉션 및 GPU 캐시 강제 비우기
     import gc

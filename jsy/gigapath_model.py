@@ -107,16 +107,21 @@ class H5Dataset(Dataset):
         if self.split == 'train':
             num_available = features.shape[0]
             if num_available >= self.num_features:
-                indices = torch.randperm(num_available, generator=torch.Generator().manual_seed(SEED))[:self.num_features]
+                # indices = torch.randperm(num_available, generator=torch.Generator().manual_seed(SEED))[:self.num_features]
+                # [개선 1] 시드 고정 해제: 매 에포크마다 무작위로 뽑도록 변경
+                indices = torch.randperm(num_available)[:self.num_features]
             else:
-                indices = torch.randint(num_available, (self.num_features,), generator=torch.Generator().manual_seed(SEED))  # Oversampling
+                # indices = torch.randint(num_available, (self.num_features,), generator=torch.Generator().manual_seed(SEED))  # Oversampling
+                indices = torch.randint(num_available, (self.num_features,))  # Oversampling
             
+            # [개선 2] 뽑힌 인덱스를 정렬하여 패치의 공간적 순서(Topology) 보존
+            indices = torch.sort(indices)[0]
+
             features = features[indices]
             coords = coords[indices]
 
         label = torch.tensor(row["msi"], dtype=torch.float32)
         return features, coords, label
-
 
 class BinaryFocalLoss(nn.Module):
     # 기존에 작성하신 코드를 그대로 활용합니다.
