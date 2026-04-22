@@ -27,7 +27,7 @@
 | **t_depth** | Read depth across this locus in tumor BAM. |
 | **t_alt_count** | Read depth supporting the variant allele in tumor BAM. |
 | **SIFT** | Predicts whether an amino acid substitution affects protein function based on sequence homology and the physical properties of amino acids. **Score (0 to 1)**: <br> • **≤ 0.05**: Deleterious (Damaging) <br> • **> 0.05**: Tolerated (Neutral) |
-| **PolyPhen** | Predicts the possible impact of an amino acid substitution on the structure and function of a human protein using physical and comparative considerations. | **Score (0 to 1)**: <br> • **> 0.908**: Probably Damaging <br> • **0.446 - 0.908**: Possibly Damaging <br> • **≤ 0.446**: Benign |
+| **PolyPhen** | Predicts the possible impact of an amino acid substitution on the structure and function of a human protein using physical and comparative considerations. **Score (0 to 1)**: <br> • **> 0.908**: Probably Damaging <br> • **0.446 - 0.908**: Possibly Damaging <br> • **≤ 0.446**: Benign |
 | **patient_nm** | Patient identification (ID) used for cohort mapping. |
 
 ### preprocessing.py
