@@ -8,7 +8,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from models.model_utils import *
+from model_utils import *
+
 
 
 
@@ -471,12 +472,18 @@ def multi_head_attention_forward(
 
 import torch
 from torch import Tensor
-from torch.nn.modules.linear import _LinearWithBias
 from torch.nn.init import xavier_uniform_
 from torch.nn.init import constant_
 from torch.nn.init import xavier_normal_
 from torch.nn.parameter import Parameter
 from torch.nn import Module
+
+# 기존 기재 내용
+#from torch.nn.modules.linear import _LinearWithBias
+# 수정 내용
+import torch.nn as nn
+_LinearWithBias = nn.Linear
+
 
 class MultiheadAttention(Module):
     r"""Allows the model to jointly attend to information
