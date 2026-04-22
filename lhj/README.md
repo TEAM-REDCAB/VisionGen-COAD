@@ -18,6 +18,7 @@
 ### preprocessed_mutation_data.csv
 * TCGA_COAD.wxs.common_parsed.maf 에서 최소한의 컬럼을 선정하고 signatures.csv 를 annotation 한 데이터
 * TCGA_COAD.wxs.common_parsed.maf 에서 사용한 컬럼 및 설명 요약
+
 | Column | Description |
 | :--- | :--- |
 | **Hugo_Symbol** | HUGO symbol for the gene (HUGO symbols are always in all caps). "Unknown" is used for regions that do not correspond to a gene. |
