@@ -121,7 +121,7 @@ parser.add_argument('--model_size_omic', type=str, default='small', help='Networ
 parser.add_argument('--opt',             type=str, choices = ['adam', 'sgd'], default='adam')
 parser.add_argument('--batch_size',      type=int, default=1, help='Batch Size (Default: 1, due to varying bag sizes)')
 parser.add_argument('--gc',              type=int, default=32, help='Gradient Accumulation Step.')
-parser.add_argument('--max_epochs',      type=int, default=20, help='Maximum number of epochs to train (default: 20)')
+parser.add_argument('--max_epochs', type=int, default=50, help='Maximum number of epochs to train')
 parser.add_argument('--lr',              type=float, default=2e-4, help='Learning rate (default: 0.0001)')
 parser.add_argument('--bag_loss',        type=str, choices=['ce', 'svm'], default='ce', help='slide-level classification loss function (default: ce)') # 수정: CE loss를 기본으로
 parser.add_argument('--label_frac',      type=float, default=1.0, help='fraction of training labels (default: 1.0)')
@@ -131,7 +131,7 @@ parser.add_argument('--reg_type',        type=str, choices=['None', 'omic', 'pat
 parser.add_argument('--lambda_reg',      type=float, default=1e-4, help='L1-Regularization Strength (Default 1e-4)')
 parser.add_argument('--weighted_sample', action='store_true', default=True, help='Enable weighted sampling')
 parser.add_argument('--early_stopping',  action='store_true', default=False, help='Enable early stopping')
-parser.add_argument( '--genomic_dir',    type=str, default='path/to/preprocessing', help='genomic_input_matrix.npy + genomic_encoding_states.pkl 폴더') # genomic_input_matrix.npy가 있는 폴더 
+parser.add_argument( '--genomic_dir',    type=str, default='./data/genomic', help='genomic_input_matrix.npy + genomic_encoding_states.pkl 폴더') # genomic_input_matrix.npy가 있는 폴더 
 parser.add_argument('--testing', action='store_true', default=False, help='Enable testing mode')
 
 args = parser.parse_args()

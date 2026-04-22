@@ -95,7 +95,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
     def __init__(self,
         csv_path     = "./data/tcga_coad_all_clean.csv",
-        genomic_dir  = None,
+        genomic_dir  = "./data/genomic",
         mode         = "coattn",
         apply_sig    = False,
         shuffle      = False,
