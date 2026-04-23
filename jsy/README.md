@@ -37,20 +37,30 @@ python ./TRIDENT/run_batch_of_slides.py \
     <em>Tissue Segmentation</em>
     <br><br>
     <img src="images/patch.jpg" width="50%" alt="Patch Extraction"><br>
-    <em>Patch Extraction (Tiling)</em>
-    <br><br>
-    <img src="images/attention_score.png" width="90%" alt="Visualize Attention Score"><br>
-    <em>Visualize Attention Score</em>
+    <em>Patch Extraction (Tiling)</em>    
 </div>
 
 ---
 
 ### **테스트용 ABMIL 이미지 추론 모델**
 
-- `abmil_model.py`: 랜덤 시드, 정답지 분할, 각종 경로 설정(정답지, 모델 저장, 테스트 결과, 시각화 자료 등) 및 공통 클래스(Dataset, Classifier, Focal Loss) 정의
+- `config.py`: 랜덤 시드, 정답지 분할, 각종 경로 설정(정답지, 모델 저장, 테스트 결과, 시각화 자료 등)
+- `h5dataset.py`, `binary_focal_loss.py`: Dataset 및 Focal Loss 정의
+- `abmil_model.py`: 이진 분류 모델
 - `abmil_train.py`: TRIDENT 내장 Attention-based Multi Instance Learning 5-fold 교차검증 훈련
 - `abmil_test.py`: ABMIL 모델 테스트
 - `ablmil_visualize_hitmap.py`: 어텐션 스코어를 히트맵으로 시각화
+
+<div align="center">
+    <img src="images/abmil_combined_fold_curves.png" width="50%" alt="Thumbnail"><br>
+    <em>AUC/AUPRC Curve</em>
+    <br><br>
+    <img src="images/abmil_total_confusion_matrix.png" width="50%" alt="Segmentation"><br>
+    <em>Confusion Matrix</em>
+    <br><br>
+    <img src="images/attention_score.png" width="50%" alt="Visualize Attention Score"><br>
+    <em>Visualize Attention Score</em>
+</div>
 
 ---
 
@@ -58,5 +68,18 @@ python ./TRIDENT/run_batch_of_slides.py \
 
 - `config.py`: 랜덤 시드, 정답지 분할, 각종 경로 설정(정답지, 모델 저장, 테스트 결과, 시각화 자료 등)
 - `h5dataset.py`, `binary_focal_loss.py`: Dataset 및 Focal Loss 정의
-- `gigapath_train.py`: flash_attn(xformers 대체)을 사용한 경량 ViT 모델로 5-fold(Stratified) 교차검증 훈련. Focal Loss(불균형 데이터 가중치) 손실함수 채택
+- `gigapath/classification_head.py` : gigapath 이진 분류 모델
+- `gigapath_train.py`: xformers(flash_attn 대체)를 사용한 경량 ViT 모델로 5-fold(Stratified) 교차검증 훈련. Focal Loss(불균형 데이터 가중치) 손실함수 채택
 - `gigapath_test.py`: 저장된 GigaPath 모델 테스트용 코드
+- `gigapath_visualize.py`: PCA 시각화
+
+<div align="center">
+    <img src="images/gigapath_combined_curves.png" width="50%" alt="Thumbnail"><br>
+    <em>AUC/AUPRC Curve</em>
+    <br><br>
+    <img src="images/gigapath_total_confusion_matrix.png" width="50%" alt="Segmentation"><br>
+    <em>Confusion Matrix</em>
+    <br><br>
+    <img src="images/Compare_PCA_MSS_TCGA-DM-A0X9.png" width="50%" alt="Segmentation"><br>
+    <em>PCA Visualization</em>
+</div>
