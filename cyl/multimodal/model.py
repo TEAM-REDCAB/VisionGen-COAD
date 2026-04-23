@@ -13,7 +13,8 @@ import torch.nn.functional as F
 # =========================================================================
 # [원본 의존성 연결] 선생님의 새 폴더 구조(mcat, multimodal)에 맞춘 Import 구조
 # =========================================================================
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'mcat')))
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'mcat')))
+sys.path.append('/home/team1/cyl/coad_project_train/mcat')
 
 # 1. SNN_Block, Attn_Net_Gated
 # -> 원본 출처: mcat/model_utils.py
@@ -68,10 +69,10 @@ class Genomic_Interpreter(nn.Module):
 
 
 # =========================================================================
-# [3번 상자] 정한 REDCAB_MCAT 모델 (해독기 탑재 완료)
+# [3번 상자] 요리사 / 진정한 REDCAB_MCAT 모델 (해독기 탑재 완료)
 # =========================================================================
 class MCAT_Single_Branch_Model(nn.Module):
-    def __init__(self, vocab_sizes, path_dim=1024, n_classes=2, dropout=0.25):
+    def __init__(self, vocab_sizes, path_dim=1536, n_classes=2, dropout=0.25):
         super(MCAT_Single_Branch_Model, self).__init__()
         print("[알림] REDCAB_MCAT 구조 활성화: 해독기(Interpreter) 기반 Co-Attention 장착 완료!")
         
@@ -109,7 +110,7 @@ class MCAT_Single_Branch_Model(nn.Module):
         self.classifier = nn.Linear(256, n_classes)
 
     def forward(self, x_path, x_omic):
-        # x_path: (N, 1024), x_omic: (1, 1425, 9)
+        # x_path: (N, 1536), x_omic: (1, 1425, 9)
         
         h_path_bag = self.wsi_net(x_path).unsqueeze(1) 
         
@@ -141,4 +142,3 @@ class MCAT_Single_Branch_Model(nn.Module):
         attention_scores = {'coattn': A_coattn, 'path': A_path, 'omic': A_omic}
         
         return logits, Y_hat, attention_scores
-
