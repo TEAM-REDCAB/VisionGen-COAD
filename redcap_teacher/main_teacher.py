@@ -49,7 +49,7 @@ CFG = {
 
 
 # =========================================================================
-# EarlyStopping (chl 코드 그대로)
+# EarlyStopping (cyl 코드 그대로)
 # =========================================================================
 class EarlyStopping:
     def __init__(self, patience=10, stop_epoch=20, verbose=True):
@@ -83,8 +83,15 @@ class EarlyStopping:
 
 
 # =========================================================================
-# XAI 기록 (chl 코드 기반, 함수로 분리)
+# XAI 기록 (cyl 코드 기반, 함수로 분리)
 # =========================================================================
+def resolve_coattn_shape(A_coattn, n_omic=1425):
+    for dim_idx in range(A_coattn.dim()):
+        if A_coattn.shape[dim_idx] == n_omic:
+            A_coattn = A_coattn.transpose(0, dim_idx)
+            return A_coattn.reshape(n_omic, -1)
+    return A_coattn.reshape(1, -1)
+    
 def build_xai_record(result, var_vocab_inv, vc_vocab_inv, func_vocab_inv, fold):
     attn   = result['attn_scores']
     g_feat = result['genomic_features']
@@ -96,11 +103,13 @@ def build_xai_record(result, var_vocab_inv, vc_vocab_inv, func_vocab_inv, fold):
     true_str = 'MSIMUT' if true == 1 else 'MSS'
     prob_pct = round(prob * 100 if pred == 1 else (1 - prob) * 100, 1)
 
-    A_coattn     = attn['coattn']
-    omic_imp     = A_coattn.squeeze(0).sum(dim=1)
+    A_coattn_2d  = resolve_coattn_shape(attn['coattn'], n_omic=1425)
+    omic_imp     = A_coattn_2d.sum(dim=1)
     top_omic     = omic_imp.argmax().item()
-    top_patch    = A_coattn[0, top_omic].argmax().item()
-    attn_score   = A_coattn[0, top_omic, top_patch].item()
+    
+    patch_row    = A_coattn_2d[top_omic]
+    top_patch    = patch_row.argmax().item()
+    attn_score   = patch_row[top_patch].item()
 
     row      = g_feat[top_omic]
     var_name = var_vocab_inv.get(int(row[0].item()), f'Var#{int(row[0].item())}')
@@ -216,7 +225,10 @@ def main():
             es(epoch, val_loss, model)
             if es.early_stop:
                 print(f"  [Early Stop] Fold {fold+1} Epoch {epoch+1}")
+                stopped_epoch = epoch + 1 - es.counter
                 break
+            if not es.early_stop:
+            stopped_epoch = CFG['max_epochs']
 
         if es.best_state:
             model.load_state_dict(es.best_state)
@@ -226,7 +238,7 @@ def main():
         torch.save(model.state_dict(), ckpt_path)
         
         test_loss, test_acc, test_auc, test_results = run_epoch(
-            model, test_loader, loss_fn, device, is_train=False
+            model, test_loader, loss_fn, device, is_train=False, save_xai=True
         )
         print(f"\n  [Fold {fold+1} Test] Loss {test_loss:.4f} | Acc {test_acc*100:.2f}% | AUC {test_auc:.4f}")
 
@@ -235,10 +247,10 @@ def main():
             rec.update({'test_loss': round(test_loss, 4), 'test_acc': round(test_acc*100, 2), 'test_auc': round(test_auc, 4)})
             pred_log.append(rec)
 
-        new_row = {'fold': fold+1, 'test_loss': round(test_loss, 4), 'test_acc': round(test_acc*100, 2), 'test_auc': round(test_auc, 4)}
+        new_row = {'fold': fold+1, 'test_loss': round(test_loss, 4), 'test_acc': round(test_acc*100, 2), 'test_auc': round(test_auc, 4)}, 'stopped_epoch': stopped_epoch}
         fold_log.append(new_row)
         with open(fold_csv, 'a', newline='', encoding='utf-8-sig') as f:
-            csv.DictWriter(f, fieldnames=['fold', 'test_loss', 'test_acc', 'test_auc']).writerow(new_row)
+            csv.DictWriter(f, fieldnames=['fold', 'test_loss', 'test_acc', 'test_auc','stopped_epoch']).writerow(new_row)
 
         del model, optimizer
         torch.cuda.empty_cache()
