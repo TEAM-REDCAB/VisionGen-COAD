@@ -230,7 +230,9 @@ trident_processed/
 runs/
 tensorboard_logs/
 lightning_logs/
-results_final_v1/
+# 4. 모델 학습 결과
+results_final_gigapath/
+results_final/
 
 # 4. OS 시스템 및 에디터 캐시
 .DS_Store

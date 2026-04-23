@@ -72,12 +72,40 @@ def load_genomic_data(genomic_dir: str):
         f"npy 환자 수 {matrix.shape[0]} != pkl 환자 수 {len(patient_order)}"
     )
 
-    # ── omic 그룹 마스크 ─────────────────────────────────────────────
-    # dim[2:8] = Func_IDs[0~5]
-    # 전체 환자에서 한 번이라도 non-zero인 변이 위치를 그 그룹 소속으로 판정
-    func_ids_all = matrix[:, :, 2:8]                   # (N, 1425, 6)
-    group_nonzero = (func_ids_all != 0).any(axis=0)    # (1425, 6) bool
-    omic_masks = [group_nonzero[:, i] for i in range(6)]
+   # ── omic 마스크 수정 ──────────────────────────────────────────────
+    # [기존 문제]
+    # group_nonzero[:, i] → F슬롯 i번째가 non-zero인 위치를 omic i로 잘못 해석
+    # 실제 npy: dim[2:8] = [F1, F2, F3, F4, F5, F6]
+    #           각 슬롯에는 func_vocab 인덱스(1~6)가 순서 없이 채워짐
+    #
+    # [수정] func_vocab은 알파벳 정렬로 생성됨:
+    #   1 → Cell Differentiation Markers
+    #   2 → Cytokines and Growth Factors
+    #   3 → Oncogenes
+    #   4 → Protein Kinases
+    #   5 → Transcription Factors
+    #   6 → Tumor Suppressor Genes
+    #
+    # signatures.csv 컬럼 순서(= omic 그룹 순서):
+    #   omic0: Tumor Suppressor Genes       → func_idx 6
+    #   omic1: Oncogenes                    → func_idx 3
+    #   omic2: Protein Kinases              → func_idx 4
+    #   omic3: Cell Differentiation Markers → func_idx 1
+    #   omic4: Transcription Factors        → func_idx 5
+    #   omic5: Cytokines and Growth Factors → func_idx 2
+
+    OMIC_FUNC_INDICES = [6, 3, 4, 1, 5, 2]  # omic0 ~ omic5에 대응하는 func_idx
+
+    func_ids_all = matrix[:, :, 2:8]  # (N, 1425, 6)
+
+    omic_masks = []
+    for func_idx in OMIC_FUNC_INDICES:
+        # F1~F6 슬롯 중 어디든 해당 func_idx가 있으면 이 그룹 소속
+        belongs = (func_ids_all == func_idx).any(axis=2)  # (N, 1425)
+        # 전체 환자 중 한 명이라도 해당 위치에 이 그룹 있으면 마스크 True
+        group_mask = belongs.any(axis=0)  # (1425,)
+        omic_masks.append(group_mask)
+
     omic_sizes = [int(m.sum()) for m in omic_masks]
 
     print(f"[Genomic] shape      : {matrix.shape}")
