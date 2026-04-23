@@ -2,13 +2,14 @@ import os
 import pandas as pd
 from sklearn.model_selection import train_test_split, StratifiedKFold
 
+ENCODER_MODEL='gigapath'    # gigapath, uni_v2
 SEED = 42
 
 def get_feats_path():
     return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
 
 def get_coords_path():
-    coords_path = '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/patches'
+    coords_path = '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/patches_gigapath'
     return coords_path
 
 def get_results_path():
@@ -17,7 +18,7 @@ def get_results_path():
     return results_path
     
 def get_label_path():
-    df = pd.read_csv('./common_patients.txt', sep='\t')
+    df = pd.read_csv('./labels/common_patients.txt', sep='\t')
     df['msi'] = df['type'].map({'MSS':0, 'MSIMUT':1})
 
     df_train_val, df_test = train_test_split(

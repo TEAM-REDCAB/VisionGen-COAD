@@ -9,7 +9,7 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader
 
 import config as cf
-from h5dataset import H5Dataset
+from utils.h5dataset import H5Dataset
 
 def visualize_pca_side_by_side():
     output_dir = os.path.join(cf.get_results_path(), 'visualizations_pca_compare')

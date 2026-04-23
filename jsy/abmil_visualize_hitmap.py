@@ -5,15 +5,15 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from tqdm import tqdm
-from abmil_model import BinaryClassificationModel
-import abmil_model as am
+from utils.abmil_model import BinaryClassificationModel
+import config as cf
 
 # 1. 설정 및 경로
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-LABEL_PATH = am.get_label_path()
-MODEL_PATH = os.path.join(am.get_results_path(), 'saved_models')
-FEATS_PATH = am.get_features_path()
-OUTPUT_DIR = os.path.join(am.get_results_path(), 'visualizations')
+LABEL_PATH = cf.get_label_path()
+MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models')
+FEATS_PATH = cf.get_feats_path()
+OUTPUT_DIR = os.path.join(cf.get_results_path(), 'visualizations')
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 df = pd.read_csv(LABEL_PATH)
@@ -40,7 +40,7 @@ for fold in range(5):
         print(f"⚠️ {model_path} 없음. 스킵.")
         continue
         
-    model.load_state_dict(torch.load(model_path, map_location=device))
+    model.load_state_dict(torch.load(model_path, map_location=device, weights_only=True))
     model.eval()
 
     # 해당 Fold의 Test 환자만 추출

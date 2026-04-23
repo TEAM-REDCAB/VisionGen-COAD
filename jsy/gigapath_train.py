@@ -6,9 +6,9 @@ import torch
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score, average_precision_score
-from h5dataset import H5Dataset
-from binary_focal_loss import BinaryFocalLoss
-from gigapath.classification_head import ClassificationHead
+from utils.h5dataset import H5Dataset
+from utils.binary_focal_loss import BinaryFocalLoss
+from encoders.gigapath.classification_head import ClassificationHead
 import config as cf
 
 SEED = cf.SEED

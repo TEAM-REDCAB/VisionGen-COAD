@@ -13,8 +13,8 @@ from sklearn.metrics import (
     confusion_matrix
 )
 
-from gigapath.classification_head import ClassificationHead
-from h5dataset import H5Dataset
+from encoders.gigapath.classification_head import ClassificationHead
+from utils.h5dataset import H5Dataset
 import config as cf
 # --- 설정 및 경로 (사용자 환경에 맞게 수정) ---
 RESULTS_PATH = cf.get_results_path()
@@ -37,7 +37,7 @@ def test_gigapath_full_slide():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
     colors = ['red', 'blue', 'green', 'orange', 'purple']
 
-    for fold in tqdm(range(5), desc="Fold"):
+    for fold in range(5):
         print(f"\n🚀 Testing GigaPath Fold {fold} (Full Slide Inference)...")
         current_fold_col = f'fold_{fold}'
         

@@ -10,8 +10,9 @@ from sklearn.metrics import (
     roc_curve, precision_recall_curve,
     confusion_matrix, classification_report
 )
-from abmil_model import BinaryClassificationModel
-from h5dataset import H5Dataset
+from tqdm import tqdm
+from utils.abmil_model import BinaryClassificationModel
+from utils.h5dataset import H5Dataset
 import config as cf
 
 # --- 설정 및 경로 ---
@@ -64,7 +65,7 @@ def test_and_visualize():
 
         all_labels, all_probs = [], []
         with torch.no_grad():
-            for features, coords, labels in test_loader:
+            for features, coords, labels in tqdm(test_loader):
                 features_dict = {'features': features.to(device)}
                 outputs = model(features_dict)
                 probs = torch.sigmoid(outputs).cpu().numpy()
