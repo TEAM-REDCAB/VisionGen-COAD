@@ -61,6 +61,8 @@ def load_genomic_data(genomic_dir: str):
         patient_order = enc_states["patient_order"]
     elif "patients" in enc_states:
         patient_order = enc_states["patients"]
+    elif "patient_list" in enc_states:
+        patient_order = enc_states["patient_list"]
     else:
         raise KeyError(
             f"pkl에 patient_order 키 없음. 실제 키: {list(enc_states.keys())}"
@@ -70,12 +72,40 @@ def load_genomic_data(genomic_dir: str):
         f"npy 환자 수 {matrix.shape[0]} != pkl 환자 수 {len(patient_order)}"
     )
 
-    # ── omic 그룹 마스크 ─────────────────────────────────────────────
-    # dim[2:8] = Func_IDs[0~5]
-    # 전체 환자에서 한 번이라도 non-zero인 변이 위치를 그 그룹 소속으로 판정
-    func_ids_all = matrix[:, :, 2:8]                   # (N, 1425, 6)
-    group_nonzero = (func_ids_all != 0).any(axis=0)    # (1425, 6) bool
-    omic_masks = [group_nonzero[:, i] for i in range(6)]
+   # ── omic 마스크 수정 ──────────────────────────────────────────────
+    # [기존 문제]
+    # group_nonzero[:, i] → F슬롯 i번째가 non-zero인 위치를 omic i로 잘못 해석
+    # 실제 npy: dim[2:8] = [F1, F2, F3, F4, F5, F6]
+    #           각 슬롯에는 func_vocab 인덱스(1~6)가 순서 없이 채워짐
+    #
+    # [수정] func_vocab은 알파벳 정렬로 생성됨:
+    #   1 → Cell Differentiation Markers
+    #   2 → Cytokines and Growth Factors
+    #   3 → Oncogenes
+    #   4 → Protein Kinases
+    #   5 → Transcription Factors
+    #   6 → Tumor Suppressor Genes
+    #
+    # signatures.csv 컬럼 순서(= omic 그룹 순서):
+    #   omic0: Tumor Suppressor Genes       → func_idx 6
+    #   omic1: Oncogenes                    → func_idx 3
+    #   omic2: Protein Kinases              → func_idx 4
+    #   omic3: Cell Differentiation Markers → func_idx 1
+    #   omic4: Transcription Factors        → func_idx 5
+    #   omic5: Cytokines and Growth Factors → func_idx 2
+
+    OMIC_FUNC_INDICES = [6, 3, 4, 1, 5, 2]  # omic0 ~ omic5에 대응하는 func_idx
+
+    func_ids_all = matrix[:, :, 2:8]  # (N, 1425, 6)
+
+    omic_masks = []
+    for func_idx in OMIC_FUNC_INDICES:
+        # F1~F6 슬롯 중 어디든 해당 func_idx가 있으면 이 그룹 소속
+        belongs = (func_ids_all == func_idx).any(axis=2)  # (N, 1425)
+        # 전체 환자 중 한 명이라도 해당 위치에 이 그룹 있으면 마스크 True
+        group_mask = belongs.any(axis=0)  # (1425,)
+        omic_masks.append(group_mask)
+
     omic_sizes = [int(m.sum()) for m in omic_masks]
 
     print(f"[Genomic] shape      : {matrix.shape}")
@@ -92,8 +122,8 @@ def load_genomic_data(genomic_dir: str):
 class Generic_WSI_Classification_Dataset(Dataset):
 
     def __init__(self,
-        csv_path     = "dataset_csv/tcga_coad_all_clean.csv",
-        genomic_dir  = None,
+        csv_path     = "./data/tcga_coad_all_clean.csv",
+        genomic_dir  = "./data/genomic",
         mode         = "coattn",
         apply_sig    = False,
         shuffle      = False,
@@ -248,6 +278,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
             omic_masks     = self.omic_masks,
             omic_sizes     = self.omic_sizes,
             pid_to_gidx    = self.pid_to_gidx,
+            use_h5         = self.use_h5,
         )
 
     def return_splits(self, from_id=True, csv_path=None):
@@ -295,10 +326,10 @@ class Generic_MIL_Classification_Dataset(Generic_WSI_Classification_Dataset):
                         os.path.join(base_dir, "pt_files", f"{sid}.pt")))
                 else:
                     with h5py.File(
-                        os.path.join(base_dir, "h5_files", f"{sid}.h5"), "r"
+                        os.path.join(base_dir, f"{sid}.h5"), "r"
                     ) as f:
                         bags.append(torch.from_numpy(f["features"][:]))
-            return torch.cat(bags, dim=0) if bags else torch.zeros((1, 1024))
+            return torch.cat(bags, dim=0) if bags else torch.zeros((1, 1536))
 
         if self.mode == "path":
             return (load_wsi(slide_ids, data_dir), torch.zeros((1, 1)), label)
@@ -323,9 +354,9 @@ class Generic_Split(Generic_MIL_Classification_Dataset):
                  data_dir=None, label_col=None, patient_dict=None,
                  num_classes=2,
                  genomic_matrix=None, omic_masks=None,
-                 omic_sizes=None, pid_to_gidx=None):
+                 omic_sizes=None, pid_to_gidx=None, use_h5=False):
 
-        self.use_h5         = False
+   
         self.slide_data     = slide_data
         self.metadata       = metadata
         self.mode           = mode
@@ -333,12 +364,12 @@ class Generic_Split(Generic_MIL_Classification_Dataset):
         self.num_classes    = num_classes
         self.label_col      = label_col
         self.patient_dict   = patient_dict
-
         # genomic 공유 객체 (부모에서 전달 — 재로드 없음)
         self.genomic_matrix = genomic_matrix
         self.omic_masks     = omic_masks  if omic_masks  is not None else [None]*6
         self.omic_sizes     = omic_sizes  if omic_sizes  is not None else [0]*6
         self.pid_to_gidx    = pid_to_gidx if pid_to_gidx is not None else {}
+        self.use_h5         = use_h5
 
         self.slide_cls_ids = [
             np.where(self.slide_data["label"] == i)[0]
@@ -350,3 +381,13 @@ class Generic_Split(Generic_MIL_Classification_Dataset):
 
     def __len__(self):
         return len(self.slide_data)
+
+def save_splits(datasets, column_keys, filename, boolean_style=False):
+    splits = [d.slide_data['case_id'] for d in datasets if d is not None]
+    if not boolean_style:
+        df = pd.concat(splits, ignore_index=True, axis=1)
+        df.columns = column_keys[:len(splits)]
+    else:
+        df = pd.concat(splits, ignore_index=True, axis=1)
+        df.columns = column_keys[:len(splits)]
+    df.to_csv(filename, index=False)

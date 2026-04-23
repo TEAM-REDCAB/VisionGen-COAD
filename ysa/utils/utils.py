@@ -217,7 +217,7 @@ def l1_reg_modules(model, reg_type=None):
 
 def get_custom_exp_code(args):
     exp_code = '_'.join(args.split_dir.split('_')[:2])
-    dataset_path = 'dataset_csv'
+    dataset_path = './data'
     param_code = ''
 
     ### Model Type

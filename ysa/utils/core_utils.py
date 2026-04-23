@@ -15,7 +15,7 @@ from models.model_coattn import MCAT_Classifier
 from utils.utils import *
 
 from utils.coattn_train_utils import *
-from utils.cluster_train_utils import *
+# from utils.cluster_train_utils import *
 
 class EarlyStopping:
     """Early stops the training if validation loss doesn't improve after a given patience."""
@@ -27,7 +27,7 @@ class EarlyStopping:
         self.counter = 0
         self.best_score = None
         self.early_stop = False
-        self.val_loss_min = np.Inf
+        self.val_loss_min = np.inf
 
     def __call__(self, epoch, val_loss, model, ckpt_name = 'checkpoint.pt'):
         score = -val_loss
@@ -151,19 +151,23 @@ def train(datasets: tuple, cur: int, args: Namespace):
 
     print('\nSetup EarlyStopping...', end=' ')
     if args.early_stopping:
-        early_stopping = EarlyStopping(warmup=0, patience=10, stop_epoch=20, verbose = True)
+            # 수정: stop_epoch=0으로 설정하여 처음부터 작동하게 함, patience는 데이터에 맞춰 조정 가능
+            early_stopping = EarlyStopping(warmup=0, patience=5, stop_epoch=0, verbose=True)
     else:
         early_stopping = None
+    print('Done!')
 
     print('\nSetup Validation Metric Monitor...', end=' ')
     monitor_metric = Monitor_Metric()
     print('Done!')
 
     for epoch in range(args.max_epochs):
-        # 수정: 분류 루프 실행
         if args.task_type == 'classification':
             if args.mode == 'coattn':
+                # 학습 루프 실행
                 train_loop_classification_coattn(epoch, model, train_loader, optimizer, args.n_classes, writer, loss_fn, reg_fn, args.lambda_reg, args.gc)
+                
+                # 검증 및 EarlyStopping 체크 (validate 함수 내부에서 s_{}_minloss_checkpoint.pt가 저장됨)
                 stop = validate_classification_coattn(cur, epoch, model, val_loader, args.n_classes, early_stopping=early_stopping, writer=writer, loss_fn=loss_fn, reg_fn=reg_fn, lambda_reg=args.lambda_reg, results_dir=args.results_dir)
             else:
                 raise NotImplementedError("Currently only coattn mode is fully supported for classification.")
@@ -171,14 +175,29 @@ def train(datasets: tuple, cur: int, args: Namespace):
         if stop: 
             break
 
-    # 모델 최고 성능 지점 로드
-    torch.save(model.state_dict(), os.path.join(args.results_dir, "s_{}_checkpoint.pt".format(cur)))
-    model.load_state_dict(torch.load(os.path.join(args.results_dir, "s_{}_checkpoint.pt".format(cur))))
+    # ══════════════════════════════════════════════════════════════════════
+    # 가중치 파일 로드 및 문서 뱉는 부분 수정
+    # ══════════════════════════════════════════════════════════════════════
     
-    # 수정: summary_classification_coattn에서 딕셔너리, Acc, AUC 반환
+    # 1. 가장 Loss가 낮았던 최적의 체크포인트를 로드합니다.
+    best_ckpt_path = os.path.join(args.results_dir, "s_{}_minloss_checkpoint.pt".format(cur))
+    
+    if os.path.exists(best_ckpt_path):
+        print(f'\n[Final] Loading best model weights from {best_ckpt_path}')
+        model.load_state_dict(torch.load(best_ckpt_path, weights_only=True))
+    else:
+        # 파일이 없을 경우를 대비해 현재 상태라도 저장
+        print(f'\n[Warning] Best checkpoint not found. Saving current weights.')
+        torch.save(model.state_dict(), os.path.join(args.results_dir, "s_{}_checkpoint.pt".format(cur)))
+
+    # 2. 최적 모델로 최종 성능 계산 (summary.csv에 들어갈 값)
     results_val_dict, val_acc, val_auc = summary_classification_coattn(model, val_loader, args.n_classes)
     
-    print('Val Accuracy: {:.4f}, Val AUC: {:.4f}'.format(val_acc, val_auc))
+    print('\n' + '='*30)
+    print(f'Fold {cur} Final Results:')
+    print(f'Val Accuracy: {val_acc:.4f}, Val AUC: {val_auc:.4f}')
+    print('='*30)
+
     if writer:
         writer.close()
         
