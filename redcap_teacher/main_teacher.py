@@ -247,7 +247,7 @@ def main():
             rec.update({'test_loss': round(test_loss, 4), 'test_acc': round(test_acc*100, 2), 'test_auc': round(test_auc, 4)})
             pred_log.append(rec)
 
-        new_row = {'fold': fold+1, 'test_loss': round(test_loss, 4), 'test_acc': round(test_acc*100, 2), 'test_auc': round(test_auc, 4)}, 'stopped_epoch': stopped_epoch}
+        new_row = {'fold': fold+1, 'test_loss': round(test_loss, 4), 'test_acc': round(test_acc*100, 2), 'test_auc': round(test_auc, 4), 'stopped_epoch': stopped_epoch}
         fold_log.append(new_row)
         with open(fold_csv, 'a', newline='', encoding='utf-8-sig') as f:
             csv.DictWriter(f, fieldnames=['fold', 'test_loss', 'test_acc', 'test_auc','stopped_epoch']).writerow(new_row)
