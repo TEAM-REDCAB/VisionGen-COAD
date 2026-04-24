@@ -23,3 +23,5 @@ project/
     ├── genomic_encoder.py # 유전체 인코더: (1425, 9) → (1425, 256) (SNN_Block 포함)
     ├── coattn_fusion.py   # Co-Attention 기반 상호작용 및 특징 융합 (Attn_Net_Gated 포함)
     └── classifier_head.py # 최종 분류기: 융합된 특징 (256,) → Logits (2)
+
+- **python main_teacher.py
