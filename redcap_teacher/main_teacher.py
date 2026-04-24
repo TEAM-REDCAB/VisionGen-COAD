@@ -228,7 +228,7 @@ def main():
                 stopped_epoch = epoch + 1 - es.counter
                 break
             if not es.early_stop:
-            stopped_epoch = CFG['max_epochs']
+                stopped_epoch = CFG['max_epochs']
 
         if es.best_state:
             model.load_state_dict(es.best_state)
