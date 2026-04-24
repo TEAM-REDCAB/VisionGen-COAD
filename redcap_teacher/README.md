@@ -2,6 +2,8 @@
 
 이 프로젝트는 병리 이미지(WSI)와 유전체 데이터(Genomic Data)를 결합하여 대장암(COAD)의 MSI/MSS 상태를 예측하는 **MCAT(Multimodal Co-Attention Transformer) Teacher 모델** 학습 파이프라인입니다.
 
+## 실행 코드: python main_teacher.py
+
 ## 📌 주요 특징
 - **Multimodal Fusion**: Gigapath 기반의 WSI 특징과 유전체 변이 데이터를 Co-Attention 메커니즘으로 융합합니다.
 - **Stratified 5-Fold CV**: 데이터 불균형을 고려하여 MSI/MSS 비율을 유지하며 학습 및 검증을 수행합니다.
@@ -23,5 +25,3 @@ project/
     ├── genomic_encoder.py # 유전체 인코더: (1425, 9) → (1425, 256) (SNN_Block 포함)
     ├── coattn_fusion.py   # Co-Attention 기반 상호작용 및 특징 융합 (Attn_Net_Gated 포함)
     └── classifier_head.py # 최종 분류기: 융합된 특징 (256,) → Logits (2)
-
-- **python main_teacher.py
