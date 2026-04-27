@@ -1,0 +1,120 @@
+
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Valid AUROC: 0.8364 | Valid AUPRC: 0.5405 | Valid F1: 0.6957 | Valid Thresh: 0.4855 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8364), (AUPRC: 0.5405), Best Threshold: 0.4855
+Epoch_1 start
+====> Epoch: 01 | Valid AUROC: 0.9576 | Valid AUPRC: 0.9021 | Valid F1: 0.9000 | Valid Thresh: 0.7604 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9576), (AUPRC: 0.9021), Best Threshold: 0.7604
+Epoch_2 start
+====> Epoch: 02 | Valid AUROC: 0.9667 | Valid AUPRC: 0.9064 | Valid F1: 0.8571 | Valid Thresh: 0.5742 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9667), (AUPRC: 0.9064), Best Threshold: 0.5742
+Epoch_3 start
+====> Epoch: 03 | Valid AUROC: 0.9485 | Valid AUPRC: 0.8827 | Valid F1: 0.8571 | Valid Thresh: 0.3984 <====
+Epoch_4 start
+====> Epoch: 04 | Valid AUROC: 0.9576 | Valid AUPRC: 0.9082 | Valid F1: 0.8571 | Valid Thresh: 0.4226 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9576), (AUPRC: 0.9082), Best Threshold: 0.4226
+Epoch_5 start
+====> Epoch: 05 | Valid AUROC: 0.9485 | Valid AUPRC: 0.8827 | Valid F1: 0.8571 | Valid Thresh: 0.2405 <====
+Epoch_6 start
+====> Epoch: 06 | Valid AUROC: 0.9455 | Valid AUPRC: 0.8758 | Valid F1: 0.8182 | Valid Thresh: 0.2273 <====
+Epoch_7 start
+====> Epoch: 07 | Valid AUROC: 0.9394 | Valid AUPRC: 0.8717 | Valid F1: 0.8182 | Valid Thresh: 0.1851 <====
+Epoch_8 start
+====> Epoch: 08 | Valid AUROC: 0.9485 | Valid AUPRC: 0.8901 | Valid F1: 0.8182 | Valid Thresh: 0.2213 <====
+Epoch_9 start
+====> Epoch: 09 | Valid AUROC: 0.9424 | Valid AUPRC: 0.8782 | Valid F1: 0.8182 | Valid Thresh: 0.2491 <====
+5 epoch 동안 성능 개선이 없어 Fold 1 학습 조기 종료
+
+==================== Starting Fold 2 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Valid AUROC: 0.8394 | Valid AUPRC: 0.7839 | Valid F1: 0.7619 | Valid Thresh: 0.2935 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8394), (AUPRC: 0.7839), Best Threshold: 0.2935
+Epoch_1 start
+====> Epoch: 01 | Valid AUROC: 0.8909 | Valid AUPRC: 0.8459 | Valid F1: 0.8235 | Valid Thresh: 0.2109 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8909), (AUPRC: 0.8459), Best Threshold: 0.2109
+Epoch_2 start
+====> Epoch: 02 | Valid AUROC: 0.8545 | Valid AUPRC: 0.8157 | Valid F1: 0.7778 | Valid Thresh: 0.2045 <====
+Epoch_3 start
+====> Epoch: 03 | Valid AUROC: 0.9182 | Valid AUPRC: 0.8829 | Valid F1: 0.8889 | Valid Thresh: 0.2830 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9182), (AUPRC: 0.8829), Best Threshold: 0.2830
+Epoch_4 start
+====> Epoch: 04 | Valid AUROC: 0.8909 | Valid AUPRC: 0.8712 | Valid F1: 0.8889 | Valid Thresh: 0.1444 <====
+Epoch_5 start
+====> Epoch: 05 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8795 | Valid F1: 0.8889 | Valid Thresh: 0.2013 <====
+Epoch_6 start
+====> Epoch: 06 | Valid AUROC: 0.9182 | Valid AUPRC: 0.8747 | Valid F1: 0.8421 | Valid Thresh: 0.1362 <====
+Epoch_7 start
+====> Epoch: 07 | Valid AUROC: 0.8879 | Valid AUPRC: 0.8612 | Valid F1: 0.8421 | Valid Thresh: 0.1415 <====
+Epoch_8 start
+====> Epoch: 08 | Valid AUROC: 0.8788 | Valid AUPRC: 0.8485 | Valid F1: 0.8235 | Valid Thresh: 0.4512 <====
+5 epoch 동안 성능 개선이 없어 Fold 2 학습 조기 종료
+
+==================== Starting Fold 3 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Valid AUROC: 0.9562 | Valid AUPRC: 0.8728 | Valid F1: 0.8235 | Valid Thresh: 0.5501 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9562), (AUPRC: 0.8728), Best Threshold: 0.5501
+Epoch_1 start
+====> Epoch: 01 | Valid AUROC: 0.9394 | Valid AUPRC: 0.8476 | Valid F1: 0.8235 | Valid Thresh: 0.9778 <====
+Epoch_2 start
+====> Epoch: 02 | Valid AUROC: 0.8990 | Valid AUPRC: 0.8094 | Valid F1: 0.7778 | Valid Thresh: 0.5584 <====
+Epoch_3 start
+====> Epoch: 03 | Valid AUROC: 0.9259 | Valid AUPRC: 0.8633 | Valid F1: 0.8235 | Valid Thresh: 0.9079 <====
+Epoch_4 start
+====> Epoch: 04 | Valid AUROC: 0.9327 | Valid AUPRC: 0.8798 | Valid F1: 0.8750 | Valid Thresh: 0.7839 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9327), (AUPRC: 0.8798), Best Threshold: 0.7839
+Epoch_5 start
+====> Epoch: 05 | Valid AUROC: 0.9158 | Valid AUPRC: 0.8424 | Valid F1: 0.8235 | Valid Thresh: 0.8942 <====
+Epoch_6 start
+====> Epoch: 06 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8071 | Valid F1: 0.7500 | Valid Thresh: 0.9099 <====
+Epoch_7 start
+====> Epoch: 07 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8036 | Valid F1: 0.7778 | Valid Thresh: 0.8899 <====
+Epoch_8 start
+====> Epoch: 08 | Valid AUROC: 0.8990 | Valid AUPRC: 0.7746 | Valid F1: 0.7059 | Valid Thresh: 0.9195 <====
+Epoch_9 start
+====> Epoch: 09 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8024 | Valid F1: 0.7500 | Valid Thresh: 0.8266 <====
+5 epoch 동안 성능 개선이 없어 Fold 3 학습 조기 종료
+
+==================== Starting Fold 4 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Valid AUROC: 0.7719 | Valid AUPRC: 0.6716 | Valid F1: 0.6316 | Valid Thresh: 0.4210 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7719), (AUPRC: 0.6716), Best Threshold: 0.4210
+Epoch_1 start
+====> Epoch: 01 | Valid AUROC: 0.8344 | Valid AUPRC: 0.6717 | Valid F1: 0.7273 | Valid Thresh: 0.7101 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8344), (AUPRC: 0.6717), Best Threshold: 0.7101
+Epoch_2 start
+====> Epoch: 02 | Valid AUROC: 0.8812 | Valid AUPRC: 0.7674 | Valid F1: 0.7368 | Valid Thresh: 0.7123 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8812), (AUPRC: 0.7674), Best Threshold: 0.7123
+Epoch_3 start
+====> Epoch: 03 | Valid AUROC: 0.8438 | Valid AUPRC: 0.6997 | Valid F1: 0.7619 | Valid Thresh: 0.7380 <====
+Epoch_4 start
+====> Epoch: 04 | Valid AUROC: 0.8469 | Valid AUPRC: 0.6578 | Valid F1: 0.7619 | Valid Thresh: 0.2068 <====
+Epoch_5 start
+====> Epoch: 05 | Valid AUROC: 0.8375 | Valid AUPRC: 0.6830 | Valid F1: 0.7619 | Valid Thresh: 0.6408 <====
+Epoch_6 start
+====> Epoch: 06 | Valid AUROC: 0.8406 | Valid AUPRC: 0.7278 | Valid F1: 0.7368 | Valid Thresh: 0.6518 <====
+Epoch_7 start
+====> Epoch: 07 | Valid AUROC: 0.8313 | Valid AUPRC: 0.6437 | Valid F1: 0.7619 | Valid Thresh: 0.4285 <====
+5 epoch 동안 성능 개선이 없어 Fold 4 학습 조기 종료
+
+==================== Starting Fold 5 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Valid AUROC: 0.8406 | Valid AUPRC: 0.6996 | Valid F1: 0.6667 | Valid Thresh: 0.7192 <====
+🔥 Fold 5 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8406), (AUPRC: 0.6996), Best Threshold: 0.7192
+Epoch_1 start
+====> Epoch: 01 | Valid AUROC: 0.9281 | Valid AUPRC: 0.8643 | Valid F1: 0.8571 | Valid Thresh: 0.7404 <====
+🔥 Fold 5 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9281), (AUPRC: 0.8643), Best Threshold: 0.7404
+Epoch_2 start
+====> Epoch: 02 | Valid AUROC: 0.9281 | Valid AUPRC: 0.8927 | Valid F1: 0.8571 | Valid Thresh: 0.7020 <====
+🔥 Fold 5 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9281), (AUPRC: 0.8927), Best Threshold: 0.7020
+Epoch_3 start
+====> Epoch: 03 | Valid AUROC: 0.9344 | Valid AUPRC: 0.8670 | Valid F1: 0.8571 | Valid Thresh: 0.6606 <====
+Epoch_4 start
+====> Epoch: 04 | Valid AUROC: 0.9375 | Valid AUPRC: 0.8541 | Valid F1: 0.8571 | Valid Thresh: 0.7092 <====
+Epoch_5 start
+====> Epoch: 05 | Valid AUROC: 0.9375 | Valid AUPRC: 0.8541 | Valid F1: 0.8571 | Valid Thresh: 0.7038 <====
+Epoch_6 start
+====> Epoch: 06 | Valid AUROC: 0.9344 | Valid AUPRC: 0.8699 | Valid F1: 0.8182 | Valid Thresh: 0.6632 <====
+Epoch_7 start
+====> Epoch: 07 | Valid AUROC: 0.9406 | Valid AUPRC: 0.8622 | Valid F1: 0.8571 | Valid Thresh: 0.6592 <====
+5 epoch 동안 성능 개선이 없어 Fold 5 학습 조기 종료

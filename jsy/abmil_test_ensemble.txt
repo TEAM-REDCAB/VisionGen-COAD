@@ -1,0 +1,42 @@
+
+====> ABMIL (KD) 실전 앙상블 테스트 시작 <====
+테스트 환자 수: 54명
+
+로드할 모델 가중치: ./results/seed_42/saved_models_kd/best_model_fold0.pt
+  - 이 모델의 Best Threshold: 0.4226
+로드할 모델 가중치: ./results/seed_42/saved_models_kd/best_model_fold1.pt
+  - 이 모델의 Best Threshold: 0.2830
+로드할 모델 가중치: ./results/seed_42/saved_models_kd/best_model_fold2.pt
+  - 이 모델의 Best Threshold: 0.7839
+로드할 모델 가중치: ./results/seed_42/saved_models_kd/best_model_fold3.pt
+  - 이 모델의 Best Threshold: 0.7123
+로드할 모델 가중치: ./results/seed_42/saved_models_kd/best_model_fold4.pt
+  - 이 모델의 Best Threshold: 0.7020
+
+👉 앙상블에 적용될 평균 Threshold: 0.5808
+
+========================================
+🏆 ABMIL (KD) 5-Fold 앙상블 최종 테스트 결과 🏆
+========================================
+Ensemble AUROC : 0.8929
+Ensemble AUPRC : 0.7946
+Ensemble F1    : 0.8000
+
+[Confusion Matrix]
+ TN(MSS정답)  FP(MSI오진)
+ FN(MSS오진)  TP(MSI정답)
+[[39  3]
+ [ 2 10]]
+
+[Classification Report]
+              precision    recall  f1-score   support
+
+     MSS (0)       0.95      0.93      0.94        42
+   MSI-H (1)       0.77      0.83      0.80        12
+
+    accuracy                           0.91        54
+   macro avg       0.86      0.88      0.87        54
+weighted avg       0.91      0.91      0.91        54
+
+
+📊 앙상블 ROC/PR 곡선 그래프가 저장되었습니다: ./results/seed_42/test_results_kd/abmil_ensemble_final_curves.png

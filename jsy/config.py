@@ -18,6 +18,9 @@ def get_results_path():
     return results_path
     
 def get_label_path():
+    label_path = os.path.join('labels', f'clinical_data_seed_{SEED}.csv')
+    if label_path:
+        return label_path
     df = pd.read_csv('./labels/common_patients.txt', sep='\t')
     df['msi'] = df['type'].map({'MSS':0, 'MSIMUT':1})
 
@@ -42,6 +45,5 @@ def get_label_path():
         df.loc[df_test.index, f'fold_{fold_idx}'] = 'test'
 
     os.makedirs('labels', exist_ok=True)
-    label_path = os.path.join('labels', f'clinical_data_seed_{SEED}.csv')
     df.to_csv(label_path, index=False)
     return label_path

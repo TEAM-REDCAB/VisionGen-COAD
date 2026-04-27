@@ -7,7 +7,7 @@ import seaborn as sns  # CM 시각화를 위해 추가
 from torch.utils.data import DataLoader
 from sklearn.metrics import (
     roc_auc_score, average_precision_score, 
-    roc_curve, precision_recall_curve,
+    roc_curve, precision_recall_curve, f1_score,
     confusion_matrix, classification_report
 )
 from tqdm import tqdm
@@ -29,7 +29,6 @@ torch.manual_seed(SEED)
 
 def test_and_visualize():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    df = pd.read_csv(LABEL_PATH)
     
     all_fold_results = []
     
@@ -54,13 +53,15 @@ def test_and_visualize():
 
         # 모델 선언 (Train 시와 동일하게 dropout 적용)
         model = BinaryClassificationModel(input_feature_dim=1536, dropout=0.25).to(device)
-        model_path = os.path.join(MODEL_PATH, f'abmil_fold_{fold}_best.pth')
+        model_path = os.path.join(MODEL_PATH, f'best_model_fold{fold}.pt')
         
         if not os.path.exists(model_path):
             print(f"⚠️ {model_path} 없음. 스킵.")
             continue
             
-        model.load_state_dict(torch.load(model_path, map_location=device, weights_only=True))
+        chechpoint = torch.load(model_path, map_location=device)
+        model.load_state_dict(chechpoint['model_state_dict'])
+        best_thresh = chechpoint['best_thresh']
         model.eval()
 
         all_labels, all_probs = [], []
@@ -76,11 +77,11 @@ def test_and_visualize():
         all_labels = np.concatenate(all_labels).flatten()
 
         # 지표 계산
-        auc = roc_auc_score(all_labels, all_probs)
+        auroc = roc_auc_score(all_labels, all_probs)
         auprc = average_precision_score(all_labels, all_probs)
-        preds = (all_probs >= 0.5).astype(int)
+        preds = (all_probs >= best_thresh).astype(int)
         acc = np.mean(preds == all_labels)
-        
+        f1 = f1_score(all_labels, preds, zero_division=0)
         # 1. 혼동 행렬 누적
         cm = confusion_matrix(all_labels, preds, labels=[0, 1])
         total_cm += cm
@@ -90,8 +91,9 @@ def test_and_visualize():
         specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
         
         all_fold_results.append({
-            'Fold': fold, 'AUC': auc, 'AUPRC': auprc, 
-            'Accuracy': acc, 'Sensitivity': sensitivity, 'Specificity': specificity
+            'Fold': fold, 'AUROC': auroc, 'AUPRC': auprc, 
+            'Accuracy': acc, 'Sensitivity': sensitivity, 'Specificity': specificity, 
+            'F1_Score':f1, 'Threshold':best_thresh
         })
 
         # 2. ROC 곡선 보간(Interpolation) 및 저장
@@ -99,14 +101,28 @@ def test_and_visualize():
         interp_tpr = np.interp(mean_fpr, fpr, tpr) # 공통 x축에 맞춰 y값 추출
         interp_tpr[0] = 0.0
         tprs.append(interp_tpr)
-        aucs.append(auc)
+        aucs.append(auroc)
 
         # 개별 폴드 곡선 그리기 (투명도 조절)
-        ax1.plot(fpr, tpr, color=colors[fold], lw=1.5, alpha=0.3, label=f'Fold {fold} (AUC = {auc:.4f})')
+        ax1.plot(fpr, tpr, color=colors[fold], lw=1.5, alpha=0.3, label=f'Fold {fold} (AUC = {auroc:.4f})')
         
         # PR Curve 그리기
         precision, recall, _ = precision_recall_curve(all_labels, all_probs)
         ax2.plot(recall, precision, color=colors[fold], lw=1.5, alpha=0.3)
+        # 5. 최종 리포트 출력
+        print("\n" + "="*40)
+        print("========== 🏆 최종 테스트 결과 ==========")
+        print("="*40)
+        print(f"AUROC     : {auroc:.4f}")
+        print(f"F1-Score  : {f1:.4f}")
+        print(f"Threshold : {best_thresh:.4f} ")
+        print("\n[Confusion Matrix]")
+        print(" TN(MSS맞춤)  FP(MSI로오해)")
+        print(" FN(MSS로오해) TP(MSI맞춤)")
+        print(cm)
+        report = classification_report(all_labels, preds, target_names=["MSS (0)", "MSI-H (1)"], zero_division=0)
+        print("\n[Classification Report]")
+        print(report)
         
         print(f"✅ Fold {fold} 완료")
 
@@ -157,7 +173,7 @@ def test_and_visualize():
     if not results_df.empty:
         print(f"\n{'='*20} Final Test Summary {'='*20}")
         print(results_df.to_string(index=False))
-        print(f"\nMean AUC: {results_df['AUC'].mean():.4f} ± {results_df['AUC'].std():.4f}")
+        print(f"\nMean AUC: {results_df['AUROC'].mean():.4f} ± {results_df['AUROC'].std():.4f}")
     
     results_df.to_csv(os.path.join(TEST_PATH, 'abmil_test_results.csv'), index=False)
     print(f"\n💾 모든 결과가 {TEST_PATH}에 저장되었습니다.")
