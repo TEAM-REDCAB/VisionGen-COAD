@@ -1,0 +1,55 @@
+﻿fold,patient,true_label,prediction,probability(%),top_variant,variant_class,gene_functions,top_patch_idx,attention_score,final_loss,final_acc,final_auc
+3,TCGA-A6-5661,MSIMUT,MSIMUT,99.5,ACVR2A_c.1310del,Frame_Shift_Del,"Protein Kinases, Transcription Factors",1973,19.3281,0.4171,94.44,0.9554
+3,TCGA-CA-6717,MSS,MSIMUT,99.5,ZNF91_c.3423A>C,Missense_Mutation,Transcription Factors,965,11.9688,0.4171,94.44,0.9554
+3,TCGA-CM-6167,MSS,MSS,100.0,MARK2_c.1833G>T,Missense_Mutation,Protein Kinases,7475,12.6719,0.4171,94.44,0.9554
+3,TCGA-G4-6299,MSS,MSS,100.0,TRIO_c.3082del,Frame_Shift_Del,Protein Kinases,21458,13.0938,0.4171,94.44,0.9554
+3,TCGA-AY-A8YK,MSS,MSS,100.0,KDM3B_c.4550G>A,Missense_Mutation,Transcription Factors,299,12.75,0.4171,94.44,0.9554
+3,TCGA-AZ-6603,MSS,MSS,100.0,APC_c.472del,Frame_Shift_Del,Tumor Suppressor Genes,3229,10.2578,0.4171,94.44,0.9554
+3,TCGA-CM-6162,MSIMUT,MSIMUT,98.3,ACVR2A_c.1310del,Frame_Shift_Del,"Protein Kinases, Transcription Factors",8176,22.2656,0.4171,94.44,0.9554
+3,TCGA-AA-3837,MSS,MSS,100.0,FUBP1_c.901del,Frame_Shift_Del,Transcription Factors,69,15.9453,0.4171,94.44,0.9554
+3,TCGA-A6-5660,MSS,MSS,100.0,BAZ2B_c.998C>G,Missense_Mutation,Transcription Factors,611,10.5156,0.4171,94.44,0.9554
+3,TCGA-AA-A03F,MSS,MSS,100.0,SOX9_c.1268del,Frame_Shift_Del,Transcription Factors,2704,13.1719,0.4171,94.44,0.9554
+3,TCGA-D5-6930,MSIMUT,MSIMUT,99.4,TCF20_c.364del,Frame_Shift_Del,Transcription Factors,1096,16.7969,0.4171,94.44,0.9554
+3,TCGA-AZ-6606,MSS,MSS,100.0,CHD1_c.2838_2839del,Frame_Shift_Del,Transcription Factors,14355,18.0938,0.4171,94.44,0.9554
+3,TCGA-A6-2686,MSIMUT,MSIMUT,99.5,STAT5B_c.1102del,Frame_Shift_Del,Transcription Factors,7587,13.6484,0.4171,94.44,0.9554
+3,TCGA-CM-5863,MSS,MSS,100.0,MGA_c.6061_6062del,Frame_Shift_Del,Transcription Factors,1028,19.0938,0.4171,94.44,0.9554
+3,TCGA-DM-A1D9,MSS,MSS,100.0,ZFR_c.1916A>C,Missense_Mutation,Transcription Factors,12111,14.5703,0.4171,94.44,0.9554
+3,TCGA-A6-A56B,MSS,MSS,100.0,ZNF22_c.182A>T,Missense_Mutation,Transcription Factors,3519,9.5391,0.4171,94.44,0.9554
+3,TCGA-CK-4950,MSS,MSS,100.0,TTN_c.45394del,Frame_Shift_Del,Protein Kinases,13150,16.4844,0.4171,94.44,0.9554
+3,TCGA-AD-6899,MSS,MSS,100.0,MYO3A_c.2968del,Frame_Shift_Del,Protein Kinases,647,14.4297,0.4171,94.44,0.9554
+3,TCGA-D5-6924,MSS,MSS,100.0,PAK3_c.616del,Frame_Shift_Del,Protein Kinases,4673,12.0234,0.4171,94.44,0.9554
+3,TCGA-AA-3842,MSS,MSS,100.0,TP53_c.1004del,Frame_Shift_Del,"Tumor Suppressor Genes, Transcription Factors",227,15.5469,0.4171,94.44,0.9554
+3,TCGA-AY-4070,MSS,MSS,100.0,ZNF213_c.1325C>T,Missense_Mutation,Transcription Factors,72,10.6953,0.4171,94.44,0.9554
+3,TCGA-AZ-4315,MSS,MSIMUT,99.5,ZSCAN20_c.3020G>T,Missense_Mutation,Transcription Factors,3781,15.0469,0.4171,94.44,0.9554
+3,TCGA-AA-3947,MSIMUT,MSIMUT,99.4,ZNF629_c.230del,Frame_Shift_Del,Transcription Factors,2873,23.2188,0.4171,94.44,0.9554
+3,TCGA-G4-6588,MSIMUT,MSIMUT,99.5,DPF2_c.894_895del,Frame_Shift_Del,Transcription Factors,560,20.1562,0.4171,94.44,0.9554
+3,TCGA-D5-6537,MSS,MSS,100.0,PPARGC1A_c.664C>A,Missense_Mutation,Transcription Factors,11249,12.2969,0.4171,94.44,0.9554
+3,TCGA-D5-6928,MSIMUT,MSIMUT,99.4,ACVR2A_c.1310del,Frame_Shift_Del,"Protein Kinases, Transcription Factors",2223,12.2969,0.4171,94.44,0.9554
+3,TCGA-CA-5256,MSS,MSS,100.0,TBX2_c.1858C>T,Missense_Mutation,Transcription Factors,4852,7.8516,0.4171,94.44,0.9554
+3,TCGA-D5-6541,MSS,MSS,100.0,TGIF1_c.192del,Frame_Shift_Del,Transcription Factors,5225,13.5078,0.4171,94.44,0.9554
+3,TCGA-A6-5667,MSS,MSS,100.0,MEIS2_c.496G>A,Missense_Mutation,Transcription Factors,507,8.8438,0.4171,94.44,0.9554
+3,TCGA-AU-3779,MSS,MSS,100.0,MAPK8_c.112G>C,Missense_Mutation,Protein Kinases,918,7.1172,0.4171,94.44,0.9554
+3,TCGA-F4-6805,MSS,MSS,100.0,SMAD4_c.1081C>T,Missense_Mutation,"Tumor Suppressor Genes, Transcription Factors",2783,13.875,0.4171,94.44,0.9554
+3,TCGA-CK-5914,MSS,MSS,100.0,TNRC6A_c.500A>C,Missense_Mutation,Transcription Factors,13364,14.7422,0.4171,94.44,0.9554
+3,TCGA-5M-AAT6,MSIMUT,MSIMUT,99.5,ACVR2A_c.1310del,Frame_Shift_Del,"Protein Kinases, Transcription Factors",17088,15.6172,0.4171,94.44,0.9554
+3,TCGA-D5-5538,MSS,MSS,100.0,SUPT16H_c.1706G>A,Missense_Mutation,Transcription Factors,8362,9.5938,0.4171,94.44,0.9554
+3,TCGA-AA-3681,MSS,MSS,100.0,ZFR_c.3056_3057del,Frame_Shift_Del,Transcription Factors,2501,11.2266,0.4171,94.44,0.9554
+3,TCGA-CM-5860,MSS,MSS,100.0,LTBP4_c.575del,Frame_Shift_Del,Cytokines and Growth Factors,14265,12.8203,0.4171,94.44,0.9554
+3,TCGA-CK-5915,MSS,MSS,100.0,TGIF1_c.183G>T,Missense_Mutation,Transcription Factors,10997,11.625,0.4171,94.44,0.9554
+3,TCGA-AA-3867,MSS,MSS,100.0,TICRR_c.1871_1874del,Frame_Shift_Del,Transcription Factors,499,14.9922,0.4171,94.44,0.9554
+3,TCGA-CM-5341,MSS,MSS,100.0,ATF6B_c.856G>A,Missense_Mutation,Transcription Factors,2385,14.6562,0.4171,94.44,0.9554
+3,TCGA-QG-A5Z2,MSIMUT,MSIMUT,99.5,ACVR2A_c.1310del,Frame_Shift_Del,"Protein Kinases, Transcription Factors",14578,22.1094,0.4171,94.44,0.9554
+3,TCGA-A6-6654,MSS,MSS,100.0,MED12_c.4358A>C,Missense_Mutation,Transcription Factors,6345,11.7031,0.4171,94.44,0.9554
+3,TCGA-DM-A1DB,MSS,MSS,100.0,TTN_c.81029T>C,Missense_Mutation,Protein Kinases,14833,9.7344,0.4171,94.44,0.9554
+3,TCGA-F4-6703,MSIMUT,MSS,100.0,ACVR2A_c.1310del,Frame_Shift_Del,"Protein Kinases, Transcription Factors",6860,18.2031,0.4171,94.44,0.9554
+3,TCGA-AA-3971,MSS,MSS,100.0,APC_c.1206del,Frame_Shift_Del,Tumor Suppressor Genes,4844,13.9219,0.4171,94.44,0.9554
+3,TCGA-AA-3844,MSS,MSS,100.0,FOXA2_c.545T>A,Missense_Mutation,Transcription Factors,817,13.8672,0.4171,94.44,0.9554
+3,TCGA-A6-3809,MSIMUT,MSIMUT,99.5,ACVR2A_c.1310del,Frame_Shift_Del,"Protein Kinases, Transcription Factors",831,23.6875,0.4171,94.44,0.9554
+3,TCGA-CM-6675,MSS,MSS,100.0,NR0B1_c.620C>T,Missense_Mutation,Transcription Factors,11312,16.4531,0.4171,94.44,0.9554
+3,TCGA-A6-6649,MSS,MSS,100.0,DDR2_c.149G>A,Missense_Mutation,"Protein Kinases, Cell Differentiation Markers",2119,12.5703,0.4171,94.44,0.9554
+3,TCGA-AA-3989,MSS,MSS,100.0,TCF20_c.4162_4163del,Frame_Shift_Del,Transcription Factors,956,14.2188,0.4171,94.44,0.9554
+3,TCGA-A6-5665,MSIMUT,MSIMUT,99.5,HIC2_c.686del,Frame_Shift_Del,Transcription Factors,792,22.0938,0.4171,94.44,0.9554
+3,TCGA-A6-5664,MSS,MSS,100.0,HOOK3_c.1902A>C,Missense_Mutation,Oncogenes,5884,12.8203,0.4171,94.44,0.9554
+3,TCGA-CM-6163,MSS,MSS,100.0,KLF5_c.293C>G,Missense_Mutation,Transcription Factors,16124,13.8906,0.4171,94.44,0.9554
+3,TCGA-5M-AATE,MSS,MSS,100.0,ZFPM1_c.649G>A,Missense_Mutation,Transcription Factors,9642,11.9453,0.4171,94.44,0.9554
+3,TCGA-A6-5657,MSS,MSS,100.0,ZNF135_c.685C>A,Missense_Mutation,Transcription Factors,1328,15.7969,0.4171,94.44,0.9554
