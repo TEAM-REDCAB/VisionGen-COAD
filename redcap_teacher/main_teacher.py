@@ -1,15 +1,12 @@
 """
 main_teacher.py
-Teacher 모델 5-Fold CV 학습 진입점 (MCAT 원 논문 방식)
+Teacher 모델 5-Fold CV 학습 진입점
 
-분할 전략:
-    - StratifiedKFold: train 80% / val 20%
-    - 별도 test set 없음
-    - 5개 fold val 성능 평균 = 최종 보고 성능
-    - val이 early stopping + 성능 평가를 동시에 담당
-
-실행:
-    python main_teacher.py
+분할 전략 (Patient-level Split):
+    1. 환자(case_id) 단위로 중복을 제거하여 독립된 환자 목록 생성
+    2. 환자 목록에서 Test Set 20% 분리 -> `splits/test_split.csv` 저장
+    3. 남은 환자 80%를 K-Fold로 Train/Val 분할 -> `splits/fold_{n}_split.csv` 저장
+    4. 분할된 환자 ID를 기반으로 원본의 모든 슬라이드(WSI)를 매핑하여 임시 CSV 생성 후 학습
 """
 
 import os
@@ -19,40 +16,39 @@ import pickle
 import torch
 import torch.nn as nn
 import numpy as np
+import pandas as pd
 from torch.amp import GradScaler
-from torch.utils.data import DataLoader, Subset
-from sklearn.model_selection import StratifiedKFold
+from torch.utils.data import DataLoader
+from sklearn.model_selection import StratifiedKFold, train_test_split
 
 from dataset import Pathomic_Classification_Dataset
 from models.mcat_teacher import MCATTeacher
 from train import run_epoch
 
 # =========================================================================
-# 경로 설정  ← 환경에 맞게 수정
+# 경로 설정
 # =========================================================================
 PATHS = {
-    'clin_csv': './data/tcga_coad_all_clean.csv',
-    'mut_csv':  './data/genomic/preprocessed_mutation_data.csv',
-    'npy':      './data/genomic/genomic_input_matrix.npy',
-    'pkl':      './data/genomic/genomic_encoding_states.pkl',
-    'wsi_dir':  '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath',
-    'mcat':     './mcat',
-    'save_dir': './results_teacher',
+    'clin_csv':   './data/tcga_coad_all_clean.csv',
+    'mut_csv':    './data/genomic/preprocessed_mutation_data.csv',
+    'npy':        './data/genomic/genomic_input_matrix.npy',
+    'pkl':        './data/genomic/genomic_encoding_states.pkl',
+    'wsi_dir':    '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath',
+    'mcat':       './mcat',
+    'save_dir':   './results_teacher',
+    'splits_dir': './splits',
 }
 
-# =========================================================================
-# 하이퍼파라미터 (MCAT 원 논문 기준)
-# =========================================================================
 CFG = {
     'n_folds':       5,
     'max_epochs':    20,
     'lr':            2e-4,
     'weight_decay':  1e-5,
     'es_patience':   10,
-    'es_stop_epoch': 5,   # max_epochs보다 충분히 작아야 early stopping이 실제로 발동됨
+    'es_stop_epoch': 5,
     'seed':          42,
+    'target_col':    'msi_status',  # 라벨 컬럼명
 }
-
 
 # =========================================================================
 # EarlyStopping
@@ -60,7 +56,7 @@ CFG = {
 class EarlyStopping:
     def __init__(self, patience=10, stop_epoch=5, verbose=True):
         self.patience     = patience
-        self.stop_epoch   = stop_epoch   # 이 epoch 이후부터 early stop 허용
+        self.stop_epoch   = stop_epoch
         self.verbose      = verbose
         self.counter      = 0
         self.best_score   = None
@@ -88,7 +84,6 @@ class EarlyStopping:
         self.best_state   = copy.deepcopy(model.state_dict())
         self.counter      = 0
 
-
 # =========================================================================
 # XAI 기록
 # =========================================================================
@@ -99,7 +94,6 @@ def resolve_coattn_shape(A_coattn, n_omic=1425):
             return A_coattn.reshape(n_omic, -1)
     return A_coattn.reshape(1, -1)
 
-
 def build_xai_record(result, var_vocab_inv, vc_vocab_inv, func_vocab_inv, fold):
     attn   = result['attn_scores']
     g_feat = result['genomic_features']
@@ -107,8 +101,8 @@ def build_xai_record(result, var_vocab_inv, vc_vocab_inv, func_vocab_inv, fold):
     prob   = result['msi_prob']
     true   = result['true_label']
 
-    pred_str = 'MSIMUT' if pred == 1 else 'MSS'
-    true_str = 'MSIMUT' if true == 1 else 'MSS'
+    pred_str = 'MSI' if pred == 1 else 'MSS'
+    true_str = 'MSI' if true == 1 else 'MSS'
     prob_pct = round(prob * 100 if pred == 1 else (1 - prob) * 100, 1)
 
     A_coattn_2d = resolve_coattn_shape(attn['coattn'], n_omic=1425)
@@ -133,7 +127,6 @@ def build_xai_record(result, var_vocab_inv, vc_vocab_inv, func_vocab_inv, fold):
         'top_patch_idx': top_patch, 'attention_score': round(attn_score, 4),
     }
 
-
 # =========================================================================
 # main
 # =========================================================================
@@ -142,8 +135,9 @@ def main():
     print(f"[시스템] device: {device}\n")
 
     os.makedirs(PATHS['save_dir'], exist_ok=True)
+    os.makedirs(PATHS['splits_dir'], exist_ok=True)
 
-    # 0. 단어 사전 로드
+    # 1. 단어 사전 로드
     with open(PATHS['pkl'], 'rb') as f:
         enc = pickle.load(f)
     vocab_sizes = {
@@ -155,41 +149,85 @@ def main():
     vc_vocab_inv   = {v: k for k, v in enc['vc_vocab'].items()}
     func_vocab_inv = {v: k for k, v in enc['func_vocab'].items()}
 
-    # 1. 전체 데이터셋
-    dataset = Pathomic_Classification_Dataset(
-        clin_csv_path=PATHS['clin_csv'],
-        mut_csv_path=PATHS['mut_csv'],
-        npy_path=PATHS['npy'],
-        data_dir=PATHS['wsi_dir'],
+    # 2. 마스터 데이터 로드 및 💡환자 단위(Patient-level) 중복 제거
+    master_df = pd.read_csv(PATHS['clin_csv'])
+    print(f"[데이터] 전체 슬라이드 수: {len(master_df)}장")
+
+    patient_df = master_df.drop_duplicates(subset=['case_id']).copy()
+    patient_df = patient_df.reset_index(drop=True)
+    print(f"[데이터] 독립된 환자 수: {len(patient_df)}명\n")
+
+    # 3. 환자 단위에서 Test Set 선제 분리 (8:2)
+    train_val_patient_df, test_patient_df = train_test_split(
+        patient_df, 
+        test_size=0.2, 
+        stratify=patient_df[CFG['target_col']], 
+        random_state=CFG['seed']
     )
-    print(f"[데이터] 전체 환자: {len(dataset)}명\n")
+    
+    train_val_patient_df = train_val_patient_df.reset_index(drop=True)
+    test_patient_df      = test_patient_df.reset_index(drop=True)
 
-    all_labels = [dataset.slide_data['label'][i] for i in range(len(dataset))]
+    print(f"[데이터] Test Set 분리 완료 -> Train/Val 대상: {len(train_val_patient_df)}명 | Test: {len(test_patient_df)}명\n")
 
-    # 2. 로그 저장소
-    epoch_log = []
-    pred_log  = []
-    fold_log  = []
+    # ── [핵심 1] 고정된 Test ID 목록 저장 ──
+    test_split_path = os.path.join(PATHS['splits_dir'], 'test_split.csv')
+    pd.DataFrame({'test': test_patient_df['case_id']}).to_csv(test_split_path, index=False)
 
-    # fold별 val 성능 요약 CSV (헤더 미리 작성)
+    # 4. 로그 저장소 준비
+    epoch_log, pred_log, fold_log = [], [], []
     fold_csv = os.path.join(PATHS['save_dir'], 'fold_val_summary.csv')
     fold_fieldnames = ['fold', 'val_loss', 'val_acc', 'val_auc', 'stopped_epoch']
     with open(fold_csv, 'w', newline='', encoding='utf-8-sig') as f:
         csv.DictWriter(f, fieldnames=fold_fieldnames).writeheader()
 
-    # 3. 5-Fold CV
-    # StratifiedKFold가 직접 train(80%) / val(20%)로 분할
-    # → train_test_split 불필요, 모든 환자가 정확히 한 번 val에 들어감
-    skf     = StratifiedKFold(n_splits=CFG['n_folds'], shuffle=True, random_state=CFG['seed'])
-    scaler  = GradScaler(device='cuda')
+    # 5. Train/Val 5-Fold 교차 검증 (환자 단위)
+    skf = StratifiedKFold(n_splits=CFG['n_folds'], shuffle=True, random_state=CFG['seed'])
+    scaler  = GradScaler('cuda')
     loss_fn = nn.CrossEntropyLoss()
 
-    for fold, (train_idx, val_idx) in enumerate(skf.split(range(len(dataset)), all_labels)):
+    for fold, (train_idx, val_idx) in enumerate(skf.split(train_val_patient_df, train_val_patient_df[CFG['target_col']])):
+        # 환자 목록 분할
+        train_patients = train_val_patient_df.iloc[train_idx].copy()
+        val_patients   = train_val_patient_df.iloc[val_idx].copy()
+
+        # ── [핵심 2] 해당 Fold에 쓰인 Train, Val ID 목록 저장 ──
+        fold_split_path = os.path.join(PATHS['splits_dir'], f'fold_{fold+1}_split.csv')
+        pd.DataFrame({
+            'train': pd.Series(train_patients['case_id'].values),
+            'val':   pd.Series(val_patients['case_id'].values)
+        }).to_csv(fold_split_path, index=False)
+
+        # ── [핵심 3] 분할된 환자 ID로 원본에서 전체 WSI 슬라이드 추출 ──
+        train_df = master_df[master_df['case_id'].isin(train_patients['case_id'])].copy()
+        val_df   = master_df[master_df['case_id'].isin(val_patients['case_id'])].copy()
+
         print(f"\n{'='*55}")
         print(f" [Fold {fold+1}/{CFG['n_folds']}] 학습 시작")
         print(f"{'='*55}")
-        print(f"[분할] Train {len(train_idx)} | Val {len(val_idx)}")
+        print(f"[분할(환자수)] Train: {len(train_patients)}명 | Val: {len(val_patients)}명")
+        print(f"[분할(WSI수)] Train: {len(train_df)}장 | Val: {len(val_df)}장")
 
+        # ── Dataset 오류 방지용 임시 CSV 생성 ──
+        temp_train_csv = os.path.join(PATHS['save_dir'], f'temp_train_fold{fold+1}.csv')
+        temp_val_csv   = os.path.join(PATHS['save_dir'], f'temp_val_fold{fold+1}.csv')
+        train_df.to_csv(temp_train_csv, index=False)
+        val_df.to_csv(temp_val_csv, index=False)
+
+        # 데이터셋 생성
+        train_dataset = Pathomic_Classification_Dataset(
+            clin_csv_path=temp_train_csv, mut_csv_path=PATHS['mut_csv'],
+            npy_path=PATHS['npy'], data_dir=PATHS['wsi_dir']
+        )
+        val_dataset = Pathomic_Classification_Dataset(
+            clin_csv_path=temp_val_csv, mut_csv_path=PATHS['mut_csv'],
+            npy_path=PATHS['npy'], data_dir=PATHS['wsi_dir']
+        )
+
+        train_loader = DataLoader(train_dataset, batch_size=1, shuffle=True)
+        val_loader   = DataLoader(val_dataset,   batch_size=1, shuffle=False)
+
+        # 모델 및 옵티마이저
         model = MCATTeacher(
             vocab_sizes=vocab_sizes, path_dim=1536, n_classes=2, mcat_path=PATHS['mcat']
         ).to(device)
@@ -198,12 +236,10 @@ def main():
             model.parameters(), lr=CFG['lr'], weight_decay=CFG['weight_decay']
         )
 
-        train_loader = DataLoader(Subset(dataset, list(train_idx)), batch_size=1, shuffle=True)
-        val_loader   = DataLoader(Subset(dataset, list(val_idx)),   batch_size=1, shuffle=False)
-
         es = EarlyStopping(patience=CFG['es_patience'], stop_epoch=CFG['es_stop_epoch'])
-        stopped_epoch = CFG['max_epochs']  # early stop 없으면 max_epochs로 기록
+        stopped_epoch = CFG['max_epochs']
 
+        # ── Epoch 루프 ──
         for epoch in range(CFG['max_epochs']):
             tr_loss, tr_acc, tr_auc, _ = run_epoch(
                 model, train_loader, loss_fn, device,
@@ -216,16 +252,16 @@ def main():
             epoch_log.append({
                 'fold':       fold + 1,
                 'epoch':      epoch + 1,
-                'train_loss': round(tr_loss,       4),
-                'train_acc':  round(tr_acc * 100,  2),
-                'train_auc':  round(tr_auc,        4),
-                'val_loss':   round(val_loss,       4),
-                'val_acc':    round(val_acc * 100,  2),
-                'val_auc':    round(val_auc,        4),
+                'train_loss': round(tr_loss,      4),
+                'train_acc':  round(tr_acc * 100, 2),
+                'train_auc':  round(tr_auc,       4),
+                'val_loss':   round(val_loss,     4),
+                'val_acc':    round(val_acc * 100, 2),
+                'val_auc':    round(val_auc,      4),
             })
 
             print(f"  [Fold {fold+1} | Epoch {epoch+1:02d}/{CFG['max_epochs']}] "
-                  f"Train Loss {tr_loss:.4f} Acc {tr_acc*100:.2f}% AUC {tr_auc:.4f} | "
+                  f"Tr Loss {tr_loss:.4f} Acc {tr_acc*100:.2f}% AUC {tr_auc:.4f} | "
                   f"Val Loss {val_loss:.4f} Acc {val_acc*100:.2f}% AUC {val_auc:.4f}")
 
             es(epoch, val_loss, model)
@@ -234,25 +270,20 @@ def main():
                 print(f"  [Early Stop] Fold {fold+1} | best epoch: {stopped_epoch}")
                 break
 
-        # best checkpoint 복원
         if es.best_state:
             model.load_state_dict(es.best_state)
             print(f"  [복원] Best val_loss={es.val_loss_min:.4f}")
 
-        # 체크포인트 저장
         ckpt_path = os.path.join(PATHS['save_dir'], f'teacher_fold{fold+1}.pth')
         torch.save(model.state_dict(), ckpt_path)
 
-        # ── best 모델로 val 재평가 (XAI 포함) ──────────────────────────
-        # early stopping으로 best state 복원 후 val을 다시 돌려
-        # 최종 보고 성능(best epoch 기준)을 기록합니다.
+        # ── best 모델로 val 재평가 (XAI 포함) ──
         best_val_loss, best_val_acc, best_val_auc, val_results = run_epoch(
             model, val_loader, loss_fn, device, is_train=False, save_xai=True
         )
         print(f"\n  [Fold {fold+1} Val (best ckpt)] "
               f"Loss {best_val_loss:.4f} | Acc {best_val_acc*100:.2f}% | AUC {best_val_auc:.4f}")
 
-        # XAI 기록
         for r in val_results:
             rec = build_xai_record(r, var_vocab_inv, vc_vocab_inv, func_vocab_inv, fold + 1)
             rec.update({
@@ -262,12 +293,11 @@ def main():
             })
             pred_log.append(rec)
 
-        # fold 요약
         new_row = {
             'fold':          fold + 1,
-            'val_loss':      round(best_val_loss,       4),
-            'val_acc':       round(best_val_acc * 100,  2),
-            'val_auc':       round(best_val_auc,        4),
+            'val_loss':      round(best_val_loss,      4),
+            'val_acc':       round(best_val_acc * 100, 2),
+            'val_auc':       round(best_val_auc,       4),
             'stopped_epoch': stopped_epoch,
         }
         fold_log.append(new_row)
@@ -278,16 +308,14 @@ def main():
         torch.cuda.empty_cache()
 
     # =========================================================================
-    # 4. 최종 저장
+    # 6. 최종 로깅
     # =========================================================================
-    # 에폭별 로그
     epoch_csv = os.path.join(PATHS['save_dir'], 'epoch_summary.csv')
     with open(epoch_csv, 'w', newline='', encoding='utf-8-sig') as f:
         writer = csv.DictWriter(f, fieldnames=epoch_log[0].keys())
         writer.writeheader()
         writer.writerows(epoch_log)
 
-    # 환자별 XAI 예측
     if pred_log:
         pred_csv = os.path.join(PATHS['save_dir'], 'MSI_MSS_prediction.csv')
         with open(pred_csv, 'w', newline='', encoding='utf-8-sig') as f:
@@ -295,20 +323,17 @@ def main():
             writer.writeheader()
             writer.writerows(pred_log)
 
-    # 5-Fold 평균 출력
     mean_auc = sum(r['val_auc'] for r in fold_log) / len(fold_log)
     mean_acc = sum(r['val_acc'] for r in fold_log) / len(fold_log)
     print(f"\n{'='*55}")
-    print(f" [5-Fold 최종 요약]")
+    print(f" [5-Fold 최종 요약 (Validation)]")
     for r in fold_log:
-        print(f"  Fold {r['fold']} | Val AUC {r['val_auc']:.4f} | Acc {r['val_acc']:.2f}% "
-              f"| stopped epoch {r['stopped_epoch']}")
+        print(f"  Fold {r['fold']} | Val AUC {r['val_auc']:.4f} | Acc {r['val_acc']:.2f}% | stopped epoch {r['stopped_epoch']}")
     print(f"  {'─'*45}")
     print(f"  평균 Val AUC: {mean_auc:.4f}")
     print(f"  평균 Val Acc: {mean_acc:.2f}%")
     print(f"{'='*55}")
-    print("[완료] Teacher 5-Fold CV 학습 완료!")
-
+    print(f"[완료] Teacher 5-Fold CV 학습 완료!")
 
 if __name__ == '__main__':
     main()
