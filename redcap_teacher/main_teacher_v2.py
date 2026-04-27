@@ -13,6 +13,9 @@ from dataset import Pathomic_Classification_Dataset
 from models.mcat_teacher import MCATTeacher
 from train import run_epoch
 
+import warnings
+warnings.filterwarnings("ignore", message=".*torch\.cpu\.amp\.autocast.*")
+
 # =========================================================================
 # 경로 설정  ← 환경에 맞게 수정
 # =========================================================================
@@ -293,7 +296,12 @@ def main():
         test_loss, test_acc, test_auc, test_results = run_epoch(
             model, test_loader, loss_fn, device, is_train=False, save_xai=True
         )
-        print(f"\n  [Fold {fold+1} Test] Loss {test_loss:.4f} | Acc {test_acc*100:.2f}% | AUC {test_auc:.4f}")
+        # ← v5_4 방식: Test 결과 박스에 stopped_epoch 함께 출력
+        print(f"\n{'='*55}")
+        print(f" [Fold {fold+1} 최종 Test 결과]")
+        print(f"  Test Loss: {test_loss:.4f} | Acc: {test_acc*100:.2f}% | AUC: {test_auc:.4f}")
+        print(f"  (stopped at epoch {stopped_epoch})")
+        print(f"{'='*55}\n")
 
         for r in test_results:
             rec = build_xai_record(r, var_vocab_inv, vc_vocab_inv, func_vocab_inv, fold+1)
@@ -366,6 +374,21 @@ def main():
     with open(final_csv, 'w', newline='', encoding='utf-8-sig') as f:
         writer = csv.DictWriter(f, fieldnames=final_xai[0].keys())
         writer.writeheader(); writer.writerows(final_xai)
+
+
+    # 💡 [추가] Final Evaluation 성능 지표(Metrics) 요약 CSV 저장
+    final_summary_csv = os.path.join(PATHS['save_dir'], 'final_evaluation_summary.csv')
+    with open(final_summary_csv, 'w', newline='', encoding='utf-8-sig') as f:
+        writer = csv.DictWriter(f, fieldnames=['best_fold', 'final_loss', 'final_acc', 'final_auc', 'num_patients'])
+        writer.writeheader()
+        writer.writerow({
+            'best_fold': best_fold_num,
+            'final_loss': round(final_loss, 4),
+            'final_acc': round(final_acc * 100, 2),
+            'final_auc': round(final_auc, 4),
+            'num_patients': len(final_test_indices)
+        })
+
 
     # 최종 요약 출력
     print(f"\n{'='*55}")
