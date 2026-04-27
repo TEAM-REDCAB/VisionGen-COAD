@@ -1,3 +1,6 @@
+### 결과
+결과에 대한 discussion은 '공유폴더 -> 참고 문헌 -> 멀티모달_모델링 -> [천유림].docx 문서' 확인. [URL](https://docs.google.com/document/d/1Rg9dsMJfEwU6qQS9xgLpvfNdIvw37C2MuchdUF5XaLw/edit?tab=t.0)
+
 # REDCAB-MCAT: Teacher Model Training Pipeline
 
 이 프로젝트는 병리 이미지(WSI)와 유전체 데이터(Genomic Data)를 결합하여 대장암(COAD)의 MSI/MSS 상태를 예측하는 **MCAT(Multimodal Co-Attention Transformer) Teacher 모델** 학습 파이프라인입니다.
