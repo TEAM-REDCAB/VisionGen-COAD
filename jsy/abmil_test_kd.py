@@ -17,10 +17,38 @@ from utils.abmil_model import BinaryClassificationModel
 from utils.h5dataset_full import H5Dataset 
 import config as cf
 
+import logging
+import sys
+
+# 1. 로그 설정 (시간, 로그 레벨, 메시지 형식 지정)
+logging.basicConfig(
+    level=logging.INFO,
+    # format='%(asctime)s [%(levelname)s] %(message)s',
+    format='%(message)s',
+    handlers=[
+        logging.FileHandler("abmil_kd.txt"), # 파일 저장
+        logging.StreamHandler() # 콘솔에도 동시에 출력
+    ]
+)
+
+# 2. print 문을 logging으로 리다이렉트하는 클래스
+class LoggerWriter:
+    def __init__(self, level):
+        self.level = level
+
+    def write(self, message):
+        if message.strip(): # 빈 줄이 아닐 때만 기록
+            self.level(message.strip())
+
+    def flush(self):
+        pass
+
+# 3. 시스템의 표준 출력(stdout)과 에러(stderr)를 logging에 연결
+sys.stdout = LoggerWriter(logging.info)
+# sys.stderr = LoggerWriter(logging.error)
+
 # --- 설정 및 경로 ---
 SEED = cf.SEED
-LABEL_PATH = cf.get_label_path()
-FEATS_PATH = cf.get_feats_path()
 
 # 💡 1. 모델 로드 경로를 KD 훈련 가중치가 있는 곳으로 변경
 MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models_kd')
@@ -153,7 +181,7 @@ def test_and_visualize():
 
     plt.tight_layout()
     # 💡 그래프 저장 이름 변경
-    plt.savefig(os.path.join(TEST_PATH, 'abmil_kd_combined_fold_curves.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'abmil_kd_combined_fold_curves_kd.png'), dpi=300)
     plt.show()
 
     plt.figure(figsize=(8, 6))
@@ -164,7 +192,7 @@ def test_and_visualize():
     plt.title('ABMIL (KD) Aggregated Confusion Matrix (All 5 Folds)')
     
     # 💡 CM 저장 이름 변경
-    plt.savefig(os.path.join(TEST_PATH, 'abmil_kd_total_confusion_matrix.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'abmil_kd_total_confusion_matrix_kd.png'), dpi=300)
     plt.show()
 
     results_df = pd.DataFrame(all_fold_results)
@@ -174,7 +202,7 @@ def test_and_visualize():
         print(f"\nMean AUC: {results_df['AUROC'].mean():.4f} ± {results_df['AUROC'].std():.4f}")
     
     # 💡 CSV 저장 이름 변경
-    results_df.to_csv(os.path.join(TEST_PATH, 'abmil_kd_test_results.csv'), index=False)
+    results_df.to_csv(os.path.join(TEST_PATH, 'abmil_kd_test_results_kd.csv'), index=False)
     print(f"\n💾 모든 결과가 {TEST_PATH}에 저장되었습니다.")
 
 if __name__ == "__main__":

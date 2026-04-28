@@ -1,7 +1,6 @@
 import os
 import numpy as np
 import torch
-import torch.nn as nn
 import torch.optim as optim
 import pandas as pd
 from tqdm import tqdm
@@ -142,14 +141,14 @@ for fold in range(5):
         # print(f"[Fold {fold} | Epoch {epoch+1}/{num_epochs}] Train Loss: {train_loss:.4f} | Val AUC: {auroc:.4f}")
         print(f'====> Epoch: {epoch:02d} | Valid AUROC: {auroc:.4f} | Valid AUPRC: {auprc:.4f} | Valid F1: {f1:.4f} | Valid Thresh: {thresh:.4f} <====')
         # 기준을 AUPRC로 변경하여 최고의 분류 성능을 가진 모델 가중치를 저장
-        if auprc > best_val_auprc:
+        if auroc > best_val_auroc:
             best_val_auprc = auprc
             best_val_auroc = auroc
             best_thresh = thresh
             checkpoint_path = os.path.join(MODEL_PATH, f"best_model_fold{fold}.pt")
             checkpoint = {
                 'model_state_dict': model.state_dict(),
-                'best_thresh': best_thresh,  # 👈 여기서 최적 임계값 저장
+                'best_thresh': best_thresh.item(),  # 👈 여기서 최적 임계값 저장
                 'auprc': best_val_auprc,
                 'auroc':best_val_auroc
             }

@@ -6,10 +6,12 @@ ENCODER_MODEL='gigapath'    # gigapath, uni_v2
 SEED = 42
 
 def get_feats_path():
-    return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
+    # return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
+    return f"/home/team/projects/team_REDCAB/team_project/data/{ENCODER_MODEL}_processed/20.0x_256px_0px_overlap/features_{ENCODER_MODEL}"
 
 def get_coords_path():
-    coords_path = '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/patches_gigapath'
+    # coords_path = '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/patches_gigapath'
+    coords_path = f'/home/team/projects/team_REDCAB/team_project/data/{ENCODER_MODEL}_processed/20.0x_256px_0px_overlap/patches'
     return coords_path
 
 def get_results_path():
@@ -19,7 +21,7 @@ def get_results_path():
     
 def get_label_path():
     label_path = os.path.join('labels', f'clinical_data_seed_{SEED}.csv')
-    if label_path:
+    if os.path.exists(label_path):
         return label_path
     df = pd.read_csv('./labels/common_patients.txt', sep='\t')
     df['msi'] = df['type'].map({'MSS':0, 'MSIMUT':1})

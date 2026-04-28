@@ -14,6 +14,35 @@ from tqdm import tqdm
 from utils.abmil_model import BinaryClassificationModel
 from utils.h5dataset import H5Dataset
 import config as cf
+import logging
+import sys
+
+# 1. 로그 설정 (시간, 로그 레벨, 메시지 형식 지정)
+logging.basicConfig(
+    level=logging.INFO,
+    # format='%(asctime)s [%(levelname)s] %(message)s',
+    format='%(message)s',
+    handlers=[
+        logging.FileHandler("abmil_baseline.txt"), # 파일 저장
+        logging.StreamHandler() # 콘솔에도 동시에 출력
+    ]
+)
+
+# 2. print 문을 logging으로 리다이렉트하는 클래스
+class LoggerWriter:
+    def __init__(self, level):
+        self.level = level
+
+    def write(self, message):
+        if message.strip(): # 빈 줄이 아닐 때만 기록
+            self.level(message.strip())
+
+    def flush(self):
+        pass
+
+# 3. 시스템의 표준 출력(stdout)과 에러(stderr)를 logging에 연결
+sys.stdout = LoggerWriter(logging.info)
+# sys.stderr = LoggerWriter(logging.error)
 
 # --- 설정 및 경로 ---
 SEED = cf.SEED
@@ -59,7 +88,7 @@ def test_and_visualize():
             print(f"⚠️ {model_path} 없음. 스킵.")
             continue
             
-        chechpoint = torch.load(model_path, map_location=device)
+        chechpoint = torch.load(model_path, map_location=device, weights_only=False)
         model.load_state_dict(chechpoint['model_state_dict'])
         best_thresh = chechpoint['best_thresh']
         model.eval()
@@ -155,7 +184,7 @@ def test_and_visualize():
     ax2.grid(alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig(os.path.join(TEST_PATH, 'abmil_combined_fold_curves.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'abmil_combined_fold_curves_baseline.png'), dpi=300)
     plt.show()
 
     # --- 4. 합산 혼동 행렬(Confusion Matrix) 시각화 ---
@@ -165,7 +194,7 @@ def test_and_visualize():
     plt.xlabel('Predicted Label')
     plt.ylabel('True Label')
     plt.title('ABMIL Aggregated Confusion Matrix (All 5 Folds)')
-    plt.savefig(os.path.join(TEST_PATH, 'abmil_total_confusion_matrix.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'abmil_total_confusion_matrix_baseline.png'), dpi=300)
     plt.show()
 
     # 최종 결과 요약 및 저장
@@ -175,7 +204,7 @@ def test_and_visualize():
         print(results_df.to_string(index=False))
         print(f"\nMean AUC: {results_df['AUROC'].mean():.4f} ± {results_df['AUROC'].std():.4f}")
     
-    results_df.to_csv(os.path.join(TEST_PATH, 'abmil_test_results.csv'), index=False)
+    results_df.to_csv(os.path.join(TEST_PATH, 'abmil_test_results_baseline.csv'), index=False)
     print(f"\n💾 모든 결과가 {TEST_PATH}에 저장되었습니다.")
 
 if __name__ == "__main__":

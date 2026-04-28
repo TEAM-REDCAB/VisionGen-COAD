@@ -158,7 +158,7 @@ for fold in range(5):
         print(f'====> Epoch: {epoch:02d} | Valid AUROC: {auroc:.4f} | Valid AUPRC: {auprc:.4f} | Valid F1: {f1:.4f} | Valid Thresh: {thresh:.4f} <====')
         
         # AUPRC를 기준으로 최고 성능 모델 저장
-        if auprc > best_val_auprc:
+        if auroc > best_val_auroc:
             best_val_auprc = auprc
             best_val_auroc = auroc
             best_thresh = thresh

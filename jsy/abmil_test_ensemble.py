@@ -14,6 +14,36 @@ from utils.abmil_model import BinaryClassificationModel
 from utils.h5dataset_full import H5Dataset
 import config as cf
 
+import logging
+import sys
+
+# 1. 로그 설정 (시간, 로그 레벨, 메시지 형식 지정)
+logging.basicConfig(
+    level=logging.INFO,
+    # format='%(asctime)s [%(levelname)s] %(message)s',
+    format='%(message)s',
+    handlers=[
+        logging.FileHandler("abmil_kd_ensemble.txt"), # 파일 저장
+        logging.StreamHandler() # 콘솔에도 동시에 출력
+    ]
+)
+
+# 2. print 문을 logging으로 리다이렉트하는 클래스
+class LoggerWriter:
+    def __init__(self, level):
+        self.level = level
+
+    def write(self, message):
+        if message.strip(): # 빈 줄이 아닐 때만 기록
+            self.level(message.strip())
+
+    def flush(self):
+        pass
+
+# 3. 시스템의 표준 출력(stdout)과 에러(stderr)를 logging에 연결
+sys.stdout = LoggerWriter(logging.info)
+# sys.stderr = LoggerWriter(logging.error)
+
 def evaluate_ensemble_test_set():
     # --- 1. 설정 및 경로 초기화 ---
     SEED = cf.SEED
@@ -51,7 +81,7 @@ def evaluate_ensemble_test_set():
             print(f"⚠️ 경고: {model_file} 파일이 없습니다. 이 폴드는 건너뜁니다.")
             continue
 
-        checkpoint = torch.load(model_file, map_location=device)
+        checkpoint = torch.load(model_file, map_location=device, weights_only=False)
         model.load_state_dict(checkpoint['model_state_dict'])
         
         best_thresh = checkpoint['best_thresh']
@@ -165,7 +195,7 @@ def plot_ensemble_curves(all_labels, ensemble_probs, auroc, auprc, test_path):
     plt.tight_layout()
     
     # 결과 저장
-    save_path = os.path.join(test_path, 'abmil_ensemble_final_curves.png')
+    save_path = os.path.join(test_path, 'abmil_ensemble_final_curves_kd_ensemble.png')
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
     plt.show()
     
