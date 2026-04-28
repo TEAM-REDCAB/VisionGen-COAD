@@ -1,0 +1,106 @@
+patient,n_slides,type,stage,sex,age,primary_site,race,ethnicity,vital_status
+01CO014,3,MSIMUT,Stage III,Female,78,Hepatix Flexure,White,Non-Hispanic,Alive
+01CO022,5,MSIMUT,Stage I,Female,77,Cecum,White,Non-Hispanic,Alive
+05CO003,1,MSIMUT,Stage II,Male,,Ascending Colon,White,Non-Hispanic,Alive
+05CO006,3,MSIMUT,Stage III,Female,83,Cecum,White,Non-Hispanic,Alive
+05CO007,1,MSIMUT,Stage III,Female,85,Sigmoid Colon,White,Non-Hispanic,
+05CO015,3,MSIMUT,Stage II,Female,74,Ascending Colon,White,Non-Hispanic,Dead
+05CO032,2,MSIMUT,Stage III,Male,79,Ascending Colon,White,Non-Hispanic,Alive
+05CO037,3,MSIMUT,Stage II,Male,50,Sigmoid Colon,American Indian or Alaska Native,Non-Hispanic,Alive
+05CO039,3,MSIMUT,Stage II,Male,74,Ascending Colon,White,Non-Hispanic,Dead
+05CO041,3,MSIMUT,Stage II,Female,79,Ascending Colon,White,Non-Hispanic,Alive
+05CO044,1,MSIMUT,Stage II,Female,71,Descending Colon,White,Non-Hispanic,Alive
+05CO048,2,MSIMUT,Stage III,Female,78,Ascending Colon,White,Non-Hispanic,Alive
+05CO050,3,MSIMUT,Stage III,Female,67,Cecum,White,Non-Hispanic,Alive
+11CO007,2,MSIMUT,Stage II,Female,64,Ascending Colon,Asian,Non-Hispanic,Alive
+11CO018,1,MSIMUT,Stage II,Male,74,Hepatix Flexure,White,Non-Hispanic,Alive
+11CO031,2,MSIMUT,Stage II,Female,54,Descending Colon,Asian,Non-Hispanic,Alive
+11CO033,2,MSIMUT,Stage II,Male,55,Descending Colon,Asian,Non-Hispanic,Alive
+11CO036,2,MSIMUT,Stage III,Male,37,Ascending Colon,Asian,Non-Hispanic,Alive
+11CO051,2,MSIMUT,Stage II,Female,61,Ascending Colon,White,Non-Hispanic,Alive
+11CO059,1,MSIMUT,Stage II,Female,83,Ascending Colon,White,Non-Hispanic,
+11CO061,1,MSIMUT,Stage II,Female,48,Ascending Colon,Asian,Non-Hispanic,Alive
+14CO003,3,MSIMUT,Stage III,Female,75,Tranverse Colon,White,Non-Hispanic,Alive
+20CO003,2,MSIMUT,Stage IV,Female,60,Descending Colon,White,Non-Hispanic,Dead
+22CO006,2,MSIMUT,Stage III,Female,57,Ascending Colon,White,Non-Hispanic,Alive
+01CO001,1,MSS,Stage III,Male,61,Sigmoid Colon,White,Non-Hispanic,
+01CO005,3,MSS,Stage II,Female,70,Sigmoid Colon,White,Non-Hispanic,Dead
+01CO006,1,MSS,Stage III,Female,75,Ascending Colon,White,Non-Hispanic,Alive
+01CO008,3,MSS,Stage II,Female,54,Descending Colon,Black or African American,Non-Hispanic,Alive
+01CO013,3,MSS,Stage I,Male,58,Sigmoid Colon,White,Non-Hispanic,Alive
+01CO015,3,MSS,Stage I,Male,89,Cecum,White,Non-Hispanic,Alive
+01CO019,2,MSS,Stage III,Female,63,Sigmoid Colon,White,Non-Hispanic,Alive
+05CO002,2,MSS,Stage III,Female,,Sigmoid Colon,White,Non-Hispanic,Alive
+05CO005,3,MSS,Stage I,Male,62,Sigmoid Colon,White,Non-Hispanic,
+05CO011,3,MSS,Stage II,Male,39,Sigmoid Colon,White,Non-Hispanic,Alive
+05CO014,3,MSS,Stage III,Female,73,,,,
+05CO020,1,MSS,Stage II,Female,93,Cecum,White,Non-Hispanic,Alive
+05CO026,3,MSS,Stage III,Female,70,Splenic Flexure,White,Non-Hispanic,Alive
+05CO028,2,MSS,Stage I,Female,61,Ascending Colon,White,Non-Hispanic,Alive
+05CO029,3,MSS,Stage II,Female,55,Hepatix Flexure,Black or African American,Non-Hispanic,Alive
+05CO033,2,MSS,Stage III,Male,61,Cecum,White,Non-Hispanic,Alive
+05CO034,2,MSS,Stage III,Female,55,Cecum,White,Non-Hispanic,Alive
+05CO035,3,MSS,Stage II,Female,64,Ascending Colon,Black or African American,Hispanic or Latino,Alive
+05CO045,1,MSS,Stage III,Female,75,Ascending Colon,White,,Alive
+05CO047,3,MSS,Stage I,Male,56,Sigmoid Colon,White,Non-Hispanic,Alive
+05CO049,2,MSS,Stage II,Male,88,Hepatix Flexure,White,Non-Hispanic,Alive
+05CO053,2,MSS,Stage II,Male,52,Cecum,White,Non-Hispanic,Alive
+05CO054,2,MSS,Stage I,Male,86,Cecum,White,Non-Hispanic,Alive
+05CO055,1,MSS,Stage III,Female,54,Sigmoid Colon,White,Non-Hispanic,
+06CO001,2,MSS,Stage III,Male,75,Ascending Colon,,Hispanic or Latino,Alive
+06CO002,2,MSS,Stage III,Female,73,Sigmoid Colon,,Hispanic or Latino,Alive
+09CO005,3,MSS,Stage III,Female,69,Cecum,White,Non-Hispanic,Alive
+09CO006,3,MSS,Stage I,Male,87,Ascending Colon,White,Non-Hispanic,Alive
+09CO008,2,MSS,Stage III,Male,54,Cecum,White,Non-Hispanic,Alive
+09CO011,1,MSS,Stage I,Female,75,Cecum,White,Non-Hispanic,Alive
+09CO013,1,MSS,Stage III,Male,50,Cecum,White,Non-Hispanic,Alive
+09CO014,3,MSS,Stage II,Male,67,Ascending Colon,White,Non-Hispanic,Alive
+09CO015,3,MSS,Stage III,Male,69,Cecum,White,Non-Hispanic,Alive
+09CO018,2,MSS,Stage III,Female,53,Sigmoid Colon,White,Non-Hispanic,Alive
+09CO019,3,MSS,Stage I,Male,88,Hepatix Flexure,Black or African American,Non-Hispanic,Alive
+09CO022,3,MSS,Stage II,Female,72,Cecum,Black or African American,Non-Hispanic,Alive
+11CO005,2,MSS,Stage III,Female,66,Sigmoid Colon,Asian,Non-Hispanic,Alive
+11CO008,2,MSS,Stage III,Female,67,Sigmoid Colon,Asian,Non-Hispanic,Alive
+11CO010,2,MSS,Stage II,Female,59,Ascending Colon,Asian,Non-Hispanic,Alive
+11CO019,1,MSS,Stage III,Female,74,Cecum,White,Non-Hispanic,Alive
+11CO020,2,MSS,Stage III,Male,55,Sigmoid Colon,White,Non-Hispanic,Alive
+11CO021,2,MSS,Stage IV,Female,75,Sigmoid Colon,White,Non-Hispanic,Dead
+11CO022,2,MSS,Stage IV,Male,72,Sigmoid Colon,White,Non-Hispanic,Alive
+11CO027,2,MSS,Stage II,Female,55,Sigmoid Colon,Asian,Non-Hispanic,Alive
+11CO030,2,MSS,Stage II,Female,55,Descending Colon,Asian,Non-Hispanic,Alive
+11CO032,2,MSS,Stage III,Male,58,Sigmoid Colon,Asian,Non-Hispanic,Alive
+11CO037,1,MSS,Stage III,Female,52,Sigmoid Colon,Asian,Non-Hispanic,Alive
+11CO039,2,MSS,Stage II,Female,68,Sigmoid Colon,Asian,Non-Hispanic,Alive
+11CO042,1,MSS,Stage II,Male,71,Splenic Flexure,White,Non-Hispanic,Alive
+11CO043,2,MSS,Stage II,Female,67,Ascending Colon,White,Non-Hispanic,Alive
+11CO044,2,MSS,Stage IV,Female,69,Ascending Colon,White,Non-Hispanic,Dead
+11CO045,2,MSS,Stage III,Female,71,Cecum,White,Non-Hispanic,Alive
+11CO047,2,MSS,Stage II,Male,65,Sigmoid Colon,White,Non-Hispanic,Alive
+11CO048,2,MSS,Stage II,Male,64,Cecum,White,Non-Hispanic,Alive
+11CO052,2,MSS,Stage III,Female,66,Cecum,White,Non-Hispanic,Dead
+11CO053,2,MSS,Stage II,Female,64,Descending Colon,White,Non-Hispanic,Alive
+11CO054,2,MSS,Stage II,Female,66,Sigmoid Colon,White,Non-Hispanic,Alive
+11CO057,1,MSS,Stage III,Male,74,Ascending Colon,White,Non-Hispanic,Alive
+11CO058,1,MSS,Stage II,Female,56,Ascending Colon,White,Non-Hispanic,Alive
+11CO060,2,MSS,Stage II,Female,72,Sigmoid Colon,White,Non-Hispanic,
+11CO062,1,MSS,Stage IV,Male,75,Ascending Colon,Asian,Non-Hispanic,Alive
+11CO072,2,MSS,Stage III,Female,65,Descending Colon,White,Non-Hispanic,Alive
+11CO077,2,MSS,Stage II,Male,68,Descending Colon,White,Non-Hispanic,Alive
+11CO079,2,MSS,Stage III,Female,75,Sigmoid Colon,White,Non-Hispanic,Alive
+14CO002,3,MSS,Stage II,Male,63,Sigmoid Colon,White,Non-Hispanic,
+14CO005,2,MSS,Stage II,Female,75,Cecum,White,Non-Hispanic,Alive
+15CO001,2,MSS,Stage III,Female,57,Sigmoid Colon,Asian,Hispanic or Latino,Alive
+15CO002,2,MSS,Stage II,Female,53,Hepatix Flexure,Black or African American,Non-Hispanic,Alive
+16CO002,3,MSS,Stage III,Male,68,Splenic Flexure,White,Non-Hispanic,Alive
+16CO003,2,MSS,Stage II,Female,63,Sigmoid Colon,White,Non-Hispanic,Alive
+16CO006,4,MSS,Stage IV,Male,64,Hepatix Flexure,White,Non-Hispanic,Alive
+16CO011,3,MSS,Stage III,Male,59,Ascending Colon,White,Non-Hispanic,Alive
+16CO012,2,MSS,Stage I,Female,74,Sigmoid Colon,White,Non-Hispanic,
+20CO001,2,MSS,Stage III,Female,54,Ascending Colon,White,Non-Hispanic,Alive
+20CO004,2,MSS,Stage III,Male,56,Cecum,White,Non-Hispanic,Alive
+20CO007,1,MSS,Stage II,Male,55,Descending Colon,Black or African American,Non-Hispanic,Alive
+21CO006,1,MSS,Stage I,Male,76,Sigmoid Colon,White,Hispanic or Latino,Alive
+21CO007,2,MSS,Stage IV,Male,50,Sigmoid Colon,White,Non-Hispanic,Alive
+22CO004,2,MSS,Stage II,Male,52,Sigmoid Colon,White,Hispanic or Latino,Alive
+24CO005,1,MSS,Stage III,Female,41,Sigmoid Colon,White,Non-Hispanic,
+27CO004,2,MSS,Stage III,Female,51,Cecum,White,Hispanic or Latino,Alive
