@@ -16,16 +16,21 @@ python ./TRIDENT/run_batch_of_slides.py \
     --patch_size 256
 ```
 
-- **사전학습 모델:** HuggingFace의 UNI_v2 / Prov-GigaPath 가중치를 사용합니다. (HuggingFace 포털에서 사용 승인 필요)
-- **조직 분할:** H&E 염색에 최적화된 GrandQC 모델을 사용하며, 펜 자국 제거(`--remove_penmarks`) 옵션을 지원합니다. **(GPU 필수)**
+- **사전학습 모델:** HuggingFace의 `UNI_v2` / `Prov-GigaPath` 가중치를 사용합니다. (HuggingFace 포털에서 사용 승인 필요)
+    **UNI_v2(UNI2-h)**
+    - Model type: Pretrained vision backbone (ViT-H/14 via DINOv2) for multi-purpose evaluation on histopathology images
+        Model architecture: Custom ViT-H (681M params): Patch size 14, embedding dimension 1536, 24 heads, SwiGLU FFN
+    - Pretraining dataset: Over 200 million image tiles sampled from over 350k diverse H&E and IHC slides sourced from Mass General Brigham.
+    - Repository: https://github.com/mahmoodlab/UNI
+    
+    **prov_GigaPath**
+    - Prov-GigaPath, a whole-slide pathology foundation model pretrained on 1.3 billion 256 × 256 pathology image tiles in 171,189 whole slides from Providence, a large US health network comprising 28 cancer centres. The slides originated from more than 30,000 patients covering 31 major tissue types.
+    - GigaPath adapts the newly developed LongNet5 method to digital pathology.
+- **조직 분할:** H&E 염색에 최적화된 `GrandQC` 모델을 사용하며, 펜 자국 제거(`--remove_penmarks`) 옵션을 지원합니다. **(GPU 필수)**
 - **패치 추출:** SVS 파일의 메타 정보를 읽어 **20배율**로 고정한 후, **256x256** 크기로 패치를 분할합니다.
 - **결과물 저장:** 슬라이드 단위로 저장(H5 형식)되며, 추후 멀티모달 학습 시 환자 단위 병합이 필요합니다.
     - **이미지 임베딩 벡터 예시:** `TCGA-AA-A01T-01Z...DX1.h5` → `(num_patch, features)` = `(3331, 1536)`
     - **좌표 벡터 예시:** `TCGA-AA-A01T-01Z...DX1_patches.h5` → `(num_patch, coords(x, y))` = `(3331, 2)`
-- **공간 확보:** 배치 단위로 다운로드 및 특성 추출이 완료되면, 원본 WSI(SVS) 파일은 자동으로 삭제됩니다.
-- **서버 저장 경로 (Linux):**
-    - UNI v2: `~/data/trident_processed`
-    - GigaPath: `~/data/gigapath_processed`
 
 #### **전처리 단계별 시각화 예시**
 

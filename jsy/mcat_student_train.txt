@@ -1,0 +1,2009 @@
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.1791 | Train AUROC: 0.5333 | Train AUPRC: 0.2692 | Train F1: 0.3905 | Train Thresh: 0.2036 <====
+====> Epoch: 00 | Valid Loss: 0.1064 | Valid AUROC: 0.8697 | Valid AUPRC: 0.7264 | Valid F1: 0.6667 | Valid Thresh: 0.2943 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8697), (AUPRC: 0.7264), Best Threshold: 0.2943
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0848 | Train AUROC: 0.5408 | Train AUPRC: 0.3035 | Train F1: 0.4114 | Train Thresh: 0.2994 <====
+====> Epoch: 01 | Valid Loss: 0.0762 | Valid AUROC: 0.8939 | Valid AUPRC: 0.7981 | Valid F1: 0.7059 | Valid Thresh: 0.6084 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8939), (AUPRC: 0.7981), Best Threshold: 0.6084
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0659 | Train AUROC: 0.5738 | Train AUPRC: 0.3473 | Train F1: 0.4134 | Train Thresh: 0.4076 <====
+====> Epoch: 02 | Valid Loss: 0.0629 | Valid AUROC: 0.9061 | Valid AUPRC: 0.8257 | Valid F1: 0.7500 | Valid Thresh: 0.4535 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9061), (AUPRC: 0.8257), Best Threshold: 0.4535
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0645 | Train AUROC: 0.5688 | Train AUPRC: 0.4052 | Train F1: 0.4086 | Train Thresh: 0.4512 <====
+====> Epoch: 03 | Valid Loss: 0.0601 | Valid AUROC: 0.9000 | Valid AUPRC: 0.8211 | Valid F1: 0.7500 | Valid Thresh: 0.5054 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0601 | Train AUROC: 0.7365 | Train AUPRC: 0.5933 | Train F1: 0.5455 | Train Thresh: 0.4731 <====
+====> Epoch: 04 | Valid Loss: 0.0596 | Valid AUROC: 0.9152 | Valid AUPRC: 0.8317 | Valid F1: 0.7500 | Valid Thresh: 0.4693 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9152), (AUPRC: 0.8317), Best Threshold: 0.4693
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0596 | Train AUROC: 0.7191 | Train AUPRC: 0.6158 | Train F1: 0.6061 | Train Thresh: 0.5311 <====
+====> Epoch: 05 | Valid Loss: 0.0552 | Valid AUROC: 0.9121 | Valid AUPRC: 0.8295 | Valid F1: 0.7500 | Valid Thresh: 0.4916 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0578 | Train AUROC: 0.6925 | Train AUPRC: 0.4748 | Train F1: 0.4962 | Train Thresh: 0.4652 <====
+====> Epoch: 06 | Valid Loss: 0.0463 | Valid AUROC: 0.9152 | Valid AUPRC: 0.8407 | Valid F1: 0.7500 | Valid Thresh: 0.5866 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0409 | Train AUROC: 0.8838 | Train AUPRC: 0.7453 | Train F1: 0.7368 | Train Thresh: 0.5218 <====
+====> Epoch: 07 | Valid Loss: 0.0615 | Valid AUROC: 0.9182 | Valid AUPRC: 0.8455 | Valid F1: 0.7619 | Valid Thresh: 0.7959 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9182), (AUPRC: 0.8455), Best Threshold: 0.7959
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0213 | Train AUROC: 0.9732 | Train AUPRC: 0.9126 | Train F1: 0.8539 | Train Thresh: 0.4748 <====
+====> Epoch: 08 | Valid Loss: 0.0477 | Valid AUROC: 0.9333 | Valid AUPRC: 0.8752 | Valid F1: 0.8182 | Valid Thresh: 0.6285 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9333), (AUPRC: 0.8752), Best Threshold: 0.6285
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0214 | Train AUROC: 0.9704 | Train AUPRC: 0.9152 | Train F1: 0.8372 | Train Thresh: 0.4822 <====
+====> Epoch: 09 | Valid Loss: 0.0480 | Valid AUROC: 0.9636 | Valid AUPRC: 0.9009 | Valid F1: 0.8333 | Valid Thresh: 0.2311 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9636), (AUPRC: 0.9009), Best Threshold: 0.2311
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0219 | Train AUROC: 0.9718 | Train AUPRC: 0.9229 | Train F1: 0.8506 | Train Thresh: 0.5150 <====
+====> Epoch: 10 | Valid Loss: 0.0817 | Valid AUROC: 0.9182 | Valid AUPRC: 0.8554 | Valid F1: 0.8182 | Valid Thresh: 0.2489 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0091 | Train AUROC: 0.9968 | Train AUPRC: 0.9909 | Train F1: 0.9600 | Train Thresh: 0.6020 <====
+====> Epoch: 11 | Valid Loss: 0.0685 | Valid AUROC: 0.9303 | Valid AUPRC: 0.8568 | Valid F1: 0.7826 | Valid Thresh: 0.3712 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0084 | Train AUROC: 0.9959 | Train AUPRC: 0.9873 | Train F1: 0.9744 | Train Thresh: 0.7566 <====
+====> Epoch: 12 | Valid Loss: 0.0971 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8277 | Valid F1: 0.7778 | Valid Thresh: 0.9256 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0082 | Train AUROC: 0.9939 | Train AUPRC: 0.9764 | Train F1: 0.9630 | Train Thresh: 0.5496 <====
+====> Epoch: 13 | Valid Loss: 0.1537 | Valid AUROC: 0.8848 | Valid AUPRC: 0.7859 | Valid F1: 0.7368 | Valid Thresh: 0.4000 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0038 | Train AUROC: 0.9986 | Train AUPRC: 0.9951 | Train F1: 0.9873 | Train Thresh: 0.6225 <====
+====> Epoch: 14 | Valid Loss: 0.1700 | Valid AUROC: 0.8909 | Valid AUPRC: 0.7947 | Valid F1: 0.7368 | Valid Thresh: 0.5322 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0022 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9873 | Train Thresh: 0.5282 <====
+====> Epoch: 15 | Valid Loss: 0.1625 | Valid AUROC: 0.9061 | Valid AUPRC: 0.8181 | Valid F1: 0.7778 | Valid Thresh: 0.8055 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0004 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.6957 <====
+====> Epoch: 16 | Valid Loss: 0.1861 | Valid AUROC: 0.9000 | Valid AUPRC: 0.8071 | Valid F1: 0.7500 | Valid Thresh: 0.0478 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0001 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.8051 <====
+====> Epoch: 17 | Valid Loss: 0.1879 | Valid AUROC: 0.9061 | Valid AUPRC: 0.8220 | Valid F1: 0.7778 | Valid Thresh: 0.8836 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0001 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9006 <====
+====> Epoch: 18 | Valid Loss: 0.1966 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8269 | Valid F1: 0.7826 | Valid Thresh: 0.0512 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.0000 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9021 <====
+====> Epoch: 19 | Valid Loss: 0.2041 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8269 | Valid F1: 0.7826 | Valid Thresh: 0.0435 <====
+10 epoch 동안 성능 개선이 없어 Fold 0 학습 조기 종료
+Fold 0 종료. AUROC: 0.9636, AUPRC: 0.9009, 최적 Threshold: 0.2311
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.1754 | Train AUROC: 0.5030 | Train AUPRC: 0.3176 | Train F1: 0.3805 | Train Thresh: 0.0431 <====
+====> Epoch: 00 | Valid Loss: 0.1231 | Valid AUROC: 0.9061 | Valid AUPRC: 0.7844 | Valid F1: 0.7200 | Valid Thresh: 0.2711 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9061), (AUPRC: 0.7844), Best Threshold: 0.2711
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0889 | Train AUROC: 0.4726 | Train AUPRC: 0.2885 | Train F1: 0.3958 | Train Thresh: 0.2883 <====
+====> Epoch: 01 | Valid Loss: 0.0715 | Valid AUROC: 0.7606 | Valid AUPRC: 0.6142 | Valid F1: 0.6364 | Valid Thresh: 0.5855 <====
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0694 | Train AUROC: 0.5639 | Train AUPRC: 0.2960 | Train F1: 0.4444 | Train Thresh: 0.3982 <====
+====> Epoch: 02 | Valid Loss: 0.0617 | Valid AUROC: 0.7455 | Valid AUPRC: 0.5999 | Valid F1: 0.5926 | Valid Thresh: 0.4662 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0594 | Train AUROC: 0.7931 | Train AUPRC: 0.6526 | Train F1: 0.6000 | Train Thresh: 0.5547 <====
+====> Epoch: 03 | Valid Loss: 0.0595 | Valid AUROC: 0.7576 | Valid AUPRC: 0.6155 | Valid F1: 0.5926 | Valid Thresh: 0.4770 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0521 | Train AUROC: 0.8905 | Train AUPRC: 0.7878 | Train F1: 0.7273 | Train Thresh: 0.4975 <====
+====> Epoch: 04 | Valid Loss: 0.0554 | Valid AUROC: 0.8030 | Valid AUPRC: 0.6919 | Valid F1: 0.6667 | Valid Thresh: 0.4657 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0402 | Train AUROC: 0.8974 | Train AUPRC: 0.8173 | Train F1: 0.7805 | Train Thresh: 0.5093 <====
+====> Epoch: 05 | Valid Loss: 0.0497 | Valid AUROC: 0.8667 | Valid AUPRC: 0.8246 | Valid F1: 0.7778 | Valid Thresh: 0.4702 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0234 | Train AUROC: 0.9700 | Train AUPRC: 0.9017 | Train F1: 0.8315 | Train Thresh: 0.4992 <====
+====> Epoch: 06 | Valid Loss: 0.0732 | Valid AUROC: 0.8667 | Valid AUPRC: 0.7551 | Valid F1: 0.7273 | Valid Thresh: 0.3321 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0296 | Train AUROC: 0.9535 | Train AUPRC: 0.8865 | Train F1: 0.8108 | Train Thresh: 0.6185 <====
+====> Epoch: 07 | Valid Loss: 0.0546 | Valid AUROC: 0.9242 | Valid AUPRC: 0.8489 | Valid F1: 0.7619 | Valid Thresh: 0.3958 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9242), (AUPRC: 0.8489), Best Threshold: 0.3958
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0175 | Train AUROC: 0.9846 | Train AUPRC: 0.9522 | Train F1: 0.9024 | Train Thresh: 0.5994 <====
+====> Epoch: 08 | Valid Loss: 0.1401 | Valid AUROC: 0.8485 | Valid AUPRC: 0.7053 | Valid F1: 0.7273 | Valid Thresh: 0.2013 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0177 | Train AUROC: 0.9811 | Train AUPRC: 0.9395 | Train F1: 0.8947 | Train Thresh: 0.6729 <====
+====> Epoch: 09 | Valid Loss: 0.0400 | Valid AUROC: 0.9000 | Valid AUPRC: 0.8217 | Valid F1: 0.7500 | Valid Thresh: 0.7180 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0148 | Train AUROC: 0.9905 | Train AUPRC: 0.9757 | Train F1: 0.9231 | Train Thresh: 0.5996 <====
+====> Epoch: 10 | Valid Loss: 0.0559 | Valid AUROC: 0.9545 | Valid AUPRC: 0.8758 | Valid F1: 0.8000 | Valid Thresh: 0.2214 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9545), (AUPRC: 0.8758), Best Threshold: 0.2214
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0125 | Train AUROC: 0.9931 | Train AUPRC: 0.9779 | Train F1: 0.9367 | Train Thresh: 0.6596 <====
+====> Epoch: 11 | Valid Loss: 0.0634 | Valid AUROC: 0.9727 | Valid AUPRC: 0.9295 | Valid F1: 0.8421 | Valid Thresh: 0.2846 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9727), (AUPRC: 0.9295), Best Threshold: 0.2846
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0047 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9873 | Train Thresh: 0.5685 <====
+====> Epoch: 12 | Valid Loss: 0.0622 | Valid AUROC: 0.9636 | Valid AUPRC: 0.9081 | Valid F1: 0.8421 | Valid Thresh: 0.2820 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0015 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.5748 <====
+====> Epoch: 13 | Valid Loss: 0.1359 | Valid AUROC: 0.9424 | Valid AUPRC: 0.8826 | Valid F1: 0.8421 | Valid Thresh: 0.1045 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0002 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.8451 <====
+====> Epoch: 14 | Valid Loss: 0.1623 | Valid AUROC: 0.9152 | Valid AUPRC: 0.8297 | Valid F1: 0.7778 | Valid Thresh: 0.3206 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0001 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9001 <====
+====> Epoch: 15 | Valid Loss: 0.1893 | Valid AUROC: 0.9121 | Valid AUPRC: 0.8274 | Valid F1: 0.7778 | Valid Thresh: 0.2519 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0000 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9085 <====
+====> Epoch: 16 | Valid Loss: 0.2025 | Valid AUROC: 0.9152 | Valid AUPRC: 0.8297 | Valid F1: 0.7778 | Valid Thresh: 0.2198 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0000 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9163 <====
+====> Epoch: 17 | Valid Loss: 0.2069 | Valid AUROC: 0.9212 | Valid AUPRC: 0.8353 | Valid F1: 0.7778 | Valid Thresh: 0.2114 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0000 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9247 <====
+====> Epoch: 18 | Valid Loss: 0.2079 | Valid AUROC: 0.9242 | Valid AUPRC: 0.8386 | Valid F1: 0.7778 | Valid Thresh: 0.2059 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.0000 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9270 <====
+====> Epoch: 19 | Valid Loss: 0.2073 | Valid AUROC: 0.9242 | Valid AUPRC: 0.8386 | Valid F1: 0.7778 | Valid Thresh: 0.2057 <====
+Fold 1 종료. AUROC: 0.9727, AUPRC: 0.9295, 최적 Threshold: 0.2846
+==================== Starting Fold 2 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.2359 | Train AUROC: 0.4669 | Train AUPRC: 0.2215 | Train F1: 0.3915 | Train Thresh: 0.1901 <====
+====> Epoch: 00 | Valid Loss: 0.0630 | Valid AUROC: 0.8586 | Valid AUPRC: 0.7573 | Valid F1: 0.7273 | Valid Thresh: 0.5364 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8586), (AUPRC: 0.7573), Best Threshold: 0.5364
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0705 | Train AUROC: 0.5406 | Train AUPRC: 0.3589 | Train F1: 0.3883 | Train Thresh: 0.4505 <====
+====> Epoch: 01 | Valid Loss: 0.0622 | Valid AUROC: 0.8552 | Valid AUPRC: 0.7339 | Valid F1: 0.6667 | Valid Thresh: 0.4416 <====
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0643 | Train AUROC: 0.5823 | Train AUPRC: 0.3475 | Train F1: 0.4022 | Train Thresh: 0.4091 <====
+====> Epoch: 02 | Valid Loss: 0.0699 | Valid AUROC: 0.8754 | Valid AUPRC: 0.7701 | Valid F1: 0.7143 | Valid Thresh: 0.5825 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8754), (AUPRC: 0.7701), Best Threshold: 0.5825
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0658 | Train AUROC: 0.6477 | Train AUPRC: 0.5309 | Train F1: 0.4932 | Train Thresh: 0.5805 <====
+====> Epoch: 03 | Valid Loss: 0.0682 | Valid AUROC: 0.8923 | Valid AUPRC: 0.7757 | Valid F1: 0.7143 | Valid Thresh: 0.3977 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8923), (AUPRC: 0.7757), Best Threshold: 0.3977
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0631 | Train AUROC: 0.6298 | Train AUPRC: 0.4670 | Train F1: 0.4706 | Train Thresh: 0.5157 <====
+====> Epoch: 04 | Valid Loss: 0.0608 | Valid AUROC: 0.8855 | Valid AUPRC: 0.7690 | Valid F1: 0.7143 | Valid Thresh: 0.5524 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0589 | Train AUROC: 0.7127 | Train AUPRC: 0.5447 | Train F1: 0.4872 | Train Thresh: 0.5204 <====
+====> Epoch: 05 | Valid Loss: 0.0542 | Valid AUROC: 0.8889 | Valid AUPRC: 0.7781 | Valid F1: 0.7143 | Valid Thresh: 0.4877 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0512 | Train AUROC: 0.9250 | Train AUPRC: 0.8458 | Train F1: 0.7536 | Train Thresh: 0.5126 <====
+====> Epoch: 06 | Valid Loss: 0.0452 | Valid AUROC: 0.9024 | Valid AUPRC: 0.7926 | Valid F1: 0.7143 | Valid Thresh: 0.5700 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9024), (AUPRC: 0.7926), Best Threshold: 0.5700
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0368 | Train AUROC: 0.9358 | Train AUPRC: 0.8672 | Train F1: 0.7838 | Train Thresh: 0.5474 <====
+====> Epoch: 07 | Valid Loss: 0.0337 | Valid AUROC: 0.9259 | Valid AUPRC: 0.8428 | Valid F1: 0.7778 | Valid Thresh: 0.5078 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9259), (AUPRC: 0.8428), Best Threshold: 0.5078
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0221 | Train AUROC: 0.9717 | Train AUPRC: 0.8844 | Train F1: 0.8571 | Train Thresh: 0.4439 <====
+====> Epoch: 08 | Valid Loss: 0.0575 | Valid AUROC: 0.9024 | Valid AUPRC: 0.7997 | Valid F1: 0.7778 | Valid Thresh: 0.7564 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0101 | Train AUROC: 0.9913 | Train AUPRC: 0.9584 | Train F1: 0.9524 | Train Thresh: 0.4772 <====
+====> Epoch: 09 | Valid Loss: 0.0616 | Valid AUROC: 0.9293 | Valid AUPRC: 0.8536 | Valid F1: 0.8235 | Valid Thresh: 0.7006 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9293), (AUPRC: 0.8536), Best Threshold: 0.7006
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0075 | Train AUROC: 0.9900 | Train AUPRC: 0.9513 | Train F1: 0.9756 | Train Thresh: 0.6646 <====
+====> Epoch: 10 | Valid Loss: 0.0737 | Valid AUROC: 0.9428 | Valid AUPRC: 0.8787 | Valid F1: 0.8235 | Valid Thresh: 0.7749 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9428), (AUPRC: 0.8787), Best Threshold: 0.7749
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0063 | Train AUROC: 0.9937 | Train AUPRC: 0.9733 | Train F1: 0.9756 | Train Thresh: 0.4148 <====
+====> Epoch: 11 | Valid Loss: 0.0871 | Valid AUROC: 0.8923 | Valid AUPRC: 0.7979 | Valid F1: 0.7500 | Valid Thresh: 0.8852 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0085 | Train AUROC: 0.9937 | Train AUPRC: 0.9778 | Train F1: 0.9512 | Train Thresh: 0.6262 <====
+====> Epoch: 12 | Valid Loss: 0.1196 | Valid AUROC: 0.8956 | Valid AUPRC: 0.7859 | Valid F1: 0.7778 | Valid Thresh: 0.7785 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0068 | Train AUROC: 0.9975 | Train AUPRC: 0.9917 | Train F1: 0.9750 | Train Thresh: 0.6726 <====
+====> Epoch: 13 | Valid Loss: 0.1115 | Valid AUROC: 0.9293 | Valid AUPRC: 0.8421 | Valid F1: 0.7500 | Valid Thresh: 0.8584 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0168 | Train AUROC: 0.9781 | Train AUPRC: 0.9184 | Train F1: 0.8916 | Train Thresh: 0.5654 <====
+====> Epoch: 14 | Valid Loss: 0.0765 | Valid AUROC: 0.9293 | Valid AUPRC: 0.8211 | Valid F1: 0.7500 | Valid Thresh: 0.7885 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0123 | Train AUROC: 0.9929 | Train AUPRC: 0.9761 | Train F1: 0.9286 | Train Thresh: 0.7096 <====
+====> Epoch: 15 | Valid Loss: 0.0614 | Valid AUROC: 0.9461 | Valid AUPRC: 0.8497 | Valid F1: 0.8000 | Valid Thresh: 0.5605 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9461), (AUPRC: 0.8497), Best Threshold: 0.5605
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0080 | Train AUROC: 0.9925 | Train AUPRC: 0.9655 | Train F1: 0.9524 | Train Thresh: 0.5403 <====
+====> Epoch: 16 | Valid Loss: 0.0758 | Valid AUROC: 0.9394 | Valid AUPRC: 0.8594 | Valid F1: 0.8000 | Valid Thresh: 0.5152 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0036 | Train AUROC: 0.9996 | Train AUPRC: 0.9988 | Train F1: 0.9873 | Train Thresh: 0.7576 <====
+====> Epoch: 17 | Valid Loss: 0.1233 | Valid AUROC: 0.9293 | Valid AUPRC: 0.8384 | Valid F1: 0.7619 | Valid Thresh: 0.0804 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0016 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7427 <====
+====> Epoch: 18 | Valid Loss: 0.1509 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8084 | Valid F1: 0.7368 | Valid Thresh: 0.7821 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.0010 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7687 <====
+====> Epoch: 19 | Valid Loss: 0.1688 | Valid AUROC: 0.9024 | Valid AUPRC: 0.8022 | Valid F1: 0.7368 | Valid Thresh: 0.8730 <====
+Fold 2 종료. AUROC: 0.9461, AUPRC: 0.8497, 최적 Threshold: 0.5605
+==================== Starting Fold 3 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.0866 | Train AUROC: 0.6422 | Train AUPRC: 0.3395 | Train F1: 0.4375 | Train Thresh: 0.5974 <====
+====> Epoch: 00 | Valid Loss: 0.0654 | Valid AUROC: 0.7312 | Valid AUPRC: 0.5640 | Valid F1: 0.7059 | Valid Thresh: 0.6024 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7312), (AUPRC: 0.5640), Best Threshold: 0.6024
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0594 | Train AUROC: 0.6631 | Train AUPRC: 0.4715 | Train F1: 0.4706 | Train Thresh: 0.4202 <====
+====> Epoch: 01 | Valid Loss: 0.0544 | Valid AUROC: 0.7812 | Valid AUPRC: 0.5918 | Valid F1: 0.7059 | Valid Thresh: 0.5701 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7812), (AUPRC: 0.5918), Best Threshold: 0.5701
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0334 | Train AUROC: 0.9313 | Train AUPRC: 0.8587 | Train F1: 0.7692 | Train Thresh: 0.5434 <====
+====> Epoch: 02 | Valid Loss: 0.0767 | Valid AUROC: 0.7938 | Valid AUPRC: 0.6627 | Valid F1: 0.7059 | Valid Thresh: 0.6328 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7938), (AUPRC: 0.6627), Best Threshold: 0.6328
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0229 | Train AUROC: 0.9720 | Train AUPRC: 0.9459 | Train F1: 0.8919 | Train Thresh: 0.6313 <====
+====> Epoch: 03 | Valid Loss: 0.1498 | Valid AUROC: 0.8219 | Valid AUPRC: 0.6774 | Valid F1: 0.7273 | Valid Thresh: 0.2828 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8219), (AUPRC: 0.6774), Best Threshold: 0.2828
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0349 | Train AUROC: 0.9425 | Train AUPRC: 0.8671 | Train F1: 0.7895 | Train Thresh: 0.6073 <====
+====> Epoch: 04 | Valid Loss: 0.1388 | Valid AUROC: 0.7688 | Valid AUPRC: 0.5568 | Valid F1: 0.6667 | Valid Thresh: 0.2448 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0172 | Train AUROC: 0.9920 | Train AUPRC: 0.9771 | Train F1: 0.9367 | Train Thresh: 0.6258 <====
+====> Epoch: 05 | Valid Loss: 0.1470 | Valid AUROC: 0.7688 | Valid AUPRC: 0.6095 | Valid F1: 0.6316 | Valid Thresh: 0.4304 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0114 | Train AUROC: 0.9931 | Train AUPRC: 0.9760 | Train F1: 0.9383 | Train Thresh: 0.4575 <====
+====> Epoch: 06 | Valid Loss: 0.1733 | Valid AUROC: 0.7969 | Valid AUPRC: 0.6525 | Valid F1: 0.6667 | Valid Thresh: 0.8932 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0038 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9873 | Train Thresh: 0.5134 <====
+====> Epoch: 07 | Valid Loss: 0.2820 | Valid AUROC: 0.7875 | Valid AUPRC: 0.6233 | Valid F1: 0.6250 | Valid Thresh: 0.3660 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0096 | Train AUROC: 0.9967 | Train AUPRC: 0.9916 | Train F1: 0.9737 | Train Thresh: 0.7963 <====
+====> Epoch: 08 | Valid Loss: 0.1870 | Valid AUROC: 0.8031 | Valid AUPRC: 0.6527 | Valid F1: 0.6400 | Valid Thresh: 0.3289 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0135 | Train AUROC: 0.9920 | Train AUPRC: 0.9722 | Train F1: 0.9351 | Train Thresh: 0.5146 <====
+====> Epoch: 09 | Valid Loss: 0.1054 | Valid AUROC: 0.8344 | Valid AUPRC: 0.6523 | Valid F1: 0.7000 | Valid Thresh: 0.6111 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8344), (AUPRC: 0.6523), Best Threshold: 0.6111
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0090 | Train AUROC: 0.9990 | Train AUPRC: 0.9970 | Train F1: 0.9744 | Train Thresh: 0.6660 <====
+====> Epoch: 10 | Valid Loss: 0.1493 | Valid AUROC: 0.8406 | Valid AUPRC: 0.6747 | Valid F1: 0.7619 | Valid Thresh: 0.2781 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8406), (AUPRC: 0.6747), Best Threshold: 0.2781
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0023 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.5126 <====
+====> Epoch: 11 | Valid Loss: 0.1570 | Valid AUROC: 0.8344 | Valid AUPRC: 0.6615 | Valid F1: 0.7273 | Valid Thresh: 0.4834 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0021 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9238 <====
+====> Epoch: 12 | Valid Loss: 0.3097 | Valid AUROC: 0.8438 | Valid AUPRC: 0.6881 | Valid F1: 0.7619 | Valid Thresh: 0.0606 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8438), (AUPRC: 0.6881), Best Threshold: 0.0606
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0624 | Train AUROC: 0.9589 | Train AUPRC: 0.9031 | Train F1: 0.8286 | Train Thresh: 0.9540 <====
+====> Epoch: 13 | Valid Loss: 0.0880 | Valid AUROC: 0.8469 | Valid AUPRC: 0.7028 | Valid F1: 0.7368 | Valid Thresh: 0.4786 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8469), (AUPRC: 0.7028), Best Threshold: 0.4786
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0264 | Train AUROC: 0.9804 | Train AUPRC: 0.9279 | Train F1: 0.8864 | Train Thresh: 0.3686 <====
+====> Epoch: 14 | Valid Loss: 0.0817 | Valid AUROC: 0.8438 | Valid AUPRC: 0.7048 | Valid F1: 0.7619 | Valid Thresh: 0.6902 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0093 | Train AUROC: 0.9949 | Train AUPRC: 0.9840 | Train F1: 0.9383 | Train Thresh: 0.6692 <====
+====> Epoch: 15 | Valid Loss: 0.2447 | Valid AUROC: 0.8406 | Valid AUPRC: 0.6762 | Valid F1: 0.7273 | Valid Thresh: 0.0989 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0034 | Train AUROC: 0.9992 | Train AUPRC: 0.9976 | Train F1: 0.9870 | Train Thresh: 0.7167 <====
+====> Epoch: 16 | Valid Loss: 0.2184 | Valid AUROC: 0.8438 | Valid AUPRC: 0.6230 | Valid F1: 0.7619 | Valid Thresh: 0.5870 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0003 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.8241 <====
+====> Epoch: 17 | Valid Loss: 0.2512 | Valid AUROC: 0.8344 | Valid AUPRC: 0.6245 | Valid F1: 0.7619 | Valid Thresh: 0.1864 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0002 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7974 <====
+====> Epoch: 18 | Valid Loss: 0.3530 | Valid AUROC: 0.8375 | Valid AUPRC: 0.6253 | Valid F1: 0.7619 | Valid Thresh: 0.0403 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.0001 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7930 <====
+====> Epoch: 19 | Valid Loss: 0.3562 | Valid AUROC: 0.8406 | Valid AUPRC: 0.6261 | Valid F1: 0.7619 | Valid Thresh: 0.0388 <====
+Fold 3 종료. AUROC: 0.8469, AUPRC: 0.7028, 최적 Threshold: 0.4786
+==================== Starting Fold 4 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.1544 | Train AUROC: 0.5937 | Train AUPRC: 0.3368 | Train F1: 0.4341 | Train Thresh: 0.4379 <====
+====> Epoch: 00 | Valid Loss: 0.1600 | Valid AUROC: 0.6156 | Valid AUPRC: 0.3179 | Valid F1: 0.5000 | Valid Thresh: 0.2114 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6156), (AUPRC: 0.3179), Best Threshold: 0.2114
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0896 | Train AUROC: 0.5026 | Train AUPRC: 0.2465 | Train F1: 0.3768 | Train Thresh: 0.2180 <====
+====> Epoch: 01 | Valid Loss: 0.0673 | Valid AUROC: 0.6281 | Valid AUPRC: 0.3882 | Valid F1: 0.5294 | Valid Thresh: 0.4300 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6281), (AUPRC: 0.3882), Best Threshold: 0.4300
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0659 | Train AUROC: 0.5784 | Train AUPRC: 0.3850 | Train F1: 0.3867 | Train Thresh: 0.4072 <====
+====> Epoch: 02 | Valid Loss: 0.0630 | Valid AUROC: 0.6687 | Valid AUPRC: 0.4703 | Valid F1: 0.5806 | Valid Thresh: 0.5082 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6687), (AUPRC: 0.4703), Best Threshold: 0.5082
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0614 | Train AUROC: 0.6579 | Train AUPRC: 0.4212 | Train F1: 0.4536 | Train Thresh: 0.5232 <====
+====> Epoch: 03 | Valid Loss: 0.0637 | Valid AUROC: 0.7031 | Valid AUPRC: 0.5090 | Valid F1: 0.5806 | Valid Thresh: 0.4495 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7031), (AUPRC: 0.5090), Best Threshold: 0.4495
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0648 | Train AUROC: 0.5244 | Train AUPRC: 0.3691 | Train F1: 0.3900 | Train Thresh: 0.4115 <====
+====> Epoch: 04 | Valid Loss: 0.0602 | Valid AUROC: 0.7563 | Valid AUPRC: 0.5914 | Valid F1: 0.6207 | Valid Thresh: 0.5140 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7563), (AUPRC: 0.5914), Best Threshold: 0.5140
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0552 | Train AUROC: 0.7988 | Train AUPRC: 0.6314 | Train F1: 0.6000 | Train Thresh: 0.4997 <====
+====> Epoch: 05 | Valid Loss: 0.0542 | Valid AUROC: 0.8406 | Valid AUPRC: 0.7217 | Valid F1: 0.7826 | Valid Thresh: 0.4875 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8406), (AUPRC: 0.7217), Best Threshold: 0.4875
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0417 | Train AUROC: 0.9344 | Train AUPRC: 0.8162 | Train F1: 0.7470 | Train Thresh: 0.4993 <====
+====> Epoch: 06 | Valid Loss: 0.0474 | Valid AUROC: 0.8781 | Valid AUPRC: 0.8168 | Valid F1: 0.8182 | Valid Thresh: 0.4430 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8781), (AUPRC: 0.8168), Best Threshold: 0.4430
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0251 | Train AUROC: 0.9630 | Train AUPRC: 0.8714 | Train F1: 0.8434 | Train Thresh: 0.4908 <====
+====> Epoch: 07 | Valid Loss: 0.0648 | Valid AUROC: 0.8969 | Valid AUPRC: 0.8350 | Valid F1: 0.8571 | Valid Thresh: 0.3687 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8969), (AUPRC: 0.8350), Best Threshold: 0.3687
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0141 | Train AUROC: 0.9883 | Train AUPRC: 0.9621 | Train F1: 0.9268 | Train Thresh: 0.5721 <====
+====> Epoch: 08 | Valid Loss: 0.0540 | Valid AUROC: 0.9313 | Valid AUPRC: 0.8239 | Valid F1: 0.8571 | Valid Thresh: 0.5525 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9313), (AUPRC: 0.8239), Best Threshold: 0.5525
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0093 | Train AUROC: 0.9922 | Train AUPRC: 0.9723 | Train F1: 0.9286 | Train Thresh: 0.5134 <====
+====> Epoch: 09 | Valid Loss: 0.0783 | Valid AUROC: 0.9375 | Valid AUPRC: 0.8788 | Valid F1: 0.8421 | Valid Thresh: 0.4053 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9375), (AUPRC: 0.8788), Best Threshold: 0.4053
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0037 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9873 | Train Thresh: 0.5219 <====
+====> Epoch: 10 | Valid Loss: 0.0927 | Valid AUROC: 0.9344 | Valid AUPRC: 0.8188 | Valid F1: 0.8571 | Valid Thresh: 0.3047 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0023 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9873 | Train Thresh: 0.5627 <====
+====> Epoch: 11 | Valid Loss: 0.1622 | Valid AUROC: 0.9344 | Valid AUPRC: 0.8699 | Valid F1: 0.8182 | Valid Thresh: 0.0897 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0309 | Train AUROC: 0.9777 | Train AUPRC: 0.9298 | Train F1: 0.8478 | Train Thresh: 0.2820 <====
+====> Epoch: 12 | Valid Loss: 0.1773 | Valid AUROC: 0.8812 | Valid AUPRC: 0.7805 | Valid F1: 0.8182 | Valid Thresh: 0.0916 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0302 | Train AUROC: 0.9487 | Train AUPRC: 0.8908 | Train F1: 0.8219 | Train Thresh: 0.6193 <====
+====> Epoch: 13 | Valid Loss: 0.0549 | Valid AUROC: 0.8875 | Valid AUPRC: 0.8256 | Valid F1: 0.8000 | Valid Thresh: 0.7046 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0125 | Train AUROC: 0.9918 | Train AUPRC: 0.9727 | Train F1: 0.9383 | Train Thresh: 0.5641 <====
+====> Epoch: 14 | Valid Loss: 0.0728 | Valid AUROC: 0.8938 | Valid AUPRC: 0.8398 | Valid F1: 0.8182 | Valid Thresh: 0.4578 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0090 | Train AUROC: 0.9959 | Train AUPRC: 0.9864 | Train F1: 0.9512 | Train Thresh: 0.4112 <====
+====> Epoch: 15 | Valid Loss: 0.0833 | Valid AUROC: 0.8906 | Valid AUPRC: 0.8271 | Valid F1: 0.7826 | Valid Thresh: 0.5051 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0018 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7026 <====
+====> Epoch: 16 | Valid Loss: 0.1163 | Valid AUROC: 0.8969 | Valid AUPRC: 0.8352 | Valid F1: 0.8000 | Valid Thresh: 0.3186 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0031 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9873 | Train Thresh: 0.3845 <====
+====> Epoch: 17 | Valid Loss: 0.1031 | Valid AUROC: 0.9094 | Valid AUPRC: 0.8187 | Valid F1: 0.8421 | Valid Thresh: 0.8178 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0016 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.8269 <====
+====> Epoch: 18 | Valid Loss: 0.1193 | Valid AUROC: 0.9125 | Valid AUPRC: 0.8225 | Valid F1: 0.8421 | Valid Thresh: 0.6444 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.0005 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.6493 <====
+====> Epoch: 19 | Valid Loss: 0.1312 | Valid AUROC: 0.9125 | Valid AUPRC: 0.8225 | Valid F1: 0.8421 | Valid Thresh: 0.6050 <====
+10 epoch 동안 성능 개선이 없어 Fold 4 학습 조기 종료
+Fold 4 종료. AUROC: 0.9375, AUPRC: 0.8788, 최적 Threshold: 0.4053
+================ 최종 결과 ================
+Fold 1 Best AUROC: 0.9636
+Fold 2 Best AUROC: 0.9727
+Fold 3 Best AUROC: 0.9461
+Fold 4 Best AUROC: 0.8469
+Fold 5 Best AUROC: 0.9375
+5-Fold 평균 AUROC: 0.9334
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.1814 | Train AUROC: 0.5811 | Train AUPRC: 0.3173 | Train F1: 0.4133 | Train Thresh: 0.3608 <====
+====> Epoch: 00 | Valid Loss: 0.0935 | Valid AUROC: 0.7545 | Valid AUPRC: 0.4596 | Valid F1: 0.6000 | Valid Thresh: 0.3282 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7545), (AUPRC: 0.4596), Best Threshold: 0.3282
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0890 | Train AUROC: 0.5671 | Train AUPRC: 0.2857 | Train F1: 0.4142 | Train Thresh: 0.3709 <====
+====> Epoch: 01 | Valid Loss: 0.0594 | Valid AUROC: 0.9364 | Valid AUPRC: 0.8246 | Valid F1: 0.8182 | Valid Thresh: 0.4783 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9364), (AUPRC: 0.8246), Best Threshold: 0.4783
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0788 | Train AUROC: 0.6627 | Train AUPRC: 0.3706 | Train F1: 0.4730 | Train Thresh: 0.4209 <====
+====> Epoch: 02 | Valid Loss: 0.0646 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8419 | Valid F1: 0.8000 | Valid Thresh: 0.6023 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0706 | Train AUROC: 0.7412 | Train AUPRC: 0.4866 | Train F1: 0.5185 | Train Thresh: 0.5529 <====
+====> Epoch: 03 | Valid Loss: 0.0508 | Valid AUROC: 0.9030 | Valid AUPRC: 0.8035 | Valid F1: 0.7368 | Valid Thresh: 0.4810 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0559 | Train AUROC: 0.8811 | Train AUPRC: 0.7772 | Train F1: 0.6857 | Train Thresh: 0.5998 <====
+====> Epoch: 04 | Valid Loss: 0.0443 | Valid AUROC: 0.9212 | Valid AUPRC: 0.8074 | Valid F1: 0.7826 | Valid Thresh: 0.4541 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0642 | Train AUROC: 0.8454 | Train AUPRC: 0.6203 | Train F1: 0.6111 | Train Thresh: 0.4366 <====
+====> Epoch: 05 | Valid Loss: 0.0757 | Valid AUROC: 0.9333 | Valid AUPRC: 0.8604 | Valid F1: 0.8421 | Valid Thresh: 0.3469 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0484 | Train AUROC: 0.9036 | Train AUPRC: 0.7734 | Train F1: 0.7143 | Train Thresh: 0.5602 <====
+====> Epoch: 06 | Valid Loss: 0.0272 | Valid AUROC: 0.9606 | Valid AUPRC: 0.9164 | Valid F1: 0.9000 | Valid Thresh: 0.5214 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9606), (AUPRC: 0.9164), Best Threshold: 0.5214
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0332 | Train AUROC: 0.9655 | Train AUPRC: 0.8530 | Train F1: 0.8608 | Train Thresh: 0.6080 <====
+====> Epoch: 07 | Valid Loss: 0.0329 | Valid AUROC: 0.9576 | Valid AUPRC: 0.9140 | Valid F1: 0.9000 | Valid Thresh: 0.7411 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0299 | Train AUROC: 0.9702 | Train AUPRC: 0.8892 | Train F1: 0.8675 | Train Thresh: 0.5118 <====
+====> Epoch: 08 | Valid Loss: 0.0408 | Valid AUROC: 0.9667 | Valid AUPRC: 0.9219 | Valid F1: 0.9000 | Valid Thresh: 0.7540 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9667), (AUPRC: 0.9219), Best Threshold: 0.7540
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0229 | Train AUROC: 0.9846 | Train AUPRC: 0.9515 | Train F1: 0.8916 | Train Thresh: 0.5751 <====
+====> Epoch: 09 | Valid Loss: 0.0585 | Valid AUROC: 0.9485 | Valid AUPRC: 0.9285 | Valid F1: 0.9000 | Valid Thresh: 0.4224 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0123 | Train AUROC: 0.9982 | Train AUPRC: 0.9942 | Train F1: 0.9630 | Train Thresh: 0.4578 <====
+====> Epoch: 10 | Valid Loss: 0.0565 | Valid AUROC: 0.9424 | Valid AUPRC: 0.9257 | Valid F1: 0.9000 | Valid Thresh: 0.7076 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0164 | Train AUROC: 0.9927 | Train AUPRC: 0.9771 | Train F1: 0.9333 | Train Thresh: 0.6891 <====
+====> Epoch: 11 | Valid Loss: 0.0480 | Valid AUROC: 0.9364 | Valid AUPRC: 0.9064 | Valid F1: 0.8571 | Valid Thresh: 0.7814 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0255 | Train AUROC: 0.9755 | Train AUPRC: 0.9551 | Train F1: 0.9189 | Train Thresh: 0.6737 <====
+====> Epoch: 12 | Valid Loss: 0.0678 | Valid AUROC: 0.9455 | Valid AUPRC: 0.9064 | Valid F1: 0.9000 | Valid Thresh: 0.8659 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0331 | Train AUROC: 0.9527 | Train AUPRC: 0.8423 | Train F1: 0.8046 | Train Thresh: 0.5619 <====
+====> Epoch: 13 | Valid Loss: 0.0745 | Valid AUROC: 0.9424 | Valid AUPRC: 0.9257 | Valid F1: 0.9000 | Valid Thresh: 0.2764 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0162 | Train AUROC: 0.9913 | Train AUPRC: 0.9691 | Train F1: 0.9211 | Train Thresh: 0.7115 <====
+====> Epoch: 14 | Valid Loss: 0.0507 | Valid AUROC: 0.9576 | Valid AUPRC: 0.9140 | Valid F1: 0.9000 | Valid Thresh: 0.7266 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0082 | Train AUROC: 0.9988 | Train AUPRC: 0.9961 | Train F1: 0.9750 | Train Thresh: 0.4954 <====
+====> Epoch: 15 | Valid Loss: 0.0640 | Valid AUROC: 0.9515 | Valid AUPRC: 0.8990 | Valid F1: 0.8421 | Valid Thresh: 0.7786 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0064 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9873 | Train Thresh: 0.5669 <====
+====> Epoch: 16 | Valid Loss: 0.0653 | Valid AUROC: 0.9455 | Valid AUPRC: 0.8949 | Valid F1: 0.8421 | Valid Thresh: 0.7364 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0049 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.6815 <====
+====> Epoch: 17 | Valid Loss: 0.0694 | Valid AUROC: 0.9364 | Valid AUPRC: 0.8856 | Valid F1: 0.8421 | Valid Thresh: 0.7086 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0040 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7138 <====
+====> Epoch: 18 | Valid Loss: 0.0745 | Valid AUROC: 0.9455 | Valid AUPRC: 0.8949 | Valid F1: 0.8421 | Valid Thresh: 0.6625 <====
+10 epoch 동안 성능 개선이 없어 Fold 0 학습 조기 종료
+Fold 0 종료. AUROC: 0.9667, AUPRC: 0.9219, 최적 Threshold: 0.7540
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.1745 | Train AUROC: 0.5716 | Train AUPRC: 0.3119 | Train F1: 0.4113 | Train Thresh: 0.3867 <====
+====> Epoch: 00 | Valid Loss: 0.0801 | Valid AUROC: 0.5576 | Valid AUPRC: 0.2903 | Valid F1: 0.4706 | Valid Thresh: 0.6255 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.5576), (AUPRC: 0.2903), Best Threshold: 0.6255
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0929 | Train AUROC: 0.3994 | Train AUPRC: 0.1920 | Train F1: 0.3814 | Train Thresh: 0.3949 <====
+====> Epoch: 01 | Valid Loss: 0.0695 | Valid AUROC: 0.5606 | Valid AUPRC: 0.3643 | Valid F1: 0.4545 | Valid Thresh: 0.5602 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.5606), (AUPRC: 0.3643), Best Threshold: 0.5602
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0818 | Train AUROC: 0.5166 | Train AUPRC: 0.2624 | Train F1: 0.3750 | Train Thresh: 0.3602 <====
+====> Epoch: 02 | Valid Loss: 0.0703 | Valid AUROC: 0.4909 | Valid AUPRC: 0.3845 | Valid F1: 0.4348 | Valid Thresh: 0.5589 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0811 | Train AUROC: 0.5564 | Train AUPRC: 0.2754 | Train F1: 0.3922 | Train Thresh: 0.5595 <====
+====> Epoch: 03 | Valid Loss: 0.0740 | Valid AUROC: 0.4788 | Valid AUPRC: 0.3827 | Valid F1: 0.4255 | Valid Thresh: 0.3835 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0725 | Train AUROC: 0.6702 | Train AUPRC: 0.4451 | Train F1: 0.4742 | Train Thresh: 0.4999 <====
+====> Epoch: 04 | Valid Loss: 0.0678 | Valid AUROC: 0.4879 | Valid AUPRC: 0.3859 | Valid F1: 0.4286 | Valid Thresh: 0.5432 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0755 | Train AUROC: 0.5878 | Train AUPRC: 0.3499 | Train F1: 0.4294 | Train Thresh: 0.4375 <====
+====> Epoch: 05 | Valid Loss: 0.0616 | Valid AUROC: 0.6091 | Valid AUPRC: 0.4553 | Valid F1: 0.4286 | Valid Thresh: 0.4715 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6091), (AUPRC: 0.4553), Best Threshold: 0.4715
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0666 | Train AUROC: 0.7491 | Train AUPRC: 0.5742 | Train F1: 0.5333 | Train Thresh: 0.5656 <====
+====> Epoch: 06 | Valid Loss: 0.0781 | Valid AUROC: 0.6939 | Valid AUPRC: 0.5491 | Valid F1: 0.5161 | Valid Thresh: 0.3526 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6939), (AUPRC: 0.5491), Best Threshold: 0.3526
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0557 | Train AUROC: 0.8430 | Train AUPRC: 0.6690 | Train F1: 0.6667 | Train Thresh: 0.5325 <====
+====> Epoch: 07 | Valid Loss: 0.0746 | Valid AUROC: 0.7485 | Valid AUPRC: 0.5975 | Valid F1: 0.5926 | Valid Thresh: 0.3811 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7485), (AUPRC: 0.5975), Best Threshold: 0.3811
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0387 | Train AUROC: 0.9487 | Train AUPRC: 0.8469 | Train F1: 0.8434 | Train Thresh: 0.5501 <====
+====> Epoch: 08 | Valid Loss: 0.0744 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8302 | Valid F1: 0.8000 | Valid Thresh: 0.3496 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9091), (AUPRC: 0.8302), Best Threshold: 0.3496
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0244 | Train AUROC: 0.9866 | Train AUPRC: 0.9583 | Train F1: 0.8919 | Train Thresh: 0.6380 <====
+====> Epoch: 09 | Valid Loss: 0.0902 | Valid AUROC: 0.9515 | Valid AUPRC: 0.9015 | Valid F1: 0.8421 | Valid Thresh: 0.3244 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9515), (AUPRC: 0.9015), Best Threshold: 0.3244
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0260 | Train AUROC: 0.9832 | Train AUPRC: 0.9502 | Train F1: 0.9091 | Train Thresh: 0.5806 <====
+====> Epoch: 10 | Valid Loss: 0.0320 | Valid AUROC: 0.9364 | Valid AUPRC: 0.8559 | Valid F1: 0.7778 | Valid Thresh: 0.6612 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0350 | Train AUROC: 0.9469 | Train AUPRC: 0.8536 | Train F1: 0.7692 | Train Thresh: 0.5121 <====
+====> Epoch: 11 | Valid Loss: 0.0542 | Valid AUROC: 0.8879 | Valid AUPRC: 0.8206 | Valid F1: 0.7500 | Valid Thresh: 0.5190 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0207 | Train AUROC: 0.9868 | Train AUPRC: 0.9683 | Train F1: 0.9610 | Train Thresh: 0.6707 <====
+====> Epoch: 12 | Valid Loss: 0.1117 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8553 | Valid F1: 0.8235 | Valid Thresh: 0.3681 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0108 | Train AUROC: 0.9988 | Train AUPRC: 0.9966 | Train F1: 0.9870 | Train Thresh: 0.6815 <====
+====> Epoch: 13 | Valid Loss: 0.0831 | Valid AUROC: 0.9152 | Valid AUPRC: 0.7865 | Valid F1: 0.7143 | Valid Thresh: 0.1561 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0077 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.6318 <====
+====> Epoch: 14 | Valid Loss: 0.1147 | Valid AUROC: 0.9091 | Valid AUPRC: 0.6946 | Valid F1: 0.7368 | Valid Thresh: 0.4542 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0064 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.5842 <====
+====> Epoch: 15 | Valid Loss: 0.1210 | Valid AUROC: 0.9030 | Valid AUPRC: 0.7390 | Valid F1: 0.7368 | Valid Thresh: 0.6649 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0045 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.8824 <====
+====> Epoch: 16 | Valid Loss: 0.1392 | Valid AUROC: 0.9030 | Valid AUPRC: 0.7286 | Valid F1: 0.7368 | Valid Thresh: 0.2576 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0041 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.8022 <====
+====> Epoch: 17 | Valid Loss: 0.1291 | Valid AUROC: 0.8970 | Valid AUPRC: 0.7230 | Valid F1: 0.7368 | Valid Thresh: 0.2726 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0038 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.8534 <====
+====> Epoch: 18 | Valid Loss: 0.1352 | Valid AUROC: 0.8939 | Valid AUPRC: 0.7080 | Valid F1: 0.7368 | Valid Thresh: 0.3477 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.0036 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.8983 <====
+====> Epoch: 19 | Valid Loss: 0.1345 | Valid AUROC: 0.8848 | Valid AUPRC: 0.6675 | Valid F1: 0.7368 | Valid Thresh: 0.3385 <====
+10 epoch 동안 성능 개선이 없어 Fold 1 학습 조기 종료
+Fold 1 종료. AUROC: 0.9515, AUPRC: 0.9015, 최적 Threshold: 0.3244
+==================== Starting Fold 2 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.2121 | Train AUROC: 0.5400 | Train AUPRC: 0.3601 | Train F1: 0.3939 | Train Thresh: 0.0371 <====
+====> Epoch: 00 | Valid Loss: 0.0692 | Valid AUROC: 0.6768 | Valid AUPRC: 0.4890 | Valid F1: 0.5263 | Valid Thresh: 0.3991 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6768), (AUPRC: 0.4890), Best Threshold: 0.3991
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0936 | Train AUROC: 0.5604 | Train AUPRC: 0.3075 | Train F1: 0.4062 | Train Thresh: 0.3224 <====
+====> Epoch: 01 | Valid Loss: 0.0813 | Valid AUROC: 0.8215 | Valid AUPRC: 0.7411 | Valid F1: 0.7500 | Valid Thresh: 0.6207 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8215), (AUPRC: 0.7411), Best Threshold: 0.6207
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0931 | Train AUROC: 0.4354 | Train AUPRC: 0.2607 | Train F1: 0.4194 | Train Thresh: 0.4241 <====
+====> Epoch: 02 | Valid Loss: 0.0601 | Valid AUROC: 0.8620 | Valid AUPRC: 0.7040 | Valid F1: 0.7059 | Valid Thresh: 0.4574 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8620), (AUPRC: 0.7040), Best Threshold: 0.4574
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0761 | Train AUROC: 0.8281 | Train AUPRC: 0.6793 | Train F1: 0.6731 | Train Thresh: 0.5021 <====
+====> Epoch: 03 | Valid Loss: 0.0588 | Valid AUROC: 0.8822 | Valid AUPRC: 0.7579 | Valid F1: 0.7500 | Valid Thresh: 0.5342 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8822), (AUPRC: 0.7579), Best Threshold: 0.5342
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0731 | Train AUROC: 0.8712 | Train AUPRC: 0.6888 | Train F1: 0.6739 | Train Thresh: 0.5167 <====
+====> Epoch: 04 | Valid Loss: 0.0542 | Valid AUROC: 0.8215 | Valid AUPRC: 0.6261 | Valid F1: 0.6316 | Valid Thresh: 0.5212 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0620 | Train AUROC: 0.8954 | Train AUPRC: 0.7360 | Train F1: 0.6944 | Train Thresh: 0.5336 <====
+====> Epoch: 05 | Valid Loss: 0.0357 | Valid AUROC: 0.9158 | Valid AUPRC: 0.8337 | Valid F1: 0.7500 | Valid Thresh: 0.5377 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9158), (AUPRC: 0.8337), Best Threshold: 0.5377
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0434 | Train AUROC: 0.9481 | Train AUPRC: 0.8002 | Train F1: 0.8444 | Train Thresh: 0.5355 <====
+====> Epoch: 06 | Valid Loss: 0.0638 | Valid AUROC: 0.8721 | Valid AUPRC: 0.7026 | Valid F1: 0.6957 | Valid Thresh: 0.4077 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0388 | Train AUROC: 0.9629 | Train AUPRC: 0.9202 | Train F1: 0.8831 | Train Thresh: 0.5948 <====
+====> Epoch: 07 | Valid Loss: 0.0385 | Valid AUROC: 0.8721 | Valid AUPRC: 0.7350 | Valid F1: 0.6667 | Valid Thresh: 0.6895 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0298 | Train AUROC: 0.9850 | Train AUPRC: 0.9501 | Train F1: 0.9024 | Train Thresh: 0.5249 <====
+====> Epoch: 08 | Valid Loss: 0.0691 | Valid AUROC: 0.8822 | Valid AUPRC: 0.7735 | Valid F1: 0.7778 | Valid Thresh: 0.4372 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0283 | Train AUROC: 0.9831 | Train AUPRC: 0.9578 | Train F1: 0.9114 | Train Thresh: 0.5230 <====
+====> Epoch: 09 | Valid Loss: 0.0612 | Valid AUROC: 0.8923 | Valid AUPRC: 0.7385 | Valid F1: 0.7778 | Valid Thresh: 0.8014 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0261 | Train AUROC: 0.9837 | Train AUPRC: 0.9561 | Train F1: 0.9231 | Train Thresh: 0.6387 <====
+====> Epoch: 10 | Valid Loss: 0.0737 | Valid AUROC: 0.9158 | Valid AUPRC: 0.7739 | Valid F1: 0.7500 | Valid Thresh: 0.9222 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0282 | Train AUROC: 0.9785 | Train AUPRC: 0.9152 | Train F1: 0.9048 | Train Thresh: 0.6485 <====
+====> Epoch: 11 | Valid Loss: 0.0405 | Valid AUROC: 0.9192 | Valid AUPRC: 0.7811 | Valid F1: 0.8000 | Valid Thresh: 0.4754 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9192), (AUPRC: 0.7811), Best Threshold: 0.4754
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0208 | Train AUROC: 0.9892 | Train AUPRC: 0.9765 | Train F1: 0.9367 | Train Thresh: 0.6555 <====
+====> Epoch: 12 | Valid Loss: 0.0291 | Valid AUROC: 0.9562 | Valid AUPRC: 0.8994 | Valid F1: 0.8889 | Valid Thresh: 0.6831 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9562), (AUPRC: 0.8994), Best Threshold: 0.6831
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0195 | Train AUROC: 0.9867 | Train AUPRC: 0.9471 | Train F1: 0.9250 | Train Thresh: 0.6509 <====
+====> Epoch: 13 | Valid Loss: 0.0291 | Valid AUROC: 0.9562 | Valid AUPRC: 0.8849 | Valid F1: 0.8421 | Valid Thresh: 0.6250 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0184 | Train AUROC: 0.9935 | Train AUPRC: 0.9796 | Train F1: 0.9398 | Train Thresh: 0.6148 <====
+====> Epoch: 14 | Valid Loss: 0.0467 | Valid AUROC: 0.9630 | Valid AUPRC: 0.9056 | Valid F1: 0.8889 | Valid Thresh: 0.3972 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9630), (AUPRC: 0.9056), Best Threshold: 0.3972
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0118 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.4876 <====
+====> Epoch: 15 | Valid Loss: 0.0605 | Valid AUROC: 0.9259 | Valid AUPRC: 0.8364 | Valid F1: 0.8235 | Valid Thresh: 0.7752 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0129 | Train AUROC: 0.9975 | Train AUPRC: 0.9920 | Train F1: 0.9630 | Train Thresh: 0.7278 <====
+====> Epoch: 16 | Valid Loss: 0.0564 | Valid AUROC: 0.9428 | Valid AUPRC: 0.8603 | Valid F1: 0.8235 | Valid Thresh: 0.6574 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0121 | Train AUROC: 0.9992 | Train AUPRC: 0.9977 | Train F1: 0.9873 | Train Thresh: 0.5863 <====
+====> Epoch: 17 | Valid Loss: 0.0466 | Valid AUROC: 0.9495 | Valid AUPRC: 0.8624 | Valid F1: 0.8235 | Valid Thresh: 0.8672 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0162 | Train AUROC: 0.9935 | Train AUPRC: 0.9848 | Train F1: 0.9610 | Train Thresh: 0.7074 <====
+====> Epoch: 18 | Valid Loss: 0.0540 | Valid AUROC: 0.9428 | Valid AUPRC: 0.8518 | Valid F1: 0.8235 | Valid Thresh: 0.7584 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.0109 | Train AUROC: 0.9981 | Train AUPRC: 0.9939 | Train F1: 0.9750 | Train Thresh: 0.6383 <====
+====> Epoch: 19 | Valid Loss: 0.0449 | Valid AUROC: 0.9360 | Valid AUPRC: 0.8494 | Valid F1: 0.7778 | Valid Thresh: 0.6869 <====
+Fold 2 종료. AUROC: 0.9630, AUPRC: 0.9056, 최적 Threshold: 0.3972
+==================== Starting Fold 3 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.2078 | Train AUROC: 0.5240 | Train AUPRC: 0.2951 | Train F1: 0.3895 | Train Thresh: 0.1347 <====
+====> Epoch: 00 | Valid Loss: 0.1382 | Valid AUROC: 0.8625 | Valid AUPRC: 0.7213 | Valid F1: 0.6957 | Valid Thresh: 0.7382 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8625), (AUPRC: 0.7213), Best Threshold: 0.7382
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.1056 | Train AUROC: 0.5330 | Train AUPRC: 0.2378 | Train F1: 0.4419 | Train Thresh: 0.3916 <====
+====> Epoch: 01 | Valid Loss: 0.0692 | Valid AUROC: 0.8750 | Valid AUPRC: 0.8025 | Valid F1: 0.7500 | Valid Thresh: 0.4166 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8750), (AUPRC: 0.8025), Best Threshold: 0.4166
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0814 | Train AUROC: 0.5913 | Train AUPRC: 0.4838 | Train F1: 0.4865 | Train Thresh: 0.5483 <====
+====> Epoch: 02 | Valid Loss: 0.0583 | Valid AUROC: 0.8594 | Valid AUPRC: 0.8154 | Valid F1: 0.7619 | Valid Thresh: 0.5014 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0731 | Train AUROC: 0.8422 | Train AUPRC: 0.6449 | Train F1: 0.6139 | Train Thresh: 0.4601 <====
+====> Epoch: 03 | Valid Loss: 0.0531 | Valid AUROC: 0.8938 | Valid AUPRC: 0.8518 | Valid F1: 0.8421 | Valid Thresh: 0.5328 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8938), (AUPRC: 0.8518), Best Threshold: 0.5328
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0600 | Train AUROC: 0.9501 | Train AUPRC: 0.8712 | Train F1: 0.8172 | Train Thresh: 0.5052 <====
+====> Epoch: 04 | Valid Loss: 0.0422 | Valid AUROC: 0.9094 | Valid AUPRC: 0.8819 | Valid F1: 0.8889 | Valid Thresh: 0.5228 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9094), (AUPRC: 0.8819), Best Threshold: 0.5228
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0531 | Train AUROC: 0.8986 | Train AUPRC: 0.7218 | Train F1: 0.7368 | Train Thresh: 0.5338 <====
+====> Epoch: 05 | Valid Loss: 0.0471 | Valid AUROC: 0.8969 | Valid AUPRC: 0.8530 | Valid F1: 0.8421 | Valid Thresh: 0.6790 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0392 | Train AUROC: 0.9616 | Train AUPRC: 0.9093 | Train F1: 0.8889 | Train Thresh: 0.5238 <====
+====> Epoch: 06 | Valid Loss: 0.0528 | Valid AUROC: 0.8344 | Valid AUPRC: 0.7653 | Valid F1: 0.8000 | Valid Thresh: 0.7330 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0307 | Train AUROC: 0.9824 | Train AUPRC: 0.9513 | Train F1: 0.8831 | Train Thresh: 0.6686 <====
+====> Epoch: 07 | Valid Loss: 0.0955 | Valid AUROC: 0.8156 | Valid AUPRC: 0.7393 | Valid F1: 0.8000 | Valid Thresh: 0.4622 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0368 | Train AUROC: 0.9650 | Train AUPRC: 0.9060 | Train F1: 0.8718 | Train Thresh: 0.6524 <====
+====> Epoch: 08 | Valid Loss: 0.0584 | Valid AUROC: 0.8719 | Valid AUPRC: 0.7813 | Valid F1: 0.7778 | Valid Thresh: 0.6979 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0257 | Train AUROC: 0.9890 | Train AUPRC: 0.9723 | Train F1: 0.9189 | Train Thresh: 0.5728 <====
+====> Epoch: 09 | Valid Loss: 0.0568 | Valid AUROC: 0.8969 | Valid AUPRC: 0.8065 | Valid F1: 0.7778 | Valid Thresh: 0.7779 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0243 | Train AUROC: 0.9845 | Train AUPRC: 0.9631 | Train F1: 0.9041 | Train Thresh: 0.6554 <====
+====> Epoch: 10 | Valid Loss: 0.0623 | Valid AUROC: 0.8375 | Valid AUPRC: 0.6809 | Valid F1: 0.7273 | Valid Thresh: 0.5955 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0287 | Train AUROC: 0.9701 | Train AUPRC: 0.9294 | Train F1: 0.8947 | Train Thresh: 0.6779 <====
+====> Epoch: 11 | Valid Loss: 0.0682 | Valid AUROC: 0.8281 | Valid AUPRC: 0.7124 | Valid F1: 0.7059 | Valid Thresh: 0.8465 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0268 | Train AUROC: 0.9749 | Train AUPRC: 0.9263 | Train F1: 0.8462 | Train Thresh: 0.6210 <====
+====> Epoch: 12 | Valid Loss: 0.0827 | Valid AUROC: 0.8250 | Valid AUPRC: 0.7105 | Valid F1: 0.7059 | Valid Thresh: 0.8358 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0155 | Train AUROC: 0.9953 | Train AUPRC: 0.9846 | Train F1: 0.9398 | Train Thresh: 0.4030 <====
+====> Epoch: 13 | Valid Loss: 0.1509 | Valid AUROC: 0.7937 | Valid AUPRC: 0.5878 | Valid F1: 0.7619 | Valid Thresh: 0.7663 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0198 | Train AUROC: 0.9883 | Train AUPRC: 0.9562 | Train F1: 0.9383 | Train Thresh: 0.6590 <====
+====> Epoch: 14 | Valid Loss: 0.0918 | Valid AUROC: 0.8781 | Valid AUPRC: 0.7230 | Valid F1: 0.7619 | Valid Thresh: 0.6376 <====
+10 epoch 동안 성능 개선이 없어 Fold 3 학습 조기 종료
+Fold 3 종료. AUROC: 0.9094, AUPRC: 0.8819, 최적 Threshold: 0.5228
+==================== Starting Fold 4 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 0.1734 | Train AUROC: 0.4655 | Train AUPRC: 0.2347 | Train F1: 0.4000 | Train Thresh: 0.1766 <====
+====> Epoch: 00 | Valid Loss: 0.0684 | Valid AUROC: 0.5750 | Valid AUPRC: 0.4947 | Valid F1: 0.4615 | Valid Thresh: 0.5682 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.5750), (AUPRC: 0.4947), Best Threshold: 0.5682
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 0.0979 | Train AUROC: 0.4688 | Train AUPRC: 0.2126 | Train F1: 0.3732 | Train Thresh: 0.3491 <====
+====> Epoch: 01 | Valid Loss: 0.0884 | Valid AUROC: 0.6594 | Valid AUPRC: 0.4099 | Valid F1: 0.5455 | Valid Thresh: 0.3521 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6594), (AUPRC: 0.4099), Best Threshold: 0.3521
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.0781 | Train AUROC: 0.6320 | Train AUPRC: 0.3138 | Train F1: 0.4400 | Train Thresh: 0.3899 <====
+====> Epoch: 02 | Valid Loss: 0.0810 | Valid AUROC: 0.6000 | Valid AUPRC: 0.3503 | Valid F1: 0.4615 | Valid Thresh: 0.6101 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.0823 | Train AUROC: 0.4927 | Train AUPRC: 0.2204 | Train F1: 0.3979 | Train Thresh: 0.4426 <====
+====> Epoch: 03 | Valid Loss: 0.0654 | Valid AUROC: 0.6125 | Valid AUPRC: 0.3386 | Valid F1: 0.4615 | Valid Thresh: 0.4512 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.0775 | Train AUROC: 0.5449 | Train AUPRC: 0.2666 | Train F1: 0.3953 | Train Thresh: 0.4494 <====
+====> Epoch: 04 | Valid Loss: 0.0688 | Valid AUROC: 0.6844 | Valid AUPRC: 0.3655 | Valid F1: 0.5217 | Valid Thresh: 0.5591 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6844), (AUPRC: 0.3655), Best Threshold: 0.5591
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.0789 | Train AUROC: 0.4578 | Train AUPRC: 0.2348 | Train F1: 0.3958 | Train Thresh: 0.4238 <====
+====> Epoch: 05 | Valid Loss: 0.0653 | Valid AUROC: 0.7438 | Valid AUPRC: 0.4154 | Valid F1: 0.6000 | Valid Thresh: 0.5335 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7438), (AUPRC: 0.4154), Best Threshold: 0.5335
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.0758 | Train AUROC: 0.5365 | Train AUPRC: 0.2996 | Train F1: 0.4103 | Train Thresh: 0.4685 <====
+====> Epoch: 06 | Valid Loss: 0.0709 | Valid AUROC: 0.6094 | Valid AUPRC: 0.3222 | Valid F1: 0.4516 | Valid Thresh: 0.4169 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.0737 | Train AUROC: 0.5688 | Train AUPRC: 0.4241 | Train F1: 0.4086 | Train Thresh: 0.4279 <====
+====> Epoch: 07 | Valid Loss: 0.0639 | Valid AUROC: 0.6375 | Valid AUPRC: 0.4210 | Valid F1: 0.5185 | Valid Thresh: 0.4870 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.0697 | Train AUROC: 0.6365 | Train AUPRC: 0.4694 | Train F1: 0.4412 | Train Thresh: 0.5286 <====
+====> Epoch: 08 | Valid Loss: 0.0625 | Valid AUROC: 0.7031 | Valid AUPRC: 0.4762 | Valid F1: 0.5833 | Valid Thresh: 0.5396 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.0581 | Train AUROC: 0.8162 | Train AUPRC: 0.6542 | Train F1: 0.5843 | Train Thresh: 0.4877 <====
+====> Epoch: 09 | Valid Loss: 0.0462 | Valid AUROC: 0.8969 | Valid AUPRC: 0.7975 | Valid F1: 0.8182 | Valid Thresh: 0.5577 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8969), (AUPRC: 0.7975), Best Threshold: 0.5577
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.0458 | Train AUROC: 0.9033 | Train AUPRC: 0.7848 | Train F1: 0.7191 | Train Thresh: 0.5213 <====
+====> Epoch: 10 | Valid Loss: 0.0751 | Valid AUROC: 0.9125 | Valid AUPRC: 0.8657 | Valid F1: 0.9000 | Valid Thresh: 0.7990 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9125), (AUPRC: 0.8657), Best Threshold: 0.7990
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.0385 | Train AUROC: 0.9407 | Train AUPRC: 0.8361 | Train F1: 0.7463 | Train Thresh: 0.7265 <====
+====> Epoch: 11 | Valid Loss: 0.0457 | Valid AUROC: 0.9125 | Valid AUPRC: 0.8742 | Valid F1: 0.8571 | Valid Thresh: 0.4469 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9125), (AUPRC: 0.8742), Best Threshold: 0.4469
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.0303 | Train AUROC: 0.9607 | Train AUPRC: 0.8667 | Train F1: 0.8276 | Train Thresh: 0.4934 <====
+====> Epoch: 12 | Valid Loss: 0.0451 | Valid AUROC: 0.9281 | Valid AUPRC: 0.8927 | Valid F1: 0.8571 | Valid Thresh: 0.6558 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9281), (AUPRC: 0.8927), Best Threshold: 0.6558
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.0213 | Train AUROC: 0.9839 | Train AUPRC: 0.9351 | Train F1: 0.9136 | Train Thresh: 0.5375 <====
+====> Epoch: 13 | Valid Loss: 0.0387 | Valid AUROC: 0.9469 | Valid AUPRC: 0.8948 | Valid F1: 0.8571 | Valid Thresh: 0.7360 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9469), (AUPRC: 0.8948), Best Threshold: 0.7360
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.0174 | Train AUROC: 0.9918 | Train AUPRC: 0.9725 | Train F1: 0.9610 | Train Thresh: 0.6810 <====
+====> Epoch: 14 | Valid Loss: 0.0421 | Valid AUROC: 0.9500 | Valid AUPRC: 0.9099 | Valid F1: 0.9000 | Valid Thresh: 0.6283 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9500), (AUPRC: 0.9099), Best Threshold: 0.6283
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.0106 | Train AUROC: 0.9965 | Train AUPRC: 0.9866 | Train F1: 0.9750 | Train Thresh: 0.5880 <====
+====> Epoch: 15 | Valid Loss: 0.0535 | Valid AUROC: 0.9500 | Valid AUPRC: 0.8976 | Valid F1: 0.9000 | Valid Thresh: 0.5492 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.0085 | Train AUROC: 0.9984 | Train AUPRC: 0.9947 | Train F1: 0.9750 | Train Thresh: 0.5136 <====
+====> Epoch: 16 | Valid Loss: 0.0543 | Valid AUROC: 0.9594 | Valid AUPRC: 0.9047 | Valid F1: 0.9000 | Valid Thresh: 0.6737 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9594), (AUPRC: 0.9047), Best Threshold: 0.6737
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.0125 | Train AUROC: 0.9973 | Train AUPRC: 0.9915 | Train F1: 0.9620 | Train Thresh: 0.6647 <====
+====> Epoch: 17 | Valid Loss: 0.0510 | Valid AUROC: 0.9500 | Valid AUPRC: 0.8976 | Valid F1: 0.9000 | Valid Thresh: 0.4678 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.0096 | Train AUROC: 0.9986 | Train AUPRC: 0.9956 | Train F1: 0.9630 | Train Thresh: 0.5501 <====
+====> Epoch: 18 | Valid Loss: 0.0500 | Valid AUROC: 0.9469 | Valid AUPRC: 0.8631 | Valid F1: 0.9000 | Valid Thresh: 0.4833 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.0062 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9870 | Train Thresh: 0.7241 <====
+====> Epoch: 19 | Valid Loss: 0.0712 | Valid AUROC: 0.9500 | Valid AUPRC: 0.8654 | Valid F1: 0.9000 | Valid Thresh: 0.4676 <====
+Fold 4 종료. AUROC: 0.9594, AUPRC: 0.9047, 최적 Threshold: 0.6737
+================ 최종 결과 ================
+Fold 1 Best AUROC: 0.9667
+Fold 2 Best AUROC: 0.9515
+Fold 3 Best AUROC: 0.9630
+Fold 4 Best AUROC: 0.9094
+Fold 5 Best AUROC: 0.9594
+5-Fold 평균 AUROC: 0.9500
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.6478 | Train AUROC: 0.5755 | Train AUPRC: 0.2933 | Train F1: 0.4203 | Train Thresh: 0.3420 <====
+====> Epoch: 00 | Valid Loss: 0.1797 | Valid AUROC: 0.5061 | Valid AUPRC: 0.3292 | Valid F1: 0.4091 | Valid Thresh: 0.1928 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.5061), (AUPRC: 0.3292), Best Threshold: 0.1928
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.4999 | Train AUROC: 0.5519 | Train AUPRC: 0.4077 | Train F1: 0.3897 | Train Thresh: 0.2010 <====
+====> Epoch: 01 | Valid Loss: 0.0619 | Valid AUROC: 0.8818 | Valid AUPRC: 0.6620 | Valid F1: 0.7500 | Valid Thresh: 0.5396 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8818), (AUPRC: 0.6620), Best Threshold: 0.5396
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.4604 | Train AUROC: 0.5536 | Train AUPRC: 0.3201 | Train F1: 0.4246 | Train Thresh: 0.3001 <====
+====> Epoch: 02 | Valid Loss: 0.0723 | Valid AUROC: 0.8727 | Valid AUPRC: 0.6071 | Valid F1: 0.7200 | Valid Thresh: 0.3736 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.4243 | Train AUROC: 0.7391 | Train AUPRC: 0.6120 | Train F1: 0.5263 | Train Thresh: 0.5059 <====
+====> Epoch: 03 | Valid Loss: 0.0909 | Valid AUROC: 0.7424 | Valid AUPRC: 0.5655 | Valid F1: 0.5556 | Valid Thresh: 0.3442 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.3789 | Train AUROC: 0.8306 | Train AUPRC: 0.7315 | Train F1: 0.6667 | Train Thresh: 0.5841 <====
+====> Epoch: 04 | Valid Loss: 0.0510 | Valid AUROC: 0.9061 | Valid AUPRC: 0.8063 | Valid F1: 0.7368 | Valid Thresh: 0.4556 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9061), (AUPRC: 0.8063), Best Threshold: 0.4556
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 1.3352 | Train AUROC: 0.9329 | Train AUPRC: 0.8769 | Train F1: 0.8462 | Train Thresh: 0.4633 <====
+====> Epoch: 05 | Valid Loss: 0.0464 | Valid AUROC: 0.9667 | Valid AUPRC: 0.9206 | Valid F1: 0.8571 | Valid Thresh: 0.3081 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9667), (AUPRC: 0.9206), Best Threshold: 0.3081
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 1.3398 | Train AUROC: 0.9422 | Train AUPRC: 0.8641 | Train F1: 0.7949 | Train Thresh: 0.4978 <====
+====> Epoch: 06 | Valid Loss: 0.0374 | Valid AUROC: 0.9576 | Valid AUPRC: 0.8881 | Valid F1: 0.9000 | Valid Thresh: 0.4425 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 1.3114 | Train AUROC: 0.9698 | Train AUPRC: 0.9418 | Train F1: 0.8861 | Train Thresh: 0.5333 <====
+====> Epoch: 07 | Valid Loss: 0.0270 | Valid AUROC: 0.9636 | Valid AUPRC: 0.9077 | Valid F1: 0.9000 | Valid Thresh: 0.6469 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 1.3042 | Train AUROC: 0.9854 | Train AUPRC: 0.9681 | Train F1: 0.9114 | Train Thresh: 0.5317 <====
+====> Epoch: 08 | Valid Loss: 0.0207 | Valid AUROC: 0.9758 | Valid AUPRC: 0.9374 | Valid F1: 0.8571 | Valid Thresh: 0.6531 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9758), (AUPRC: 0.9374), Best Threshold: 0.6531
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 1.2968 | Train AUROC: 0.9937 | Train AUPRC: 0.9819 | Train F1: 0.9250 | Train Thresh: 0.4982 <====
+====> Epoch: 09 | Valid Loss: 0.0180 | Valid AUROC: 0.9788 | Valid AUPRC: 0.9485 | Valid F1: 0.8889 | Valid Thresh: 0.7325 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9788), (AUPRC: 0.9485), Best Threshold: 0.7325
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 1.2943 | Train AUROC: 0.9968 | Train AUPRC: 0.9904 | Train F1: 0.9610 | Train Thresh: 0.6105 <====
+====> Epoch: 10 | Valid Loss: 0.0233 | Valid AUROC: 0.9758 | Valid AUPRC: 0.9443 | Valid F1: 0.8889 | Valid Thresh: 0.8143 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 1.2945 | Train AUROC: 0.9957 | Train AUPRC: 0.9876 | Train F1: 0.9487 | Train Thresh: 0.5464 <====
+====> Epoch: 11 | Valid Loss: 0.0251 | Valid AUROC: 0.9727 | Valid AUPRC: 0.9406 | Valid F1: 0.8889 | Valid Thresh: 0.8145 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 1.2959 | Train AUROC: 0.9937 | Train AUPRC: 0.9857 | Train F1: 0.9600 | Train Thresh: 0.6074 <====
+====> Epoch: 12 | Valid Loss: 0.0219 | Valid AUROC: 0.9758 | Valid AUPRC: 0.9417 | Valid F1: 0.8889 | Valid Thresh: 0.8088 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 1.2924 | Train AUROC: 0.9974 | Train AUPRC: 0.9916 | Train F1: 0.9610 | Train Thresh: 0.5596 <====
+====> Epoch: 13 | Valid Loss: 0.0225 | Valid AUROC: 0.9758 | Valid AUPRC: 0.9417 | Valid F1: 0.8889 | Valid Thresh: 0.8080 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 1.2929 | Train AUROC: 0.9955 | Train AUPRC: 0.9881 | Train F1: 0.9600 | Train Thresh: 0.6278 <====
+====> Epoch: 14 | Valid Loss: 0.0222 | Valid AUROC: 0.9788 | Valid AUPRC: 0.9485 | Valid F1: 0.8889 | Valid Thresh: 0.7474 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 1.2913 | Train AUROC: 0.9982 | Train AUPRC: 0.9948 | Train F1: 0.9737 | Train Thresh: 0.6123 <====
+====> Epoch: 15 | Valid Loss: 0.0200 | Valid AUROC: 0.9758 | Valid AUPRC: 0.9353 | Valid F1: 0.8421 | Valid Thresh: 0.6944 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 1.2858 | Train AUROC: 0.9984 | Train AUPRC: 0.9949 | Train F1: 0.9630 | Train Thresh: 0.5103 <====
+====> Epoch: 16 | Valid Loss: 0.0238 | Valid AUROC: 0.9697 | Valid AUPRC: 0.9217 | Valid F1: 0.8235 | Valid Thresh: 0.7631 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 1.2832 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9873 | Train Thresh: 0.5235 <====
+====> Epoch: 17 | Valid Loss: 0.0308 | Valid AUROC: 0.9636 | Valid AUPRC: 0.9138 | Valid F1: 0.8235 | Valid Thresh: 0.7783 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 1.2827 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9870 | Train Thresh: 0.5863 <====
+====> Epoch: 18 | Valid Loss: 0.0312 | Valid AUROC: 0.9636 | Valid AUPRC: 0.9138 | Valid F1: 0.8235 | Valid Thresh: 0.7386 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 1.2798 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.5890 <====
+====> Epoch: 19 | Valid Loss: 0.0306 | Valid AUROC: 0.9667 | Valid AUPRC: 0.9175 | Valid F1: 0.8235 | Valid Thresh: 0.7518 <====
+10 epoch 동안 성능 개선이 없어 Fold 0 학습 조기 종료
+Fold 0 종료. AUROC: 0.9788, AUPRC: 0.9485, 최적 Threshold: 0.7325
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.5437 | Train AUROC: 0.5844 | Train AUPRC: 0.3305 | Train F1: 0.4000 | Train Thresh: 0.5957 <====
+====> Epoch: 00 | Valid Loss: 0.2402 | Valid AUROC: 0.6576 | Valid AUPRC: 0.5051 | Valid F1: 0.5714 | Valid Thresh: 0.1525 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6576), (AUPRC: 0.5051), Best Threshold: 0.1525
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.4295 | Train AUROC: 0.5951 | Train AUPRC: 0.3651 | Train F1: 0.4246 | Train Thresh: 0.1590 <====
+====> Epoch: 01 | Valid Loss: 0.0587 | Valid AUROC: 0.7182 | Valid AUPRC: 0.6626 | Valid F1: 0.6667 | Valid Thresh: 0.4672 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7182), (AUPRC: 0.6626), Best Threshold: 0.4672
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.3267 | Train AUROC: 0.8288 | Train AUPRC: 0.7248 | Train F1: 0.6761 | Train Thresh: 0.4465 <====
+====> Epoch: 02 | Valid Loss: 0.0950 | Valid AUROC: 0.8333 | Valid AUPRC: 0.8132 | Valid F1: 0.8235 | Valid Thresh: 0.5647 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8333), (AUPRC: 0.8132), Best Threshold: 0.5647
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.2071 | Train AUROC: 0.9562 | Train AUPRC: 0.8964 | Train F1: 0.8046 | Train Thresh: 0.3333 <====
+====> Epoch: 03 | Valid Loss: 0.0485 | Valid AUROC: 0.9364 | Valid AUPRC: 0.8794 | Valid F1: 0.8235 | Valid Thresh: 0.3929 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9364), (AUPRC: 0.8794), Best Threshold: 0.3929
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.2373 | Train AUROC: 0.9221 | Train AUPRC: 0.8466 | Train F1: 0.8000 | Train Thresh: 0.5970 <====
+====> Epoch: 04 | Valid Loss: 0.1260 | Valid AUROC: 0.9364 | Valid AUPRC: 0.8877 | Valid F1: 0.8235 | Valid Thresh: 0.1705 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 1.1960 | Train AUROC: 0.9588 | Train AUPRC: 0.9218 | Train F1: 0.8800 | Train Thresh: 0.5439 <====
+====> Epoch: 05 | Valid Loss: 0.1271 | Valid AUROC: 0.9303 | Valid AUPRC: 0.9303 | Valid F1: 0.9474 | Valid Thresh: 0.1584 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 1.1770 | Train AUROC: 0.9728 | Train AUPRC: 0.8949 | Train F1: 0.8372 | Train Thresh: 0.3897 <====
+====> Epoch: 06 | Valid Loss: 0.1124 | Valid AUROC: 0.9364 | Valid AUPRC: 0.9323 | Valid F1: 0.9474 | Valid Thresh: 0.1901 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 1.1462 | Train AUROC: 0.9945 | Train AUPRC: 0.9798 | Train F1: 0.9487 | Train Thresh: 0.5215 <====
+====> Epoch: 07 | Valid Loss: 0.1140 | Valid AUROC: 0.9303 | Valid AUPRC: 0.9303 | Valid F1: 0.9474 | Valid Thresh: 0.1796 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 1.1535 | Train AUROC: 0.9901 | Train AUPRC: 0.9576 | Train F1: 0.9367 | Train Thresh: 0.4755 <====
+====> Epoch: 08 | Valid Loss: 0.2033 | Valid AUROC: 0.8758 | Valid AUPRC: 0.8550 | Valid F1: 0.8421 | Valid Thresh: 0.0909 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 1.1461 | Train AUROC: 0.9927 | Train AUPRC: 0.9762 | Train F1: 0.9351 | Train Thresh: 0.4523 <====
+====> Epoch: 09 | Valid Loss: 0.0622 | Valid AUROC: 0.9061 | Valid AUPRC: 0.8474 | Valid F1: 0.8000 | Valid Thresh: 0.5656 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 1.1586 | Train AUROC: 0.9826 | Train AUPRC: 0.9457 | Train F1: 0.8889 | Train Thresh: 0.5785 <====
+====> Epoch: 10 | Valid Loss: 0.0995 | Valid AUROC: 0.8485 | Valid AUPRC: 0.8552 | Valid F1: 0.8889 | Valid Thresh: 0.4292 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 1.1511 | Train AUROC: 0.9866 | Train AUPRC: 0.9534 | Train F1: 0.9211 | Train Thresh: 0.5778 <====
+====> Epoch: 11 | Valid Loss: 0.1131 | Valid AUROC: 0.8727 | Valid AUPRC: 0.8624 | Valid F1: 0.8889 | Valid Thresh: 0.6106 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 1.1293 | Train AUROC: 0.9953 | Train AUPRC: 0.9803 | Train F1: 0.9744 | Train Thresh: 0.5846 <====
+====> Epoch: 12 | Valid Loss: 0.1058 | Valid AUROC: 0.8939 | Valid AUPRC: 0.8708 | Valid F1: 0.8889 | Valid Thresh: 0.3164 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 1.1260 | Train AUROC: 0.9972 | Train AUPRC: 0.9912 | Train F1: 0.9620 | Train Thresh: 0.4638 <====
+====> Epoch: 13 | Valid Loss: 0.1225 | Valid AUROC: 0.9000 | Valid AUPRC: 0.8742 | Valid F1: 0.8889 | Valid Thresh: 0.2736 <====
+10 epoch 동안 성능 개선이 없어 Fold 1 학습 조기 종료
+Fold 1 종료. AUROC: 0.9364, AUPRC: 0.8794, 최적 Threshold: 0.3929
+==================== Starting Fold 2 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.4167 | Train AUROC: 0.5887 | Train AUPRC: 0.2831 | Train F1: 0.4211 | Train Thresh: 0.2803 <====
+====> Epoch: 00 | Valid Loss: 0.0887 | Valid AUROC: 0.8081 | Valid AUPRC: 0.5438 | Valid F1: 0.6364 | Valid Thresh: 0.3051 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8081), (AUPRC: 0.5438), Best Threshold: 0.3051
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.1689 | Train AUROC: 0.8677 | Train AUPRC: 0.6933 | Train F1: 0.6923 | Train Thresh: 0.4224 <====
+====> Epoch: 01 | Valid Loss: 0.0240 | Valid AUROC: 0.9764 | Valid AUPRC: 0.9514 | Valid F1: 0.9412 | Valid Thresh: 0.8533 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9764), (AUPRC: 0.9514), Best Threshold: 0.8533
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.9832 | Train AUROC: 0.9688 | Train AUPRC: 0.9247 | Train F1: 0.8462 | Train Thresh: 0.6497 <====
+====> Epoch: 02 | Valid Loss: 0.1227 | Valid AUROC: 0.8990 | Valid AUPRC: 0.8554 | Valid F1: 0.8235 | Valid Thresh: 0.7990 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.9269 | Train AUROC: 0.9792 | Train AUPRC: 0.9469 | Train F1: 0.9211 | Train Thresh: 0.7211 <====
+====> Epoch: 03 | Valid Loss: 0.1205 | Valid AUROC: 0.9428 | Valid AUPRC: 0.8783 | Valid F1: 0.8235 | Valid Thresh: 0.8014 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.9041 | Train AUROC: 0.9848 | Train AUPRC: 0.9544 | Train F1: 0.9176 | Train Thresh: 0.3849 <====
+====> Epoch: 04 | Valid Loss: 0.0979 | Valid AUROC: 0.9428 | Valid AUPRC: 0.8903 | Valid F1: 0.8889 | Valid Thresh: 0.5288 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8850 | Train AUROC: 0.9923 | Train AUPRC: 0.9806 | Train F1: 0.9474 | Train Thresh: 0.6117 <====
+====> Epoch: 05 | Valid Loss: 0.0884 | Valid AUROC: 0.9495 | Valid AUPRC: 0.8710 | Valid F1: 0.8421 | Valid Thresh: 0.6944 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.8615 | Train AUROC: 0.9965 | Train AUPRC: 0.9888 | Train F1: 0.9620 | Train Thresh: 0.8016 <====
+====> Epoch: 06 | Valid Loss: 0.1189 | Valid AUROC: 0.9596 | Valid AUPRC: 0.9107 | Valid F1: 0.8750 | Valid Thresh: 0.9498 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.8473 | Train AUROC: 0.9973 | Train AUPRC: 0.9928 | Train F1: 0.9744 | Train Thresh: 0.8309 <====
+====> Epoch: 07 | Valid Loss: 0.1550 | Valid AUROC: 0.9327 | Valid AUPRC: 0.8455 | Valid F1: 0.8235 | Valid Thresh: 0.7198 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.8809 | Train AUROC: 0.9944 | Train AUPRC: 0.9825 | Train F1: 0.9367 | Train Thresh: 0.7703 <====
+====> Epoch: 08 | Valid Loss: 0.1562 | Valid AUROC: 0.8855 | Valid AUPRC: 0.8539 | Valid F1: 0.8889 | Valid Thresh: 0.0603 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.9343 | Train AUROC: 0.9831 | Train AUPRC: 0.9416 | Train F1: 0.9048 | Train Thresh: 0.1648 <====
+====> Epoch: 09 | Valid Loss: 0.1497 | Valid AUROC: 0.9024 | Valid AUPRC: 0.7541 | Valid F1: 0.7500 | Valid Thresh: 0.9752 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.9007 | Train AUROC: 0.9852 | Train AUPRC: 0.9331 | Train F1: 0.9268 | Train Thresh: 0.6862 <====
+====> Epoch: 10 | Valid Loss: 0.1162 | Valid AUROC: 0.9192 | Valid AUPRC: 0.7957 | Valid F1: 0.7778 | Valid Thresh: 0.8698 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.8302 | Train AUROC: 0.9996 | Train AUPRC: 0.9988 | Train F1: 0.9877 | Train Thresh: 0.6911 <====
+====> Epoch: 11 | Valid Loss: 0.1536 | Valid AUROC: 0.9158 | Valid AUPRC: 0.8239 | Valid F1: 0.7778 | Valid Thresh: 0.3635 <====
+10 epoch 동안 성능 개선이 없어 Fold 2 학습 조기 종료
+Fold 2 종료. AUROC: 0.9764, AUPRC: 0.9514, 최적 Threshold: 0.8533
+==================== Starting Fold 3 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.4799 | Train AUROC: 0.6209 | Train AUPRC: 0.2881 | Train F1: 0.4545 | Train Thresh: 0.2563 <====
+====> Epoch: 00 | Valid Loss: 0.1308 | Valid AUROC: 0.8000 | Valid AUPRC: 0.7349 | Valid F1: 0.6957 | Valid Thresh: 0.2563 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8000), (AUPRC: 0.7349), Best Threshold: 0.2563
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.2439 | Train AUROC: 0.9248 | Train AUPRC: 0.8557 | Train F1: 0.8182 | Train Thresh: 0.3088 <====
+====> Epoch: 01 | Valid Loss: 0.1102 | Valid AUROC: 0.8406 | Valid AUPRC: 0.7917 | Valid F1: 0.7778 | Valid Thresh: 0.8207 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8406), (AUPRC: 0.7917), Best Threshold: 0.8207
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.0855 | Train AUROC: 0.9675 | Train AUPRC: 0.9202 | Train F1: 0.8750 | Train Thresh: 0.6594 <====
+====> Epoch: 02 | Valid Loss: 0.1133 | Valid AUROC: 0.8656 | Valid AUPRC: 0.7988 | Valid F1: 0.7500 | Valid Thresh: 0.8948 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8656), (AUPRC: 0.7988), Best Threshold: 0.8948
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.0663 | Train AUROC: 0.9749 | Train AUPRC: 0.9136 | Train F1: 0.8810 | Train Thresh: 0.3242 <====
+====> Epoch: 03 | Valid Loss: 0.1166 | Valid AUROC: 0.8406 | Valid AUPRC: 0.7912 | Valid F1: 0.7500 | Valid Thresh: 0.9149 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.0045 | Train AUROC: 0.9914 | Train AUPRC: 0.9798 | Train F1: 0.9487 | Train Thresh: 0.6116 <====
+====> Epoch: 04 | Valid Loss: 0.1375 | Valid AUROC: 0.8906 | Valid AUPRC: 0.8110 | Valid F1: 0.7368 | Valid Thresh: 0.9281 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8906), (AUPRC: 0.8110), Best Threshold: 0.9281
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.9990 | Train AUROC: 0.9941 | Train AUPRC: 0.9816 | Train F1: 0.9367 | Train Thresh: 0.5743 <====
+====> Epoch: 05 | Valid Loss: 0.1634 | Valid AUROC: 0.8687 | Valid AUPRC: 0.7970 | Valid F1: 0.7368 | Valid Thresh: 0.9513 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.9796 | Train AUROC: 0.9971 | Train AUPRC: 0.9920 | Train F1: 0.9620 | Train Thresh: 0.4672 <====
+====> Epoch: 06 | Valid Loss: 0.2049 | Valid AUROC: 0.8281 | Valid AUPRC: 0.7514 | Valid F1: 0.7059 | Valid Thresh: 0.9265 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 1.0880 | Train AUROC: 0.9479 | Train AUPRC: 0.9097 | Train F1: 0.8378 | Train Thresh: 0.4712 <====
+====> Epoch: 07 | Valid Loss: 0.1238 | Valid AUROC: 0.8719 | Valid AUPRC: 0.6922 | Valid F1: 0.7273 | Valid Thresh: 0.8198 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 1.0515 | Train AUROC: 0.9732 | Train AUPRC: 0.9185 | Train F1: 0.8800 | Train Thresh: 0.7595 <====
+====> Epoch: 08 | Valid Loss: 0.1321 | Valid AUROC: 0.8844 | Valid AUPRC: 0.6793 | Valid F1: 0.7778 | Valid Thresh: 0.7801 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.9666 | Train AUROC: 0.9971 | Train AUPRC: 0.9916 | Train F1: 0.9744 | Train Thresh: 0.7013 <====
+====> Epoch: 09 | Valid Loss: 0.1642 | Valid AUROC: 0.8500 | Valid AUPRC: 0.7675 | Valid F1: 0.7619 | Valid Thresh: 0.3725 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.9554 | Train AUROC: 0.9992 | Train AUPRC: 0.9976 | Train F1: 0.9870 | Train Thresh: 0.6513 <====
+====> Epoch: 10 | Valid Loss: 0.1584 | Valid AUROC: 0.8500 | Valid AUPRC: 0.7605 | Valid F1: 0.7619 | Valid Thresh: 0.3250 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.9535 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.5853 <====
+====> Epoch: 11 | Valid Loss: 0.1989 | Valid AUROC: 0.8500 | Valid AUPRC: 0.7605 | Valid F1: 0.7619 | Valid Thresh: 0.1716 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.9419 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7332 <====
+====> Epoch: 12 | Valid Loss: 0.1815 | Valid AUROC: 0.8594 | Valid AUPRC: 0.7699 | Valid F1: 0.7619 | Valid Thresh: 0.1896 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.9408 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.5747 <====
+====> Epoch: 13 | Valid Loss: 0.1665 | Valid AUROC: 0.8625 | Valid AUPRC: 0.7708 | Valid F1: 0.7619 | Valid Thresh: 0.2591 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.9387 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.5402 <====
+====> Epoch: 14 | Valid Loss: 0.1663 | Valid AUROC: 0.8594 | Valid AUPRC: 0.7647 | Valid F1: 0.7368 | Valid Thresh: 0.4246 <====
+10 epoch 동안 성능 개선이 없어 Fold 3 학습 조기 종료
+Fold 3 종료. AUROC: 0.8906, AUPRC: 0.8110, 최적 Threshold: 0.9281
+==================== Starting Fold 4 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.6443 | Train AUROC: 0.4942 | Train AUPRC: 0.2878 | Train F1: 0.3768 | Train Thresh: 0.0140 <====
+====> Epoch: 00 | Valid Loss: 0.2405 | Valid AUROC: 0.8188 | Valid AUPRC: 0.5254 | Valid F1: 0.6429 | Valid Thresh: 0.1435 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8188), (AUPRC: 0.5254), Best Threshold: 0.1435
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.4013 | Train AUROC: 0.6502 | Train AUPRC: 0.5175 | Train F1: 0.5667 | Train Thresh: 0.4598 <====
+====> Epoch: 01 | Valid Loss: 0.0612 | Valid AUROC: 0.8187 | Valid AUPRC: 0.6773 | Valid F1: 0.6000 | Valid Thresh: 0.3431 <====
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.2683 | Train AUROC: 0.8857 | Train AUPRC: 0.6676 | Train F1: 0.7143 | Train Thresh: 0.2965 <====
+====> Epoch: 02 | Valid Loss: 0.0743 | Valid AUROC: 0.9000 | Valid AUPRC: 0.7702 | Valid F1: 0.7000 | Valid Thresh: 0.8037 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9000), (AUPRC: 0.7702), Best Threshold: 0.8037
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.2104 | Train AUROC: 0.9317 | Train AUPRC: 0.8285 | Train F1: 0.7901 | Train Thresh: 0.4918 <====
+====> Epoch: 03 | Valid Loss: 0.0589 | Valid AUROC: 0.8438 | Valid AUPRC: 0.6756 | Valid F1: 0.7619 | Valid Thresh: 0.6200 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.1559 | Train AUROC: 0.9779 | Train AUPRC: 0.9202 | Train F1: 0.8736 | Train Thresh: 0.3782 <====
+====> Epoch: 04 | Valid Loss: 0.1219 | Valid AUROC: 0.8562 | Valid AUPRC: 0.7255 | Valid F1: 0.6667 | Valid Thresh: 0.5899 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 1.1775 | Train AUROC: 0.9659 | Train AUPRC: 0.8969 | Train F1: 0.8293 | Train Thresh: 0.4879 <====
+====> Epoch: 05 | Valid Loss: 0.1001 | Valid AUROC: 0.8719 | Valid AUPRC: 0.7619 | Valid F1: 0.7778 | Valid Thresh: 0.6564 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 1.1548 | Train AUROC: 0.9742 | Train AUPRC: 0.9090 | Train F1: 0.8571 | Train Thresh: 0.4526 <====
+====> Epoch: 06 | Valid Loss: 0.0898 | Valid AUROC: 0.8719 | Valid AUPRC: 0.7682 | Valid F1: 0.7368 | Valid Thresh: 0.7712 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 1.1253 | Train AUROC: 0.9873 | Train AUPRC: 0.9654 | Train F1: 0.9136 | Train Thresh: 0.5484 <====
+====> Epoch: 07 | Valid Loss: 0.0830 | Valid AUROC: 0.8781 | Valid AUPRC: 0.7846 | Valid F1: 0.7778 | Valid Thresh: 0.6649 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 1.1209 | Train AUROC: 0.9888 | Train AUPRC: 0.9661 | Train F1: 0.9268 | Train Thresh: 0.3895 <====
+====> Epoch: 08 | Valid Loss: 0.0760 | Valid AUROC: 0.8812 | Valid AUPRC: 0.7892 | Valid F1: 0.7273 | Valid Thresh: 0.5837 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 1.1118 | Train AUROC: 0.9926 | Train AUPRC: 0.9729 | Train F1: 0.9512 | Train Thresh: 0.4225 <====
+====> Epoch: 09 | Valid Loss: 0.0468 | Valid AUROC: 0.9187 | Valid AUPRC: 0.8712 | Valid F1: 0.8000 | Valid Thresh: 0.6263 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9187), (AUPRC: 0.8712), Best Threshold: 0.6263
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 1.1172 | Train AUROC: 0.9939 | Train AUPRC: 0.9819 | Train F1: 0.9231 | Train Thresh: 0.5478 <====
+====> Epoch: 10 | Valid Loss: 0.0625 | Valid AUROC: 0.9156 | Valid AUPRC: 0.8177 | Valid F1: 0.8182 | Valid Thresh: 0.6382 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 1.1068 | Train AUROC: 0.9904 | Train AUPRC: 0.9814 | Train F1: 0.9474 | Train Thresh: 0.5921 <====
+====> Epoch: 11 | Valid Loss: 0.0553 | Valid AUROC: 0.9344 | Valid AUPRC: 0.8670 | Valid F1: 0.8571 | Valid Thresh: 0.5595 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9344), (AUPRC: 0.8670), Best Threshold: 0.5595
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 1.0999 | Train AUROC: 0.9955 | Train AUPRC: 0.9863 | Train F1: 0.9333 | Train Thresh: 0.6408 <====
+====> Epoch: 12 | Valid Loss: 0.0701 | Valid AUROC: 0.9250 | Valid AUPRC: 0.8277 | Valid F1: 0.8571 | Valid Thresh: 0.5026 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 1.0969 | Train AUROC: 0.9980 | Train AUPRC: 0.9938 | Train F1: 0.9610 | Train Thresh: 0.5602 <====
+====> Epoch: 13 | Valid Loss: 0.0591 | Valid AUROC: 0.9281 | Valid AUPRC: 0.8247 | Valid F1: 0.8182 | Valid Thresh: 0.7196 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 1.1095 | Train AUROC: 0.9922 | Train AUPRC: 0.9755 | Train F1: 0.9157 | Train Thresh: 0.4310 <====
+====> Epoch: 14 | Valid Loss: 0.0580 | Valid AUROC: 0.9219 | Valid AUPRC: 0.8096 | Valid F1: 0.8182 | Valid Thresh: 0.6140 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 1.1076 | Train AUROC: 0.9933 | Train AUPRC: 0.9782 | Train F1: 0.9286 | Train Thresh: 0.3873 <====
+====> Epoch: 15 | Valid Loss: 0.0678 | Valid AUROC: 0.9156 | Valid AUPRC: 0.7951 | Valid F1: 0.8000 | Valid Thresh: 0.7595 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 1.0942 | Train AUROC: 0.9977 | Train AUPRC: 0.9937 | Train F1: 0.9744 | Train Thresh: 0.5081 <====
+====> Epoch: 16 | Valid Loss: 0.0640 | Valid AUROC: 0.9219 | Valid AUPRC: 0.7877 | Valid F1: 0.8000 | Valid Thresh: 0.7706 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 1.0879 | Train AUROC: 0.9986 | Train AUPRC: 0.9957 | Train F1: 0.9620 | Train Thresh: 0.5829 <====
+====> Epoch: 17 | Valid Loss: 0.0645 | Valid AUROC: 0.9344 | Valid AUPRC: 0.8473 | Valid F1: 0.8182 | Valid Thresh: 0.4220 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 1.0882 | Train AUROC: 0.9982 | Train AUPRC: 0.9946 | Train F1: 0.9737 | Train Thresh: 0.5935 <====
+====> Epoch: 18 | Valid Loss: 0.0635 | Valid AUROC: 0.9437 | Valid AUPRC: 0.8646 | Valid F1: 0.8571 | Valid Thresh: 0.6984 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9437), (AUPRC: 0.8646), Best Threshold: 0.6984
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 1.0855 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9870 | Train Thresh: 0.6808 <====
+====> Epoch: 19 | Valid Loss: 0.0538 | Valid AUROC: 0.9375 | Valid AUPRC: 0.8318 | Valid F1: 0.8182 | Valid Thresh: 0.5253 <====
+Fold 4 종료. AUROC: 0.9437, AUPRC: 0.8646, 최적 Threshold: 0.6984
+================ 최종 결과 ================
+Fold 1 Best AUROC: 0.9788
+Fold 2 Best AUROC: 0.9364
+Fold 3 Best AUROC: 0.9764
+Fold 4 Best AUROC: 0.8906
+Fold 5 Best AUROC: 0.9437
+5-Fold 평균 AUROC: 0.9452
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.8194 | Train AUROC: 0.5458 | Train AUPRC: 0.2690 | Train F1: 0.4088 | Train Thresh: 0.3028 <====
+====> Epoch: 00 | Valid Loss: 0.2888 | Valid AUROC: 0.4303 | Valid AUPRC: 0.3118 | Valid F1: 0.4167 | Valid Thresh: 0.1257 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.4303), (AUPRC: 0.3118), Best Threshold: 0.1257
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.6931 | Train AUROC: 0.5085 | Train AUPRC: 0.2458 | Train F1: 0.3786 | Train Thresh: 0.1012 <====
+====> Epoch: 01 | Valid Loss: 0.3046 | Valid AUROC: 0.6394 | Valid AUPRC: 0.4762 | Valid F1: 0.4571 | Valid Thresh: 0.4093 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6394), (AUPRC: 0.4762), Best Threshold: 0.4093
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.6585 | Train AUROC: 0.5385 | Train AUPRC: 0.3199 | Train F1: 0.4134 | Train Thresh: 0.2229 <====
+====> Epoch: 02 | Valid Loss: 0.2685 | Valid AUROC: 0.6364 | Valid AUPRC: 0.4081 | Valid F1: 0.4516 | Valid Thresh: 0.2070 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.6239 | Train AUROC: 0.6493 | Train AUPRC: 0.4507 | Train F1: 0.4478 | Train Thresh: 0.3558 <====
+====> Epoch: 03 | Valid Loss: 0.2588 | Valid AUROC: 0.6818 | Valid AUPRC: 0.4320 | Valid F1: 0.5600 | Valid Thresh: 0.3200 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6818), (AUPRC: 0.4320), Best Threshold: 0.3200
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.5664 | Train AUROC: 0.7907 | Train AUPRC: 0.5813 | Train F1: 0.6337 | Train Thresh: 0.2491 <====
+====> Epoch: 04 | Valid Loss: 0.2134 | Valid AUROC: 0.8788 | Valid AUPRC: 0.6857 | Valid F1: 0.7826 | Valid Thresh: 0.2400 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8788), (AUPRC: 0.6857), Best Threshold: 0.2400
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 1.5071 | Train AUROC: 0.8777 | Train AUPRC: 0.7684 | Train F1: 0.6988 | Train Thresh: 0.3139 <====
+====> Epoch: 05 | Valid Loss: 0.1847 | Valid AUROC: 0.9606 | Valid AUPRC: 0.9137 | Valid F1: 0.8421 | Valid Thresh: 0.1568 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9606), (AUPRC: 0.9137), Best Threshold: 0.1568
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 1.4790 | Train AUROC: 0.9245 | Train AUPRC: 0.8431 | Train F1: 0.7848 | Train Thresh: 0.4450 <====
+====> Epoch: 06 | Valid Loss: 0.1500 | Valid AUROC: 0.9939 | Valid AUPRC: 0.9809 | Valid F1: 0.9524 | Valid Thresh: 0.2525 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9939), (AUPRC: 0.9809), Best Threshold: 0.2525
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 1.4427 | Train AUROC: 0.9649 | Train AUPRC: 0.9069 | Train F1: 0.8506 | Train Thresh: 0.3603 <====
+====> Epoch: 07 | Valid Loss: 0.1232 | Valid AUROC: 0.9879 | Valid AUPRC: 0.9622 | Valid F1: 0.9091 | Valid Thresh: 0.2284 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 1.4446 | Train AUROC: 0.9588 | Train AUPRC: 0.9169 | Train F1: 0.8684 | Train Thresh: 0.3702 <====
+====> Epoch: 08 | Valid Loss: 0.1435 | Valid AUROC: 0.9818 | Valid AUPRC: 0.9476 | Valid F1: 0.8696 | Valid Thresh: 0.5157 <====
+Epoch_9 start
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 2.1562 | Train AUROC: 0.5444 | Train AUPRC: 0.2863 | Train F1: 0.4056 | Train Thresh: 0.2716 <====
+====> Epoch: 00 | Valid Loss: 0.5753 | Valid AUROC: 0.4576 | Valid AUPRC: 0.3021 | Valid F1: 0.4348 | Valid Thresh: 0.1286 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.4576), (AUPRC: 0.3021), Best Threshold: 0.1286
+Epoch_1 start
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.9041 | Train AUROC: 0.5349 | Train AUPRC: 0.3164 | Train F1: 0.3853 | Train Thresh: 0.2891 <====
+====> Epoch: 00 | Valid Loss: 0.5553 | Valid AUROC: 0.6576 | Valid AUPRC: 0.3487 | Valid F1: 0.4800 | Valid Thresh: 0.1534 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6576), (AUPRC: 0.3487), Best Threshold: 0.1534
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.7188 | Train AUROC: 0.5850 | Train AUPRC: 0.3464 | Train F1: 0.4286 | Train Thresh: 0.0756 <====
+====> Epoch: 01 | Valid Loss: 0.5091 | Valid AUROC: 0.8515 | Valid AUPRC: 0.6117 | Valid F1: 0.6364 | Valid Thresh: 0.2108 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8515), (AUPRC: 0.6117), Best Threshold: 0.2108
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.4904 | Train AUROC: 0.8465 | Train AUPRC: 0.7712 | Train F1: 0.7059 | Train Thresh: 0.2381 <====
+====> Epoch: 02 | Valid Loss: 0.4783 | Valid AUROC: 0.8333 | Valid AUPRC: 0.5433 | Valid F1: 0.6667 | Valid Thresh: 0.1066 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.0497 | Train AUROC: 0.9061 | Train AUPRC: 0.8087 | Train F1: 0.7949 | Train Thresh: 0.3823 <====
+====> Epoch: 03 | Valid Loss: 0.7024 | Valid AUROC: 0.9091 | Valid AUPRC: 0.7820 | Valid F1: 0.8000 | Valid Thresh: 0.0060 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9091), (AUPRC: 0.7820), Best Threshold: 0.0060
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.1697 | Train AUROC: 0.8671 | Train AUPRC: 0.7731 | Train F1: 0.7324 | Train Thresh: 0.4579 <====
+====> Epoch: 04 | Valid Loss: 0.2096 | Valid AUROC: 0.9606 | Valid AUPRC: 0.9069 | Valid F1: 0.8421 | Valid Thresh: 0.4696 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9606), (AUPRC: 0.9069), Best Threshold: 0.4696
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8097 | Train AUROC: 0.9544 | Train AUPRC: 0.9243 | Train F1: 0.8767 | Train Thresh: 0.3982 <====
+====> Epoch: 05 | Valid Loss: 0.5164 | Valid AUROC: 0.9545 | Valid AUPRC: 0.8952 | Valid F1: 0.8235 | Valid Thresh: 0.0254 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.9870 | Train AUROC: 0.9598 | Train AUPRC: 0.8605 | Train F1: 0.8193 | Train Thresh: 0.1073 <====
+====> Epoch: 06 | Valid Loss: 0.3027 | Valid AUROC: 0.9667 | Valid AUPRC: 0.9206 | Valid F1: 0.8421 | Valid Thresh: 0.1059 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9667), (AUPRC: 0.9206), Best Threshold: 0.1059
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.6408 | Train AUROC: 0.9888 | Train AUPRC: 0.9689 | Train F1: 0.9211 | Train Thresh: 0.4562 <====
+====> Epoch: 07 | Valid Loss: 0.3404 | Valid AUROC: 0.9394 | Valid AUPRC: 0.8710 | Valid F1: 0.7826 | Valid Thresh: 0.5751 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.6255 | Train AUROC: 0.9765 | Train AUPRC: 0.9577 | Train F1: 0.9189 | Train Thresh: 0.7487 <====
+====> Epoch: 08 | Valid Loss: 0.3405 | Valid AUROC: 0.9545 | Valid AUPRC: 0.9168 | Valid F1: 0.8889 | Valid Thresh: 0.9629 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.4679 | Train AUROC: 0.9927 | Train AUPRC: 0.9865 | Train F1: 0.9744 | Train Thresh: 0.8997 <====
+====> Epoch: 09 | Valid Loss: 0.5098 | Valid AUROC: 0.9273 | Valid AUPRC: 0.8744 | Valid F1: 0.8235 | Valid Thresh: 0.0516 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.5182 | Train AUROC: 0.9955 | Train AUPRC: 0.9831 | Train F1: 0.9610 | Train Thresh: 0.2247 <====
+====> Epoch: 10 | Valid Loss: 0.9358 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8367 | Valid F1: 0.7500 | Valid Thresh: 0.9990 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.9276 | Train AUROC: 0.9680 | Train AUPRC: 0.9060 | Train F1: 0.8571 | Train Thresh: 0.0418 <====
+====> Epoch: 11 | Valid Loss: 0.3189 | Valid AUROC: 0.9242 | Valid AUPRC: 0.8695 | Valid F1: 0.8571 | Valid Thresh: 0.3062 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.5809 | Train AUROC: 0.9945 | Train AUPRC: 0.9877 | Train F1: 0.9610 | Train Thresh: 0.9559 <====
+====> Epoch: 12 | Valid Loss: 0.4243 | Valid AUROC: 0.9333 | Valid AUPRC: 0.8713 | Valid F1: 0.8421 | Valid Thresh: 0.7926 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.4477 | Train AUROC: 0.9990 | Train AUPRC: 0.9968 | Train F1: 0.9744 | Train Thresh: 0.1499 <====
+====> Epoch: 13 | Valid Loss: 0.6948 | Valid AUROC: 0.9394 | Valid AUPRC: 0.8948 | Valid F1: 0.8421 | Valid Thresh: 0.9956 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.5649 | Train AUROC: 0.9876 | Train AUPRC: 0.9763 | Train F1: 0.9474 | Train Thresh: 0.6622 <====
+====> Epoch: 14 | Valid Loss: 0.4530 | Valid AUROC: 0.9364 | Valid AUPRC: 0.8835 | Valid F1: 0.8235 | Valid Thresh: 0.9908 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.5131 | Train AUROC: 0.9966 | Train AUPRC: 0.9892 | Train F1: 0.9500 | Train Thresh: 0.7539 <====
+====> Epoch: 15 | Valid Loss: 0.3269 | Valid AUROC: 0.9424 | Valid AUPRC: 0.9018 | Valid F1: 0.8571 | Valid Thresh: 0.2291 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.4697 | Train AUROC: 0.9978 | Train AUPRC: 0.9928 | Train F1: 0.9630 | Train Thresh: 0.0260 <====
+====> Epoch: 16 | Valid Loss: 0.3961 | Valid AUROC: 0.9364 | Valid AUPRC: 0.8705 | Valid F1: 0.8000 | Valid Thresh: 0.6747 <====
+10 epoch 동안 성능 개선이 없어 Fold 0 학습 조기 종료
+Fold 0 종료. AUROC: 0.9667, AUPRC: 0.9206, 최적 Threshold: 0.1059
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.9580 | Train AUROC: 0.5546 | Train AUPRC: 0.3172 | Train F1: 0.4024 | Train Thresh: 0.0290 <====
+====> Epoch: 00 | Valid Loss: 0.6106 | Valid AUROC: 0.7000 | Valid AUPRC: 0.6138 | Valid F1: 0.5714 | Valid Thresh: 0.1124 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7000), (AUPRC: 0.6138), Best Threshold: 0.1124
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.6729 | Train AUROC: 0.7179 | Train AUPRC: 0.4334 | Train F1: 0.5049 | Train Thresh: 0.1202 <====
+====> Epoch: 01 | Valid Loss: 0.4819 | Valid AUROC: 0.6636 | Valid AUPRC: 0.5548 | Valid F1: 0.5333 | Valid Thresh: 0.2684 <====
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.2817 | Train AUROC: 0.9083 | Train AUPRC: 0.7745 | Train F1: 0.7733 | Train Thresh: 0.2742 <====
+====> Epoch: 02 | Valid Loss: 0.4125 | Valid AUROC: 0.8242 | Valid AUPRC: 0.6796 | Valid F1: 0.6667 | Valid Thresh: 0.4727 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8242), (AUPRC: 0.6796), Best Threshold: 0.4727
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.1292 | Train AUROC: 0.9385 | Train AUPRC: 0.8639 | Train F1: 0.7792 | Train Thresh: 0.5205 <====
+====> Epoch: 03 | Valid Loss: 0.6350 | Valid AUROC: 0.8697 | Valid AUPRC: 0.7971 | Valid F1: 0.8000 | Valid Thresh: 0.0635 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8697), (AUPRC: 0.7971), Best Threshold: 0.0635
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.8935 | Train AUROC: 0.9832 | Train AUPRC: 0.9559 | Train F1: 0.9091 | Train Thresh: 0.5271 <====
+====> Epoch: 04 | Valid Loss: 0.4721 | Valid AUROC: 0.8303 | Valid AUPRC: 0.7241 | Valid F1: 0.7273 | Valid Thresh: 0.0940 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8359 | Train AUROC: 0.9868 | Train AUPRC: 0.9711 | Train F1: 0.9367 | Train Thresh: 0.2527 <====
+====> Epoch: 05 | Valid Loss: 0.4512 | Valid AUROC: 0.8485 | Valid AUPRC: 0.7329 | Valid F1: 0.7273 | Valid Thresh: 0.1691 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.7851 | Train AUROC: 0.9945 | Train AUPRC: 0.9858 | Train F1: 0.9500 | Train Thresh: 0.2615 <====
+====> Epoch: 06 | Valid Loss: 0.3523 | Valid AUROC: 0.9030 | Valid AUPRC: 0.8482 | Valid F1: 0.8000 | Valid Thresh: 0.3966 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9030), (AUPRC: 0.8482), Best Threshold: 0.3966
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.8452 | Train AUROC: 0.9899 | Train AUPRC: 0.9717 | Train F1: 0.9136 | Train Thresh: 0.2702 <====
+====> Epoch: 07 | Valid Loss: 0.3923 | Valid AUROC: 0.8667 | Valid AUPRC: 0.8159 | Valid F1: 0.7778 | Valid Thresh: 0.6458 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.8339 | Train AUROC: 0.9919 | Train AUPRC: 0.9781 | Train F1: 0.9351 | Train Thresh: 0.7976 <====
+====> Epoch: 08 | Valid Loss: 0.5284 | Valid AUROC: 0.8455 | Valid AUPRC: 0.8242 | Valid F1: 0.8000 | Valid Thresh: 0.0484 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.7394 | Train AUROC: 0.9982 | Train AUPRC: 0.9952 | Train F1: 0.9870 | Train Thresh: 0.5760 <====
+====> Epoch: 09 | Valid Loss: 0.4947 | Valid AUROC: 0.8545 | Valid AUPRC: 0.8464 | Valid F1: 0.8421 | Valid Thresh: 0.0475 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.7554 | Train AUROC: 0.9990 | Train AUPRC: 0.9967 | Train F1: 0.9750 | Train Thresh: 0.4418 <====
+====> Epoch: 10 | Valid Loss: 0.7445 | Valid AUROC: 0.8455 | Valid AUPRC: 0.8048 | Valid F1: 0.7778 | Valid Thresh: 0.0106 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.8308 | Train AUROC: 0.9935 | Train AUPRC: 0.9821 | Train F1: 0.9367 | Train Thresh: 0.3896 <====
+====> Epoch: 11 | Valid Loss: 0.5688 | Valid AUROC: 0.7727 | Valid AUPRC: 0.6369 | Valid F1: 0.6400 | Valid Thresh: 0.0322 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.7516 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9873 | Train Thresh: 0.1677 <====
+====> Epoch: 12 | Valid Loss: 0.5196 | Valid AUROC: 0.8545 | Valid AUPRC: 0.7574 | Valid F1: 0.7619 | Valid Thresh: 0.0268 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.7375 | Train AUROC: 0.9988 | Train AUPRC: 0.9963 | Train F1: 0.9737 | Train Thresh: 0.7953 <====
+====> Epoch: 13 | Valid Loss: 0.4354 | Valid AUROC: 0.8697 | Valid AUPRC: 0.8371 | Valid F1: 0.8235 | Valid Thresh: 0.2778 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.7254 | Train AUROC: 0.9988 | Train AUPRC: 0.9966 | Train F1: 0.9870 | Train Thresh: 0.6842 <====
+====> Epoch: 14 | Valid Loss: 0.4941 | Valid AUROC: 0.8455 | Valid AUPRC: 0.8294 | Valid F1: 0.8235 | Valid Thresh: 0.1161 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.7071 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9873 | Train Thresh: 0.1432 <====
+====> Epoch: 15 | Valid Loss: 0.4553 | Valid AUROC: 0.8424 | Valid AUPRC: 0.8234 | Valid F1: 0.8235 | Valid Thresh: 0.1772 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.6987 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.4041 <====
+====> Epoch: 16 | Valid Loss: 0.4237 | Valid AUROC: 0.8424 | Valid AUPRC: 0.8234 | Valid F1: 0.8235 | Valid Thresh: 0.2456 <====
+10 epoch 동안 성능 개선이 없어 Fold 1 학습 조기 종료
+Fold 1 종료. AUROC: 0.9030, AUPRC: 0.8482, 최적 Threshold: 0.3966
+==================== Starting Fold 2 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.7837 | Train AUROC: 0.5454 | Train AUPRC: 0.3505 | Train F1: 0.3893 | Train Thresh: 0.1200 <====
+====> Epoch: 00 | Valid Loss: 0.7081 | Valid AUROC: 0.6263 | Valid AUPRC: 0.3008 | Valid F1: 0.4615 | Valid Thresh: 0.0380 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6263), (AUPRC: 0.3008), Best Threshold: 0.0380
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.5792 | Train AUROC: 0.7008 | Train AUPRC: 0.4732 | Train F1: 0.4812 | Train Thresh: 0.1277 <====
+====> Epoch: 01 | Valid Loss: 0.3389 | Valid AUROC: 0.9394 | Valid AUPRC: 0.8216 | Valid F1: 0.7826 | Valid Thresh: 0.0744 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9394), (AUPRC: 0.8216), Best Threshold: 0.0744
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.0306 | Train AUROC: 0.9008 | Train AUPRC: 0.8400 | Train F1: 0.7838 | Train Thresh: 0.6172 <====
+====> Epoch: 02 | Valid Loss: 0.7718 | Valid AUROC: 0.9327 | Valid AUPRC: 0.8688 | Valid F1: 0.8235 | Valid Thresh: 0.9819 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.9890 | Train AUROC: 0.9227 | Train AUPRC: 0.8609 | Train F1: 0.8219 | Train Thresh: 0.5787 <====
+====> Epoch: 03 | Valid Loss: 0.5461 | Valid AUROC: 0.8721 | Valid AUPRC: 0.8243 | Valid F1: 0.8000 | Valid Thresh: 0.9743 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.7397 | Train AUROC: 0.9633 | Train AUPRC: 0.9174 | Train F1: 0.8533 | Train Thresh: 0.5532 <====
+====> Epoch: 04 | Valid Loss: 1.0070 | Valid AUROC: 0.8822 | Valid AUPRC: 0.8215 | Valid F1: 0.8000 | Valid Thresh: 0.9974 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.6341 | Train AUROC: 0.9881 | Train AUPRC: 0.9646 | Train F1: 0.9114 | Train Thresh: 0.4413 <====
+====> Epoch: 05 | Valid Loss: 0.8487 | Valid AUROC: 0.8956 | Valid AUPRC: 0.8144 | Valid F1: 0.7500 | Valid Thresh: 0.9926 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.5977 | Train AUROC: 0.9887 | Train AUPRC: 0.9600 | Train F1: 0.9114 | Train Thresh: 0.8133 <====
+====> Epoch: 06 | Valid Loss: 0.4271 | Valid AUROC: 0.8923 | Valid AUPRC: 0.8567 | Valid F1: 0.8750 | Valid Thresh: 0.9356 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.4705 | Train AUROC: 0.9915 | Train AUPRC: 0.9842 | Train F1: 0.9620 | Train Thresh: 0.5106 <====
+====> Epoch: 07 | Valid Loss: 0.7242 | Valid AUROC: 0.9327 | Valid AUPRC: 0.8919 | Valid F1: 0.8750 | Valid Thresh: 0.9988 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 1.0385 | Train AUROC: 0.9625 | Train AUPRC: 0.8951 | Train F1: 0.8235 | Train Thresh: 0.0275 <====
+====> Epoch: 08 | Valid Loss: 0.5270 | Valid AUROC: 0.9394 | Valid AUPRC: 0.8889 | Valid F1: 0.8750 | Valid Thresh: 0.9962 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.8867 | Train AUROC: 0.9663 | Train AUPRC: 0.9140 | Train F1: 0.8675 | Train Thresh: 0.7474 <====
+====> Epoch: 09 | Valid Loss: 0.4342 | Valid AUROC: 0.9428 | Valid AUPRC: 0.8737 | Valid F1: 0.8421 | Valid Thresh: 0.0211 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9428), (AUPRC: 0.8737), Best Threshold: 0.0211
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.6069 | Train AUROC: 0.9902 | Train AUPRC: 0.9728 | Train F1: 0.9231 | Train Thresh: 0.2767 <====
+====> Epoch: 10 | Valid Loss: 0.9033 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8472 | Valid F1: 0.8000 | Valid Thresh: 0.9989 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.6295 | Train AUROC: 0.9856 | Train AUPRC: 0.9458 | Train F1: 0.9398 | Train Thresh: 0.1652 <====
+====> Epoch: 11 | Valid Loss: 0.3255 | Valid AUROC: 0.9293 | Valid AUPRC: 0.8788 | Valid F1: 0.8750 | Valid Thresh: 0.6340 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.4063 | Train AUROC: 0.9987 | Train AUPRC: 0.9956 | Train F1: 0.9756 | Train Thresh: 0.6750 <====
+====> Epoch: 12 | Valid Loss: 0.4019 | Valid AUROC: 0.9259 | Valid AUPRC: 0.8768 | Valid F1: 0.8750 | Valid Thresh: 0.9791 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.3632 | Train AUROC: 0.9992 | Train AUPRC: 0.9975 | Train F1: 0.9877 | Train Thresh: 0.4187 <====
+====> Epoch: 13 | Valid Loss: 0.5039 | Valid AUROC: 0.8990 | Valid AUPRC: 0.8634 | Valid F1: 0.8750 | Valid Thresh: 0.9939 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.3411 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9645 <====
+====> Epoch: 14 | Valid Loss: 0.3670 | Valid AUROC: 0.8956 | Valid AUPRC: 0.8673 | Valid F1: 0.8750 | Valid Thresh: 0.8768 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.3233 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.4509 <====
+====> Epoch: 15 | Valid Loss: 0.4400 | Valid AUROC: 0.9057 | Valid AUPRC: 0.8822 | Valid F1: 0.8750 | Valid Thresh: 0.9984 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.3442 | Train AUROC: 0.9996 | Train AUPRC: 0.9988 | Train F1: 0.9873 | Train Thresh: 0.9800 <====
+====> Epoch: 16 | Valid Loss: 0.6246 | Valid AUROC: 0.9091 | Valid AUPRC: 0.8831 | Valid F1: 0.8750 | Valid Thresh: 0.9993 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.3552 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9982 <====
+====> Epoch: 17 | Valid Loss: 0.5190 | Valid AUROC: 0.8956 | Valid AUPRC: 0.8707 | Valid F1: 0.8750 | Valid Thresh: 0.9981 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.3464 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.2326 <====
+====> Epoch: 18 | Valid Loss: 0.6727 | Valid AUROC: 0.8889 | Valid AUPRC: 0.8450 | Valid F1: 0.8235 | Valid Thresh: 0.9988 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.4028 | Train AUROC: 0.9990 | Train AUPRC: 0.9972 | Train F1: 0.9873 | Train Thresh: 0.8943 <====
+====> Epoch: 19 | Valid Loss: 0.3761 | Valid AUROC: 0.9024 | Valid AUPRC: 0.8693 | Valid F1: 0.8750 | Valid Thresh: 0.2181 <====
+10 epoch 동안 성능 개선이 없어 Fold 2 학습 조기 종료
+Fold 2 종료. AUROC: 0.9428, AUPRC: 0.8737, 최적 Threshold: 0.0211
+==================== Starting Fold 3 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 2.1603 | Train AUROC: 0.4882 | Train AUPRC: 0.2344 | Train F1: 0.3911 | Train Thresh: 0.0147 <====
+====> Epoch: 00 | Valid Loss: 0.5373 | Valid AUROC: 0.7812 | Valid AUPRC: 0.6695 | Valid F1: 0.6087 | Valid Thresh: 0.2499 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7812), (AUPRC: 0.6695), Best Threshold: 0.2499
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.8476 | Train AUROC: 0.5338 | Train AUPRC: 0.2339 | Train F1: 0.4181 | Train Thresh: 0.0657 <====
+====> Epoch: 01 | Valid Loss: 0.6061 | Valid AUROC: 0.8156 | Valid AUPRC: 0.7563 | Valid F1: 0.7059 | Valid Thresh: 0.1128 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8156), (AUPRC: 0.7563), Best Threshold: 0.1128
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.7056 | Train AUROC: 0.6430 | Train AUPRC: 0.4621 | Train F1: 0.4364 | Train Thresh: 0.2435 <====
+====> Epoch: 02 | Valid Loss: 0.5284 | Valid AUROC: 0.8344 | Valid AUPRC: 0.7510 | Valid F1: 0.7368 | Valid Thresh: 0.2308 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8344), (AUPRC: 0.7510), Best Threshold: 0.2308
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.6239 | Train AUROC: 0.8487 | Train AUPRC: 0.8092 | Train F1: 0.7532 | Train Thresh: 0.2326 <====
+====> Epoch: 03 | Valid Loss: 0.4723 | Valid AUROC: 0.8656 | Valid AUPRC: 0.8124 | Valid F1: 0.7500 | Valid Thresh: 0.2437 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8656), (AUPRC: 0.8124), Best Threshold: 0.2437
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.1804 | Train AUROC: 0.9188 | Train AUPRC: 0.8056 | Train F1: 0.8095 | Train Thresh: 0.2118 <====
+====> Epoch: 04 | Valid Loss: 0.4497 | Valid AUROC: 0.8281 | Valid AUPRC: 0.7755 | Valid F1: 0.7619 | Valid Thresh: 0.6755 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8122 | Train AUROC: 0.9814 | Train AUPRC: 0.9549 | Train F1: 0.8732 | Train Thresh: 0.9164 <====
+====> Epoch: 05 | Valid Loss: 0.5592 | Valid AUROC: 0.7906 | Valid AUPRC: 0.6729 | Valid F1: 0.7000 | Valid Thresh: 0.6480 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.7109 | Train AUROC: 0.9883 | Train AUPRC: 0.9704 | Train F1: 0.9333 | Train Thresh: 0.7069 <====
+====> Epoch: 06 | Valid Loss: 0.5474 | Valid AUROC: 0.8313 | Valid AUPRC: 0.7605 | Valid F1: 0.7619 | Valid Thresh: 0.1158 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.6779 | Train AUROC: 0.9947 | Train AUPRC: 0.9846 | Train F1: 0.9351 | Train Thresh: 0.4688 <====
+====> Epoch: 07 | Valid Loss: 0.5988 | Valid AUROC: 0.8125 | Valid AUPRC: 0.7119 | Valid F1: 0.6957 | Valid Thresh: 0.0249 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.6540 | Train AUROC: 0.9945 | Train AUPRC: 0.9844 | Train F1: 0.9744 | Train Thresh: 0.6775 <====
+====> Epoch: 08 | Valid Loss: 0.8910 | Valid AUROC: 0.8156 | Valid AUPRC: 0.7282 | Valid F1: 0.6667 | Valid Thresh: 0.9968 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.6249 | Train AUROC: 0.9973 | Train AUPRC: 0.9914 | Train F1: 0.9744 | Train Thresh: 0.4437 <====
+====> Epoch: 09 | Valid Loss: 0.7134 | Valid AUROC: 0.8406 | Valid AUPRC: 0.7214 | Valid F1: 0.6957 | Valid Thresh: 0.0157 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.6746 | Train AUROC: 0.9937 | Train AUPRC: 0.9805 | Train F1: 0.9250 | Train Thresh: 0.3972 <====
+====> Epoch: 10 | Valid Loss: 0.6289 | Valid AUROC: 0.8469 | Valid AUPRC: 0.7842 | Valid F1: 0.7778 | Valid Thresh: 0.9455 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.6875 | Train AUROC: 0.9935 | Train AUPRC: 0.9739 | Train F1: 0.9512 | Train Thresh: 0.2432 <====
+====> Epoch: 11 | Valid Loss: 0.5900 | Valid AUROC: 0.8187 | Valid AUPRC: 0.7609 | Valid F1: 0.7778 | Valid Thresh: 0.9121 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.6512 | Train AUROC: 0.9971 | Train AUPRC: 0.9905 | Train F1: 0.9512 | Train Thresh: 0.3317 <====
+====> Epoch: 12 | Valid Loss: 0.5964 | Valid AUROC: 0.8375 | Valid AUPRC: 0.7898 | Valid F1: 0.7368 | Valid Thresh: 0.6321 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.6929 | Train AUROC: 0.9922 | Train AUPRC: 0.9745 | Train F1: 0.9268 | Train Thresh: 0.2848 <====
+====> Epoch: 13 | Valid Loss: 0.6441 | Valid AUROC: 0.8125 | Valid AUPRC: 0.7180 | Valid F1: 0.7273 | Valid Thresh: 0.7667 <====
+10 epoch 동안 성능 개선이 없어 Fold 3 학습 조기 종료
+Fold 3 종료. AUROC: 0.8656, AUPRC: 0.8124, 최적 Threshold: 0.2437
+==================== Starting Fold 4 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.9536 | Train AUROC: 0.5116 | Train AUPRC: 0.2435 | Train F1: 0.3858 | Train Thresh: 0.0179 <====
+====> Epoch: 00 | Valid Loss: 0.5482 | Valid AUROC: 0.8625 | Valid AUPRC: 0.6559 | Valid F1: 0.6667 | Valid Thresh: 0.1484 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8625), (AUPRC: 0.6559), Best Threshold: 0.1484
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.7606 | Train AUROC: 0.4928 | Train AUPRC: 0.2938 | Train F1: 0.3881 | Train Thresh: 0.0752 <====
+====> Epoch: 01 | Valid Loss: 0.4947 | Valid AUROC: 0.8844 | Valid AUPRC: 0.7405 | Valid F1: 0.7200 | Valid Thresh: 0.2730 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8844), (AUPRC: 0.7405), Best Threshold: 0.2730
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.5253 | Train AUROC: 0.8430 | Train AUPRC: 0.7704 | Train F1: 0.7027 | Train Thresh: 0.2676 <====
+====> Epoch: 02 | Valid Loss: 0.3650 | Valid AUROC: 0.8750 | Valid AUPRC: 0.7789 | Valid F1: 0.7368 | Valid Thresh: 0.4599 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.0921 | Train AUROC: 0.9401 | Train AUPRC: 0.8566 | Train F1: 0.8095 | Train Thresh: 0.1544 <====
+====> Epoch: 03 | Valid Loss: 0.3958 | Valid AUROC: 0.9094 | Valid AUPRC: 0.8271 | Valid F1: 0.7619 | Valid Thresh: 0.0693 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9094), (AUPRC: 0.8271), Best Threshold: 0.0693
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.9891 | Train AUROC: 0.9636 | Train AUPRC: 0.9068 | Train F1: 0.8250 | Train Thresh: 0.3151 <====
+====> Epoch: 04 | Valid Loss: 0.3980 | Valid AUROC: 0.9094 | Valid AUPRC: 0.8282 | Valid F1: 0.7778 | Valid Thresh: 0.9147 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8400 | Train AUROC: 0.9828 | Train AUPRC: 0.9514 | Train F1: 0.9024 | Train Thresh: 0.4213 <====
+====> Epoch: 05 | Valid Loss: 0.3894 | Valid AUROC: 0.9031 | Valid AUPRC: 0.8662 | Valid F1: 0.8235 | Valid Thresh: 0.6227 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.8129 | Train AUROC: 0.9910 | Train AUPRC: 0.9728 | Train F1: 0.9114 | Train Thresh: 0.2006 <====
+====> Epoch: 06 | Valid Loss: 0.2878 | Valid AUROC: 0.9156 | Valid AUPRC: 0.8719 | Valid F1: 0.8571 | Valid Thresh: 0.6828 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9156), (AUPRC: 0.8719), Best Threshold: 0.6828
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.9578 | Train AUROC: 0.9687 | Train AUPRC: 0.9126 | Train F1: 0.8608 | Train Thresh: 0.6180 <====
+====> Epoch: 07 | Valid Loss: 0.4002 | Valid AUROC: 0.9344 | Valid AUPRC: 0.9134 | Valid F1: 0.9000 | Valid Thresh: 0.0320 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9344), (AUPRC: 0.9134), Best Threshold: 0.0320
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.8442 | Train AUROC: 0.9798 | Train AUPRC: 0.9011 | Train F1: 0.9136 | Train Thresh: 0.4509 <====
+====> Epoch: 08 | Valid Loss: 0.2168 | Valid AUROC: 0.9344 | Valid AUPRC: 0.9107 | Valid F1: 0.8889 | Valid Thresh: 0.6253 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.8412 | Train AUROC: 0.9863 | Train AUPRC: 0.9558 | Train F1: 0.8974 | Train Thresh: 0.3014 <====
+====> Epoch: 09 | Valid Loss: 0.3467 | Valid AUROC: 0.8656 | Valid AUPRC: 0.8329 | Valid F1: 0.8000 | Valid Thresh: 0.1651 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.8400 | Train AUROC: 0.9841 | Train AUPRC: 0.9595 | Train F1: 0.9014 | Train Thresh: 0.7253 <====
+====> Epoch: 10 | Valid Loss: 0.3263 | Valid AUROC: 0.9094 | Valid AUPRC: 0.8686 | Valid F1: 0.8421 | Valid Thresh: 0.4397 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.8116 | Train AUROC: 0.9826 | Train AUPRC: 0.9563 | Train F1: 0.9000 | Train Thresh: 0.2778 <====
+====> Epoch: 11 | Valid Loss: 0.2970 | Valid AUROC: 0.9344 | Valid AUPRC: 0.9009 | Valid F1: 0.8421 | Valid Thresh: 0.8604 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.7933 | Train AUROC: 0.9808 | Train AUPRC: 0.9602 | Train F1: 0.9114 | Train Thresh: 0.3850 <====
+====> Epoch: 12 | Valid Loss: 0.2884 | Valid AUROC: 0.9219 | Valid AUPRC: 0.8800 | Valid F1: 0.8235 | Valid Thresh: 0.9284 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.9004 | Train AUROC: 0.9804 | Train AUPRC: 0.9430 | Train F1: 0.8675 | Train Thresh: 0.2540 <====
+====> Epoch: 13 | Valid Loss: 0.2794 | Valid AUROC: 0.9375 | Valid AUPRC: 0.8894 | Valid F1: 0.8235 | Valid Thresh: 0.9078 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9375), (AUPRC: 0.8894), Best Threshold: 0.9078
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.7204 | Train AUROC: 0.9951 | Train AUPRC: 0.9876 | Train F1: 0.9600 | Train Thresh: 0.7427 <====
+====> Epoch: 14 | Valid Loss: 0.2789 | Valid AUROC: 0.9375 | Valid AUPRC: 0.8950 | Valid F1: 0.8235 | Valid Thresh: 0.9240 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.7385 | Train AUROC: 0.9935 | Train AUPRC: 0.9757 | Train F1: 0.9500 | Train Thresh: 0.3427 <====
+====> Epoch: 15 | Valid Loss: 0.3004 | Valid AUROC: 0.9062 | Valid AUPRC: 0.8896 | Valid F1: 0.8571 | Valid Thresh: 0.1087 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.7082 | Train AUROC: 0.9955 | Train AUPRC: 0.9818 | Train F1: 0.9630 | Train Thresh: 0.6189 <====
+====> Epoch: 16 | Valid Loss: 0.3063 | Valid AUROC: 0.9156 | Valid AUPRC: 0.8942 | Valid F1: 0.8421 | Valid Thresh: 0.2976 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.7032 | Train AUROC: 0.9851 | Train AUPRC: 0.9813 | Train F1: 0.9744 | Train Thresh: 0.1421 <====
+====> Epoch: 17 | Valid Loss: 0.3715 | Valid AUROC: 0.9063 | Valid AUPRC: 0.8800 | Valid F1: 0.8421 | Valid Thresh: 0.9458 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.7381 | Train AUROC: 0.9791 | Train AUPRC: 0.9756 | Train F1: 0.9487 | Train Thresh: 0.4346 <====
+====> Epoch: 18 | Valid Loss: 0.4011 | Valid AUROC: 0.9406 | Valid AUPRC: 0.8856 | Valid F1: 0.8571 | Valid Thresh: 0.0089 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9406), (AUPRC: 0.8856), Best Threshold: 0.0089
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.7171 | Train AUROC: 0.9959 | Train AUPRC: 0.9861 | Train F1: 0.9487 | Train Thresh: 0.7605 <====
+====> Epoch: 19 | Valid Loss: 0.3097 | Valid AUROC: 0.9469 | Valid AUPRC: 0.8948 | Valid F1: 0.8571 | Valid Thresh: 0.0696 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9469), (AUPRC: 0.8948), Best Threshold: 0.0696
+Fold 4 종료. AUROC: 0.9469, AUPRC: 0.8948, 최적 Threshold: 0.0696
+================ 최종 결과 ================
+Fold 1 Best AUROC: 0.9667
+Fold 2 Best AUROC: 0.9030
+Fold 3 Best AUROC: 0.9428
+Fold 4 Best AUROC: 0.8656
+Fold 5 Best AUROC: 0.9469
+5-Fold 평균 AUROC: 0.9250
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.5069 | Train AUROC: 0.5280 | Train AUPRC: 0.3087 | Train F1: 0.3786 | Train Thresh: 0.0150 <====
+====> Epoch: 00 | Valid Loss: 0.1953 | Valid AUROC: 0.5818 | Valid AUPRC: 0.3934 | Valid F1: 0.4082 | Valid Thresh: 0.1513 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.5818), (AUPRC: 0.3934), Best Threshold: 0.1513
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.3866 | Train AUROC: 0.5187 | Train AUPRC: 0.2625 | Train F1: 0.3920 | Train Thresh: 0.0848 <====
+====> Epoch: 01 | Valid Loss: 0.0927 | Valid AUROC: 0.7121 | Valid AUPRC: 0.4051 | Valid F1: 0.4865 | Valid Thresh: 0.3146 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7121), (AUPRC: 0.4051), Best Threshold: 0.3146
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.2867 | Train AUROC: 0.6805 | Train AUPRC: 0.4839 | Train F1: 0.4464 | Train Thresh: 0.3220 <====
+====> Epoch: 02 | Valid Loss: 0.2085 | Valid AUROC: 0.7333 | Valid AUPRC: 0.5302 | Valid F1: 0.4348 | Valid Thresh: 0.0937 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7333), (AUPRC: 0.5302), Best Threshold: 0.0937
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.9541 | Train AUROC: 0.8992 | Train AUPRC: 0.8248 | Train F1: 0.7568 | Train Thresh: 0.2731 <====
+====> Epoch: 03 | Valid Loss: 0.3240 | Valid AUROC: 0.9303 | Valid AUPRC: 0.8280 | Valid F1: 0.4444 | Valid Thresh: 0.0022 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9303), (AUPRC: 0.8280), Best Threshold: 0.0022
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.8519 | Train AUROC: 0.9241 | Train AUPRC: 0.7676 | Train F1: 0.7733 | Train Thresh: 0.8503 <====
+====> Epoch: 04 | Valid Loss: 0.2506 | Valid AUROC: 0.9545 | Valid AUPRC: 0.8114 | Valid F1: 0.4167 | Valid Thresh: 0.0011 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9545), (AUPRC: 0.8114), Best Threshold: 0.0011
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8987 | Train AUROC: 0.9073 | Train AUPRC: 0.8043 | Train F1: 0.7671 | Train Thresh: 0.7712 <====
+====> Epoch: 05 | Valid Loss: 0.4614 | Valid AUROC: 0.9727 | Valid AUPRC: 0.8906 | Valid F1: 0.4255 | Valid Thresh: 0.0017 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9727), (AUPRC: 0.8906), Best Threshold: 0.0017
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.7755 | Train AUROC: 0.9487 | Train AUPRC: 0.9032 | Train F1: 0.8500 | Train Thresh: 0.1212 <====
+====> Epoch: 06 | Valid Loss: 0.0658 | Valid AUROC: 0.9697 | Valid AUPRC: 0.9192 | Valid F1: 0.4255 | Valid Thresh: 0.0057 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.7806 | Train AUROC: 0.9446 | Train AUPRC: 0.8543 | Train F1: 0.7742 | Train Thresh: 0.0605 <====
+====> Epoch: 07 | Valid Loss: 0.1103 | Valid AUROC: 0.9455 | Valid AUPRC: 0.8826 | Valid F1: 0.4255 | Valid Thresh: 0.0030 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.8436 | Train AUROC: 0.9178 | Train AUPRC: 0.7601 | Train F1: 0.7200 | Train Thresh: 0.3407 <====
+====> Epoch: 08 | Valid Loss: 0.2756 | Valid AUROC: 0.9030 | Valid AUPRC: 0.8202 | Valid F1: 0.4255 | Valid Thresh: 0.0009 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.6293 | Train AUROC: 0.9690 | Train AUPRC: 0.8883 | Train F1: 0.8539 | Train Thresh: 0.1160 <====
+====> Epoch: 09 | Valid Loss: 0.1767 | Valid AUROC: 0.9121 | Valid AUPRC: 0.7986 | Valid F1: 0.4444 | Valid Thresh: 0.0004 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.7583 | Train AUROC: 0.9609 | Train AUPRC: 0.9121 | Train F1: 0.8500 | Train Thresh: 0.1776 <====
+====> Epoch: 10 | Valid Loss: 0.1303 | Valid AUROC: 0.9303 | Valid AUPRC: 0.8701 | Valid F1: 0.4082 | Valid Thresh: 0.0010 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.5894 | Train AUROC: 0.9868 | Train AUPRC: 0.9559 | Train F1: 0.8974 | Train Thresh: 0.8610 <====
+====> Epoch: 11 | Valid Loss: 0.3358 | Valid AUROC: 0.8667 | Valid AUPRC: 0.7929 | Valid F1: 0.3830 | Valid Thresh: 0.0010 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.4299 | Train AUROC: 0.9984 | Train AUPRC: 0.9947 | Train F1: 0.9750 | Train Thresh: 0.0574 <====
+====> Epoch: 12 | Valid Loss: 0.2561 | Valid AUROC: 0.9212 | Valid AUPRC: 0.8345 | Valid F1: 0.4255 | Valid Thresh: 0.0005 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.4218 | Train AUROC: 0.9972 | Train AUPRC: 0.9908 | Train F1: 0.9512 | Train Thresh: 0.4055 <====
+====> Epoch: 13 | Valid Loss: 0.3702 | Valid AUROC: 0.9273 | Valid AUPRC: 0.8654 | Valid F1: 0.4255 | Valid Thresh: 0.0004 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.4157 | Train AUROC: 0.9970 | Train AUPRC: 0.9894 | Train F1: 0.9630 | Train Thresh: 0.2636 <====
+====> Epoch: 14 | Valid Loss: 0.2307 | Valid AUROC: 0.9485 | Valid AUPRC: 0.8943 | Valid F1: 0.4255 | Valid Thresh: 0.0004 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.3583 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.6482 <====
+====> Epoch: 15 | Valid Loss: 0.3963 | Valid AUROC: 0.9030 | Valid AUPRC: 0.8550 | Valid F1: 0.4255 | Valid Thresh: 0.0005 <====
+10 epoch 동안 성능 개선이 없어 Fold 0 학습 조기 종료
+Fold 0 종료. AUROC: 0.9727, AUPRC: 0.8906, 최적 Threshold: 0.0017
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.5540 | Train AUROC: 0.4444 | Train AUPRC: 0.2067 | Train F1: 0.3900 | Train Thresh: 0.0206 <====
+====> Epoch: 00 | Valid Loss: 0.1318 | Valid AUROC: 0.7818 | Valid AUPRC: 0.5485 | Valid F1: 0.4762 | Valid Thresh: 0.2418 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7818), (AUPRC: 0.5485), Best Threshold: 0.2418
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.3040 | Train AUROC: 0.7901 | Train AUPRC: 0.5686 | Train F1: 0.5435 | Train Thresh: 0.3064 <====
+====> Epoch: 01 | Valid Loss: 0.1746 | Valid AUROC: 0.8455 | Valid AUPRC: 0.7105 | Valid F1: 0.4651 | Valid Thresh: 0.1322 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8455), (AUPRC: 0.7105), Best Threshold: 0.1322
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.0907 | Train AUROC: 0.8988 | Train AUPRC: 0.6459 | Train F1: 0.7255 | Train Thresh: 0.2132 <====
+====> Epoch: 02 | Valid Loss: 0.2161 | Valid AUROC: 0.8424 | Valid AUPRC: 0.6713 | Valid F1: 0.4651 | Valid Thresh: 0.0048 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.0270 | Train AUROC: 0.9243 | Train AUPRC: 0.8060 | Train F1: 0.7654 | Train Thresh: 0.2513 <====
+====> Epoch: 03 | Valid Loss: 0.0605 | Valid AUROC: 0.8242 | Valid AUPRC: 0.6838 | Valid F1: 0.4255 | Valid Thresh: 0.0462 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.9410 | Train AUROC: 0.9414 | Train AUPRC: 0.8592 | Train F1: 0.7816 | Train Thresh: 0.4756 <====
+====> Epoch: 04 | Valid Loss: 0.1925 | Valid AUROC: 0.9121 | Valid AUPRC: 0.8209 | Valid F1: 0.4255 | Valid Thresh: 0.0047 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9121), (AUPRC: 0.8209), Best Threshold: 0.0047
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8375 | Train AUROC: 0.9736 | Train AUPRC: 0.9149 | Train F1: 0.8537 | Train Thresh: 0.5570 <====
+====> Epoch: 05 | Valid Loss: 0.3609 | Valid AUROC: 0.9242 | Valid AUPRC: 0.8822 | Valid F1: 0.4082 | Valid Thresh: 0.0033 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9242), (AUPRC: 0.8822), Best Threshold: 0.0033
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.8149 | Train AUROC: 0.9757 | Train AUPRC: 0.9183 | Train F1: 0.9189 | Train Thresh: 0.6644 <====
+====> Epoch: 06 | Valid Loss: 0.2648 | Valid AUROC: 0.9515 | Valid AUPRC: 0.9147 | Valid F1: 0.3922 | Valid Thresh: 0.0032 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9515), (AUPRC: 0.9147), Best Threshold: 0.0032
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.7607 | Train AUROC: 0.9882 | Train AUPRC: 0.9600 | Train F1: 0.9231 | Train Thresh: 0.3775 <====
+====> Epoch: 07 | Valid Loss: 0.1054 | Valid AUROC: 0.9364 | Valid AUPRC: 0.8794 | Valid F1: 0.4082 | Valid Thresh: 0.0038 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.7873 | Train AUROC: 0.9830 | Train AUPRC: 0.9466 | Train F1: 0.9000 | Train Thresh: 0.5103 <====
+====> Epoch: 08 | Valid Loss: 0.1585 | Valid AUROC: 0.9000 | Valid AUPRC: 0.8206 | Valid F1: 0.4082 | Valid Thresh: 0.0050 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.7716 | Train AUROC: 0.9858 | Train AUPRC: 0.9643 | Train F1: 0.9067 | Train Thresh: 0.7611 <====
+====> Epoch: 09 | Valid Loss: 0.4995 | Valid AUROC: 0.8727 | Valid AUPRC: 0.7919 | Valid F1: 0.4255 | Valid Thresh: 0.0030 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.7409 | Train AUROC: 0.9899 | Train AUPRC: 0.9742 | Train F1: 0.9231 | Train Thresh: 0.6153 <====
+====> Epoch: 10 | Valid Loss: 0.4501 | Valid AUROC: 0.8758 | Valid AUPRC: 0.8009 | Valid F1: 0.4255 | Valid Thresh: 0.0027 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.7533 | Train AUROC: 0.9815 | Train AUPRC: 0.9659 | Train F1: 0.9367 | Train Thresh: 0.3027 <====
+====> Epoch: 11 | Valid Loss: 0.2554 | Valid AUROC: 0.8364 | Valid AUPRC: 0.7580 | Valid F1: 0.4444 | Valid Thresh: 0.0118 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.6980 | Train AUROC: 0.9986 | Train AUPRC: 0.9956 | Train F1: 0.9744 | Train Thresh: 0.6875 <====
+====> Epoch: 12 | Valid Loss: 0.5069 | Valid AUROC: 0.8091 | Valid AUPRC: 0.7175 | Valid F1: 0.4444 | Valid Thresh: 0.0020 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.6864 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9870 | Train Thresh: 0.6450 <====
+====> Epoch: 13 | Valid Loss: 0.3582 | Valid AUROC: 0.8152 | Valid AUPRC: 0.7449 | Valid F1: 0.4082 | Valid Thresh: 0.0044 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.6828 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9870 | Train Thresh: 0.6290 <====
+====> Epoch: 14 | Valid Loss: 0.3573 | Valid AUROC: 0.8455 | Valid AUPRC: 0.7803 | Valid F1: 0.4082 | Valid Thresh: 0.0045 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.6837 | Train AUROC: 0.9992 | Train AUPRC: 0.9975 | Train F1: 0.9750 | Train Thresh: 0.2718 <====
+====> Epoch: 15 | Valid Loss: 0.3021 | Valid AUROC: 0.8758 | Valid AUPRC: 0.8007 | Valid F1: 0.4082 | Valid Thresh: 0.0045 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.6760 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.6448 <====
+====> Epoch: 16 | Valid Loss: 0.5190 | Valid AUROC: 0.7970 | Valid AUPRC: 0.6889 | Valid F1: 0.3830 | Valid Thresh: 0.0038 <====
+10 epoch 동안 성능 개선이 없어 Fold 1 학습 조기 종료
+Fold 1 종료. AUROC: 0.9515, AUPRC: 0.9147, 최적 Threshold: 0.0032
+==================== Starting Fold 2 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.4037 | Train AUROC: 0.5712 | Train AUPRC: 0.3827 | Train F1: 0.4211 | Train Thresh: 0.1683 <====
+====> Epoch: 00 | Valid Loss: 0.1683 | Valid AUROC: 0.6902 | Valid AUPRC: 0.4361 | Valid F1: 0.4000 | Valid Thresh: 0.0968 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6902), (AUPRC: 0.4361), Best Threshold: 0.0968
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.0937 | Train AUROC: 0.8171 | Train AUPRC: 0.5645 | Train F1: 0.6087 | Train Thresh: 0.3671 <====
+====> Epoch: 01 | Valid Loss: 0.1796 | Valid AUROC: 0.7845 | Valid AUPRC: 0.6270 | Valid F1: 0.3721 | Valid Thresh: 0.0151 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7845), (AUPRC: 0.6270), Best Threshold: 0.0151
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.8439 | Train AUROC: 0.9150 | Train AUPRC: 0.7442 | Train F1: 0.7467 | Train Thresh: 0.5972 <====
+====> Epoch: 02 | Valid Loss: 0.2669 | Valid AUROC: 0.8855 | Valid AUPRC: 0.7391 | Valid F1: 0.4000 | Valid Thresh: 0.0010 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8855), (AUPRC: 0.7391), Best Threshold: 0.0010
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.9163 | Train AUROC: 0.9081 | Train AUPRC: 0.7634 | Train F1: 0.7407 | Train Thresh: 0.5647 <====
+====> Epoch: 03 | Valid Loss: 0.1356 | Valid AUROC: 0.8283 | Valid AUPRC: 0.6193 | Valid F1: 0.4390 | Valid Thresh: 0.0230 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.8355 | Train AUROC: 0.9204 | Train AUPRC: 0.7897 | Train F1: 0.7778 | Train Thresh: 0.4068 <====
+====> Epoch: 04 | Valid Loss: 0.1102 | Valid AUROC: 0.8653 | Valid AUPRC: 0.7220 | Valid F1: 0.4390 | Valid Thresh: 0.0090 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.6768 | Train AUROC: 0.9625 | Train AUPRC: 0.8862 | Train F1: 0.8750 | Train Thresh: 0.6516 <====
+====> Epoch: 05 | Valid Loss: 0.1801 | Valid AUROC: 0.9057 | Valid AUPRC: 0.7458 | Valid F1: 0.4000 | Valid Thresh: 0.0010 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9057), (AUPRC: 0.7458), Best Threshold: 0.0010
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.6606 | Train AUROC: 0.9646 | Train AUPRC: 0.9238 | Train F1: 0.8684 | Train Thresh: 0.6962 <====
+====> Epoch: 06 | Valid Loss: 0.1685 | Valid AUROC: 0.9226 | Valid AUPRC: 0.8305 | Valid F1: 0.4186 | Valid Thresh: 0.0017 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9226), (AUPRC: 0.8305), Best Threshold: 0.0017
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.4829 | Train AUROC: 0.9915 | Train AUPRC: 0.9707 | Train F1: 0.9383 | Train Thresh: 0.7726 <====
+====> Epoch: 07 | Valid Loss: 0.2260 | Valid AUROC: 0.9192 | Valid AUPRC: 0.8156 | Valid F1: 0.4186 | Valid Thresh: 0.0007 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.3584 | Train AUROC: 0.9981 | Train AUPRC: 0.9937 | Train F1: 0.9756 | Train Thresh: 0.4456 <====
+====> Epoch: 08 | Valid Loss: 0.3256 | Valid AUROC: 0.8956 | Valid AUPRC: 0.8094 | Valid F1: 0.4000 | Valid Thresh: 0.0003 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.4276 | Train AUROC: 0.9950 | Train AUPRC: 0.9832 | Train F1: 0.9512 | Train Thresh: 0.6270 <====
+====> Epoch: 09 | Valid Loss: 0.3448 | Valid AUROC: 0.8923 | Valid AUPRC: 0.8041 | Valid F1: 0.3830 | Valid Thresh: 0.0003 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.3959 | Train AUROC: 0.9954 | Train AUPRC: 0.9840 | Train F1: 0.9500 | Train Thresh: 0.8939 <====
+====> Epoch: 10 | Valid Loss: 0.2798 | Valid AUROC: 0.9125 | Valid AUPRC: 0.8342 | Valid F1: 0.4000 | Valid Thresh: 0.0004 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.3698 | Train AUROC: 0.9969 | Train AUPRC: 0.9882 | Train F1: 0.9756 | Train Thresh: 0.0551 <====
+====> Epoch: 11 | Valid Loss: 0.3431 | Valid AUROC: 0.8923 | Valid AUPRC: 0.7975 | Valid F1: 0.4000 | Valid Thresh: 0.0004 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.3462 | Train AUROC: 0.9994 | Train AUPRC: 0.9981 | Train F1: 0.9877 | Train Thresh: 0.8575 <====
+====> Epoch: 12 | Valid Loss: 0.3213 | Valid AUROC: 0.9158 | Valid AUPRC: 0.8412 | Valid F1: 0.3830 | Valid Thresh: 0.0004 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.3640 | Train AUROC: 0.9992 | Train AUPRC: 0.9977 | Train F1: 0.9873 | Train Thresh: 0.7780 <====
+====> Epoch: 13 | Valid Loss: 0.3844 | Valid AUROC: 0.9125 | Valid AUPRC: 0.8309 | Valid F1: 0.4186 | Valid Thresh: 0.0007 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.3723 | Train AUROC: 0.9975 | Train AUPRC: 0.9918 | Train F1: 0.9639 | Train Thresh: 0.3737 <====
+====> Epoch: 14 | Valid Loss: 0.2850 | Valid AUROC: 0.9057 | Valid AUPRC: 0.8409 | Valid F1: 0.3830 | Valid Thresh: 0.0005 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.3406 | Train AUROC: 0.9996 | Train AUPRC: 0.9988 | Train F1: 0.9873 | Train Thresh: 0.9513 <====
+====> Epoch: 15 | Valid Loss: 0.3149 | Valid AUROC: 0.8788 | Valid AUPRC: 0.8206 | Valid F1: 0.3830 | Valid Thresh: 0.0003 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.3416 | Train AUROC: 0.9996 | Train AUPRC: 0.9988 | Train F1: 0.9873 | Train Thresh: 0.9925 <====
+====> Epoch: 16 | Valid Loss: 0.3290 | Valid AUROC: 0.8889 | Valid AUPRC: 0.8109 | Valid F1: 0.4000 | Valid Thresh: 0.0004 <====
+10 epoch 동안 성능 개선이 없어 Fold 2 학습 조기 종료
+Fold 2 종료. AUROC: 0.9226, AUPRC: 0.8305, 최적 Threshold: 0.0017
+==================== Starting Fold 3 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.3454 | Train AUROC: 0.6900 | Train AUPRC: 0.4796 | Train F1: 0.4789 | Train Thresh: 0.5563 <====
+====> Epoch: 00 | Valid Loss: 0.4200 | Valid AUROC: 0.7812 | Valid AUPRC: 0.5157 | Valid F1: 0.4762 | Valid Thresh: 0.0276 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7812), (AUPRC: 0.5157), Best Threshold: 0.0276
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.1218 | Train AUROC: 0.8379 | Train AUPRC: 0.6969 | Train F1: 0.6200 | Train Thresh: 0.1635 <====
+====> Epoch: 01 | Valid Loss: 0.3888 | Valid AUROC: 0.7750 | Valid AUPRC: 0.6478 | Valid F1: 0.4255 | Valid Thresh: 0.0080 <====
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 0.8663 | Train AUROC: 0.9370 | Train AUPRC: 0.8510 | Train F1: 0.7750 | Train Thresh: 0.4570 <====
+====> Epoch: 02 | Valid Loss: 0.3218 | Valid AUROC: 0.8125 | Valid AUPRC: 0.6341 | Valid F1: 0.4255 | Valid Thresh: 0.0013 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8125), (AUPRC: 0.6341), Best Threshold: 0.0013
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.7815 | Train AUROC: 0.9618 | Train AUPRC: 0.8881 | Train F1: 0.8193 | Train Thresh: 0.4564 <====
+====> Epoch: 03 | Valid Loss: 0.2659 | Valid AUROC: 0.8063 | Valid AUPRC: 0.6536 | Valid F1: 0.4255 | Valid Thresh: 0.0014 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.6378 | Train AUROC: 0.9890 | Train AUPRC: 0.9645 | Train F1: 0.9024 | Train Thresh: 0.6061 <====
+====> Epoch: 04 | Valid Loss: 0.2888 | Valid AUROC: 0.8375 | Valid AUPRC: 0.7010 | Valid F1: 0.4255 | Valid Thresh: 0.0010 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8375), (AUPRC: 0.7010), Best Threshold: 0.0010
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.6179 | Train AUROC: 0.9896 | Train AUPRC: 0.9661 | Train F1: 0.9176 | Train Thresh: 0.2246 <====
+====> Epoch: 05 | Valid Loss: 0.2779 | Valid AUROC: 0.8594 | Valid AUPRC: 0.7265 | Valid F1: 0.4255 | Valid Thresh: 0.0010 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8594), (AUPRC: 0.7265), Best Threshold: 0.0010
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.6632 | Train AUROC: 0.9857 | Train AUPRC: 0.9573 | Train F1: 0.8736 | Train Thresh: 0.1329 <====
+====> Epoch: 06 | Valid Loss: 0.2487 | Valid AUROC: 0.8313 | Valid AUPRC: 0.6681 | Valid F1: 0.4167 | Valid Thresh: 0.0018 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.6339 | Train AUROC: 0.9930 | Train AUPRC: 0.9786 | Train F1: 0.9333 | Train Thresh: 0.8101 <====
+====> Epoch: 07 | Valid Loss: 0.3124 | Valid AUROC: 0.8469 | Valid AUPRC: 0.7389 | Valid F1: 0.4545 | Valid Thresh: 0.0007 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.5795 | Train AUROC: 0.9977 | Train AUPRC: 0.9934 | Train F1: 0.9744 | Train Thresh: 0.8056 <====
+====> Epoch: 08 | Valid Loss: 0.3195 | Valid AUROC: 0.8219 | Valid AUPRC: 0.7278 | Valid F1: 0.4348 | Valid Thresh: 0.0020 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.5571 | Train AUROC: 0.9982 | Train AUPRC: 0.9939 | Train F1: 0.9750 | Train Thresh: 0.3303 <====
+====> Epoch: 09 | Valid Loss: 0.3337 | Valid AUROC: 0.8156 | Valid AUPRC: 0.6693 | Valid F1: 0.4186 | Valid Thresh: 0.0016 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.5356 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9870 | Train Thresh: 0.8650 <====
+====> Epoch: 10 | Valid Loss: 0.3848 | Valid AUROC: 0.8188 | Valid AUPRC: 0.6826 | Valid F1: 0.4000 | Valid Thresh: 0.0010 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.5635 | Train AUROC: 0.9971 | Train AUPRC: 0.9910 | Train F1: 0.9744 | Train Thresh: 0.8200 <====
+====> Epoch: 11 | Valid Loss: 0.3619 | Valid AUROC: 0.8406 | Valid AUPRC: 0.7023 | Valid F1: 0.4255 | Valid Thresh: 0.0007 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.5511 | Train AUROC: 0.9980 | Train AUPRC: 0.9934 | Train F1: 0.9744 | Train Thresh: 0.8567 <====
+====> Epoch: 12 | Valid Loss: 0.3859 | Valid AUROC: 0.7937 | Valid AUPRC: 0.6865 | Valid F1: 0.4000 | Valid Thresh: 0.0026 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.7268 | Train AUROC: 0.9773 | Train AUPRC: 0.9332 | Train F1: 0.8478 | Train Thresh: 0.1037 <====
+====> Epoch: 13 | Valid Loss: 0.3825 | Valid AUROC: 0.7812 | Valid AUPRC: 0.7546 | Valid F1: 0.3636 | Valid Thresh: 0.0012 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.5719 | Train AUROC: 0.9971 | Train AUPRC: 0.9909 | Train F1: 0.9487 | Train Thresh: 0.7163 <====
+====> Epoch: 14 | Valid Loss: 0.4663 | Valid AUROC: 0.7781 | Valid AUPRC: 0.6987 | Valid F1: 0.3810 | Valid Thresh: 0.0010 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.5384 | Train AUROC: 0.9994 | Train AUPRC: 0.9980 | Train F1: 0.9873 | Train Thresh: 0.4779 <====
+====> Epoch: 15 | Valid Loss: 0.3367 | Valid AUROC: 0.7844 | Valid AUPRC: 0.7128 | Valid F1: 0.3636 | Valid Thresh: 0.0034 <====
+10 epoch 동안 성능 개선이 없어 Fold 3 학습 조기 종료
+Fold 3 종료. AUROC: 0.8594, AUPRC: 0.7265, 최적 Threshold: 0.0010
+==================== Starting Fold 4 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.5735 | Train AUROC: 0.4079 | Train AUPRC: 0.2102 | Train F1: 0.3732 | Train Thresh: 0.0158 <====
+====> Epoch: 00 | Valid Loss: 0.2272 | Valid AUROC: 0.6656 | Valid AUPRC: 0.4845 | Valid F1: 0.3913 | Valid Thresh: 0.1430 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6656), (AUPRC: 0.4845), Best Threshold: 0.1430
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.3406 | Train AUROC: 0.6085 | Train AUPRC: 0.3697 | Train F1: 0.4194 | Train Thresh: 0.3679 <====
+====> Epoch: 01 | Valid Loss: 0.0814 | Valid AUROC: 0.7094 | Valid AUPRC: 0.5481 | Valid F1: 0.4545 | Valid Thresh: 0.2632 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7094), (AUPRC: 0.5481), Best Threshold: 0.2632
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.2015 | Train AUROC: 0.8346 | Train AUPRC: 0.6383 | Train F1: 0.6154 | Train Thresh: 0.3186 <====
+====> Epoch: 02 | Valid Loss: 0.0739 | Valid AUROC: 0.8688 | Valid AUPRC: 0.7715 | Valid F1: 0.4545 | Valid Thresh: 0.0449 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8688), (AUPRC: 0.7715), Best Threshold: 0.0449
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.8869 | Train AUROC: 0.9532 | Train AUPRC: 0.8771 | Train F1: 0.7848 | Train Thresh: 0.5262 <====
+====> Epoch: 03 | Valid Loss: 0.3295 | Valid AUROC: 0.8656 | Valid AUPRC: 0.7861 | Valid F1: 0.3913 | Valid Thresh: 0.0018 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.9223 | Train AUROC: 0.9252 | Train AUPRC: 0.8502 | Train F1: 0.7952 | Train Thresh: 0.3850 <====
+====> Epoch: 04 | Valid Loss: 0.0785 | Valid AUROC: 0.9344 | Valid AUPRC: 0.8517 | Valid F1: 0.4545 | Valid Thresh: 0.0076 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9344), (AUPRC: 0.8517), Best Threshold: 0.0076
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8287 | Train AUROC: 0.9687 | Train AUPRC: 0.9173 | Train F1: 0.8571 | Train Thresh: 0.5256 <====
+====> Epoch: 05 | Valid Loss: 0.0424 | Valid AUROC: 0.9437 | Valid AUPRC: 0.8654 | Valid F1: 0.4545 | Valid Thresh: 0.0109 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9437), (AUPRC: 0.8654), Best Threshold: 0.0109
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.7605 | Train AUROC: 0.9798 | Train AUPRC: 0.9477 | Train F1: 0.8889 | Train Thresh: 0.4069 <====
+====> Epoch: 06 | Valid Loss: 0.1083 | Valid AUROC: 0.9563 | Valid AUPRC: 0.9082 | Valid F1: 0.4348 | Valid Thresh: 0.0042 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9563), (AUPRC: 0.9082), Best Threshold: 0.0042
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.7716 | Train AUROC: 0.9740 | Train AUPRC: 0.9265 | Train F1: 0.8421 | Train Thresh: 0.5333 <====
+====> Epoch: 07 | Valid Loss: 0.1196 | Valid AUROC: 0.9219 | Valid AUPRC: 0.8262 | Valid F1: 0.4167 | Valid Thresh: 0.0080 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.7951 | Train AUROC: 0.9638 | Train AUPRC: 0.9407 | Train F1: 0.8857 | Train Thresh: 0.8774 <====
+====> Epoch: 08 | Valid Loss: 0.1714 | Valid AUROC: 0.8969 | Valid AUPRC: 0.8463 | Valid F1: 0.4167 | Valid Thresh: 0.0039 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.6842 | Train AUROC: 0.9953 | Train AUPRC: 0.9873 | Train F1: 0.9610 | Train Thresh: 0.8185 <====
+====> Epoch: 09 | Valid Loss: 0.1847 | Valid AUROC: 0.9000 | Valid AUPRC: 0.8299 | Valid F1: 0.4167 | Valid Thresh: 0.0039 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.7490 | Train AUROC: 0.9836 | Train AUPRC: 0.9447 | Train F1: 0.8889 | Train Thresh: 0.4097 <====
+====> Epoch: 10 | Valid Loss: 0.1537 | Valid AUROC: 0.9062 | Valid AUPRC: 0.8481 | Valid F1: 0.4545 | Valid Thresh: 0.0057 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.7178 | Train AUROC: 0.9918 | Train AUPRC: 0.9692 | Train F1: 0.9383 | Train Thresh: 0.3235 <====
+====> Epoch: 11 | Valid Loss: 0.1540 | Valid AUROC: 0.9094 | Valid AUPRC: 0.8566 | Valid F1: 0.4348 | Valid Thresh: 0.0023 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.6813 | Train AUROC: 0.9896 | Train AUPRC: 0.9701 | Train F1: 0.9211 | Train Thresh: 0.7749 <====
+====> Epoch: 12 | Valid Loss: 0.1725 | Valid AUROC: 0.9187 | Valid AUPRC: 0.8598 | Valid F1: 0.4348 | Valid Thresh: 0.0029 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.6320 | Train AUROC: 0.9965 | Train AUPRC: 0.9909 | Train F1: 0.9620 | Train Thresh: 0.5142 <====
+====> Epoch: 13 | Valid Loss: 0.1697 | Valid AUROC: 0.9094 | Valid AUPRC: 0.8240 | Valid F1: 0.4545 | Valid Thresh: 0.0036 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.6303 | Train AUROC: 0.9973 | Train AUPRC: 0.9922 | Train F1: 0.9610 | Train Thresh: 0.6747 <====
+====> Epoch: 14 | Valid Loss: 0.1890 | Valid AUROC: 0.9187 | Valid AUPRC: 0.8315 | Valid F1: 0.4545 | Valid Thresh: 0.0033 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.6108 | Train AUROC: 0.9994 | Train AUPRC: 0.9981 | Train F1: 0.9750 | Train Thresh: 0.4243 <====
+====> Epoch: 15 | Valid Loss: 0.2007 | Valid AUROC: 0.9281 | Valid AUPRC: 0.8537 | Valid F1: 0.4545 | Valid Thresh: 0.0029 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.6136 | Train AUROC: 0.9980 | Train AUPRC: 0.9948 | Train F1: 0.9870 | Train Thresh: 0.8328 <====
+====> Epoch: 16 | Valid Loss: 0.2146 | Valid AUROC: 0.9219 | Valid AUPRC: 0.8382 | Valid F1: 0.4348 | Valid Thresh: 0.0020 <====
+10 epoch 동안 성능 개선이 없어 Fold 4 학습 조기 종료
+Fold 4 종료. AUROC: 0.9563, AUPRC: 0.9082, 최적 Threshold: 0.0042
+================ 최종 결과 ================
+Fold 1 Best AUROC: 0.9727
+Fold 2 Best AUROC: 0.9515
+Fold 3 Best AUROC: 0.9226
+Fold 4 Best AUROC: 0.8594
+Fold 5 Best AUROC: 0.9563
+5-Fold 평균 AUROC: 0.9325
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.5069 | Train AUROC: 0.5280 | Train AUPRC: 0.3087 | Train F1: 0.3284 | Train Thresh: 0.5384 <====
+====> Epoch: 00 | Valid Loss: 0.1954 | Valid AUROC: 0.5848 | Valid AUPRC: 0.3941 | Valid F1: 0.4444 | Valid Thresh: 0.1979 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.5848), (AUPRC: 0.3941), Best Threshold: 0.1979
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.3866 | Train AUROC: 0.5197 | Train AUPRC: 0.2628 | Train F1: 0.3284 | Train Thresh: 0.2127 <====
+====> Epoch: 01 | Valid Loss: 0.0933 | Valid AUROC: 0.7030 | Valid AUPRC: 0.4072 | Valid F1: 0.5185 | Valid Thresh: 0.3267 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7030), (AUPRC: 0.4072), Best Threshold: 0.3267
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.2842 | Train AUROC: 0.6890 | Train AUPRC: 0.4853 | Train F1: 0.4706 | Train Thresh: 0.3409 <====
+====> Epoch: 02 | Valid Loss: 0.2082 | Valid AUROC: 0.7303 | Valid AUPRC: 0.4975 | Valid F1: 0.5833 | Valid Thresh: 0.1566 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7303), (AUPRC: 0.4975), Best Threshold: 0.1566
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.9818 | Train AUROC: 0.8864 | Train AUPRC: 0.7981 | Train F1: 0.7143 | Train Thresh: 0.2363 <====
+====> Epoch: 03 | Valid Loss: 0.5118 | Valid AUROC: 0.9182 | Valid AUPRC: 0.7972 | Valid F1: 0.7200 | Valid Thresh: 0.0055 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9182), (AUPRC: 0.7972), Best Threshold: 0.0055
+Epoch_4 start
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.9041 | Train AUROC: 0.5347 | Train AUPRC: 0.3163 | Train F1: 0.3721 | Train Thresh: 0.3395 <====
+====> Epoch: 00 | Valid Loss: 0.5553 | Valid AUROC: 0.6576 | Valid AUPRC: 0.3487 | Valid F1: 0.4762 | Valid Thresh: 0.1345 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6576), (AUPRC: 0.3487), Best Threshold: 0.1345
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.7189 | Train AUROC: 0.5844 | Train AUPRC: 0.3460 | Train F1: 0.4286 | Train Thresh: 0.0756 <====
+====> Epoch: 01 | Valid Loss: 0.5080 | Valid AUROC: 0.8606 | Valid AUPRC: 0.6302 | Valid F1: 0.6250 | Valid Thresh: 0.1860 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8606), (AUPRC: 0.6302), Best Threshold: 0.1860
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.5006 | Train AUROC: 0.8321 | Train AUPRC: 0.7146 | Train F1: 0.6458 | Train Thresh: 0.2301 <====
+====> Epoch: 02 | Valid Loss: 0.4618 | Valid AUROC: 0.8333 | Valid AUPRC: 0.5707 | Valid F1: 0.6667 | Valid Thresh: 0.1100 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.0007 | Train AUROC: 0.9150 | Train AUPRC: 0.8402 | Train F1: 0.7805 | Train Thresh: 0.2220 <====
+====> Epoch: 03 | Valid Loss: 0.5825 | Valid AUROC: 0.9121 | Valid AUPRC: 0.7483 | Valid F1: 0.7826 | Valid Thresh: 0.0246 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9121), (AUPRC: 0.7483), Best Threshold: 0.0246
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.8546 | Train AUROC: 0.9517 | Train AUPRC: 0.8957 | Train F1: 0.8000 | Train Thresh: 0.0851 <====
+====> Epoch: 04 | Valid Loss: 0.7086 | Valid AUROC: 0.9636 | Valid AUPRC: 0.8850 | Valid F1: 0.8000 | Valid Thresh: 0.0051 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9636), (AUPRC: 0.8850), Best Threshold: 0.0051
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.9132 | Train AUROC: 0.9375 | Train AUPRC: 0.8590 | Train F1: 0.8182 | Train Thresh: 0.1476 <====
+====> Epoch: 05 | Valid Loss: 0.8173 | Valid AUROC: 0.9212 | Valid AUPRC: 0.7970 | Valid F1: 0.7407 | Valid Thresh: 0.0015 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.9029 | Train AUROC: 0.9562 | Train AUPRC: 0.8790 | Train F1: 0.8043 | Train Thresh: 0.0395 <====
+====> Epoch: 06 | Valid Loss: 0.2968 | Valid AUROC: 0.9242 | Valid AUPRC: 0.8377 | Valid F1: 0.6667 | Valid Thresh: 0.0630 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.9252 | Train AUROC: 0.9517 | Train AUPRC: 0.8699 | Train F1: 0.7755 | Train Thresh: 0.0462 <====
+====> Epoch: 07 | Valid Loss: 0.3114 | Valid AUROC: 0.9515 | Valid AUPRC: 0.8773 | Valid F1: 0.8571 | Valid Thresh: 0.6730 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.8029 | Train AUROC: 0.9671 | Train AUPRC: 0.9096 | Train F1: 0.8471 | Train Thresh: 0.2506 <====
+====> Epoch: 08 | Valid Loss: 0.3187 | Valid AUROC: 0.9424 | Valid AUPRC: 0.8299 | Valid F1: 0.8571 | Valid Thresh: 0.2220 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.5020 | Train AUROC: 0.9978 | Train AUPRC: 0.9937 | Train F1: 0.9737 | Train Thresh: 0.7307 <====
+====> Epoch: 09 | Valid Loss: 0.5591 | Valid AUROC: 0.9333 | Valid AUPRC: 0.8273 | Valid F1: 0.8182 | Valid Thresh: 0.0064 <====
+5 epoch 동안 성능 개선이 없어 Fold 0 학습 조기 종료
+Fold 0 종료. AUROC: 0.9636, AUPRC: 0.8850, 최적 Threshold: 0.0051
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.8711 | Train AUROC: 0.5294 | Train AUPRC: 0.2407 | Train F1: 0.4030 | Train Thresh: 0.1021 <====
+====> Epoch: 00 | Valid Loss: 0.5162 | Valid AUROC: 0.8091 | Valid AUPRC: 0.6588 | Valid F1: 0.6087 | Valid Thresh: 0.1376 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8091), (AUPRC: 0.6588), Best Threshold: 0.1376
+Epoch_1 start
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.9041 | Train AUROC: 0.5347 | Train AUPRC: 0.3163 | Train F1: 0.3721 | Train Thresh: 0.3394 <====
+====> Epoch: 00 | Valid Loss: 0.5556 | Valid AUROC: 0.6606 | Valid AUPRC: 0.3553 | Valid F1: 0.4762 | Valid Thresh: 0.1345 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6606), (AUPRC: 0.3553), (Best Threshold: 0.1345)
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.7166 | Train AUROC: 0.5858 | Train AUPRC: 0.3391 | Train F1: 0.4286 | Train Thresh: 0.0759 <====
+====> Epoch: 01 | Valid Loss: 0.5089 | Valid AUROC: 0.8242 | Valid AUPRC: 0.6014 | Valid F1: 0.6364 | Valid Thresh: 0.2105 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8242), (AUPRC: 0.6014), (Best Threshold: 0.2105)
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.4931 | Train AUROC: 0.8321 | Train AUPRC: 0.7077 | Train F1: 0.6591 | Train Thresh: 0.2350 <====
+====> Epoch: 02 | Valid Loss: 0.5147 | Valid AUROC: 0.8212 | Valid AUPRC: 0.6348 | Valid F1: 0.5926 | Valid Thresh: 0.0478 <====
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.0265 | Train AUROC: 0.9154 | Train AUPRC: 0.8138 | Train F1: 0.7765 | Train Thresh: 0.1989 <====
+====> Epoch: 03 | Valid Loss: 0.7509 | Valid AUROC: 0.8818 | Valid AUPRC: 0.7001 | Valid F1: 0.6667 | Valid Thresh: 0.0037 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8818), (AUPRC: 0.7001), (Best Threshold: 0.0037)
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.9143 | Train AUROC: 0.9361 | Train AUPRC: 0.8778 | Train F1: 0.7952 | Train Thresh: 0.1933 <====
+====> Epoch: 04 | Valid Loss: 0.4962 | Valid AUROC: 0.9273 | Valid AUPRC: 0.8056 | Valid F1: 0.7143 | Valid Thresh: 0.0052 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9273), (AUPRC: 0.8056), (Best Threshold: 0.0052)
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8727 | Train AUROC: 0.9418 | Train AUPRC: 0.8789 | Train F1: 0.8500 | Train Thresh: 0.4301 <====
+====> Epoch: 05 | Valid Loss: 0.7175 | Valid AUROC: 0.9667 | Valid AUPRC: 0.9092 | Valid F1: 0.8000 | Valid Thresh: 0.0018 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9667), (AUPRC: 0.9092), (Best Threshold: 0.0018)
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.7608 | Train AUROC: 0.9738 | Train AUPRC: 0.9295 | Train F1: 0.8571 | Train Thresh: 0.1312 <====
+====> Epoch: 06 | Valid Loss: 0.2664 | Valid AUROC: 0.9697 | Valid AUPRC: 0.9317 | Valid F1: 0.7692 | Valid Thresh: 0.0051 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9697), (AUPRC: 0.9317), (Best Threshold: 0.0051)
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.6958 | Train AUROC: 0.9799 | Train AUPRC: 0.9360 | Train F1: 0.8974 | Train Thresh: 0.2621 <====
+====> Epoch: 07 | Valid Loss: 0.3550 | Valid AUROC: 0.9545 | Valid AUPRC: 0.9126 | Valid F1: 0.8889 | Valid Thresh: 0.9867 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.5895 | Train AUROC: 0.9862 | Train AUPRC: 0.9664 | Train F1: 0.9024 | Train Thresh: 0.1694 <====
+====> Epoch: 08 | Valid Loss: 0.3825 | Valid AUROC: 0.9333 | Valid AUPRC: 0.8920 | Valid F1: 0.8182 | Valid Thresh: 0.0221 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.5636 | Train AUROC: 0.9931 | Train AUPRC: 0.9774 | Train F1: 0.9383 | Train Thresh: 0.4328 <====
+====> Epoch: 09 | Valid Loss: 0.6605 | Valid AUROC: 0.8879 | Valid AUPRC: 0.8281 | Valid F1: 0.7826 | Valid Thresh: 0.0020 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.5059 | Train AUROC: 0.9951 | Train AUPRC: 0.9812 | Train F1: 0.9744 | Train Thresh: 0.2032 <====
+====> Epoch: 10 | Valid Loss: 0.8347 | Valid AUROC: 0.9061 | Valid AUPRC: 0.8701 | Valid F1: 0.8421 | Valid Thresh: 0.9977 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 1.0987 | Train AUROC: 0.9393 | Train AUPRC: 0.8561 | Train F1: 0.8000 | Train Thresh: 0.0390 <====
+====> Epoch: 11 | Valid Loss: 0.2599 | Valid AUROC: 0.9333 | Valid AUPRC: 0.8767 | Valid F1: 0.7826 | Valid Thresh: 0.1143 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.7595 | Train AUROC: 0.9951 | Train AUPRC: 0.9853 | Train F1: 0.9268 | Train Thresh: 0.3789 <====
+====> Epoch: 12 | Valid Loss: 0.4389 | Valid AUROC: 0.9455 | Valid AUPRC: 0.8764 | Valid F1: 0.8421 | Valid Thresh: 0.9619 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.5087 | Train AUROC: 0.9771 | Train AUPRC: 0.9687 | Train F1: 0.9610 | Train Thresh: 0.1931 <====
+====> Epoch: 13 | Valid Loss: 0.6489 | Valid AUROC: 0.9424 | Valid AUPRC: 0.8721 | Valid F1: 0.8421 | Valid Thresh: 0.9970 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.5011 | Train AUROC: 0.9951 | Train AUPRC: 0.9882 | Train F1: 0.9383 | Train Thresh: 0.0072 <====
+====> Epoch: 14 | Valid Loss: 0.6894 | Valid AUROC: 0.9394 | Valid AUPRC: 0.8793 | Valid F1: 0.8421 | Valid Thresh: 0.9984 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.4737 | Train AUROC: 0.9953 | Train AUPRC: 0.9879 | Train F1: 0.9620 | Train Thresh: 0.5277 <====
+====> Epoch: 15 | Valid Loss: 0.5749 | Valid AUROC: 0.8970 | Valid AUPRC: 0.8472 | Valid F1: 0.8000 | Valid Thresh: 0.0068 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.5432 | Train AUROC: 0.9943 | Train AUPRC: 0.9815 | Train F1: 0.9176 | Train Thresh: 0.0289 <====
+====> Epoch: 16 | Valid Loss: 0.4733 | Valid AUROC: 0.9182 | Valid AUPRC: 0.8600 | Valid F1: 0.8182 | Valid Thresh: 0.1085 <====
+10 epoch 동안 성능 개선이 없어 Fold 0 학습 조기 종료
+Fold 0 종료. AUROC: 0.9697, AUPRC: 0.9317, 최적 Threshold: 0.0051
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.9580 | Train AUROC: 0.5546 | Train AUPRC: 0.3172 | Train F1: 0.3051 | Train Thresh: 0.5161 <====
+====> Epoch: 00 | Valid Loss: 0.6106 | Valid AUROC: 0.7000 | Valid AUPRC: 0.6138 | Valid F1: 0.5556 | Valid Thresh: 0.1027 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7000), (AUPRC: 0.6138), (Best Threshold: 0.1027)
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.6725 | Train AUROC: 0.7189 | Train AUPRC: 0.4339 | Train F1: 0.5049 | Train Thresh: 0.1202 <====
+====> Epoch: 01 | Valid Loss: 0.4440 | Valid AUROC: 0.7242 | Valid AUPRC: 0.6494 | Valid F1: 0.6000 | Valid Thresh: 0.2425 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7242), (AUPRC: 0.6494), (Best Threshold: 0.2425)
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.2843 | Train AUROC: 0.8980 | Train AUPRC: 0.7694 | Train F1: 0.7692 | Train Thresh: 0.2753 <====
+====> Epoch: 02 | Valid Loss: 0.3972 | Valid AUROC: 0.8333 | Valid AUPRC: 0.7001 | Valid F1: 0.6667 | Valid Thresh: 0.1949 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8333), (AUPRC: 0.7001), (Best Threshold: 0.1949)
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.0965 | Train AUROC: 0.9428 | Train AUPRC: 0.8731 | Train F1: 0.7273 | Train Thresh: 0.1259 <====
+====> Epoch: 03 | Valid Loss: 0.6235 | Valid AUROC: 0.8212 | Valid AUPRC: 0.7968 | Valid F1: 0.8421 | Valid Thresh: 0.0428 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.9410 | Train AUROC: 0.9799 | Train AUPRC: 0.9470 | Train F1: 0.8041 | Train Thresh: 0.0306 <====
+====> Epoch: 04 | Valid Loss: 0.6007 | Valid AUROC: 0.8303 | Valid AUPRC: 0.7985 | Valid F1: 0.8000 | Valid Thresh: 0.0300 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.8939 | Train AUROC: 0.9722 | Train AUPRC: 0.9503 | Train F1: 0.9000 | Train Thresh: 0.3374 <====
+====> Epoch: 05 | Valid Loss: 0.5399 | Valid AUROC: 0.8667 | Valid AUPRC: 0.8256 | Valid F1: 0.8000 | Valid Thresh: 0.0411 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8667), (AUPRC: 0.8256), (Best Threshold: 0.0411)
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.7920 | Train AUROC: 0.9970 | Train AUPRC: 0.9904 | Train F1: 0.9620 | Train Thresh: 0.2928 <====
+====> Epoch: 06 | Valid Loss: 0.2783 | Valid AUROC: 0.9212 | Valid AUPRC: 0.8651 | Valid F1: 0.7200 | Valid Thresh: 0.0819 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9212), (AUPRC: 0.8651), (Best Threshold: 0.0819)
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.8954 | Train AUROC: 0.9830 | Train AUPRC: 0.9567 | Train F1: 0.9114 | Train Thresh: 0.3731 <====
+====> Epoch: 07 | Valid Loss: 0.5220 | Valid AUROC: 0.9121 | Valid AUPRC: 0.8709 | Valid F1: 0.8421 | Valid Thresh: 0.0569 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.8130 | Train AUROC: 0.9937 | Train AUPRC: 0.9845 | Train F1: 0.9157 | Train Thresh: 0.2509 <====
+====> Epoch: 08 | Valid Loss: 0.6790 | Valid AUROC: 0.8727 | Valid AUPRC: 0.8454 | Valid F1: 0.8000 | Valid Thresh: 0.0116 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.7805 | Train AUROC: 0.9947 | Train AUPRC: 0.9867 | Train F1: 0.9268 | Train Thresh: 0.1067 <====
+====> Epoch: 09 | Valid Loss: 0.7709 | Valid AUROC: 0.8788 | Valid AUPRC: 0.8472 | Valid F1: 0.8000 | Valid Thresh: 0.0070 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.8365 | Train AUROC: 0.9919 | Train AUPRC: 0.9747 | Train F1: 0.9157 | Train Thresh: 0.1543 <====
+====> Epoch: 10 | Valid Loss: 0.5830 | Valid AUROC: 0.8636 | Valid AUPRC: 0.8261 | Valid F1: 0.8235 | Valid Thresh: 0.0458 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.7680 | Train AUROC: 0.9974 | Train AUPRC: 0.9919 | Train F1: 0.9620 | Train Thresh: 0.4451 <====
+====> Epoch: 11 | Valid Loss: 0.4258 | Valid AUROC: 0.8636 | Valid AUPRC: 0.8496 | Valid F1: 0.8421 | Valid Thresh: 0.0353 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.7419 | Train AUROC: 0.9984 | Train AUPRC: 0.9951 | Train F1: 0.9744 | Train Thresh: 0.4989 <====
+====> Epoch: 12 | Valid Loss: 0.5425 | Valid AUROC: 0.8788 | Valid AUPRC: 0.8646 | Valid F1: 0.8889 | Valid Thresh: 0.0141 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.7162 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9873 | Train Thresh: 0.3038 <====
+====> Epoch: 13 | Valid Loss: 0.5177 | Valid AUROC: 0.8788 | Valid AUPRC: 0.8548 | Valid F1: 0.8421 | Valid Thresh: 0.0204 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.7087 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.4450 <====
+====> Epoch: 14 | Valid Loss: 0.5759 | Valid AUROC: 0.8576 | Valid AUPRC: 0.8330 | Valid F1: 0.7619 | Valid Thresh: 0.0093 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.7045 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9873 | Train Thresh: 0.3079 <====
+====> Epoch: 15 | Valid Loss: 0.4721 | Valid AUROC: 0.8303 | Valid AUPRC: 0.8122 | Valid F1: 0.8235 | Valid Thresh: 0.0807 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.7005 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.6217 <====
+====> Epoch: 16 | Valid Loss: 0.4808 | Valid AUROC: 0.8394 | Valid AUPRC: 0.8226 | Valid F1: 0.8235 | Valid Thresh: 0.0817 <====
+10 epoch 동안 성능 개선이 없어 Fold 1 학습 조기 종료
+Fold 1 종료. AUROC: 0.9212, AUPRC: 0.8651, 최적 Threshold: 0.0819
+==================== Starting Fold 2 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.7837 | Train AUROC: 0.5454 | Train AUPRC: 0.3505 | Train F1: 0.2909 | Train Thresh: 0.5209 <====
+====> Epoch: 00 | Valid Loss: 0.7081 | Valid AUROC: 0.6229 | Valid AUPRC: 0.2995 | Valid F1: 0.4615 | Valid Thresh: 0.0380 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6229), (AUPRC: 0.2995), (Best Threshold: 0.0380)
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.6011 | Train AUROC: 0.6837 | Train AUPRC: 0.4553 | Train F1: 0.4557 | Train Thresh: 0.2464 <====
+====> Epoch: 01 | Valid Loss: 0.3726 | Valid AUROC: 0.9293 | Valid AUPRC: 0.8150 | Valid F1: 0.7273 | Valid Thresh: 0.0719 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9293), (AUPRC: 0.8150), (Best Threshold: 0.0719)
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.2209 | Train AUROC: 0.8679 | Train AUPRC: 0.7472 | Train F1: 0.6667 | Train Thresh: 0.0556 <====
+====> Epoch: 02 | Valid Loss: 0.2987 | Valid AUROC: 0.9461 | Valid AUPRC: 0.8788 | Valid F1: 0.8000 | Valid Thresh: 0.5682 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9461), (AUPRC: 0.8788), (Best Threshold: 0.5682)
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 0.9208 | Train AUROC: 0.9437 | Train AUPRC: 0.8635 | Train F1: 0.8315 | Train Thresh: 0.3219 <====
+====> Epoch: 03 | Valid Loss: 0.2343 | Valid AUROC: 0.9428 | Valid AUPRC: 0.8973 | Valid F1: 0.8750 | Valid Thresh: 0.4445 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 0.6556 | Train AUROC: 0.9844 | Train AUPRC: 0.9488 | Train F1: 0.8511 | Train Thresh: 0.0543 <====
+====> Epoch: 04 | Valid Loss: 0.3975 | Valid AUROC: 0.9461 | Valid AUPRC: 0.8668 | Valid F1: 0.7619 | Valid Thresh: 0.5063 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.6002 | Train AUROC: 0.9896 | Train AUPRC: 0.9669 | Train F1: 0.8791 | Train Thresh: 0.0557 <====
+====> Epoch: 05 | Valid Loss: 0.3894 | Valid AUROC: 0.9596 | Valid AUPRC: 0.8884 | Valid F1: 0.8182 | Valid Thresh: 0.4210 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9596), (AUPRC: 0.8884), (Best Threshold: 0.4210)
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.5823 | Train AUROC: 0.9885 | Train AUPRC: 0.9589 | Train F1: 0.9195 | Train Thresh: 0.0482 <====
+====> Epoch: 06 | Valid Loss: 0.9908 | Valid AUROC: 0.9529 | Valid AUPRC: 0.8795 | Valid F1: 0.7500 | Valid Thresh: 0.9647 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.7746 | Train AUROC: 0.9713 | Train AUPRC: 0.9353 | Train F1: 0.8642 | Train Thresh: 0.5028 <====
+====> Epoch: 07 | Valid Loss: 0.5676 | Valid AUROC: 0.9428 | Valid AUPRC: 0.8938 | Valid F1: 0.8750 | Valid Thresh: 0.9955 <====
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.5108 | Train AUROC: 0.9948 | Train AUPRC: 0.9837 | Train F1: 0.9091 | Train Thresh: 0.0586 <====
+====> Epoch: 08 | Valid Loss: 0.5072 | Valid AUROC: 0.9360 | Valid AUPRC: 0.8867 | Valid F1: 0.8750 | Valid Thresh: 0.9973 <====
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.5466 | Train AUROC: 0.9904 | Train AUPRC: 0.9539 | Train F1: 0.9524 | Train Thresh: 0.6958 <====
+====> Epoch: 09 | Valid Loss: 0.3818 | Valid AUROC: 0.9057 | Valid AUPRC: 0.8607 | Valid F1: 0.8235 | Valid Thresh: 0.6945 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.4047 | Train AUROC: 0.9965 | Train AUPRC: 0.9862 | Train F1: 0.9756 | Train Thresh: 0.0525 <====
+====> Epoch: 10 | Valid Loss: 0.5981 | Valid AUROC: 0.9125 | Valid AUPRC: 0.8672 | Valid F1: 0.8750 | Valid Thresh: 0.9973 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.3354 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9572 <====
+====> Epoch: 11 | Valid Loss: 0.4656 | Valid AUROC: 0.9226 | Valid AUPRC: 0.8750 | Valid F1: 0.8750 | Valid Thresh: 0.9977 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.3473 | Train AUROC: 0.9996 | Train AUPRC: 0.9988 | Train F1: 0.9756 | Train Thresh: 0.1035 <====
+====> Epoch: 12 | Valid Loss: 0.6551 | Valid AUROC: 0.9327 | Valid AUPRC: 0.8801 | Valid F1: 0.8750 | Valid Thresh: 0.9989 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.3382 | Train AUROC: 0.9998 | Train AUPRC: 0.9994 | Train F1: 0.9877 | Train Thresh: 0.8701 <====
+====> Epoch: 13 | Valid Loss: 0.7570 | Valid AUROC: 0.9259 | Valid AUPRC: 0.8503 | Valid F1: 0.8235 | Valid Thresh: 0.9990 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.3260 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7420 <====
+====> Epoch: 14 | Valid Loss: 1.0251 | Valid AUROC: 0.9259 | Valid AUPRC: 0.8748 | Valid F1: 0.8750 | Valid Thresh: 0.9995 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.3314 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9906 <====
+====> Epoch: 15 | Valid Loss: 0.3949 | Valid AUROC: 0.9057 | Valid AUPRC: 0.8622 | Valid F1: 0.8750 | Valid Thresh: 0.9973 <====
+10 epoch 동안 성능 개선이 없어 Fold 2 학습 조기 종료
+Fold 2 종료. AUROC: 0.9596, AUPRC: 0.8884, 최적 Threshold: 0.4210
+==================== Starting Fold 3 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 1.7079 | Train AUROC: 0.6905 | Train AUPRC: 0.4470 | Train F1: 0.4750 | Train Thresh: 0.4186 <====
+====> Epoch: 00 | Valid Loss: 0.8444 | Valid AUROC: 0.7063 | Valid AUPRC: 0.4610 | Valid F1: 0.5333 | Valid Thresh: 0.0237 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7063), (AUPRC: 0.4610), (Best Threshold: 0.0237)
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.6440 | Train AUROC: 0.7203 | Train AUPRC: 0.4305 | Train F1: 0.4832 | Train Thresh: 0.0531 <====
+====> Epoch: 01 | Valid Loss: 0.5719 | Valid AUROC: 0.7219 | Valid AUPRC: 0.5141 | Valid F1: 0.5714 | Valid Thresh: 0.5358 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7219), (AUPRC: 0.5141), (Best Threshold: 0.5358)
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.3009 | Train AUROC: 0.8851 | Train AUPRC: 0.7039 | Train F1: 0.6813 | Train Thresh: 0.2578 <====
+====> Epoch: 02 | Valid Loss: 0.7805 | Valid AUROC: 0.7656 | Valid AUPRC: 0.5862 | Valid F1: 0.7059 | Valid Thresh: 0.8649 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7656), (AUPRC: 0.5862), (Best Threshold: 0.8649)
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.1647 | Train AUROC: 0.9151 | Train AUPRC: 0.7454 | Train F1: 0.7273 | Train Thresh: 0.1604 <====
+====> Epoch: 03 | Valid Loss: 0.8245 | Valid AUROC: 0.7719 | Valid AUPRC: 0.5988 | Valid F1: 0.7059 | Valid Thresh: 0.9627 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7719), (AUPRC: 0.5988), (Best Threshold: 0.9627)
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.0077 | Train AUROC: 0.9485 | Train AUPRC: 0.8378 | Train F1: 0.7290 | Train Thresh: 0.0658 <====
+====> Epoch: 04 | Valid Loss: 0.6708 | Valid AUROC: 0.7656 | Valid AUPRC: 0.5985 | Valid F1: 0.6400 | Valid Thresh: 0.1701 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 0.6958 | Train AUROC: 0.9928 | Train AUPRC: 0.9775 | Train F1: 0.8966 | Train Thresh: 0.1003 <====
+====> Epoch: 05 | Valid Loss: 0.7094 | Valid AUROC: 0.7656 | Valid AUPRC: 0.5790 | Valid F1: 0.6957 | Valid Thresh: 0.2602 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 0.6069 | Train AUROC: 0.9977 | Train AUPRC: 0.9930 | Train F1: 0.9620 | Train Thresh: 0.3659 <====
+====> Epoch: 06 | Valid Loss: 1.1462 | Valid AUROC: 0.7875 | Valid AUPRC: 0.6092 | Valid F1: 0.6957 | Valid Thresh: 0.9929 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7875), (AUPRC: 0.6092), (Best Threshold: 0.9929)
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 0.9074 | Train AUROC: 0.9677 | Train AUPRC: 0.9252 | Train F1: 0.8684 | Train Thresh: 0.1668 <====
+====> Epoch: 07 | Valid Loss: 0.5782 | Valid AUROC: 0.8219 | Valid AUPRC: 0.6397 | Valid F1: 0.7273 | Valid Thresh: 0.7376 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8219), (AUPRC: 0.6397), (Best Threshold: 0.7376)
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 0.8613 | Train AUROC: 0.9849 | Train AUPRC: 0.9546 | Train F1: 0.9024 | Train Thresh: 0.3339 <====
+====> Epoch: 08 | Valid Loss: 0.6023 | Valid AUROC: 0.8375 | Valid AUPRC: 0.6344 | Valid F1: 0.7000 | Valid Thresh: 0.5381 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8375), (AUPRC: 0.6344), (Best Threshold: 0.5381)
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 0.6073 | Train AUROC: 0.9980 | Train AUPRC: 0.9934 | Train F1: 0.9630 | Train Thresh: 0.3132 <====
+====> Epoch: 09 | Valid Loss: 0.9018 | Valid AUROC: 0.8156 | Valid AUPRC: 0.6254 | Valid F1: 0.7368 | Valid Thresh: 0.0054 <====
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 0.7222 | Train AUROC: 0.9924 | Train AUPRC: 0.9770 | Train F1: 0.9157 | Train Thresh: 0.0829 <====
+====> Epoch: 10 | Valid Loss: 0.6989 | Valid AUROC: 0.7969 | Valid AUPRC: 0.6031 | Valid F1: 0.7000 | Valid Thresh: 0.0781 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 0.6234 | Train AUROC: 0.9971 | Train AUPRC: 0.9912 | Train F1: 0.9620 | Train Thresh: 0.5071 <====
+====> Epoch: 11 | Valid Loss: 0.7148 | Valid AUROC: 0.8063 | Valid AUPRC: 0.6111 | Valid F1: 0.7000 | Valid Thresh: 0.6777 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.5591 | Train AUROC: 0.9996 | Train AUPRC: 0.9987 | Train F1: 0.9750 | Train Thresh: 0.3379 <====
+====> Epoch: 12 | Valid Loss: 0.8345 | Valid AUROC: 0.7906 | Valid AUPRC: 0.6003 | Valid F1: 0.6667 | Valid Thresh: 0.3063 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.5364 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.7178 <====
+====> Epoch: 13 | Valid Loss: 0.7868 | Valid AUROC: 0.7812 | Valid AUPRC: 0.5957 | Valid F1: 0.6667 | Valid Thresh: 0.4454 <====
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.5325 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9744 <====
+====> Epoch: 14 | Valid Loss: 0.8322 | Valid AUROC: 0.7781 | Valid AUPRC: 0.5931 | Valid F1: 0.6667 | Valid Thresh: 0.7023 <====
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.5290 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9620 <====
+====> Epoch: 15 | Valid Loss: 0.8267 | Valid AUROC: 0.7812 | Valid AUPRC: 0.5941 | Valid F1: 0.6667 | Valid Thresh: 0.6749 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.5261 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9436 <====
+====> Epoch: 16 | Valid Loss: 0.7794 | Valid AUROC: 0.7781 | Valid AUPRC: 0.5991 | Valid F1: 0.7000 | Valid Thresh: 0.7096 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.5253 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9243 <====
+====> Epoch: 17 | Valid Loss: 0.7730 | Valid AUROC: 0.8031 | Valid AUPRC: 0.6094 | Valid F1: 0.7000 | Valid Thresh: 0.6450 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.5216 | Train AUROC: 1.0000 | Train AUPRC: 1.0000 | Train F1: 1.0000 | Train Thresh: 0.9475 <====
+====> Epoch: 18 | Valid Loss: 0.7913 | Valid AUROC: 0.8156 | Valid AUPRC: 0.6114 | Valid F1: 0.7000 | Valid Thresh: 0.5867 <====
+10 epoch 동안 성능 개선이 없어 Fold 3 학습 조기 종료
+Fold 3 종료. AUROC: 0.8375, AUPRC: 0.6344, 최적 Threshold: 0.5381
+==================== Starting Fold 4 (Knowledge Distillation) ====================
+Epoch_0 start
+====> Epoch: 00 | Train Loss: 2.1450 | Train AUROC: 0.4919 | Train AUPRC: 0.2197 | Train F1: 0.3977 | Train Thresh: 0.0151 <====
+====> Epoch: 00 | Valid Loss: 0.5481 | Valid AUROC: 0.6594 | Valid AUPRC: 0.3591 | Valid F1: 0.5385 | Valid Thresh: 0.2070 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6594), (AUPRC: 0.3591), (Best Threshold: 0.2070)
+Epoch_1 start
+====> Epoch: 01 | Train Loss: 1.7831 | Train AUROC: 0.5737 | Train AUPRC: 0.2734 | Train F1: 0.4203 | Train Thresh: 0.0825 <====
+====> Epoch: 01 | Valid Loss: 0.6123 | Valid AUROC: 0.7219 | Valid AUPRC: 0.4024 | Valid F1: 0.5806 | Valid Thresh: 0.1099 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7219), (AUPRC: 0.4024), (Best Threshold: 0.1099)
+Epoch_2 start
+====> Epoch: 02 | Train Loss: 1.7084 | Train AUROC: 0.6105 | Train AUPRC: 0.3478 | Train F1: 0.4203 | Train Thresh: 0.1708 <====
+====> Epoch: 02 | Valid Loss: 0.5470 | Valid AUROC: 0.7375 | Valid AUPRC: 0.4361 | Valid F1: 0.5806 | Valid Thresh: 0.2429 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7375), (AUPRC: 0.4361), (Best Threshold: 0.2429)
+Epoch_3 start
+====> Epoch: 03 | Train Loss: 1.7455 | Train AUROC: 0.4713 | Train AUPRC: 0.2177 | Train F1: 0.4000 | Train Thresh: 0.1599 <====
+====> Epoch: 03 | Valid Loss: 0.5654 | Valid AUROC: 0.6875 | Valid AUPRC: 0.4083 | Valid F1: 0.5294 | Valid Thresh: 0.1611 <====
+Epoch_4 start
+====> Epoch: 04 | Train Loss: 1.7300 | Train AUROC: 0.5273 | Train AUPRC: 0.2769 | Train F1: 0.3818 | Train Thresh: 0.1692 <====
+====> Epoch: 04 | Valid Loss: 0.5487 | Valid AUROC: 0.7031 | Valid AUPRC: 0.4740 | Valid F1: 0.5294 | Valid Thresh: 0.1983 <====
+Epoch_5 start
+====> Epoch: 05 | Train Loss: 1.7363 | Train AUROC: 0.5338 | Train AUPRC: 0.3936 | Train F1: 0.4051 | Train Thresh: 0.2012 <====
+====> Epoch: 05 | Valid Loss: 0.5784 | Valid AUROC: 0.7281 | Valid AUPRC: 0.4901 | Valid F1: 0.5333 | Valid Thresh: 0.1322 <====
+Epoch_6 start
+====> Epoch: 06 | Train Loss: 1.6837 | Train AUROC: 0.6898 | Train AUPRC: 0.4601 | Train F1: 0.5000 | Train Thresh: 0.1976 <====
+====> Epoch: 06 | Valid Loss: 0.5520 | Valid AUROC: 0.6906 | Valid AUPRC: 0.4107 | Valid F1: 0.5161 | Valid Thresh: 0.1483 <====
+Epoch_7 start
+====> Epoch: 07 | Train Loss: 1.5633 | Train AUROC: 0.7733 | Train AUPRC: 0.4853 | Train F1: 0.5806 | Train Thresh: 0.1707 <====
+====> Epoch: 07 | Valid Loss: 0.6572 | Valid AUROC: 0.7781 | Valid AUPRC: 0.5154 | Valid F1: 0.6154 | Valid Thresh: 0.6384 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7781), (AUPRC: 0.5154), (Best Threshold: 0.6384)
+Epoch_8 start
+====> Epoch: 08 | Train Loss: 1.6588 | Train AUROC: 0.7101 | Train AUPRC: 0.4318 | Train F1: 0.5000 | Train Thresh: 0.0933 <====
+====> Epoch: 08 | Valid Loss: 0.4062 | Valid AUROC: 0.8844 | Valid AUPRC: 0.7577 | Valid F1: 0.7826 | Valid Thresh: 0.2902 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8844), (AUPRC: 0.7577), (Best Threshold: 0.2902)
+Epoch_9 start
+====> Epoch: 09 | Train Loss: 1.2483 | Train AUROC: 0.8982 | Train AUPRC: 0.6742 | Train F1: 0.7174 | Train Thresh: 0.2274 <====
+====> Epoch: 09 | Valid Loss: 0.4043 | Valid AUROC: 0.9000 | Valid AUPRC: 0.9039 | Valid F1: 0.9000 | Valid Thresh: 0.8436 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9000), (AUPRC: 0.9039), (Best Threshold: 0.8436)
+Epoch_10 start
+====> Epoch: 10 | Train Loss: 1.1017 | Train AUROC: 0.9272 | Train AUPRC: 0.8158 | Train F1: 0.8049 | Train Thresh: 0.4140 <====
+====> Epoch: 10 | Valid Loss: 0.5374 | Valid AUROC: 0.8250 | Valid AUPRC: 0.8506 | Valid F1: 0.8889 | Valid Thresh: 0.9222 <====
+Epoch_11 start
+====> Epoch: 11 | Train Loss: 1.0104 | Train AUROC: 0.9552 | Train AUPRC: 0.8735 | Train F1: 0.8046 | Train Thresh: 0.1974 <====
+====> Epoch: 11 | Valid Loss: 0.3118 | Valid AUROC: 0.8469 | Valid AUPRC: 0.8558 | Valid F1: 0.8889 | Valid Thresh: 0.7769 <====
+Epoch_12 start
+====> Epoch: 12 | Train Loss: 0.9551 | Train AUROC: 0.9675 | Train AUPRC: 0.8837 | Train F1: 0.8471 | Train Thresh: 0.3762 <====
+====> Epoch: 12 | Valid Loss: 0.3423 | Valid AUROC: 0.8969 | Valid AUPRC: 0.8914 | Valid F1: 0.9000 | Valid Thresh: 0.8670 <====
+Epoch_13 start
+====> Epoch: 13 | Train Loss: 0.8657 | Train AUROC: 0.9789 | Train AUPRC: 0.9333 | Train F1: 0.8539 | Train Thresh: 0.1426 <====
+====> Epoch: 13 | Valid Loss: 0.2461 | Valid AUROC: 0.9250 | Valid AUPRC: 0.9131 | Valid F1: 0.8571 | Valid Thresh: 0.4613 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9250), (AUPRC: 0.9131), (Best Threshold: 0.4613)
+Epoch_14 start
+====> Epoch: 14 | Train Loss: 0.7916 | Train AUROC: 0.9865 | Train AUPRC: 0.9478 | Train F1: 0.9250 | Train Thresh: 0.5241 <====
+====> Epoch: 14 | Valid Loss: 0.2609 | Valid AUROC: 0.9281 | Valid AUPRC: 0.9040 | Valid F1: 0.8571 | Valid Thresh: 0.6868 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9281), (AUPRC: 0.9040), (Best Threshold: 0.6868)
+Epoch_15 start
+====> Epoch: 15 | Train Loss: 0.7147 | Train AUROC: 0.9924 | Train AUPRC: 0.9751 | Train F1: 0.9620 | Train Thresh: 0.6937 <====
+====> Epoch: 15 | Valid Loss: 0.3990 | Valid AUROC: 0.9188 | Valid AUPRC: 0.8836 | Valid F1: 0.8182 | Valid Thresh: 0.8617 <====
+Epoch_16 start
+====> Epoch: 16 | Train Loss: 0.7328 | Train AUROC: 0.9912 | Train AUPRC: 0.9754 | Train F1: 0.9620 | Train Thresh: 0.5296 <====
+====> Epoch: 16 | Valid Loss: 0.3216 | Valid AUROC: 0.9219 | Valid AUPRC: 0.8844 | Valid F1: 0.9000 | Valid Thresh: 0.9669 <====
+Epoch_17 start
+====> Epoch: 17 | Train Loss: 0.7016 | Train AUROC: 0.9922 | Train AUPRC: 0.9761 | Train F1: 0.9744 | Train Thresh: 0.6869 <====
+====> Epoch: 17 | Valid Loss: 0.3092 | Valid AUROC: 0.9125 | Valid AUPRC: 0.8657 | Valid F1: 0.9000 | Valid Thresh: 0.9688 <====
+Epoch_18 start
+====> Epoch: 18 | Train Loss: 0.6867 | Train AUROC: 0.9933 | Train AUPRC: 0.9815 | Train F1: 0.9744 | Train Thresh: 0.4913 <====
+====> Epoch: 18 | Valid Loss: 0.3913 | Valid AUROC: 0.9250 | Valid AUPRC: 0.8854 | Valid F1: 0.9000 | Valid Thresh: 0.9860 <====
+Epoch_19 start
+====> Epoch: 19 | Train Loss: 0.6705 | Train AUROC: 0.9978 | Train AUPRC: 0.9936 | Train F1: 0.9744 | Train Thresh: 0.9027 <====
+====> Epoch: 19 | Valid Loss: 0.3703 | Valid AUROC: 0.9219 | Valid AUPRC: 0.8688 | Valid F1: 0.9000 | Valid Thresh: 0.9674 <====
+Fold 4 종료. AUROC: 0.9281, AUPRC: 0.9040, 최적 Threshold: 0.6868
+================ 최종 결과 ================
+Fold 1 Best AUROC: 0.9697
+Fold 2 Best AUROC: 0.9212
+Fold 3 Best AUROC: 0.9596
+Fold 4 Best AUROC: 0.8375
+Fold 5 Best AUROC: 0.9281
+5-Fold 평균 AUROC: 0.9232
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Epoch_0 start

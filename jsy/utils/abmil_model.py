@@ -16,20 +16,28 @@ class BinaryClassificationModel(nn.Module):
             dropout=dropout, 
             gated=gated
         )
-        self.classifier = nn.Sequential(
+        
+        # 💡 [핵심 수정 1] 피처 증류를 위해 Projector(256차원 추출)와 Classifier(최종 1차원 추출)를 분리합니다.
+        self.projector = nn.Sequential(
             nn.Linear(input_feature_dim, hidden_dim),
-            nn.ReLU(),
-            nn.Linear(hidden_dim, 1)
+            nn.ReLU()
         )
+        self.classifier = nn.Linear(hidden_dim, 1)
 
-    def forward(self, x, return_raw_attention=False):
-        if return_raw_attention:
-            features, attn = self.feature_encoder(x, return_raw_attention=True)
-        else:
-            features = self.feature_encoder(x)
-        logits = self.classifier(features).squeeze(1)
+    # 💡 [핵심 수정 2] 딕셔너리 'x' 대신 순수 텐서 'features'를 입력으로 받습니다.
+    def forward(self, features, return_raw_attention=True):
         
-        if return_raw_attention:
-            return logits, attn
+        # 입력받은 순수 텐서를 ABMILSlideEncoder가 좋아하는 딕셔너리 형태로 감싸줍니다 (통역 역할)
+        enc_input = {'features': features}
         
-        return logits
+        # 어텐션 값은 지식 증류(beta Loss)에 필수이므로 항상 추출하는 것이 좋습니다.
+        slide_features, attn = self.feature_encoder(enc_input, return_raw_attention=True)
+        
+        # 768차원 슬라이드 피처를 256차원으로 축소 (Teacher의 256차원 구조와 맞춤)
+        path_bag = self.projector(slide_features)
+        
+        # 최종 로짓 값 추출
+        logits = self.classifier(path_bag).squeeze(1)
+        
+        # 💡 [핵심 수정 3] MCAT Student와 완벽히 동일하게 로짓, 어텐션, 피처 3가지를 모두 반환합니다.
+        return logits, path_bag, attn

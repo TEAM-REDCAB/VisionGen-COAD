@@ -108,6 +108,7 @@ def plot_patient_attention(patient_id, fold_num=0):
     plt.show()
     
     print(f"✅ 시각화 완료! 저장 위치: {os.path.join(VIS_PATH, save_filename)}")
+    print(f"Patient: {patient_id} | True: {true_class} | Pred: {pred_class} | Prob: {prob:.4f}")
 
 if __name__ == "__main__":
     # 실행 예시: 테스트 셋에 있는 특정 환자 ID와 사용하고자 하는 폴드 번호를 입력합니다.

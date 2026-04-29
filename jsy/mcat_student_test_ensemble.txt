@@ -1,0 +1,34 @@
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.5580
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.8770
+Ensemble AUPRC     : 0.7282
+Ensemble F1-Score  : 0.8000
+Ensemble Threshold : 0.5580
+Accuracy           : 0.9074
+Sensitivity(Recall): 0.8333
+Specificity        : 0.9286
+[Confusion Matrix]
+TN(MSS맞춤)  FP(MSI로오해)
+FN(MSS로오해) TP(MSI맞춤)
+[[39  3]
+ [ 2 10]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.95      0.93      0.94        42
+   MSI-H (1)       0.77      0.83      0.80        12
+
+    accuracy                           0.91        54
+   macro avg       0.86      0.88      0.87        54
+weighted avg       0.91      0.91      0.91        54
+💾 앙상블 최종 결과가 ./results/seed_42/test_results_mcat_kd_ensemble에 저장되었습니다.

@@ -1,0 +1,120 @@
+🔍 Testing Fold 0 (KD Model)...
+========================================
+========== 🏆 최종 테스트 결과 ==========
+========================================
+AUROC     : 0.8948
+F1-Score  : 0.6111
+Threshold : 0.3020
+[Confusion Matrix]
+TN(MSS맞춤)  FP(MSI로오해)
+FN(MSS로오해) TP(MSI맞춤)
+[[29 13]
+ [ 1 11]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.97      0.69      0.81        42
+   MSI-H (1)       0.46      0.92      0.61        12
+
+    accuracy                           0.74        54
+   macro avg       0.71      0.80      0.71        54
+weighted avg       0.85      0.74      0.76        54
+✅ Fold 0 완료
+🔍 Testing Fold 1 (KD Model)...
+========================================
+========== 🏆 최종 테스트 결과 ==========
+========================================
+AUROC     : 0.8948
+F1-Score  : 0.6667
+Threshold : 0.6806
+[Confusion Matrix]
+TN(MSS맞춤)  FP(MSI로오해)
+FN(MSS로오해) TP(MSI맞춤)
+[[38  4]
+ [ 4  8]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.90      0.90      0.90        42
+   MSI-H (1)       0.67      0.67      0.67        12
+
+    accuracy                           0.85        54
+   macro avg       0.79      0.79      0.79        54
+weighted avg       0.85      0.85      0.85        54
+✅ Fold 1 완료
+🔍 Testing Fold 2 (KD Model)...
+========================================
+========== 🏆 최종 테스트 결과 ==========
+========================================
+AUROC     : 0.9107
+F1-Score  : 0.6957
+Threshold : 0.1637
+[Confusion Matrix]
+TN(MSS맞춤)  FP(MSI로오해)
+FN(MSS로오해) TP(MSI맞춤)
+[[39  3]
+ [ 4  8]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.91      0.93      0.92        42
+   MSI-H (1)       0.73      0.67      0.70        12
+
+    accuracy                           0.87        54
+   macro avg       0.82      0.80      0.81        54
+weighted avg       0.87      0.87      0.87        54
+✅ Fold 2 완료
+🔍 Testing Fold 3 (KD Model)...
+========================================
+========== 🏆 최종 테스트 결과 ==========
+========================================
+AUROC     : 0.8413
+F1-Score  : 0.6429
+Threshold : 0.1531
+[Confusion Matrix]
+TN(MSS맞춤)  FP(MSI로오해)
+FN(MSS로오해) TP(MSI맞춤)
+[[35  7]
+ [ 3  9]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.92      0.83      0.88        42
+   MSI-H (1)       0.56      0.75      0.64        12
+
+    accuracy                           0.81        54
+   macro avg       0.74      0.79      0.76        54
+weighted avg       0.84      0.81      0.82        54
+✅ Fold 3 완료
+🔍 Testing Fold 4 (KD Model)...
+========================================
+========== 🏆 최종 테스트 결과 ==========
+========================================
+AUROC     : 0.8730
+F1-Score  : 0.6667
+Threshold : 0.3640
+[Confusion Matrix]
+TN(MSS맞춤)  FP(MSI로오해)
+FN(MSS로오해) TP(MSI맞춤)
+[[38  4]
+ [ 4  8]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.90      0.90      0.90        42
+   MSI-H (1)       0.67      0.67      0.67        12
+
+    accuracy                           0.85        54
+   macro avg       0.79      0.79      0.79        54
+weighted avg       0.85      0.85      0.85        54
+✅ Fold 4 완료
+==================== Final Test Summary ====================
+Fold    AUROC    AUPRC  Accuracy  Sensitivity  Specificity  F1_Score  Threshold
+    0 0.894841 0.807735  0.740741     0.916667     0.690476  0.611111   0.301956
+    1 0.894841 0.801316  0.851852     0.666667     0.904762  0.666667   0.680588
+    2 0.910714 0.807700  0.870370     0.666667     0.928571  0.695652   0.163748
+    3 0.841270 0.680291  0.814815     0.750000     0.833333  0.642857   0.153054
+    4 0.873016 0.766080  0.851852     0.666667     0.904762  0.666667   0.363963
+Mean AUC: 0.8829 ± 0.0269
+Mean AUPRC: 0.7726 ± 0.0544
+💾 모든 결과가 ./results/seed_42/test_results_abmil_kd에 저장되었습니다.

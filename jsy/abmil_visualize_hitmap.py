@@ -22,8 +22,9 @@ df = pd.read_csv(LABEL_PATH)
 print("📂 파일 목록 스캔 중...")
 all_h5_files = [f for f in os.listdir(FEATS_PATH) if f.endswith('.h5')]
 file_map = {}
+pid_len = len(df['patient'][0])
 for f in all_h5_files:
-    prefix = f[:12] # 환자 ID 또는 슬라이드 ID 추출
+    prefix = f[:pid_len] # 환자 ID 또는 슬라이드 ID 추출
     if prefix not in file_map:
         file_map[prefix] = []
     file_map[prefix].append(os.path.join(FEATS_PATH, f))
@@ -110,6 +111,8 @@ for fold in range(5):
         plt.axis('off')
         
         # 파일명 형식: [확률]_[정답]_[환자ID].png
+        pred_text = "MSI" if probs > 0.5 else "MSS"
+        print(f"ID: {patient_id} | True: {label_str} | Prob: {probs:.4f} | Pred : {pred_text}")
         save_path = os.path.join(save_dir, f"P{probs:.2f}_{label_str}_{patient_id}.png")
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
         plt.close(fig)

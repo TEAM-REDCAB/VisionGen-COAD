@@ -54,16 +54,22 @@ class H5Dataset(Dataset):
             kd_data = self.kd_dict.get(patient_id)
             if kd_data:
                 t_logit = torch.tensor(kd_data['t_logits'], dtype=torch.float32)
+                # 혹시 남아있을지 모를 배치 차원(1, 256)을 제거하여 (256,) 형태의 1D 벡터로 깔끔하게 펴줍니다.
+                t_path_bag = torch.tensor(kd_data['t_path_bag'], dtype=torch.float32).squeeze()
                 t_attn = torch.tensor(kd_data['t_attention'], dtype=torch.float32)
                 
                 # 전체 패치에 대한 어텐션 합이 1이 되도록 재정규화
                 t_attn = t_attn / (t_attn.sum() + 1e-8)
             else:
+                # KD 데이터가 누락되었을 때 텐서 규격을 맞춰주기 위한 방어 코드
                 t_logit = torch.tensor(0.0)
+                t_path_bag = torch.zeros(256, dtype=torch.float32) # d_model 크기(256)에 맞춘 빈 텐서
                 t_attn = torch.zeros(features.shape[0])
             
-            label = torch.tensor(row["msi"], dtype=torch.float32)
-            return features, coords, label, t_logit, t_attn
+            labels = torch.tensor(row["msi"], dtype=torch.float32)
+            
+            # 💡 리턴값에 t_path_bag 추가 (훈련 루프에서 받는 순서와 동일하게 맞춤)
+            return features, coords, labels, t_logit, t_path_bag, t_attn
         else:
-            label = torch.tensor(row["msi"], dtype=torch.float32)
-            return features, coords, label
+            labels = torch.tensor(row["msi"], dtype=torch.float32)
+            return features, coords, labels

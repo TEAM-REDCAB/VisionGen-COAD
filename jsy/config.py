@@ -7,18 +7,15 @@ SEED = 42
 
 def get_feats_path():
     # return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
-    return f"/home/team/projects/team_REDCAB/team_project/data/{ENCODER_MODEL}_processed/20.0x_256px_0px_overlap/features_{ENCODER_MODEL}"
+    return "/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath"
+    # return "/home/team/projects/team_REDCAB/team_project/data/cptac_processed/20.0x_256px_0px_overlap/features_gigapath"
 
 def get_coords_path():
     # coords_path = '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/patches_gigapath'
-    coords_path = f'/home/team/projects/team_REDCAB/team_project/data/{ENCODER_MODEL}_processed/20.0x_256px_0px_overlap/patches'
+    coords_path = '/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/patches'
+    # coords_path = '/home/team/projects/team_REDCAB/team_project/data/cptac_processed/20.0x_256px_0px_overlap/patches'
     return coords_path
 
-def get_results_path():
-    results_path = os.path.join('./results', f'seed_{SEED}')
-    os.makedirs(results_path, exist_ok=True)
-    return results_path
-    
 def get_label_path():
     label_path = os.path.join('labels', f'clinical_data_seed_{SEED}.csv')
     if os.path.exists(label_path):
@@ -49,3 +46,11 @@ def get_label_path():
     os.makedirs('labels', exist_ok=True)
     df.to_csv(label_path, index=False)
     return label_path
+
+def get_results_path():
+    results_path = os.path.join('./results', f'seed_{SEED}')
+    os.makedirs(results_path, exist_ok=True)
+    return results_path
+    
+def get_teacher_knowledge_path():
+    return "./models/mcat/teacher_knowledge"
