@@ -13,7 +13,7 @@ from modules.mcat_model import MCAT_Binary
 # 설정값 로드 (기존 config 활용)
 common_patients = "./data/common_patients.txt"
 LABEL_PATH = get_label_path(common_patients)
-FEATS_PATH = get_feats_path('gigapath')
+FEATS_PATH = get_feats_path()
 NPY_PATH = "./data/genomic_input_matrix.npy"
 GENOMIC_PKL_PATH = "./data/genomic_encoding_states.pkl"
 RESULT_PATH = "./results_msi"
@@ -35,7 +35,7 @@ def export_knowledge():
             print(f"⚠️ Fold {fold_idx} 모델 파일이 없습니다. 건너뜁니다.")
             continue
             
-        checkpoint = torch.load(model_path, map_location=device)
+        checkpoint = torch.load(model_path, map_location=device, weights_only=False)
         if 'model_state_dict' in checkpoint:
             model.load_state_dict(checkpoint['model_state_dict'])
             print(f"체크포인트_fold{fold_idx} 딕셔너리에서 'model_state_dict' 로드 완료.")

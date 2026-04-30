@@ -66,6 +66,7 @@ def train_binary(epoch, model, loader, optimizer, loss_fn, gc=16):
     print(f'====> Epoch: {epoch:02d} | Train Loss: {avg_loss:.4f} | Train AUROC: {auroc:.4f} | Train AUPRC: {auprc:.4f} | Train F1: {f1:.4f} | Train Thresh: {best_thresh:.4f} <====')
     
     # return avg_loss, auroc, auprc, f1, best_thresh
+    return auroc, auprc, best_thresh
 
 
 def validate_binary(epoch, model, loader, loss_fn):

@@ -54,7 +54,7 @@ SEED = cf.SEED
 MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models_mcat_kd')
 
 # 💡 2. 결과 덮어쓰기 방지를 위해 KD 전용 테스트 결과 폴더 생성
-TEST_PATH = os.path.join(cf.get_results_path(), 'test_results_mcat_kd_ensemble')
+TEST_PATH = os.path.join(cf.get_results_path(), 'test_results')
 os.makedirs(TEST_PATH, exist_ok=True)
 
 # 시드 고정
@@ -87,7 +87,6 @@ def test_and_visualize():
             
         checkpoint = torch.load(model_path, map_location=device, weights_only=False)
         model.load_state_dict(checkpoint['model_state_dict'])
-        # 이전 모델들의 best_thresh는 더 이상 불러오지 않습니다. (완전 무시)
         model.eval()
         
         fold_probs = []
@@ -99,7 +98,7 @@ def test_and_visualize():
                 features = features.to(device)
                 
                 # 예측 진행
-                logits, _, _ = model(features)
+                logits, *_ = model(features)
                 logits = logits.squeeze(dim=-1)
                 if logits.dim() == 0:
                     logits = logits.unsqueeze(0)
@@ -190,7 +189,7 @@ def test_and_visualize():
     ax2.grid(alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig(os.path.join(TEST_PATH, 'MCAT_kd_ensemble_curves.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'curves_MCAT_kd_ensemble.png'), dpi=300)
     plt.show()
 
     # Confusion Matrix 시각화
@@ -200,7 +199,7 @@ def test_and_visualize():
     plt.xlabel('Predicted Label')
     plt.ylabel('True Label')
     plt.title('Ensemble Confusion Matrix')
-    plt.savefig(os.path.join(TEST_PATH, 'MCAT_kd_ensemble_confusion_matrix.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'confusion_matrix_MCAT_kd_ensemble.png'), dpi=300)
     plt.show()
 
     # 히스토그램 시각화 (앙상블 확률 기준)
@@ -221,7 +220,7 @@ def test_and_visualize():
     plt.grid(axis='y', alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig(os.path.join(TEST_PATH, 'MCAT_kd_ensemble_histogram.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'histogram_MCAT_kd_ensemble.png'), dpi=300)
     plt.show()
     
     # 💡 7. 최종 결과 CSV 한 줄로 요약 저장
@@ -231,7 +230,7 @@ def test_and_visualize():
         'Threshold': [ensemble_best_thresh]
     }
     results_df = pd.DataFrame(results_dict)
-    results_df.to_csv(os.path.join(TEST_PATH, 'MCAT_kd_ensemble_test_results.csv'), index=False)
+    results_df.to_csv(os.path.join(TEST_PATH, 'test_results_MCAT_kd_ensemble.csv'), index=False)
     print(f"\n💾 앙상블 최종 결과가 {TEST_PATH}에 저장되었습니다.")
 
 if __name__ == "__main__":

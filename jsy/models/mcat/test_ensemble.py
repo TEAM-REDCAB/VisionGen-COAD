@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 import seaborn as sns 
 # 기존에 작성한 모듈 임포트
-from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path,get_feats_path
+from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path, get_feats_path
 from modules.mcat_model import MCAT_Binary
 
 import logging

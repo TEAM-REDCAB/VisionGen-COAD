@@ -9,30 +9,40 @@ from torch.utils.data import Dataset
 from sklearn.model_selection import train_test_split, StratifiedKFold
 
 
-SEED = 42
+DATA_PATH ='2060'    # gigapath, uni_v2, cptac...
+SEED = 1
 
-def get_label_path(path):
-    # 이미 생성된 정답지가 있으면 그냥 리턴
-    label_path = os.path.join('labels', f'clinical_data_seed_{SEED}.csv')
-    if label_path:
+def get_feats_path():
+    if DATA_PATH == 'gigapath':
+        return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
+    elif DATA_PATH == 'uni_v2':
+        return '/home/team1/data/trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
+    elif DATA_PATH == 'cptac':
+        return '/home/team1/data/cptac_processed/20.0x_256px_0px_overlap/features_gigapath'
+    elif DATA_PATH == 'cptac_2060':
+        return '/home/team/projects/team_REDCAB/team_project/data/cptac_processed/20.0x_256px_0px_overlap/features_gigapath'
+    else:
+        return '/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
+
+def get_label_path(label_path):
+    label_path = os.path.join('./labels', f'clinical_data_seed_{SEED}.csv')
+    if os.path.exists(label_path):
         return label_path
-    # 공통 환자 정답지를 불러와서 msi 라벨을 생성
-    df = pd.read_csv(path, sep='\t')
+    df = pd.read_csv(label_path, sep='\t')
     df['msi'] = df['type'].map({'MSS':0, 'MSIMUT':1})
 
-    # msi 비율에 따라 트레인/테스트 분리(테스트를 확정적으로 분리)
-    df_train_val, df_test = train_test_split(
-        df, 
-        test_size=0.2, 
-        stratify=df['msi'], 
-        random_state=SEED  
-    )
+    # df_train_val, df_test = train_test_split(
+    #     df, 
+    #     test_size=0.2, 
+    #     stratify=df['msi'], 
+    #     random_state=SEED  
+    # )
 
-    # 각 폴드별로 컬럼 생성
     for i in range(5):
         df[f'fold_{i}'] = 'none'
 
-    # 비율대로 5폴드 훈련/검증 셋 생성
+    df_train_val = df
+
     skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=SEED)
 
     for fold_idx, (train_idx, val_idx) in enumerate(skf.split(df_train_val, df_train_val['msi'])):
@@ -41,28 +51,21 @@ def get_label_path(path):
         
         df.loc[actual_train_idx, f'fold_{fold_idx}'] = 'train'
         df.loc[actual_val_idx, f'fold_{fold_idx}'] = 'val'
-        df.loc[df_test.index, f'fold_{fold_idx}'] = 'test'
+        # df.loc[df_test.index, f'fold_{fold_idx}'] = 'test'
 
     os.makedirs('labels', exist_ok=True)
     df.to_csv(label_path, index=False)
     return label_path
-
-def get_feats_path(encoder='gigapath'):
-    if encoder == 'gigapath':
-        return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
-    elif encoder == 'uni_v2':
-        return '/home/team1/data/trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
-    elif encoder == 'cptac':
-        return '/home/team1/data/cptac_processed/20.0x_256px_0px_overlap/features_gigapath'
-    else:
-        return '/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/features_gigapath'
 
 
 class MSI_Multimodal_Dataset(Dataset):
     def __init__(self, split, fold_col,  csv_path, feats_path, npy_path, pkl_path):
         # 1. 임상 데이터 로드 (환자 ID와 라벨)
         df = pd.read_csv(csv_path)
-        self.df = df[df[fold_col] == split].reset_index(drop=True)
+        if split == 'all':
+            self.df = df
+        else:
+            self.df = df[df[fold_col] == split].reset_index(drop=True)
         self.split = split
         # 2. 유전체 NPY 행렬 로드 (Shape: 266, 1425, 9)
         self.genomic_matrix = np.load(npy_path)

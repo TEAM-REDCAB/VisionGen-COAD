@@ -26,7 +26,7 @@ logging.basicConfig(
     # format='%(asctime)s [%(levelname)s] %(message)s',
     format='%(message)s',
     handlers=[
-        logging.FileHandler("abmil_student_test.txt"), # 파일 저장
+        logging.FileHandler("abmil_baseline_test.txt"), # 파일 저장
         logging.StreamHandler() # 콘솔에도 동시에 출력
     ]
 )
@@ -51,7 +51,7 @@ sys.stdout = LoggerWriter(logging.info)
 SEED = cf.SEED
 
 # 💡 1. 모델 로드 경로를 KD 훈련 가중치가 있는 곳으로 변경
-MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models_abmil_kd')
+MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models_abmil')
 
 # 💡 2. 결과 덮어쓰기 방지를 위해 KD 전용 테스트 결과 폴더 생성
 TEST_PATH = os.path.join(cf.get_results_path(), 'test_results')
@@ -78,7 +78,7 @@ def test_and_visualize():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
     colors = ['red', 'blue', 'green', 'orange', 'purple']
     for fold in range(5):
-        print(f"\n🔍 Testing Fold {fold} (KD Model)...")
+        print(f"\n🔍 Testing Fold {fold} ABMIL Baseline...")
         current_fold_col = f'fold_{fold}'
         
         # Test 셋 로드 (KD 파일 경로 불필요)
@@ -196,7 +196,7 @@ def test_and_visualize():
 
     plt.tight_layout()
     # 💡 그래프 저장 이름 변경
-    plt.savefig(os.path.join(TEST_PATH, 'combined_fold_curves_ABMIL_kd.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'combined_fold_curves_abmil_baseline.png'), dpi=300)
     plt.show()
 
     plt.figure(figsize=(8, 6))
@@ -204,10 +204,10 @@ def test_and_visualize():
                 xticklabels=['MSS (0)', 'MSI (1)'], yticklabels=['MSS (0)', 'MSI (1)'])
     plt.xlabel('Predicted Label')
     plt.ylabel('True Label')
-    plt.title('ABMIL (KD) Aggregated Confusion Matrix (All 5 Folds)')
+    plt.title('ABMIL Baseline Aggregated Confusion Matrix (All 5 Folds)')
     
     # 💡 CM 저장 이름 변경
-    plt.savefig(os.path.join(TEST_PATH, 'total_confusion_matrix_ABMIL_kd.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'total_confusion_matrix_abmil_baseline.png'), dpi=300)
     plt.show()
 
     # 👇 [추가 3] 확률 분포 히스토그램 그리기
@@ -232,7 +232,7 @@ def test_and_visualize():
     plt.grid(axis='y', alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig(os.path.join(TEST_PATH, 'histogram_ABMIL_kd.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'histogram_abmil_baseline.png'), dpi=300)
     plt.show()
     
     results_df = pd.DataFrame(all_fold_results)
@@ -243,7 +243,7 @@ def test_and_visualize():
         print(f"Mean AUPRC: {results_df['AUPRC'].mean():.4f} ± {results_df['AUPRC'].std():.4f}")
     
     # 💡 CSV 저장 이름 변경
-    results_df.to_csv(os.path.join(TEST_PATH, 'test_results_ABMIL_kd.csv'), index=False)
+    results_df.to_csv(os.path.join(TEST_PATH, 'test_results_abmil_baseline.csv'), index=False)
     print(f"\n💾 모든 결과가 {TEST_PATH}에 저장되었습니다.")
 
 if __name__ == "__main__":
