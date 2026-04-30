@@ -6,7 +6,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from utils.abmil_model import BinaryClassificationModel
-from utils.mcat_student_train_binary import train_binary, validate_binary
+from utils.abmil_train_binary import train_binary, validate_binary
 from utils.h5dataset_full import H5Dataset # kd_path를 처리할 수 있게 수정된 데이터셋 사용
 from utils.binary_focal_loss import BinaryFocalLoss
 import config as cf
@@ -20,7 +20,7 @@ logging.basicConfig(
     # format='%(asctime)s [%(levelname)s] %(message)s',
     format='%(message)s',
     handlers=[
-        logging.FileHandler("abmil_student_train.txt"), # 파일 저장
+        logging.FileHandler("abmil_baseline_train.txt"), # 파일 저장
         logging.StreamHandler() # 콘솔에도 동시에 출력
     ]
 )
@@ -46,8 +46,7 @@ SEED = cf.SEED
 LABEL_PATH = cf.get_label_path()
 FEATS_PATH = cf.get_feats_path()
 RESULTS_PATH = cf.get_results_path()
-MODEL_PATH = os.path.join(RESULTS_PATH, 'saved_models_abmil_kd') # KD 전용 폴더로 분리 권장
-KNOWLEDGE_DIR = cf.get_teacher_knowledge_path()
+MODEL_PATH = os.path.join(RESULTS_PATH, 'saved_models_abmil') # KD 전용 폴더로 분리 권장
 
 os.makedirs(MODEL_PATH, exist_ok=True)
 
@@ -68,24 +67,16 @@ gc_steps = 16
 fold_results = []
 
 for fold_idx in range(5):
-    print(f"\n{'='*20} Starting Fold {fold_idx} (Knowledge Distillation) {'='*20}")
+    print(f"\n{'='*20} Starting Fold {fold_idx} (ABMIL baseline) {'='*20}")
     current_fold_col = f'fold_{fold_idx}'
     
-    # 💡 티처의 지식 파일 경로 설정
-    kd_path = os.path.join(KNOWLEDGE_DIR, f'knowledge_fold{fold_idx}_train.pkl')
-
     # 1. Fold마다 데이터로더 새롭게 구성
-    # Train에는 티처의 지식을 함께 로드하고, Val은 평가만 하므로 로드하지 않음
-    train_ds = H5Dataset(split="train", fold_col=current_fold_col, kd_path=kd_path)
+    train_ds = H5Dataset(split="train", fold_col=current_fold_col, kd_path=None)
     val_ds = H5Dataset(split="val", fold_col=current_fold_col, kd_path=None)
     
     train_loader = DataLoader(train_ds, batch_size=1, shuffle=True, worker_init_fn=lambda _: np.random.seed(SEED))
     val_loader = DataLoader(val_ds, batch_size=1, shuffle=False, worker_init_fn=lambda _: np.random.seed(SEED))
 
-    # # 2. 모델 및 최적화 도구 초기화
-    # omic_path = os.path.join(KNOWLEDGE_DIR, f'avg_omic_fold{fold_idx}.pt')
-    # avg_omic_tensor = torch.load(omic_path)
-    
     model = BinaryClassificationModel(input_feature_dim=1536, dropout=0.25).to(device)
     # criterion = BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
     criterion = nn.BCEWithLogitsLoss()
@@ -101,7 +92,7 @@ for fold_idx in range(5):
 
     # 3. Training & Validation Loop
     for epoch in range(num_epochs):
-        print(f'Epoch_{epoch} start')
+        print(f'Fold_{fold_idx} - Epoch_{epoch} start')
         train_binary(epoch, model, train_loader, optimizer, criterion, gc=gc_steps)
         val_auroc, val_auprc,val_thresh = validate_binary(epoch, model, val_loader, criterion)
 

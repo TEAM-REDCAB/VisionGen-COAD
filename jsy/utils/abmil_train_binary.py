@@ -4,42 +4,6 @@ from tqdm import tqdm
 import numpy as np
 import torch.nn.functional as F
 
-# 💡 지식 증류 복합 손실 함수 (KD Loss)
-def kd_loss_fn(s_logits, s_path_bag, s_attn, t_logits, t_path_bag, t_attn, labels, task_criterion, alpha=0.5, beta=0.5, gamma=0.01, T=2.0):
-    """
-    s_logits, t_logits: (Batch, 1) - 아직 시그모이드를 거치지 않은 로짓
-    s_attn: (Batch, 1, N) - 학생의 소프트맥스 완료된 어텐션 맵
-    t_attn: (Batch, 1, N) - 티처의 소프트맥스 완료된 어텐션 맵
-    """
-    # 1. Task Loss: 실제 정답과의 오차
-    task_loss = task_criterion(s_logits, labels)
-    
-    # 2. Logit Distillation: KL-Div with Temperature (정석적 KD)
-    s_prob = torch.sigmoid(s_logits / T)
-    t_prob = torch.sigmoid(t_logits / T)
-    
-    # [안전장치] t_prob의 차원을 s_prob에 맞춤
-    if s_prob.dim() != t_prob.dim():
-        t_prob = t_prob.view_as(s_prob)
-        
-    logit_loss = F.binary_cross_entropy(s_prob, t_prob) * (T**2)
-    
-    # 3. Attention Distillation: MSE Loss
-    if s_attn.dim() != t_attn.dim():
-        t_attn = t_attn.view_as(s_attn)
-        
-    attn_loss = F.mse_loss(s_attn, t_attn)
-    
-    # 4. Feature (Path Bag) Distillation: MSE Loss
-    # [안전장치] t_path_bag의 차원을 s_path_bag에 맞춤
-    if s_path_bag.dim() != t_path_bag.dim():
-        t_path_bag = t_path_bag.view_as(s_path_bag)
-        
-    path_loss = F.mse_loss(s_path_bag, t_path_bag)
-    
-    # 최종 결합
-    return task_loss + (alpha * logit_loss) + (beta * attn_loss) + (gamma * path_loss)
-
 # ==========================================
 # 5-Fold Cross Validation 실행 루프
 # ==========================================
@@ -59,19 +23,16 @@ def train_binary(epoch, model, loader, optimizer, loss_fn, gc=16):
     # 1. tqdm 래퍼 적용 (leave=False로 설정하여 에폭이 끝나면 진행바가 깔끔하게 사라지도록 함)
     pbar = tqdm(loader, desc=f"Epoch {epoch:02d} [Train]", leave=False, dynamic_ncols=True)
     
-    for batch_idx, (features, coords, labels, t_logits, t_path_bag, t_attn) in enumerate(pbar):
+    for batch_idx, (features, coords, labels) in enumerate(pbar):
         features = features.to(device)
         labels = labels.type(torch.FloatTensor).to(device)
-        t_logits = t_logits.to(device)
-        t_path_bag = t_path_bag.to(device)
-        t_attn = t_attn.to(device)
         
-        s_logits, s_path_bag, s_attn = model(features)
-        s_logits = s_logits.squeeze(dim=-1)
-        if s_logits.dim() == 0:
-            s_logits = s_logits.unsqueeze(0)
+        logits, *_ = model(features)
+        logits = logits.squeeze(dim=-1)
+        if logits.dim() == 0:
+            logits = logits.unsqueeze(0)
         
-        loss = kd_loss_fn(s_logits, s_path_bag, s_attn, t_logits, t_path_bag, t_attn, labels, loss_fn, alpha=0.5, beta=0.5, gamma=0.01)
+        loss = loss_fn(logits, labels,)
         loss_value = loss.item()
         
         loss = loss / gc 
@@ -83,7 +44,7 @@ def train_binary(epoch, model, loader, optimizer, loss_fn, gc=16):
             
         train_loss += loss_value
         
-        probs = torch.sigmoid(s_logits)
+        probs = torch.sigmoid(logits)
         # preds = (probs > 0.5).float()
         
         all_labels.extend(labels.detach().cpu().numpy())
