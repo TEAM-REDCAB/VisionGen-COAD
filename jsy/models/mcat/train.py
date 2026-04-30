@@ -3,7 +3,7 @@ os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path
+from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path, get_feats_path
 from modules.mcat_model import MCAT_Binary, BinaryFocalLoss
 from modules.mcat_train_binary import train_binary, validate_binary
 import numpy as np
@@ -22,7 +22,7 @@ def main():
 
     # 2. 전체 데이터셋 로드 (이전 단계에서 만든 MSI_Multimodal_Dataset)
     common_patients = "./data/common_patients.txt" # 경로 수정 필요
-    feats_path = "/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath"        # 경로 수정 필요
+    feats_path = get_feats_path()
     npy_path = "./data/genomic_input_matrix.npy"
     pkl_path = "./data/genomic_encoding_states.pkl"
     

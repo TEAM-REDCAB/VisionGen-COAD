@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 import seaborn as sns 
 # 기존에 작성한 모듈 임포트
-from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path
+from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path,get_feats_path
 from modules.mcat_model import MCAT_Binary
 
 import logging
@@ -224,7 +224,7 @@ def evaluate_test_set(result_path, csv_path, feats_path, npy_path, pkl_path):
 if __name__ == '__main__':
     PATIENTS_LABEL = "./data/common_patients.txt"
     CSV_PATH = get_label_path(PATIENTS_LABEL) # get_label_path가 정의되어 있다고 가정
-    FEATS_PATH = "/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath"
+    FEATS_PATH = get_feats_path()
     NPY_PATH = "./data/genomic_input_matrix.npy"
     PKL_PATH = "./data/genomic_encoding_states.pkl"
     RESULT_PATH = "./results_msi"

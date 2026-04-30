@@ -60,31 +60,7 @@ def train_binary(epoch, model, loader, optimizer, loss_fn, gc=16):
     all_labels = np.array(all_labels)
     all_probs = np.array(all_probs)
     
-    try:
-        auroc = roc_auc_score(all_labels, all_probs)
-        auprc = average_precision_score(all_labels, all_probs)
-        
-        # 🔥 F1-Score Maximization 적용 구간 🔥
-        # thresholds 배열보다 precisions, recalls 배열의 길이가 1 더 깁니다.
-        precisions, recalls, thresholds = precision_recall_curve(all_labels, all_probs)
-        
-        # 분모가 0이 되는 것을 방지하기 위해 1e-8(epsilon) 추가
-        f1_scores = 2 * (precisions[:-1] * recalls[:-1]) / (precisions[:-1] + recalls[:-1] + 1e-8)
-        
-        # F1 Score가 최대가 되는 인덱스 추출
-        best_idx = np.argmax(f1_scores)
-        best_thresh = thresholds[best_idx]
-        
-        # 극단적인 임계값(전부 다 0이거나 전부 다 1로 찍는 경우) 방지를 위한 클리핑(Clipping)
-        # best_thresh = np.clip(best_thresh, 0.05, 0.95)
-    except ValueError:
-        auroc = 0.5
-        auprc = 0.0
-        best_thresh = 0.5
-
-    # 찾아낸 최적의 Threshold로 예측값(preds)을 한 번에 생성
-    all_preds = (all_probs >= best_thresh).astype(float)
-    f1 = f1_score(all_labels, all_preds, zero_division=0)
+    auroc, auprc, best_thresh, f1 = predict_binary(all_probs, all_labels)
     
     # 에폭 단위 결과 출력
     print(f'====> Epoch: {epoch:02d} | Train Loss: {avg_loss:.4f} | Train AUROC: {auroc:.4f} | Train AUPRC: {auprc:.4f} | Train F1: {f1:.4f} | Train Thresh: {best_thresh:.4f} <====')
@@ -133,21 +109,33 @@ def validate_binary(epoch, model, loader, loss_fn):
     all_labels = np.array(all_labels)
     all_probs = np.array(all_probs)
     
+    auroc, auprc, best_thresh, f1 = predict_binary(all_probs, all_labels)
+    
+    # 에폭 단위 결과 출력
+    print(f'====> Epoch: {epoch:02d} | Valid Loss: {avg_loss:.4f} | Valid AUROC: {auroc:.4f} | Valid AUPRC: {auprc:.4f} | Valid F1: {f1:.4f} | Valid Thresh: {best_thresh:.4f} <====')
+    
+    # return avg_loss, auroc, auprc, f1, best_thresh
+    return auroc, auprc, best_thresh
+
+def predict_binary(all_probs, all_labels, threshold_method='youden'):
     try:
         auroc = roc_auc_score(all_labels, all_probs)
         auprc = average_precision_score(all_labels, all_probs)
         
-        # 🔥 F1-Score Maximization 적용 구간 🔥
-        # thresholds 배열보다 precisions, recalls 배열의 길이가 1 더 깁니다.
-        precisions, recalls, thresholds = precision_recall_curve(all_labels, all_probs)
-        fpr, tpr, roc_thresholds = roc_curve(all_labels, all_probs)
-        # 분모가 0이 되는 것을 방지하기 위해 1e-8(epsilon) 추가
-        # f1_scores = 2 * (precisions[:-1] * recalls[:-1]) / (precisions[:-1] + recalls[:-1] + 1e-8)
-        youden_j = tpr - fpr
+        if threshold_method == 'youden':
+            # youden index
+            fpr, tpr, thresholds = roc_curve(all_labels, all_probs)
+            index = tpr - fpr
+        else:
+            # 🔥 F1-Score Maximization 적용 구간 🔥
+            # thresholds 배열보다 precisions, recalls 배열의 길이가 1 더 깁니다.
+            # 분모가 0이 되는 것을 방지하기 위해 1e-8(epsilon) 추가
+            precisions, recalls, thresholds = precision_recall_curve(all_labels, all_probs)
+            index = 2 * (precisions[:-1] * recalls[:-1]) / (precisions[:-1] + recalls[:-1] + 1e-8)
         
         # F1 Score가 최대가 되는 인덱스 추출
         # best_idx = np.argmax(f1_scores)
-        best_idx = np.argmax(youden_j)
+        best_idx = np.argmax(index)
         best_thresh = thresholds[best_idx]
         
         # 극단적인 임계값(전부 다 0이거나 전부 다 1로 찍는 경우) 방지를 위한 클리핑(Clipping)
@@ -160,9 +148,4 @@ def validate_binary(epoch, model, loader, loss_fn):
     # 찾아낸 최적의 Threshold로 예측값(preds)을 한 번에 생성
     all_preds = (all_probs >= best_thresh).astype(float)
     f1 = f1_score(all_labels, all_preds, zero_division=0)
-    
-    # 에폭 단위 결과 출력
-    print(f'====> Epoch: {epoch:02d} | Valid Loss: {avg_loss:.4f} | Valid AUROC: {auroc:.4f} | Valid AUPRC: {auprc:.4f} | Valid F1: {f1:.4f} | Valid Thresh: {best_thresh:.4f} <====')
-    
-    # return avg_loss, auroc, auprc, f1, best_thresh
-    return auroc, auprc, best_thresh
+    return auroc, auprc, best_thresh, f1

@@ -47,6 +47,16 @@ def get_label_path(path):
     df.to_csv(label_path, index=False)
     return label_path
 
+def get_feats_path(encoder='gigapath'):
+    if encoder == 'gigapath':
+        return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
+    elif encoder == 'uni_v2':
+        return '/home/team1/data/trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
+    elif encoder == 'cptac':
+        return '/home/team1/data/cptac_processed/20.0x_256px_0px_overlap/features_gigapath'
+    else:
+        return '/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/features_gigapath'
+
 
 class MSI_Multimodal_Dataset(Dataset):
     def __init__(self, split, fold_col,  csv_path, feats_path, npy_path, pkl_path):
@@ -115,4 +125,5 @@ class MSI_Multimodal_Dataset(Dataset):
         label = torch.tensor(row["msi"], dtype=torch.float32)
         
         return path_features, genomic_features, label
+
 

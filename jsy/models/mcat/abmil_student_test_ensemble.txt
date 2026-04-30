@@ -33,3 +33,44 @@ precision    recall  f1-score   support
    macro avg       0.85      0.94      0.88        54
 weighted avg       0.93      0.91      0.91        54
 💾 앙상블 최종 결과가 ./results_msi에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+테스트 환자 수: 54명
+로드할 모델 가중치: ./results_msi/best_model_fold0.pt
+로드할 모델 가중치: ./results_msi/best_model_fold1.pt
+로드할 모델 가중치: ./results_msi/best_model_fold2.pt
+로드할 모델 가중치: ./results_msi/best_model_fold3.pt
+로드할 모델 가중치: ./results_msi/best_model_fold4.pt
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.3127
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.9623
+Ensemble AUPRC     : 0.8547
+Ensemble F1-Score  : 0.8571
+Ensemble Threshold : 0.3127
+Accuracy           : 0.9259
+Sensitivity(Recall): 1.0000
+Specificity        : 0.9048
+[Confusion Matrix]
+TN(MSS맞춤)  FP(MSI로오해)
+FN(MSS로오해) TP(MSI맞춤)
+[[38  4]
+ [ 0 12]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       1.00      0.90      0.95        42
+   MSI-H (1)       0.75      1.00      0.86        12
+
+    accuracy                           0.93        54
+   macro avg       0.88      0.95      0.90        54
+weighted avg       0.94      0.93      0.93        54
+💾 앙상블 최종 결과가 ./results_msi에 저장되었습니다.

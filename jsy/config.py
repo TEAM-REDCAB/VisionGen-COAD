@@ -5,16 +5,26 @@ from sklearn.model_selection import train_test_split, StratifiedKFold
 ENCODER_MODEL='gigapath'    # gigapath, uni_v2
 SEED = 42
 
-def get_feats_path():
-    # return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
-    return "/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath"
-    # return "/home/team/projects/team_REDCAB/team_project/data/cptac_processed/20.0x_256px_0px_overlap/features_gigapath"
+def get_feats_path(encoder='gigapath'):
+    if encoder == 'gigapath':
+        return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath'
+    elif encoder == 'uni_v2':
+        return '/home/team1/data/trident_processed/20.0x_256px_0px_overlap/features_uni_v2'
+    elif encoder == 'cptac':
+        return '/home/team1/data/cptac_processed/20.0x_256px_0px_overlap/features_gigapath'
+    else:
+        return '/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/features_gigapath'
+        
 
-def get_coords_path():
-    # coords_path = '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/patches_gigapath'
-    coords_path = '/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/patches'
-    # coords_path = '/home/team/projects/team_REDCAB/team_project/data/cptac_processed/20.0x_256px_0px_overlap/patches'
-    return coords_path
+def get_coords_path(encoder='gigapath'):
+    if encoder == 'gigapath':
+        return '/home/team1/data/gigapath_processed/20.0x_256px_0px_overlap/patches_gigapath'
+    elif encoder == 'uni_v2':
+        return '/home/team1/data/trident_processed/20.0x_256px_0px_overlap/patches_uni_v2'
+    elif encoder == 'cptac':
+        return '/home/team1/data/cptac_processed/20.0x_256px_0px_overlap/patches'
+    else:
+        return '/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/patches_gigapath'
 
 def get_label_path():
     label_path = os.path.join('labels', f'clinical_data_seed_{SEED}.csv')

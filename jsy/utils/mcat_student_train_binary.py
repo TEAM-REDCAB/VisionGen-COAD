@@ -45,7 +45,7 @@ def kd_loss_fn(s_logits, s_path_bag, s_attn, t_logits, t_path_bag, t_attn, label
 # ==========================================
 
 
-def train_binary(epoch, model, loader, optimizer, loss_fn, gc=16):
+def train_binary(epoch, model, loader, optimizer, loss_fn, gc=16, kd_path=None):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.train()
     
@@ -71,7 +71,10 @@ def train_binary(epoch, model, loader, optimizer, loss_fn, gc=16):
         if s_logits.dim() == 0:
             s_logits = s_logits.unsqueeze(0)
         
-        loss = kd_loss_fn(s_logits, s_path_bag, s_attn, t_logits, t_path_bag, t_attn, label, loss_fn, alpha=0.5, beta=0.5, gamma=0.01)
+        if kd_path is not None:
+            loss = kd_loss_fn(s_logits, s_path_bag, s_attn, t_logits, t_path_bag, t_attn, label, loss_fn, alpha=0.5, beta=0.5, gamma=0.01)
+        else:
+            loss = loss_fn(s_logits, labels)
         loss_value = loss.item()
         
         loss = loss / gc 

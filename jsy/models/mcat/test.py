@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 # 기존에 작성한 모듈 임포트
-from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path
+from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path, get_feats_path
 from modules.mcat_model import MCAT_Binary
 
 def evaluate_test_set(result_path, csv_path, feats_path, npy_path, pkl_path):
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     # 테스트에 필요한 경로 설정
     PATIENTS_LABEL = "./data/common_patients.txt"
     CSV_PATH = get_label_path(PATIENTS_LABEL)
-    FEATS_PATH = "/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath"
+    FEATS_PATH = get_feats_path()
     NPY_PATH = "./data/genomic_input_matrix.npy"
     PKL_PATH = "./data/genomic_encoding_states.pkl"
     RESULT_PATH = "./results_msi"

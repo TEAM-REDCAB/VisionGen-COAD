@@ -7,13 +7,13 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader
 
 # 사용자님의 기존 클래스 및 함수 임포트
-from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path
+from modules.mcat_multimodal_dataset import MSI_Multimodal_Dataset, get_label_path, get_feats_path
 from modules.mcat_model import MCAT_Binary
 
 # 설정값 로드 (기존 config 활용)
 common_patients = "./data/common_patients.txt"
 LABEL_PATH = get_label_path(common_patients)
-FEATS_PATH = "/home/team/projects/team_REDCAB/team_project/data/gigapath_processed/20.0x_256px_0px_overlap/features_gigapath"
+FEATS_PATH = get_feats_path('gigapath')
 NPY_PATH = "./data/genomic_input_matrix.npy"
 GENOMIC_PKL_PATH = "./data/genomic_encoding_states.pkl"
 RESULT_PATH = "./results_msi"

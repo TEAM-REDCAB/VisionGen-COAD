@@ -72,6 +72,7 @@ for fold_idx in range(5):
     current_fold_col = f'fold_{fold_idx}'
     
     # 💡 티처의 지식 파일 경로 설정
+    kd_path = None
     kd_path = os.path.join(KNOWLEDGE_DIR, f'knowledge_fold{fold_idx}_train.pkl')
 
     # 1. Fold마다 데이터로더 새롭게 구성
@@ -102,7 +103,7 @@ for fold_idx in range(5):
     # 3. Training & Validation Loop
     for epoch in range(num_epochs):
         print(f'Epoch_{epoch} start')
-        train_binary(epoch, model, train_loader, optimizer, criterion, gc=gc_steps)
+        train_binary(epoch, model, train_loader, optimizer, criterion, gc=gc_steps, kd_path=kd_path)
         val_auroc, val_auprc,val_thresh = validate_binary(epoch, model, val_loader, criterion)
 
 
