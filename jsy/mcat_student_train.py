@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from utils.mcat_student_model import MCAT_Student, BinaryFocalLoss
+from utils.mcat_student_model import MCAT_Student
 from utils.mcat_student_train_binary import train_binary, validate_binary
 from utils.h5dataset_full import H5Dataset
 import config as cf
@@ -42,8 +42,6 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--base_lr", type=float, default=5e-5)
 parser.add_argument("--latent_lr", type=float, default=5e-4)
-parser.add_argument("--focal_alpha", type=float, default=0.75)
-parser.add_argument("--focal_gamma", type=float, default=2.0)
 args = parser.parse_args()
 
 # ── 설정값 로드 ───────────────────────────────────────────────────────────────
@@ -106,13 +104,14 @@ for fold_idx in range(5):
 
     model = MCAT_Student(avg_omic_tensor=avg_omic_tensor).to(device)
 
-    # ── 손실 함수 : BinaryFocalLoss ───────────────────────────────────────────
-    # alpha=0.75 → MSI(양성) 클래스에 더 높은 가중치 부여
-    # 클래스 불균형(MSI < MSS)으로 모델이 MSS로 붕괴하는 현상 방지
-    criterion = BinaryFocalLoss(alpha=args.focal_alpha, gamma=args.focal_gamma).to(
-        device
-    )
-    # criterion = nn.BCEWithLogitsLoss()
+    # ── 손실 함수 : BCEWithLogitsLoss + pos_weight ──────────────────────────────
+    # pos_weight = MSS수 / MSI수 ≈ 3.25 → 클래스 불균형 보정
+    # Focal Loss 대비 hard-example focusing 없이 부드럽게 불균형 처리 → 일반화에 유리
+    # 교사 모델과 동일한 BCE 계열로 지식 전수 일관성 확보
+    n_neg = sum(1 for _, label, *_ in train_ds if label == 0)
+    n_pos = sum(1 for _, label, *_ in train_ds if label == 1)
+    pos_weight = torch.tensor([n_neg / max(n_pos, 1)], dtype=torch.float32).to(device)
+    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
 
     # ── 옵티마이저 : latent_queries 별도 lr ──────────────────────────────────
     # latent_queries는 유전체 정보 없이 이미지로만 학습되는 핵심 파라미터.
