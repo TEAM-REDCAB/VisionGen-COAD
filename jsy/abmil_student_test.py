@@ -82,7 +82,7 @@ def test_and_visualize():
         current_fold_col = f'fold_{fold}'
         
         # Test 셋 로드 (KD 파일 경로 불필요)
-        test_dataset = H5Dataset(split="test", fold_col=current_fold_col, kd_path=None)
+        test_dataset = H5Dataset(split="all", fold_col=current_fold_col, test=True)
         test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
 
         model = BinaryClassificationModel(input_feature_dim=1536, dropout=0.25).to(device)

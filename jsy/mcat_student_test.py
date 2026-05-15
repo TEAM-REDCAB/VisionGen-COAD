@@ -54,7 +54,7 @@ SEED = cf.SEED
 MODEL_PATH = os.path.join(cf.get_results_path(), 'saved_models_mcat_kd')
 
 # 💡 2. 결과 덮어쓰기 방지를 위해 KD 전용 테스트 결과 폴더 생성
-TEST_PATH = os.path.join(cf.get_results_path(), 'test_results_mcat_kd')
+TEST_PATH = os.path.join(cf.get_results_path(), 'test_results')
 os.makedirs(TEST_PATH, exist_ok=True)
 
 # 시드 고정
@@ -82,7 +82,7 @@ def test_and_visualize():
         current_fold_col = f'fold_{fold}'
         
         # Test 셋 로드 (KD 파일 경로 불필요)
-        test_dataset = H5Dataset(split="test", fold_col=current_fold_col, kd_path=None)
+        test_dataset = H5Dataset(split="all", fold_col=current_fold_col, test=True)
         test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
 
         model = MCAT_Student().to(device)
@@ -106,7 +106,7 @@ def test_and_visualize():
                 labels = labels.type(torch.FloatTensor).to(device)
 
                 # (정상적인 멀티모달 테스트 시 아래 라인 사용)
-                logits, _, _ = model(features)
+                logits, *_ = model(features)
 
                 # 차원 정리
                 logits = logits.squeeze(dim=-1)
@@ -196,7 +196,7 @@ def test_and_visualize():
 
     plt.tight_layout()
     # 💡 그래프 저장 이름 변경
-    plt.savefig(os.path.join(TEST_PATH, 'MCAT_kd_combined_fold_curves.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'combined_fold_curves_MCAT_kd.png'), dpi=300)
     plt.show()
 
     plt.figure(figsize=(8, 6))
@@ -207,7 +207,7 @@ def test_and_visualize():
     plt.title('ABMIL (KD) Aggregated Confusion Matrix (All 5 Folds)')
     
     # 💡 CM 저장 이름 변경
-    plt.savefig(os.path.join(TEST_PATH, 'MCAT_kd_total_confusion_matrix.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'total_confusion_matrix_MCAT_kd.png'), dpi=300)
     plt.show()
 
     # 👇 [추가 3] 확률 분포 히스토그램 그리기
@@ -232,7 +232,7 @@ def test_and_visualize():
     plt.grid(axis='y', alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig(os.path.join(TEST_PATH, 'MCAT_kd_probability_histogram.png'), dpi=300)
+    plt.savefig(os.path.join(TEST_PATH, 'histogram_MCAT_kd.png'), dpi=300)
     plt.show()
     
     results_df = pd.DataFrame(all_fold_results)
@@ -243,7 +243,7 @@ def test_and_visualize():
         print(f"Mean AUPRC: {results_df['AUPRC'].mean():.4f} ± {results_df['AUPRC'].std():.4f}")
     
     # 💡 CSV 저장 이름 변경
-    results_df.to_csv(os.path.join(TEST_PATH, 'MCAT_kd_test_results.csv'), index=False)
+    results_df.to_csv(os.path.join(TEST_PATH, 'test_results_MCAT_kd.csv'), index=False)
     print(f"\n💾 모든 결과가 {TEST_PATH}에 저장되었습니다.")
 
 if __name__ == "__main__":

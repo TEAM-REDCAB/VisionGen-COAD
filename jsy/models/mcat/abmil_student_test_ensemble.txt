@@ -74,3 +74,43 @@ precision    recall  f1-score   support
    macro avg       0.88      0.95      0.90        54
 weighted avg       0.94      0.93      0.93        54
 💾 앙상블 최종 결과가 ./results_msi에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+테스트 환자 수: 105명
+로드할 모델 가중치: ./results_msi/best_model_fold0.pt
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+테스트 환자 수: 105명
+로드할 모델 가중치: ./results_msi/best_model_fold0.pt
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+테스트 환자 수: 0명
+로드할 모델 가중치: ./results_msi/best_model_fold0.pt
+로드할 모델 가중치: ./results_msi/best_model_fold1.pt
+로드할 모델 가중치: ./results_msi/best_model_fold2.pt
+로드할 모델 가중치: ./results_msi/best_model_fold3.pt
+로드할 모델 가중치: ./results_msi/best_model_fold4.pt
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+테스트 환자 수: 0명
+로드할 모델 가중치: ./results_msi/best_model_fold0.pt
+로드할 모델 가중치: ./results_msi/best_model_fold1.pt
+로드할 모델 가중치: ./results_msi/best_model_fold2.pt
+로드할 모델 가중치: ./results_msi/best_model_fold3.pt
+로드할 모델 가중치: ./results_msi/best_model_fold4.pt
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+테스트 환자 수: 0명
+로드할 모델 가중치: ./results_msi/best_model_fold0.pt
+로드할 모델 가중치: ./results_msi/best_model_fold1.pt
+로드할 모델 가중치: ./results_msi/best_model_fold2.pt
+로드할 모델 가중치: ./results_msi/best_model_fold3.pt
+로드할 모델 가중치: ./results_msi/best_model_fold4.pt

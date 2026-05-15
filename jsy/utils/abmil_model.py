@@ -3,7 +3,9 @@ import os
 # sys.path.append(os.path.join(os.getcwd(), '../TRIDENT'))
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from encoders.trident.slide_encoder_models import ABMILSlideEncoder
+import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 class BinaryClassificationModel(nn.Module):
     def __init__(self, input_feature_dim=768, n_heads=1, head_dim=512, dropout=0.25, gated=True, hidden_dim=256):
@@ -39,5 +41,14 @@ class BinaryClassificationModel(nn.Module):
         # 최종 로짓 값 추출
         logits = self.classifier(path_bag).squeeze(1)
         
+        # 1. 어텐션 텐서를 평탄화(Flatten) 시킵니다. -> 형태: (B, N)
+        attn_flat = attn.view(attn.size(0), -1) 
+        
+        # 2. 패치 차원(dim=1)에 대해 Softmax를 적용하여 총합이 1이 되는 확률 분포로 만듭니다.
+        # 음수가 사라지고 모두 0~1 사이의 값이 되므로 log 함수에서 NaN이 뜨지 않습니다.
+        attn_prob = F.softmax(attn_flat, dim=1)
+        
+        # 3. 훈련 루프(mcat_student_train_binary.py)가 기대하는 (B, 1, N) 형태로 차원을 다시 늘려줍니다.
+        attn_prob = attn_prob.unsqueeze(1)
         # 💡 [핵심 수정 3] MCAT Student와 완벽히 동일하게 로짓, 어텐션, 피처 3가지를 모두 반환합니다.
-        return logits, path_bag, attn
+        return logits, path_bag, attn_prob

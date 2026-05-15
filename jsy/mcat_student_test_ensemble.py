@@ -69,10 +69,11 @@ def test_and_visualize():
     # 💡 1. 데이터 로드 (매우 중요)
     # 앙상블은 환자의 순서가 무조건 100% 일치해야 확률을 더할 수 있습니다.
     # 따라서 5번 루프를 돌 때마다 데이터를 부르지 않고, 바깥에서 딱 1번만 로드합니다.
-    test_dataset = H5Dataset(split="test", fold_col='fold_0', kd_path=None)
+    test_dataset = H5Dataset(split="all", fold_col='fold_0', test=True)
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
     
     all_labels = []
+    fold_thresholds =[]
     ensemble_probs = None
     
     # 💡 2. 5개의 폴드 모델을 순회하며 확률값 누적하기
@@ -86,6 +87,7 @@ def test_and_visualize():
             continue
             
         checkpoint = torch.load(model_path, map_location=device, weights_only=False)
+        fold_thresholds.append(checkpoint['best_thresh'])
         model.load_state_dict(checkpoint['model_state_dict'])
         model.eval()
         
@@ -126,9 +128,11 @@ def test_and_visualize():
     
     # 💡 4. 앙상블 확률만을 위한 새로운 Youden's Index Threshold 계산
     fpr, tpr, roc_thresholds = roc_curve(all_labels, ensemble_probs)
-    youden_j = tpr - fpr
-    best_idx = np.argmax(youden_j)
-    ensemble_best_thresh = roc_thresholds[best_idx]
+    ensemble_best_thresh = np.mean(fold_thresholds)
+    best_idx = np.argmin(np.abs(roc_thresholds - ensemble_best_thresh))
+    # youden_j = tpr - fpr
+    # best_idx = np.argmax(youden_j)
+    # ensemble_best_thresh = roc_thresholds[best_idx]
     
     print(f"\n✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): {ensemble_best_thresh:.4f}")
     
@@ -157,8 +161,8 @@ def test_and_visualize():
     print(f"Specificity        : {specificity:.4f}")
     
     print("\n[Confusion Matrix]")
-    print(" TN(MSS맞춤)  FP(MSI로오해)")
-    print(" FN(MSS로오해) TP(MSI맞춤)")
+    print(" TN(MSS를맞춤)  FP(MSI로오해)")
+    print(" FN(MSS로오해)  TP(MSI를맞춤)")
     print(cm)
     
     report = classification_report(all_labels, preds, target_names=["MSS (0)", "MSI-H (1)"], zero_division=0)

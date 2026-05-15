@@ -15,7 +15,7 @@ def main():
     # 1. 하이퍼파라미터 설정
     max_epochs = 20
     batch_size = 1
-    lr = 1e-4
+    lr = 5e-5
     gc_steps = 16 # VRAM 12GB 맞춤형 Gradient Accumulation
     results_dir = "./results_msi"
     os.makedirs(results_dir, exist_ok=True)
@@ -61,6 +61,7 @@ def main():
         # 모델 및 옵티마이저 초기화 (폴드마다 가중치 초기화)
         model = MCAT_Binary().to(device)
         optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-4)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max_epochs, eta_min=1e-6)
         loss_fn = nn.BCEWithLogitsLoss()
         # loss_fn = BinaryFocalLoss(alpha=0.75, gamma=2.0)
         
@@ -68,7 +69,7 @@ def main():
         best_val_auroc = 0.0
 
         # --- 🚨 얼리 스토핑 관련 변수 추가 ---
-        patience = 10  # 최고 성능을 갱신하지 못하고 5에폭을 버티면 종료
+        patience = 5  # 최고 성능을 갱신하지 못하고 5에폭을 버티면 종료
         early_stop_counter = 0
         best_thresh = 0
         
@@ -76,6 +77,8 @@ def main():
             train_binary(epoch, model, train_loader, optimizer, loss_fn, gc=gc_steps)
             val_auroc, val_auprc,val_thresh = validate_binary(epoch, model, val_loader, loss_fn)
             
+            scheduler.step()
+
             # 기준을 AUROC로 변경하여 최고의 분류 성능을 가진 모델 가중치를 저장
             if val_auroc > best_val_auroc:
                 best_val_auprc = val_auprc

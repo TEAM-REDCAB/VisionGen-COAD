@@ -69,7 +69,7 @@ def test_and_visualize():
     # 💡 1. 데이터 로드 (매우 중요)
     # 앙상블은 환자의 순서가 무조건 100% 일치해야 확률을 더할 수 있습니다.
     # 따라서 5번 루프를 돌 때마다 데이터를 부르지 않고, 바깥에서 딱 1번만 로드합니다.
-    test_dataset = H5Dataset(split="test", fold_col='fold_0', kd_path=None)
+    test_dataset = H5Dataset(split="all", fold_col='fold_0', test=True)
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
     
     all_labels = []

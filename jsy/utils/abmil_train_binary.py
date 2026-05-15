@@ -54,14 +54,31 @@ def train_binary(epoch, model, loader, optimizer, loss_fn, gc=16):
         # 2. 진행바 우측에 현재 배치의 Loss 실시간 업데이트
         pbar.set_postfix({'Loss': f'{loss_value:.4f}'})
 
-    avg_loss = train_loss / len(loader)
+    n = len(loader)
+    avg_loss = train_loss / n
 
     all_labels = np.array(all_labels)
     all_probs = np.array(all_probs)
     
     auroc, auprc, best_thresh, f1 = predict_binary(all_probs, all_labels)
-    # 에폭 단위 결과 출력
-    print(f'====> Epoch: {epoch:02d} | Train Loss: {avg_loss:.4f} | Train AUROC: {auroc:.4f} | Train AUPRC: {auprc:.4f} | Train F1: {f1:.4f} | Train Thresh: {best_thresh:.4f} <====')
+    
+     # ── 에폭 단위 진단 요약 ─────────────────────────────────────────────────
+    # 각 손실 항목의 평균을 출력해 어느 항목이 지배적인지 확인
+    pred_pos = (all_probs >= best_thresh).sum()
+    pred_neg = n - pred_pos
+    true_pos = int(all_labels.sum())
+    true_neg = n - true_pos
+    
+    print(
+        f'[Epoch {epoch:02d} 진단]      '
+        f'예측 MSI/MSS={pred_pos}/{pred_neg} | '
+        f'실제 MSI/MSS={true_pos}/{true_neg}'
+    )
+    print(
+        f'====> Epoch: {epoch:02d} | Train Loss: {avg_loss:.4f} '
+        f'| AUROC: {auroc:.4f} | AUPRC: {auprc:.4f} '
+        f'| F1: {f1:.4f} | Thresh: {best_thresh:.4f} <===='
+    )
 
 
 def validate_binary(epoch, model, loader, loss_fn):

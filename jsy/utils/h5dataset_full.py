@@ -10,12 +10,18 @@ from torch.utils.data import Dataset
 import config as cf
 
 class H5Dataset(Dataset):
-    def __init__(self, split, fold_col='fold_0', kd_path=None): # num_features 삭제
-        df = pd.read_csv(cf.get_label_path())
-        self.df = df[df[fold_col] == split].reset_index(drop=True) 
-        self.feats_path = cf.get_feats_path()
-        self.coords_path = cf.get_coords_path()
-        self.split = split
+    def __init__(self, split, fold_col='fold_0', kd_path=None, test=False): # num_features 삭제
+        df = pd.read_csv(cf.get_label_path(test))
+        if test:
+            self.df = df
+        else:
+            if split == 'all':
+                self.df = df
+            else:
+                self.df = df[df[fold_col] == split].reset_index(drop=True) 
+
+        self.feats_path = cf.get_feats_path(test)
+        self.coords_path = cf.get_coords_path(test)
         
         self.patient_to_files = {}
         all_files = os.listdir(self.feats_path)

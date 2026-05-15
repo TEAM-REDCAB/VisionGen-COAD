@@ -74,28 +74,27 @@ for fold_idx in range(5):
     train_ds = H5Dataset(split="train", fold_col=current_fold_col, kd_path=None)
     val_ds = H5Dataset(split="val", fold_col=current_fold_col, kd_path=None)
     
-    train_loader = DataLoader(train_ds, batch_size=1, shuffle=True, worker_init_fn=lambda _: np.random.seed(SEED))
-    val_loader = DataLoader(val_ds, batch_size=1, shuffle=False, worker_init_fn=lambda _: np.random.seed(SEED))
+    train_loader = DataLoader(train_ds, batch_size=1, shuffle=True)
+    val_loader = DataLoader(val_ds, batch_size=1, shuffle=False)
 
     model = BinaryClassificationModel(input_feature_dim=1536, dropout=0.25).to(device)
     # criterion = BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
     criterion = nn.BCEWithLogitsLoss()
-    optimizer = optim.Adam(model.parameters(), lr=4e-4, weight_decay=1e-4)
+    optimizer = optim.Adam(model.parameters(), lr=5e-5, weight_decay=1e-4)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs, eta_min=1e-6)
     
 
     best_val_auprc = 0.0
     best_val_auroc = 0.0
     best_thresh = 0
-    patience = 10
-    early_stop_counter = 0
-
 
     # 3. Training & Validation Loop
     for epoch in range(num_epochs):
-        print(f'Fold_{fold_idx} - Epoch_{epoch} start')
+        print(f'Fold_{fold_idx} Epoch_{epoch} start')
         train_binary(epoch, model, train_loader, optimizer, criterion, gc=gc_steps)
         val_auroc, val_auprc,val_thresh = validate_binary(epoch, model, val_loader, criterion)
 
+        scheduler.step()
 
         # 기준을 AUROC로 변경하여 최고의 분류 성능을 가진 모델 가중치를 저장
         if val_auroc > best_val_auroc:
@@ -111,14 +110,6 @@ for fold_idx in range(5):
             }
             torch.save(checkpoint, checkpoint_path)
             print(f"🔥 Fold {fold_idx} 최고 성능 갱신! 모델 저장됨 (AUROC: {val_auroc:.4f}), (AUPRC: {val_auprc:.4f}), (Best Threshold: {val_thresh:.4f})")
-            # 카운터 초기화
-            early_stop_counter = 0
-        else:
-            early_stop_counter += 1
-
-        if early_stop_counter >= patience:
-            print(f"{patience} epoch 동안 성능 개선이 없어 Fold {fold_idx} 학습 조기 종료")
-            break
             
     fold_results.append(best_val_auroc)
     print(f"Fold {fold_idx} 종료. AUROC: {best_val_auroc:.4f}, AUPRC: {best_val_auprc:.4f}, 최적 Threshold: {best_thresh:.4f}")
