@@ -43,22 +43,13 @@ class MCAT_Binary(nn.Module):
         # batch_first=True로 설정하여 (Batch, Seq, Feature) 형태로 편하게 다룹니다.
         self.coattn = nn.MultiheadAttention(embed_dim=d_model, num_heads=1, dropout=dropout, batch_first=True)
 
-        # 4. 모달리티별 트랜스포머 및 어텐션 풀링 (압축)
+        # 4. Path 트랜스포머 및 어텐션 풀링
         encoder_layer = nn.TransformerEncoderLayer(d_model=d_model, nhead=8, dim_feedforward=512, dropout=dropout, activation='relu', batch_first=True)
         self.path_transformer = nn.TransformerEncoder(encoder_layer, num_layers=2)
         self.path_attention_head = Attn_Net_Gated(L=d_model, D=d_model, dropout=dropout, n_classes=1)
-        
-        self.omic_transformer = nn.TransformerEncoder(encoder_layer, num_layers=2)
-        self.omic_attention_head = Attn_Net_Gated(L=d_model, D=d_model, dropout=dropout, n_classes=1)
-        
-        # 5. 최종 융합 및 분류기
-        self.mm = nn.Sequential(
-            nn.Linear(d_model * 2, d_model), 
-            nn.ReLU(), 
-            nn.Linear(d_model, d_model), 
-            nn.ReLU()
-        )
-        self.classifier = nn.Linear(d_model, 1) # 이진 분류 (MSI/MSS)
+
+        # 5. 분류기 (이미지 단독 경로)
+        self.classifier = nn.Linear(d_model, 1)
 
     def forward(self, x_path, x_omic):
         # x_path: (Batch, N, 1536) / x_omic: (Batch, 1425, 9)
@@ -72,29 +63,16 @@ class MCAT_Binary(nn.Module):
         h_path_coattn, A_coattn = self.coattn(query=h_omic, key=h_path, value=h_path) 
         # h_path_coattn 형태: (Batch, 1425, 256) -> N차원이 1425로 압축됨!
 
-        # 3. Path Feature 압축 (1425개의 시퀀스를 1개의 벡터로)
+        # 3. Path Feature 압축 (co-attn 결과 1425 → 벡터 1개)
         h_path_trans = self.path_transformer(h_path_coattn)
-        A_path, _ = self.path_attention_head(h_path_trans) # A_path: (Batch, 1425, 1)
-        A_path = F.softmax(A_path, dim=1).transpose(1, 2)  # (Batch, 1, 1425)
-        h_path_bag = torch.bmm(A_path, h_path_trans).squeeze(1) # (Batch, 256)
+        A_path, _ = self.path_attention_head(h_path_trans)  # (Batch, 1425, 1)
+        A_path = F.softmax(A_path, dim=1).transpose(1, 2)   # (Batch, 1, 1425)
+        h_path_bag = torch.bmm(A_path, h_path_trans).squeeze(1)  # (Batch, 256)
 
-        # # 4. Omic Feature 압축 (동일한 방식)
-        # h_omic_trans = self.omic_transformer(h_omic)
-        # A_omic, _ = self.omic_attention_head(h_omic_trans)
-        # A_omic = F.softmax(A_omic, dim=1).transpose(1, 2)
-        # h_omic_bag = torch.bmm(A_omic, h_omic_trans).squeeze(1) # (Batch, 256)
+        # 4. 분류 (이미지 단독 경로; 유전체는 co-attention 가이드에만 사용)
+        logits = self.classifier(h_path_bag)           # (Batch, 1)
+        attn_map = torch.bmm(A_path, A_coattn)         # (Batch, 1, N)
 
-        # # 5. Fusion 및 분류
-        # h_concat = torch.cat([h_path_bag, h_omic_bag], dim=1) # (Batch, 512)
-        # h_fused = self.mm(h_concat) # (Batch, 256)
-        
-        # logits = self.classifier(h_fused) # (Batch, 1)
-        # 이미지만으로 결과 내기
-        logits = self.classifier(h_path_bag) # (Batch, 1)
-        attn_map = torch.bmm(A_path, A_coattn)    # ()
-                
-        
-        # BCEWithLogitsLoss를 사용할 것이므로 로짓 자체를 반환하는 것이 좋습니다.
         return logits, h_path_bag, h_omic, attn_map
 
 class BinaryFocalLoss(nn.Module):
