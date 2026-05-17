@@ -1,9 +1,6 @@
 import torch
 from sklearn.metrics import (
     roc_auc_score,
-    f1_score,
-    roc_curve,
-    precision_recall_curve,
     average_precision_score,
 )
 from tqdm import tqdm
@@ -182,16 +179,13 @@ def train_binary(
     avg_loss = train_loss / n
     all_labels = np.array(all_labels)
     all_probs = np.array(all_probs)
-    # ────────────────────────────────────────────────────────────────────────
-    auroc, auprc, best_thresh, f1 = predict_binary(all_probs, all_labels)
+    # ────────────────────────────────────────────────────────────────────
+    auroc = roc_auc_score(all_labels, all_probs)
+    auprc = average_precision_score(all_labels, all_probs)
 
     # ── 에폭 단위 진단 요약 ─────────────────────────────────────────────────
     # 각 손실 항목의 평균을 출력해 어느 항목이 지배적인지 확인
     avg_latent_grad = np.mean(latent_grad_norms) if latent_grad_norms else 0.0
-    pred_pos = (all_probs >= best_thresh).sum()
-    pred_neg = n - pred_pos
-    true_pos = int(all_labels.sum())
-    true_neg = n - true_pos
 
     print(
         f"[Epoch {epoch:02d} 손실 비율] "
@@ -202,18 +196,12 @@ def train_binary(
         f"Task={sum_task / n:.4f} | Logit={sum_logit / n:.4f} | "
         f"Attn={sum_attn / n:.4f} | Path={sum_path / n:.4f}"
     )
-    print(
-        f"[Epoch {epoch:02d} 진단]      "
-        f"latent_queries grad={avg_latent_grad:.6f} | "
-        f"예측 MSI/MSS={pred_pos}/{pred_neg} | "
-        f"실제 MSI/MSS={true_pos}/{true_neg}"
-    )
+    print(f"[Epoch {epoch:02d} 진단]      latent_queries grad={avg_latent_grad:.6f} | ")
     print(
         f"====> Epoch: {epoch:02d} | Train Loss: {avg_loss:.4f} "
-        f"| AUROC: {auroc:.4f} | AUPRC: {auprc:.4f} "
-        f"| F1: {f1:.4f} | Thresh: {best_thresh:.4f} <===="
+        f"| AUROC: {auroc:.4f} | AUPRC: {auprc:.4f} <===="
     )
-    return auroc, auprc, best_thresh
+    return all_labels, all_probs, auroc, auprc
 
 
 def validate_binary(epoch, model, loader, loss_fn):
@@ -251,41 +239,12 @@ def validate_binary(epoch, model, loader, loss_fn):
     all_labels = np.array(all_labels)
     all_probs = np.array(all_probs)
 
-    auroc, auprc, best_thresh, f1 = predict_binary(all_probs, all_labels)
+    # ────────────────────────────────────────────────────────────────────
+    auroc = roc_auc_score(all_labels, all_probs)
+    auprc = average_precision_score(all_labels, all_probs)
+
     print(
         f"====> Epoch: {epoch:02d} | Valid Loss: {avg_loss:.4f} "
-        f"| AUROC: {auroc:.4f} | AUPRC: {auprc:.4f} "
-        f"| F1: {f1:.4f} | Thresh: {best_thresh:.4f} <===="
+        f"| AUROC: {auroc:.4f} | AUPRC: {auprc:.4f} <===="
     )
-    return auroc, auprc, best_thresh
-
-
-def predict_binary(all_probs, all_labels, threshold_method="youden"):
-    try:
-        auroc = roc_auc_score(all_labels, all_probs)
-        auprc = average_precision_score(all_labels, all_probs)
-
-        if threshold_method == "youden":
-            fpr, tpr, thresholds = roc_curve(all_labels, all_probs)
-            index = tpr - fpr
-        else:
-            precisions, recalls, thresholds = precision_recall_curve(
-                all_labels, all_probs
-            )
-            index = (
-                2
-                * (precisions[:-1] * recalls[:-1])
-                / (precisions[:-1] + recalls[:-1] + 1e-8)
-            )
-
-        best_idx = np.argmax(index)
-        best_thresh = thresholds[best_idx]
-
-    except ValueError:
-        auroc = 0.5
-        auprc = 0.0
-        best_thresh = 0.5
-
-    all_preds = (all_probs >= best_thresh).astype(float)
-    f1 = f1_score(all_labels, all_preds, zero_division=0)
-    return auroc, auprc, best_thresh, f1
+    return all_labels, all_probs, auroc, auprc

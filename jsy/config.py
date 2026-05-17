@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split, StratifiedKFold
 
 DATA_PATH = '2060'  # gigapath, uni_v2, cptac...
-SEED = 1
+SEED = 42
 
 
 def get_feats_path(test=False):
