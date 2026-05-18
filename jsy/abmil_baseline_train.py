@@ -2,13 +2,11 @@ import os
 import numpy as np
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from utils.abmil_model import BinaryClassificationModel
 from utils.abmil_train_binary import train_binary, validate_binary
-from utils.h5dataset_full import H5Dataset # kd_path를 처리할 수 있게 수정된 데이터셋 사용
-from utils.binary_focal_loss import BinaryFocalLoss
+from utils.h5dataset_full import H5Dataset
 import config as cf
 
 import logging
@@ -78,8 +76,10 @@ for fold_idx in range(5):
     val_loader = DataLoader(val_ds, batch_size=1, shuffle=False)
 
     model = BinaryClassificationModel(input_feature_dim=1536, dropout=0.25).to(device)
-    # criterion = BinaryFocalLoss(alpha=0.75, gamma=2).to(device)
-    criterion = nn.BCEWithLogitsLoss()
+    n_neg = int((train_ds.df["msi"] == 0).sum())
+    n_pos = int((train_ds.df["msi"] == 1).sum())
+    pos_weight = torch.tensor([n_neg / max(n_pos, 1)], dtype=torch.float32).to(device)
+    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
     optimizer = optim.Adam(model.parameters(), lr=5e-5, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs, eta_min=1e-6)
     

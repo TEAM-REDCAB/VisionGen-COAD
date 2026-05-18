@@ -126,9 +126,9 @@ def oof_results(oof_probs, oof_labels, results_dir, model_name):
     mss_probs = oof_probs[oof_labels == 0]
     msi_probs = oof_probs[oof_labels == 1]
 
-    sns.histplot(mss_probs, bins=50, color="blue", alpha=0.6, label="MSS (0)", kde=True)
+    sns.histplot(mss_probs, bins=100, color="blue", alpha=0.6, label="MSS (0)", kde=True)
     sns.histplot(
-        msi_probs, bins=50, color="red", alpha=0.6, label="MSI-H (1)", kde=True
+        msi_probs, bins=100, color="red", alpha=0.6, label="MSI-H (1)", kde=True
     )
 
     # 히스토그램 위에 새로운 Threshold를 검은 점선으로 표시하여 직관성 확보
@@ -165,3 +165,5 @@ def oof_results(oof_probs, oof_labels, results_dir, model_name):
         os.path.join(results_dir, f"test_results_{model_name}_oof.csv"), index=False
     )
     print(f"\n💾 OOF 최종 결과가 {results_dir}에 저장되었습니다.")
+
+    return oof_best_thresh

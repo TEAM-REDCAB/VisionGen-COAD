@@ -11,6 +11,7 @@ import config as cf
 from utils.oof_results import oof_results
 import logging
 import sys
+from mcat_student_test_ensemble import test_and_visualize
 
 # ── 로깅 설정 ────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -65,11 +66,11 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     num_epochs = 20
     gc_steps = 16
-    alpha = 0.4
-    beta = 0.3
-    gamma = 0.4
-    w_task = 0.2
-
+    alpha = 0.4163731668137921
+    beta = 0.25514803906679484
+    gamma = 0.2914255011813559
+    w_task = 0.3588696556112462
+    # Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
     oof_probs = None
     oof_labels = None
 
@@ -204,7 +205,8 @@ def main():
             f"Fold {fold_idx} 종료. AUROC: {best_val_auroc:.4f}, AUPRC: {best_val_auprc:.4f}"
         )
 
-    oof_results(oof_probs, oof_labels, RESULTS_PATH, "MCAT_Student_KD")
+    best_thresh = oof_results(oof_probs, oof_labels, RESULTS_PATH, "MCAT_Student_KD")
+    test_and_visualize(best_thresh)
 
 
 if __name__ == "__main__":

@@ -712,3 +712,790 @@ precision    recall  f1-score   support
    macro avg       0.79      0.88      0.81       105
 weighted avg       0.89      0.84      0.85       105
 💾 앙상블 최종 결과가 ./results/seed_1/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): nan
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.9501
+Ensemble AUPRC     : 0.8522
+Ensemble F1-Score  : 0.0000
+Ensemble Threshold : nan
+Accuracy           : 0.7714
+Sensitivity(Recall): 0.0000
+Specificity        : 1.0000
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[81  0]
+ [24  0]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.77      1.00      0.87        81
+   MSI-H (1)       0.00      0.00      0.00        24
+
+    accuracy                           0.77       105
+   macro avg       0.39      0.50      0.44       105
+weighted avg       0.60      0.77      0.67       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): nan
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.9501
+Ensemble AUPRC     : 0.8522
+Ensemble F1-Score  : 0.0000
+Ensemble Threshold : nan
+Accuracy           : 0.7714
+Sensitivity(Recall): 0.0000
+Specificity        : 1.0000
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[81  0]
+ [24  0]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.77      1.00      0.87        81
+   MSI-H (1)       0.00      0.00      0.00        24
+
+    accuracy                           0.77       105
+   macro avg       0.39      0.50      0.44       105
+weighted avg       0.60      0.77      0.67       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): nan
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.9501
+Ensemble AUPRC     : 0.8522
+Ensemble F1-Score  : 0.0000
+Ensemble Threshold : nan
+Accuracy           : 0.7714
+Sensitivity(Recall): 0.0000
+Specificity        : 1.0000
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[81  0]
+ [24  0]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.77      1.00      0.87        81
+   MSI-H (1)       0.00      0.00      0.00        24
+
+    accuracy                           0.77       105
+   macro avg       0.39      0.50      0.44       105
+weighted avg       0.60      0.77      0.67       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.4247
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.9501
+Ensemble AUPRC     : 0.8522
+Ensemble F1-Score  : 0.7556
+Ensemble Threshold : 0.4247
+Accuracy           : 0.8952
+Sensitivity(Recall): 0.7083
+Specificity        : 0.9506
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[77  4]
+ [ 7 17]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.92      0.95      0.93        81
+   MSI-H (1)       0.81      0.71      0.76        24
+
+    accuracy                           0.90       105
+   macro avg       0.86      0.83      0.84       105
+weighted avg       0.89      0.90      0.89       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.3450
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.9501
+Ensemble AUPRC     : 0.8522
+Ensemble F1-Score  : 0.7843
+Ensemble Threshold : 0.3450
+Accuracy           : 0.8952
+Sensitivity(Recall): 0.8333
+Specificity        : 0.9136
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[74  7]
+ [ 4 20]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.95      0.91      0.93        81
+   MSI-H (1)       0.74      0.83      0.78        24
+
+    accuracy                           0.90       105
+   macro avg       0.84      0.87      0.86       105
+weighted avg       0.90      0.90      0.90       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.5000
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.8925
+Ensemble AUPRC     : 0.7621
+Ensemble F1-Score  : 0.5789
+Ensemble Threshold : 0.5000
+Accuracy           : 0.8476
+Sensitivity(Recall): 0.4583
+Specificity        : 0.9630
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[78  3]
+ [13 11]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.86      0.96      0.91        81
+   MSI-H (1)       0.79      0.46      0.58        24
+
+    accuracy                           0.85       105
+   macro avg       0.82      0.71      0.74       105
+weighted avg       0.84      0.85      0.83       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.3200
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.8925
+Ensemble AUPRC     : 0.7621
+Ensemble F1-Score  : 0.6545
+Ensemble Threshold : 0.3200
+Accuracy           : 0.8190
+Sensitivity(Recall): 0.7500
+Specificity        : 0.8395
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[68 13]
+ [ 6 18]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.92      0.84      0.88        81
+   MSI-H (1)       0.58      0.75      0.65        24
+
+    accuracy                           0.82       105
+   macro avg       0.75      0.79      0.77       105
+weighted avg       0.84      0.82      0.83       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.3100
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.8925
+Ensemble AUPRC     : 0.7621
+Ensemble F1-Score  : 0.6897
+Ensemble Threshold : 0.3100
+Accuracy           : 0.8286
+Sensitivity(Recall): 0.8333
+Specificity        : 0.8272
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[67 14]
+ [ 4 20]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.94      0.83      0.88        81
+   MSI-H (1)       0.59      0.83      0.69        24
+
+    accuracy                           0.83       105
+   macro avg       0.77      0.83      0.79       105
+weighted avg       0.86      0.83      0.84       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.3150
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.8925
+Ensemble AUPRC     : 0.7621
+Ensemble F1-Score  : 0.6786
+Ensemble Threshold : 0.3150
+Accuracy           : 0.8286
+Sensitivity(Recall): 0.7917
+Specificity        : 0.8395
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[68 13]
+ [ 5 19]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.93      0.84      0.88        81
+   MSI-H (1)       0.59      0.79      0.68        24
+
+    accuracy                           0.83       105
+   macro avg       0.76      0.82      0.78       105
+weighted avg       0.85      0.83      0.84       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+==================== Starting Fold 0 (Knowledge Distillation) ====================
+Fold_0 Epoch_0 start
+[Epoch 00 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 00 손실 분해] Task=1.0463 | Logit=0.5611 | Attn=1.1900 | Path=1.6004
+[Epoch 00 진단]      latent_queries grad=0.000122 |
+====> Epoch: 00 | Train Loss: 1.3792 | AUROC: 0.6637 | AUPRC: 0.3435 <====
+====> Epoch: 00 | Valid Loss: 0.9359 | AUROC: 0.9325 | AUPRC: 0.8241 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9325), (AUPRC: 0.8241)
+Fold_0 Epoch_1 start
+[Epoch 01 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 01 손실 분해] Task=0.7485 | Logit=0.4021 | Attn=1.0832 | Path=1.3427
+[Epoch 01 진단]      latent_queries grad=0.000132 |
+====> Epoch: 01 | Train Loss: 1.1037 | AUROC: 0.9130 | AUPRC: 0.7485 <====
+====> Epoch: 01 | Valid Loss: 0.5949 | AUROC: 0.9400 | AUPRC: 0.8637 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9400), (AUPRC: 0.8637)
+Fold_0 Epoch_2 start
+[Epoch 02 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 02 손실 분해] Task=0.5336 | Logit=0.2855 | Attn=0.9692 | Path=1.1725
+[Epoch 02 진단]      latent_queries grad=0.000147 |
+====> Epoch: 02 | Train Loss: 0.8994 | AUROC: 0.9506 | AUPRC: 0.8884 <====
+====> Epoch: 02 | Valid Loss: 0.5391 | AUROC: 0.9362 | AUPRC: 0.8606 <====
+Fold_0 Epoch_3 start
+[Epoch 03 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 03 손실 분해] Task=0.3821 | Logit=0.2336 | Attn=0.8838 | Path=1.0535
+[Epoch 03 진단]      latent_queries grad=0.000147 |
+====> Epoch: 03 | Train Loss: 0.7669 | AUROC: 0.9771 | AUPRC: 0.9370 <====
+====> Epoch: 03 | Valid Loss: 0.5467 | AUROC: 0.9418 | AUPRC: 0.8689 <====
+🔥 Fold 0 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9418), (AUPRC: 0.8689)
+Fold_0 Epoch_4 start
+[Epoch 04 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 04 손실 분해] Task=0.3076 | Logit=0.1836 | Attn=0.8057 | Path=0.9612
+[Epoch 04 진단]      latent_queries grad=0.000153 |
+====> Epoch: 04 | Train Loss: 0.6725 | AUROC: 0.9848 | AUPRC: 0.9581 <====
+====> Epoch: 04 | Valid Loss: 0.5149 | AUROC: 0.9381 | AUPRC: 0.8516 <====
+Fold_0 Epoch_5 start
+[Epoch 05 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 05 손실 분해] Task=0.2849 | Logit=0.1695 | Attn=0.7187 | Path=0.8828
+[Epoch 05 진단]      latent_queries grad=0.000172 |
+====> Epoch: 05 | Train Loss: 0.6135 | AUROC: 0.9862 | AUPRC: 0.9664 <====
+====> Epoch: 05 | Valid Loss: 0.4987 | AUROC: 0.9362 | AUPRC: 0.8414 <====
+Fold_0 Epoch_6 start
+[Epoch 06 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 06 손실 분해] Task=0.1818 | Logit=0.1728 | Attn=0.6323 | Path=0.8146
+[Epoch 06 진단]      latent_queries grad=0.000120 |
+====> Epoch: 06 | Train Loss: 0.5359 | AUROC: 0.9956 | AUPRC: 0.9834 <====
+====> Epoch: 06 | Valid Loss: 0.6398 | AUROC: 0.9418 | AUPRC: 0.8597 <====
+Fold_0 Epoch_7 start
+[Epoch 07 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 07 손실 분해] Task=0.1717 | Logit=0.1206 | Attn=0.5970 | Path=0.7792
+[Epoch 07 진단]      latent_queries grad=0.000140 |
+====> Epoch: 07 | Train Loss: 0.4912 | AUROC: 0.9964 | AUPRC: 0.9856 <====
+====> Epoch: 07 | Valid Loss: 0.5428 | AUROC: 0.9268 | AUPRC: 0.8235 <====
+Fold_0 Epoch_8 start
+[Epoch 08 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 08 손실 분해] Task=0.1313 | Logit=0.1367 | Attn=0.5374 | Path=0.7269
+[Epoch 08 진단]      latent_queries grad=0.000129 |
+====> Epoch: 08 | Train Loss: 0.4530 | AUROC: 0.9982 | AUPRC: 0.9931 <====
+====> Epoch: 08 | Valid Loss: 0.7258 | AUROC: 0.9418 | AUPRC: 0.8424 <====
+5 epoch 동안 성능 개선이 없어 Fold 0 학습 조기 종료
+Fold 0 종료. AUROC: 0.9418, AUPRC: 0.8689
+==================== Starting Fold 1 (Knowledge Distillation) ====================
+Fold_1 Epoch_0 start
+[Epoch 00 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 00 손실 분해] Task=1.2078 | Logit=0.6453 | Attn=1.0382 | Path=1.5586
+[Epoch 00 진단]      latent_queries grad=0.000100 |
+====> Epoch: 00 | Train Loss: 1.4212 | AUROC: 0.4450 | AUPRC: 0.2112 <====
+====> Epoch: 00 | Valid Loss: 1.0235 | AUROC: 0.6829 | AUPRC: 0.3502 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.6829), (AUPRC: 0.3502)
+Fold_1 Epoch_1 start
+[Epoch 01 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 01 손실 분해] Task=0.9793 | Logit=0.5254 | Attn=0.9671 | Path=1.2856
+[Epoch 01 진단]      latent_queries grad=0.000101 |
+====> Epoch: 01 | Train Loss: 1.1916 | AUROC: 0.8277 | AUPRC: 0.6440 <====
+====> Epoch: 01 | Valid Loss: 0.8570 | AUROC: 0.9045 | AUPRC: 0.7774 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9045), (AUPRC: 0.7774)
+Fold_1 Epoch_2 start
+[Epoch 02 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 02 손실 분해] Task=0.7418 | Logit=0.4466 | Attn=0.8848 | Path=1.0791
+[Epoch 02 진단]      latent_queries grad=0.000104 |
+====> Epoch: 02 | Train Loss: 0.9924 | AUROC: 0.9329 | AUPRC: 0.8504 <====
+====> Epoch: 02 | Valid Loss: 0.7308 | AUROC: 0.9472 | AUPRC: 0.8779 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9472), (AUPRC: 0.8779)
+Fold_1 Epoch_3 start
+[Epoch 03 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 03 손실 분해] Task=0.5590 | Logit=0.2918 | Attn=0.7982 | Path=1.0010
+[Epoch 03 진단]      latent_queries grad=0.000144 |
+====> Epoch: 03 | Train Loss: 0.8175 | AUROC: 0.9484 | AUPRC: 0.8671 <====
+====> Epoch: 03 | Valid Loss: 0.4742 | AUROC: 0.9593 | AUPRC: 0.9118 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9593), (AUPRC: 0.9118)
+Fold_1 Epoch_4 start
+[Epoch 04 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 04 손실 분해] Task=0.4194 | Logit=0.2595 | Attn=0.7078 | Path=0.9388
+[Epoch 04 진단]      latent_queries grad=0.000142 |
+====> Epoch: 04 | Train Loss: 0.7127 | AUROC: 0.9583 | AUPRC: 0.9039 <====
+====> Epoch: 04 | Valid Loss: 0.5913 | AUROC: 0.9593 | AUPRC: 0.9167 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9593), (AUPRC: 0.9167)
+Fold_1 Epoch_5 start
+[Epoch 05 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 05 손실 분해] Task=0.2986 | Logit=0.2068 | Attn=0.6795 | Path=0.8652
+[Epoch 05 진단]      latent_queries grad=0.000134 |
+====> Epoch: 05 | Train Loss: 0.6188 | AUROC: 0.9862 | AUPRC: 0.9595 <====
+====> Epoch: 05 | Valid Loss: 0.6882 | AUROC: 0.9715 | AUPRC: 0.9294 <====
+🔥 Fold 1 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9715), (AUPRC: 0.9294)
+Fold_1 Epoch_6 start
+[Epoch 06 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 06 손실 분해] Task=0.2811 | Logit=0.1772 | Attn=0.6390 | Path=0.8275
+[Epoch 06 진단]      latent_queries grad=0.000155 |
+====> Epoch: 06 | Train Loss: 0.5788 | AUROC: 0.9857 | AUPRC: 0.9553 <====
+====> Epoch: 06 | Valid Loss: 0.5342 | AUROC: 0.9614 | AUPRC: 0.9001 <====
+Fold_1 Epoch_7 start
+[Epoch 07 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 07 손실 분해] Task=0.2131 | Logit=0.1623 | Attn=0.6167 | Path=0.7873
+[Epoch 07 진단]      latent_queries grad=0.000139 |
+====> Epoch: 07 | Train Loss: 0.5308 | AUROC: 0.9934 | AUPRC: 0.9795 <====
+====> Epoch: 07 | Valid Loss: 0.6056 | AUROC: 0.9593 | AUPRC: 0.9043 <====
+Fold_1 Epoch_8 start
+[Epoch 08 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 08 손실 분해] Task=0.1626 | Logit=0.1487 | Attn=0.5565 | Path=0.7475
+[Epoch 08 진단]      latent_queries grad=0.000119 |
+====> Epoch: 08 | Train Loss: 0.4801 | AUROC: 0.9983 | AUPRC: 0.9940 <====
+====> Epoch: 08 | Valid Loss: 0.7897 | AUROC: 0.9553 | AUPRC: 0.8914 <====
+Fold_1 Epoch_9 start
+[Epoch 09 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 09 손실 분해] Task=0.1812 | Logit=0.1554 | Attn=0.5438 | Path=0.7191
+[Epoch 09 진단]      latent_queries grad=0.000149 |
+====> Epoch: 09 | Train Loss: 0.4780 | AUROC: 0.9939 | AUPRC: 0.9797 <====
+====> Epoch: 09 | Valid Loss: 0.5598 | AUROC: 0.9370 | AUPRC: 0.8540 <====
+Fold_1 Epoch_10 start
+[Epoch 10 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 10 손실 분해] Task=0.1241 | Logit=0.1372 | Attn=0.5284 | Path=0.6877
+[Epoch 10 진단]      latent_queries grad=0.000102 |
+====> Epoch: 10 | Train Loss: 0.4369 | AUROC: 0.9995 | AUPRC: 0.9985 <====
+====> Epoch: 10 | Valid Loss: 0.7221 | AUROC: 0.9492 | AUPRC: 0.8645 <====
+5 epoch 동안 성능 개선이 없어 Fold 1 학습 조기 종료
+Fold 1 종료. AUROC: 0.9715, AUPRC: 0.9294
+==================== Starting Fold 2 (Knowledge Distillation) ====================
+Fold_2 Epoch_0 start
+[Epoch 00 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 00 손실 분해] Task=1.1032 | Logit=0.6070 | Attn=1.1439 | Path=1.4929
+[Epoch 00 진단]      latent_queries grad=0.000104 |
+====> Epoch: 00 | Train Loss: 1.3756 | AUROC: 0.5696 | AUPRC: 0.3069 <====
+====> Epoch: 00 | Valid Loss: 0.9590 | AUROC: 0.7337 | AUPRC: 0.5756 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7337), (AUPRC: 0.5756)
+Fold_2 Epoch_1 start
+[Epoch 01 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 01 손실 분해] Task=0.8676 | Logit=0.4765 | Attn=1.0914 | Path=1.2652
+[Epoch 01 진단]      latent_queries grad=0.000120 |
+====> Epoch: 01 | Train Loss: 1.1570 | AUROC: 0.8376 | AUPRC: 0.7090 <====
+====> Epoch: 01 | Valid Loss: 0.8907 | AUROC: 0.7947 | AUPRC: 0.6435 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7947), (AUPRC: 0.6435)
+Fold_2 Epoch_2 start
+[Epoch 02 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 02 손실 분해] Task=0.5554 | Logit=0.3566 | Attn=0.9986 | Path=1.1234
+[Epoch 02 진단]      latent_queries grad=0.000121 |
+====> Epoch: 02 | Train Loss: 0.9300 | AUROC: 0.9501 | AUPRC: 0.8894 <====
+====> Epoch: 02 | Valid Loss: 0.9991 | AUROC: 0.8028 | AUPRC: 0.6891 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8028), (AUPRC: 0.6891)
+Fold_2 Epoch_3 start
+[Epoch 03 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 03 손실 분해] Task=0.4192 | Logit=0.2428 | Attn=0.8931 | Path=1.0513
+[Epoch 03 진단]      latent_queries grad=0.000159 |
+====> Epoch: 03 | Train Loss: 0.7858 | AUROC: 0.9704 | AUPRC: 0.9347 <====
+====> Epoch: 03 | Valid Loss: 0.7508 | AUROC: 0.8577 | AUPRC: 0.7237 <====
+🔥 Fold 2 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8577), (AUPRC: 0.7237)
+Fold_2 Epoch_4 start
+[Epoch 04 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 04 손실 분해] Task=0.3706 | Logit=0.2118 | Attn=0.8061 | Path=0.9753
+[Epoch 04 진단]      latent_queries grad=0.000216 |
+====> Epoch: 04 | Train Loss: 0.7111 | AUROC: 0.9755 | AUPRC: 0.9282 <====
+====> Epoch: 04 | Valid Loss: 0.7852 | AUROC: 0.8313 | AUPRC: 0.7399 <====
+Fold_2 Epoch_5 start
+[Epoch 05 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 05 손실 분해] Task=0.2712 | Logit=0.2196 | Attn=0.7271 | Path=0.8824
+[Epoch 05 진단]      latent_queries grad=0.000151 |
+====> Epoch: 05 | Train Loss: 0.6315 | AUROC: 0.9868 | AUPRC: 0.9616 <====
+====> Epoch: 05 | Valid Loss: 1.4020 | AUROC: 0.7886 | AUPRC: 0.6869 <====
+Fold_2 Epoch_6 start
+[Epoch 06 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 06 손실 분해] Task=0.2651 | Logit=0.1797 | Attn=0.6949 | Path=0.8358
+[Epoch 06 진단]      latent_queries grad=0.000186 |
+====> Epoch: 06 | Train Loss: 0.5909 | AUROC: 0.9869 | AUPRC: 0.9604 <====
+====> Epoch: 06 | Valid Loss: 0.9301 | AUROC: 0.8252 | AUPRC: 0.7204 <====
+Fold_2 Epoch_7 start
+[Epoch 07 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 07 손실 분해] Task=0.1737 | Logit=0.1412 | Attn=0.6489 | Path=0.7871
+[Epoch 07 진단]      latent_queries grad=0.000137 |
+====> Epoch: 07 | Train Loss: 0.5161 | AUROC: 0.9961 | AUPRC: 0.9862 <====
+====> Epoch: 07 | Valid Loss: 0.9275 | AUROC: 0.8150 | AUPRC: 0.6954 <====
+Fold_2 Epoch_8 start
+[Epoch 08 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 08 손실 분해] Task=0.1547 | Logit=0.1387 | Attn=0.6309 | Path=0.7468
+[Epoch 08 진단]      latent_queries grad=0.000105 |
+====> Epoch: 08 | Train Loss: 0.4919 | AUROC: 0.9968 | AUPRC: 0.9892 <====
+====> Epoch: 08 | Valid Loss: 1.0588 | AUROC: 0.8049 | AUPRC: 0.6901 <====
+5 epoch 동안 성능 개선이 없어 Fold 2 학습 조기 종료
+Fold 2 종료. AUROC: 0.8577, AUPRC: 0.7237
+==================== Starting Fold 3 (Knowledge Distillation) ====================
+Fold_3 Epoch_0 start
+[Epoch 00 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 00 손실 분해] Task=1.1303 | Logit=0.5978 | Attn=1.3361 | Path=1.5271
+[Epoch 00 진단]      latent_queries grad=0.000131 |
+====> Epoch: 00 | Train Loss: 1.4405 | AUROC: 0.5255 | AUPRC: 0.2559 <====
+====> Epoch: 00 | Valid Loss: 0.9768 | AUROC: 0.7459 | AUPRC: 0.4252 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.7459), (AUPRC: 0.4252)
+Fold_3 Epoch_1 start
+[Epoch 01 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 01 손실 분해] Task=0.9112 | Logit=0.5139 | Attn=1.2205 | Path=1.2369
+[Epoch 01 진단]      latent_queries grad=0.000140 |
+====> Epoch: 01 | Train Loss: 1.2128 | AUROC: 0.8224 | AUPRC: 0.6590 <====
+====> Epoch: 01 | Valid Loss: 0.8597 | AUROC: 0.8780 | AUPRC: 0.7187 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8780), (AUPRC: 0.7187)
+Fold_3 Epoch_2 start
+[Epoch 02 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 02 손실 분해] Task=0.6317 | Logit=0.3637 | Attn=1.1053 | Path=1.1095
+[Epoch 02 진단]      latent_queries grad=0.000144 |
+====> Epoch: 02 | Train Loss: 0.9835 | AUROC: 0.9481 | AUPRC: 0.8640 <====
+====> Epoch: 02 | Valid Loss: 0.5800 | AUROC: 0.9228 | AUPRC: 0.7878 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9228), (AUPRC: 0.7878)
+Fold_3 Epoch_3 start
+[Epoch 03 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 03 손실 분해] Task=0.4388 | Logit=0.2550 | Attn=0.9993 | Path=1.0544
+[Epoch 03 진단]      latent_queries grad=0.000171 |
+====> Epoch: 03 | Train Loss: 0.8259 | AUROC: 0.9648 | AUPRC: 0.9041 <====
+====> Epoch: 03 | Valid Loss: 0.5098 | AUROC: 0.9370 | AUPRC: 0.8032 <====
+🔥 Fold 3 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9370), (AUPRC: 0.8032)
+Fold_3 Epoch_4 start
+[Epoch 04 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 04 손실 분해] Task=0.3343 | Logit=0.2263 | Attn=0.8629 | Path=0.9733
+[Epoch 04 진단]      latent_queries grad=0.000181 |
+====> Epoch: 04 | Train Loss: 0.7180 | AUROC: 0.9837 | AUPRC: 0.9537 <====
+====> Epoch: 04 | Valid Loss: 0.4932 | AUROC: 0.9370 | AUPRC: 0.7873 <====
+Fold_3 Epoch_5 start
+[Epoch 05 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 05 손실 분해] Task=0.2629 | Logit=0.1985 | Attn=0.7443 | Path=0.9054
+[Epoch 05 진단]      latent_queries grad=0.000158 |
+====> Epoch: 05 | Train Loss: 0.6307 | AUROC: 0.9914 | AUPRC: 0.9758 <====
+====> Epoch: 05 | Valid Loss: 0.5559 | AUROC: 0.9370 | AUPRC: 0.7868 <====
+Fold_3 Epoch_6 start
+[Epoch 06 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 06 손실 분해] Task=0.2244 | Logit=0.1521 | Attn=0.6748 | Path=0.8739
+[Epoch 06 진단]      latent_queries grad=0.000168 |
+====> Epoch: 06 | Train Loss: 0.5707 | AUROC: 0.9935 | AUPRC: 0.9797 <====
+====> Epoch: 06 | Valid Loss: 0.5268 | AUROC: 0.9350 | AUPRC: 0.7986 <====
+Fold_3 Epoch_7 start
+[Epoch 07 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 07 손실 분해] Task=0.2096 | Logit=0.1596 | Attn=0.6343 | Path=0.8323
+[Epoch 07 진단]      latent_queries grad=0.000180 |
+====> Epoch: 07 | Train Loss: 0.5460 | AUROC: 0.9930 | AUPRC: 0.9756 <====
+====> Epoch: 07 | Valid Loss: 0.5762 | AUROC: 0.9248 | AUPRC: 0.7756 <====
+Fold_3 Epoch_8 start
+[Epoch 08 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 08 손실 분해] Task=0.1836 | Logit=0.1522 | Attn=0.5663 | Path=0.7737
+[Epoch 08 진단]      latent_queries grad=0.000149 |
+====> Epoch: 08 | Train Loss: 0.4992 | AUROC: 0.9958 | AUPRC: 0.9867 <====
+====> Epoch: 08 | Valid Loss: 0.7206 | AUROC: 0.9268 | AUPRC: 0.7833 <====
+5 epoch 동안 성능 개선이 없어 Fold 3 학습 조기 종료
+Fold 3 종료. AUROC: 0.9370, AUPRC: 0.8032
+==================== Starting Fold 4 (Knowledge Distillation) ====================
+Fold_4 Epoch_0 start
+[Epoch 00 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 00 손실 분해] Task=1.1537 | Logit=0.6264 | Attn=1.1926 | Path=1.5834
+[Epoch 00 진단]      latent_queries grad=0.000116 |
+====> Epoch: 00 | Train Loss: 1.4406 | AUROC: 0.5173 | AUPRC: 0.2231 <====
+====> Epoch: 00 | Valid Loss: 1.0778 | AUROC: 0.8191 | AUPRC: 0.6305 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8191), (AUPRC: 0.6305)
+Fold_4 Epoch_1 start
+[Epoch 01 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 01 손실 분해] Task=0.9377 | Logit=0.5585 | Attn=1.0714 | Path=1.2699
+[Epoch 01 진단]      latent_queries grad=0.000118 |
+====> Epoch: 01 | Train Loss: 1.2125 | AUROC: 0.7758 | AUPRC: 0.5221 <====
+====> Epoch: 01 | Valid Loss: 0.9768 | AUROC: 0.8557 | AUPRC: 0.7967 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8557), (AUPRC: 0.7967)
+Fold_4 Epoch_2 start
+[Epoch 02 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 02 손실 분해] Task=0.7807 | Logit=0.3936 | Attn=0.9564 | Path=1.0709
+[Epoch 02 진단]      latent_queries grad=0.000139 |
+====> Epoch: 02 | Train Loss: 1.0002 | AUROC: 0.9046 | AUPRC: 0.7612 <====
+====> Epoch: 02 | Valid Loss: 0.6876 | AUROC: 0.8862 | AUPRC: 0.7816 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.8862), (AUPRC: 0.7816)
+Fold_4 Epoch_3 start
+[Epoch 03 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 03 손실 분해] Task=0.5618 | Logit=0.3482 | Attn=0.8214 | Path=0.9637
+[Epoch 03 진단]      latent_queries grad=0.000158 |
+====> Epoch: 03 | Train Loss: 0.8370 | AUROC: 0.9323 | AUPRC: 0.8405 <====
+====> Epoch: 03 | Valid Loss: 0.6534 | AUROC: 0.9126 | AUPRC: 0.8268 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9126), (AUPRC: 0.8268)
+Fold_4 Epoch_4 start
+[Epoch 04 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 04 손실 분해] Task=0.4293 | Logit=0.2939 | Attn=0.7419 | Path=0.8905
+[Epoch 04 진단]      latent_queries grad=0.000175 |
+====> Epoch: 04 | Train Loss: 0.7252 | AUROC: 0.9639 | AUPRC: 0.8967 <====
+====> Epoch: 04 | Valid Loss: 0.7446 | AUROC: 0.9431 | AUPRC: 0.9085 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9431), (AUPRC: 0.9085)
+Fold_4 Epoch_5 start
+[Epoch 05 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 05 손실 분해] Task=0.3693 | Logit=0.2459 | Attn=0.6549 | Path=0.8226
+[Epoch 05 진단]      latent_queries grad=0.000201 |
+====> Epoch: 05 | Train Loss: 0.6418 | AUROC: 0.9714 | AUPRC: 0.8964 <====
+====> Epoch: 05 | Valid Loss: 0.5346 | AUROC: 0.9390 | AUPRC: 0.8926 <====
+Fold_4 Epoch_6 start
+[Epoch 06 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 06 손실 분해] Task=0.2701 | Logit=0.2202 | Attn=0.5852 | Path=0.7709
+[Epoch 06 진단]      latent_queries grad=0.000157 |
+====> Epoch: 06 | Train Loss: 0.5626 | AUROC: 0.9864 | AUPRC: 0.9514 <====
+====> Epoch: 06 | Valid Loss: 0.5246 | AUROC: 0.9553 | AUPRC: 0.9185 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9553), (AUPRC: 0.9185)
+Fold_4 Epoch_7 start
+[Epoch 07 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 07 손실 분해] Task=0.2224 | Logit=0.1954 | Attn=0.5339 | Path=0.7286
+[Epoch 07 진단]      latent_queries grad=0.000146 |
+====> Epoch: 07 | Train Loss: 0.5097 | AUROC: 0.9933 | AUPRC: 0.9783 <====
+====> Epoch: 07 | Valid Loss: 0.4480 | AUROC: 0.9593 | AUPRC: 0.9109 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9593), (AUPRC: 0.9109)
+Fold_4 Epoch_8 start
+[Epoch 08 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 08 손실 분해] Task=0.2070 | Logit=0.2023 | Attn=0.4932 | Path=0.6976
+[Epoch 08 진단]      latent_queries grad=0.000140 |
+====> Epoch: 08 | Train Loss: 0.4876 | AUROC: 0.9923 | AUPRC: 0.9693 <====
+====> Epoch: 08 | Valid Loss: 0.5668 | AUROC: 0.9390 | AUPRC: 0.8946 <====
+Fold_4 Epoch_9 start
+[Epoch 09 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 09 손실 분해] Task=0.1799 | Logit=0.1801 | Attn=0.4681 | Path=0.6757
+[Epoch 09 진단]      latent_queries grad=0.000127 |
+====> Epoch: 09 | Train Loss: 0.4559 | AUROC: 0.9959 | AUPRC: 0.9844 <====
+====> Epoch: 09 | Valid Loss: 0.4267 | AUROC: 0.9675 | AUPRC: 0.9169 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9675), (AUPRC: 0.9169)
+Fold_4 Epoch_10 start
+[Epoch 10 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 10 손실 분해] Task=0.1701 | Logit=0.1817 | Attn=0.4284 | Path=0.6497
+[Epoch 10 진단]      latent_queries grad=0.000121 |
+====> Epoch: 10 | Train Loss: 0.4354 | AUROC: 0.9948 | AUPRC: 0.9817 <====
+====> Epoch: 10 | Valid Loss: 0.3162 | AUROC: 0.9858 | AUPRC: 0.9613 <====
+🔥 Fold 4 최고 성능 갱신! 모델 저장됨 (AUROC: 0.9858), (AUPRC: 0.9613)
+Fold_4 Epoch_11 start
+[Epoch 11 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 11 손실 분해] Task=0.1473 | Logit=0.1831 | Attn=0.4006 | Path=0.6290
+[Epoch 11 진단]      latent_queries grad=0.000116 |
+====> Epoch: 11 | Train Loss: 0.4146 | AUROC: 0.9970 | AUPRC: 0.9888 <====
+====> Epoch: 11 | Valid Loss: 0.3549 | AUROC: 0.9797 | AUPRC: 0.9514 <====
+Fold_4 Epoch_12 start
+[Epoch 12 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 12 손실 분해] Task=0.1364 | Logit=0.1788 | Attn=0.3897 | Path=0.6123
+[Epoch 12 진단]      latent_queries grad=0.000110 |
+====> Epoch: 12 | Train Loss: 0.4012 | AUROC: 0.9989 | AUPRC: 0.9965 <====
+====> Epoch: 12 | Valid Loss: 0.3483 | AUROC: 0.9756 | AUPRC: 0.9351 <====
+Fold_4 Epoch_13 start
+[Epoch 13 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 13 손실 분해] Task=0.1234 | Logit=0.1786 | Attn=0.3937 | Path=0.6012
+[Epoch 13 진단]      latent_queries grad=0.000096 |
+====> Epoch: 13 | Train Loss: 0.3943 | AUROC: 0.9998 | AUPRC: 0.9992 <====
+====> Epoch: 13 | Valid Loss: 0.3706 | AUROC: 0.9776 | AUPRC: 0.9384 <====
+Fold_4 Epoch_14 start
+[Epoch 14 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 14 손실 분해] Task=0.1223 | Logit=0.1731 | Attn=0.3880 | Path=0.5890
+[Epoch 14 진단]      latent_queries grad=0.000113 |
+====> Epoch: 14 | Train Loss: 0.3866 | AUROC: 0.9998 | AUPRC: 0.9992 <====
+====> Epoch: 14 | Valid Loss: 0.3994 | AUROC: 0.9776 | AUPRC: 0.9384 <====
+Fold_4 Epoch_15 start
+[Epoch 15 손실 비율] Task=0.3588696556112462 | Logit(alpha)=0.4163731668137921 | Attn(beta)=0.25514803906679484 | Path(gamma)=0.2914255011813559
+[Epoch 15 손실 분해] Task=0.1412 | Logit=0.1813 | Attn=0.3812 | Path=0.5839
+[Epoch 15 진단]      latent_queries grad=0.000127 |
+====> Epoch: 15 | Train Loss: 0.3936 | AUROC: 0.9979 | AUPRC: 0.9931 <====
+====> Epoch: 15 | Valid Loss: 0.3343 | AUROC: 0.9797 | AUPRC: 0.9437 <====
+5 epoch 동안 성능 개선이 없어 Fold 4 학습 조기 종료
+Fold 4 종료. AUROC: 0.9858, AUPRC: 0.9613
+================ 최종 결과 ================
+OOF 최적 Threshold (Youden's Index): 0.4276
+========================================
+========== 🏆 OOF 최종 테스트 결과 ==========
+========================================
+OOF AUROC          : 0.9236
+OOF AUPRC          : 0.8126
+OOF F1-Score       : 0.7770
+OOF Threshold      : 0.4276
+Accuracy           : 0.8835
+Sensitivity(Recall): 0.8852
+Specificity        : 0.8829
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[181  24]
+ [  7  54]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.96      0.88      0.92       205
+   MSI-H (1)       0.69      0.89      0.78        61
+
+    accuracy                           0.88       266
+   macro avg       0.83      0.88      0.85       266
+weighted avg       0.90      0.88      0.89       266
+💾 OOF 최종 결과가 ./results/seed_42에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.4276
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.9522
+Ensemble AUPRC     : 0.8629
+Ensemble F1-Score  : 0.7727
+Ensemble Threshold : 0.4276
+Accuracy           : 0.9048
+Sensitivity(Recall): 0.7083
+Specificity        : 0.9630
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[78  3]
+ [ 7 17]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.92      0.96      0.94        81
+   MSI-H (1)       0.85      0.71      0.77        24
+
+    accuracy                           0.90       105
+   macro avg       0.88      0.84      0.86       105
+weighted avg       0.90      0.90      0.90       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+🔍 Running Inference: Model Fold 1...
+🔍 Running Inference: Model Fold 2...
+🔍 Running Inference: Model Fold 3...
+🔍 Running Inference: Model Fold 4...
+✨ 새롭게 계산된 앙상블 최적 Threshold (Youden's Index): 0.3500
+========================================
+========== 🏆 앙상블 최종 테스트 결과 ==========
+========================================
+Ensemble AUROC     : 0.9522
+Ensemble AUPRC     : 0.8629
+Ensemble F1-Score  : 0.8302
+Ensemble Threshold : 0.3500
+Accuracy           : 0.9143
+Sensitivity(Recall): 0.9167
+Specificity        : 0.9136
+[Confusion Matrix]
+TN(MSS를맞춤)  FP(MSI로오해)
+FN(MSS로오해)  TP(MSI를맞춤)
+[[74  7]
+ [ 2 22]]
+[Classification Report]
+precision    recall  f1-score   support
+
+     MSS (0)       0.97      0.91      0.94        81
+   MSI-H (1)       0.76      0.92      0.83        24
+
+    accuracy                           0.91       105
+   macro avg       0.87      0.92      0.89       105
+weighted avg       0.92      0.91      0.92       105
+💾 앙상블 최종 결과가 ./results/seed_42/test_results에 저장되었습니다.
+========================================
+🚀 5-Fold Ensemble Inference Start
+========================================
+🔍 Running Inference: Model Fold 0...
+⚠️ ./results/seed_43/saved_models_mcat_kd/best_model_fold0.pt 없음. 스킵.
+🔍 Running Inference: Model Fold 1...
+⚠️ ./results/seed_43/saved_models_mcat_kd/best_model_fold1.pt 없음. 스킵.
+🔍 Running Inference: Model Fold 2...
+⚠️ ./results/seed_43/saved_models_mcat_kd/best_model_fold2.pt 없음. 스킵.
+🔍 Running Inference: Model Fold 3...
+⚠️ ./results/seed_43/saved_models_mcat_kd/best_model_fold3.pt 없음. 스킵.
+🔍 Running Inference: Model Fold 4...
+⚠️ ./results/seed_43/saved_models_mcat_kd/best_model_fold4.pt 없음. 스킵.
